@@ -105,3 +105,44 @@ non-damage-boosting item rather than producing a bogus Mega variant.
 When a modal spread is unparseable, the variant gets 32 SP in its larger base
 attacking stat with the matching positive nature (Adamant/Modest), per the
 spec's "max attacking stat + positive nature" fallback.
+
+## Phases 3 & 4 — viz data pipelines
+
+### D14: Synthetic viz-2 attacker uses `???` typing instead of Normal
+The spec suggests a Normal-typed attacker and says "skip Normal cells or accept
+STAB there". The calc supports the `???` pseudo-type, which gets no STAB on any
+move — so all 36 cells are directly comparable with no correction and no
+skipped cells. Verified: with `???` typing all move types deal identical
+neutral damage; with Normal typing the Normal cell is exactly 1.5× inflated.
+
+### D15: STANDARD_TARGET (viz 1 defender) is `???`-typed
+The spec specifies the target's stats but not its typing. Any real typing
+creates an immunity column artifact — a Normal-typed target takes 0 from every
+Ghost move, erasing Sinistcha's (31% usage) STAB from the chart. `???` takes
+neutral damage from all 18 types. The stand-in body is Snorlax because the
+species must exist in the Champions dex (Mew does not) even though stats and
+typing are fully overridden.
+
+### D16: Viz-2 weights normalized to a distribution
+Variant weights are team-inclusion rates summing to ~5.4 (≈6 team slots).
+`relative` is scale-invariant, but the absolute `weighted_damage` /
+`average_damage` shown in tooltips are divided by the total weight so they read
+as "damage vs a random defender drawn from the field".
+
+### D17: Variable-BP move policy (viz 1)
+Our model is one clean hit: full HP, no boosts, no prior damage or faints,
+field = attacker's auto weather. The calc resolves most "variable" BP exactly
+within that model — Weather Ball becomes 100 BP Fire under Drought sun (counted
+in the Fire column, which is what actually threatens the field), Acrobatics
+sees the attacker's item, Facade is unstatused, Water Spout is at full HP.
+Moves whose BP scales with state the model zeroes (Last Respects, Rage Fist)
+are included at base BP and flagged as undercounted. Weight-based moves
+(Grass Knot, Low Kick, Heavy Slam, Heat Crash) are skipped: the synthetic
+target has no defined weight, and inheriting the Snorlax stand-in's 460 kg
+would give them max BP artificially. Fixed-damage moves (Super Fang, Seismic
+Toss) and Beat Up are skipped as before.
+
+### D18: Viz-1 cells keyed by resolved move type
+Aggregation uses the calc's post-resolution move type/category, not the dex
+default. Concretely: Charizard-Mega-Y's Weather Ball (84% usage) counts as
+Fire Special, not Normal.

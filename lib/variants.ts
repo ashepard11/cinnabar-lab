@@ -19,17 +19,24 @@ export const USAGE_PRODUCT_THRESHOLD = 0.01;
 
 /**
  * The synthetic defender for viz 1: base 100 HP / 80 defenses, no investment,
- * neutral nature, no item, inert ability, mono-Normal typing (defined here per
- * the spec so every consumer uses the same target).
+ * neutral nature, no item, inert ability (defined here per the spec so every
+ * consumer uses the same target).
+ *
+ * Typing is `???` — neutral to every attack type. The spec leaves the target's
+ * typing unspecified; any real typing would zero out a whole column via
+ * immunity (e.g. a Normal-typed target takes 0 from all Ghost moves, erasing
+ * Sinistcha's 31%-usage STAB from viz 1). See DECISIONS.md D15.
  */
 export const STANDARD_TARGET: PokemonSpec = {
-  species: 'Mew', // stand-in body; stats and typing fully overridden
+  // Stand-in body; stats and typing fully overridden. Must be a species that
+  // exists in the Champions dex (Mew, for example, is not in it).
+  species: 'Snorlax',
   nature: 'Hardy',
   sps: {},
   ability: 'Insomnia',
   overrides: {
     baseStats: {hp: 100, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
-    types: ['Normal'],
+    types: ['???'],
   },
 };
 

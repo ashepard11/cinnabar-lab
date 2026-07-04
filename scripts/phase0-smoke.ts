@@ -41,16 +41,7 @@ const att = buildPokemon(attacker);
 check('Champions stat formula: 32 SP Modest 159-base SpA = 232', att.stats.spa === 232, `got ${att.stats.spa}`);
 
 // --- The Mega Zard Y Heat Wave end-to-end case ---
-const STANDARD_TARGET: PokemonSpec = {
-  species: 'Mew', // stand-in body; stats and typing fully overridden
-  nature: 'Hardy',
-  sps: {},
-  ability: 'Insomnia',
-  overrides: {
-    baseStats: {hp: 100, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
-    types: ['Normal'],
-  },
-};
+import {STANDARD_TARGET} from '../lib/variants';
 
 const result = calculate(
   attacker,

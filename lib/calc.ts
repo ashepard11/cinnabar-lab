@@ -14,7 +14,18 @@
  */
 import {calculate as smogonCalculate, Field} from '@smogon/calc';
 import {GEN, buildMove, buildPokemon} from './pokemon';
-import type {CalcResult, FieldSpec, MoveSpec, PokemonSpec} from './types';
+import type {CalcResult, CalcTypeName, FieldSpec, MoveCategory, MoveSpec, PokemonSpec} from './types';
+
+/** CalcResult plus the move properties as actually resolved by the calc
+ * (Weather Ball changes type/BP under weather, etc.). */
+export interface CalcResultDetailed extends CalcResult {
+  effective: {
+    type: CalcTypeName;
+    category: MoveCategory | 'Status';
+    /** True when the move hits multiple targets in doubles. */
+    isSpread: boolean;
+  };
+}
 
 /**
  * Run a single damage calc. Returns min/max/avg damage of the 16 rolls as a
@@ -29,7 +40,7 @@ export function calculate(
   defender: PokemonSpec,
   move: MoveSpec,
   field: FieldSpec
-): CalcResult {
+): CalcResultDetailed {
   const att = buildPokemon(attacker);
   const def = buildPokemon(defender);
   const mv = buildMove(move);
@@ -48,7 +59,23 @@ export function calculate(
   const max = Math.max(...rolls);
   const avg = rolls.reduce((a, b) => a + b, 0) / rolls.length;
 
-  return {min: min / maxHP, max: max / maxHP, avg: avg / maxHP};
+  // result.move is the calc's mutated clone: its type/category reflect what
+  // actually resolved (e.g. Weather Ball → Fire 100 BP under Sun).
+  const resolved = result.move as unknown as {
+    type: CalcTypeName;
+    category?: MoveCategory | 'Status';
+    target?: string;
+  };
+  return {
+    min: min / maxHP,
+    max: max / maxHP,
+    avg: avg / maxHP,
+    effective: {
+      type: resolved.type,
+      category: resolved.category ?? 'Status',
+      isSpread: resolved.target === 'allAdjacentFoes' || resolved.target === 'allAdjacent',
+    },
+  };
 }
 
 function flattenDamage(damage: number | number[] | number[][]): number[] {

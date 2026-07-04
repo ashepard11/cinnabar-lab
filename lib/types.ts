@@ -20,6 +20,13 @@ export const ALL_TYPES: TypeName[] = [
   'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy',
 ];
 
+/**
+ * `???` is the calc's typeless pseudo-type: no STAB when used as an attacker's
+ * typing, neutral to every attack when used as a defender's typing. Used for
+ * synthetic Pokémon only — never a cell in either viz.
+ */
+export type CalcTypeName = TypeName | '???';
+
 export type MoveCategory = 'Physical' | 'Special';
 
 export type Weather = 'Sun' | 'Rain' | 'Sand' | 'Snow' | 'Harsh Sunshine' | 'Heavy Rain';
@@ -46,7 +53,7 @@ export interface PokemonSpec {
   /** Synthetic-Pokémon support: override base stats and/or typing. */
   overrides?: {
     baseStats?: Partial<StatsTable>;
-    types?: [TypeName] | [TypeName, TypeName];
+    types?: [CalcTypeName] | [CalcTypeName, CalcTypeName];
   };
 }
 
