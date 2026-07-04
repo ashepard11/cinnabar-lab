@@ -83,3 +83,25 @@ the damage-calc convention and correct for both attacker and defender roles
 under Stance Change. All other 69 scraped species, and every scraped move,
 item, and ability name, resolve in the calc dex unchanged ("Other" rows are
 skipped).
+
+## Phase 2 — variant builder
+
+### D10: Truncated item lists — residual mass goes to the "no item" bucket
+The API lists only each Pokémon's top ~10 items (sums run 72–100%). The
+unlisted residual is added to the aggregate "no item" bucket. Every unlisted
+item is individually rarer than the rarest listed one, so this cannot hide a
+damage-boost bucket that would have cleared the 1% product threshold.
+
+### D11: Mis-matched Mega Stones are inert
+Data rows like Staraptor holding Skarmorite (0.0%) exist. A stone whose species
+doesn't match the holder does nothing in battle, so it is bucketed as a
+non-damage-boosting item rather than producing a bogus Mega variant.
+
+### D12: Mega variant ids come from the Mega species
+`charizard_mega_y` etc. — the stone is implied by the forme. Non-Mega ids are
+`{species}_{bucket}` (`garchomp_life_orb`, `incineroar_no_item`).
+
+### D13: Default-spread fallback
+When a modal spread is unparseable, the variant gets 32 SP in its larger base
+attacking stat with the matching positive nature (Adamant/Modest), per the
+spec's "max attacking stat + positive nature" fallback.
