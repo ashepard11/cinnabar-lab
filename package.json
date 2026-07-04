@@ -1,0 +1,30 @@
+{
+  "name": "pokemon-champions-viz",
+  "version": "0.1.0",
+  "description": "Pokémon Champions VGC (Reg M-B) damage visualizations: where metagame damage comes from, and where the field is weakest.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "smoke": "tsx scripts/phase0-smoke.ts",
+    "scrape": "tsx scripts/scrape-usage.ts",
+    "build-variants": "tsx scripts/build-variants.ts",
+    "build-viz1": "tsx scripts/build-viz1.ts",
+    "build-viz2": "tsx scripts/build-viz2.ts",
+    "build-all": "npm run scrape && npm run build-variants && npm run build-viz1 && npm run build-viz2",
+    "typecheck": "tsc -p .",
+    "test": "tsx scripts/phase0-smoke.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashepard11/cinnabar-lab.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@smogon/calc": "file:vendor/smogon-calc-0.11.0-champions-master.tgz"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  }
+}
