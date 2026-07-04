@@ -84,3 +84,21 @@ export function abilityExists(name: string): boolean {
 
 /** Showdown-style ID normalization ("Heat Wave" → "heatwave"). */
 export {toID} from '@smogon/calc';
+
+/**
+ * Manual Pikalytics → calc-dex species mapping for names that don't resolve
+ * directly (spec: "log all Pokémon ... that don't match the calc lib's known
+ * names — these need a manual mapping table").
+ *
+ * Aegislash: the calc splits it into -Blade / -Shield / -Both; "-Both" is the
+ * damage-calc convention (Blade offenses + Shield defenses) matching how it
+ * actually attacks and defends under Stance Change.
+ */
+export const SPECIES_MAPPING: Record<string, string> = {
+  Aegislash: 'Aegislash-Both',
+};
+
+/** Resolve a scraped species name to its calc-dex canonical name. */
+export function canonicalSpecies(name: string): string {
+  return SPECIES_MAPPING[name] ?? name;
+}

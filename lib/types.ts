@@ -89,8 +89,12 @@ export interface ModalSet {
   ability: string;
   item: string;
   nature: string;
-  /** EV-denominated spread as displayed by Pikalytics. Convert to SP for the calc. */
-  evs: StatsTable;
+  /**
+   * Modal spread, SP-denominated (0–32 per stat) — Pikalytics reports
+   * Champions spreads in SP directly. Null when the spread was unparseable;
+   * the variant builder then falls back to a default spread.
+   */
+  sps: StatsTable | null;
 }
 
 export interface PokemonUsage {
@@ -120,7 +124,8 @@ export interface Variant {
   item: string | null;
   ability: string;
   nature: string;
-  evs: StatsTable;
+  /** SP-denominated spread (0–32 per stat), not EVs. */
+  sps: StatsTable;
   /** metagame weight = usage(P) × within-Pokémon share of this item bucket */
   weight: number;
   /** move usage from the base Pokémon (moves + usage %), carried for viz 1 */

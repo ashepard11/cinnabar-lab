@@ -46,3 +46,40 @@ test rather than patched, to keep our data identical to upstream.
 The calc does not auto-apply Drought → Sun. Per the spec's fallback instruction,
 the viz-1 pipeline sets field weather from the attacker's ability
 (Drought/Drizzle/Sand Stream/Snow Warning/Primordial Sea/Desolate Land).
+
+## Phase 1 — scraper
+
+### D6: Scrape the Pikalytics JSON API, not the HTML
+`pikalytics.com/pokedex/battledataregmbs3` is a client-rendered app; the HTML
+contains only Handlebars templates plus a server-rendered rank list (no usage
+percentages). The data comes from a JSON API discovered in the site's app
+bundle: `/api/l/{month}/{format}-{cutoff}` (leaderboard) and
+`/api/p/{month}/{format}-{cutoff}/{name}` (per-Pokémon). We use the site's
+default rating cutoff (Glicko 1760). The stats month is auto-discovered by
+probing backwards from the current month so the weekly cron keeps working when
+the month rolls over.
+
+### D7: Usage % derived from game counts
+This format's API has no usage-percent field (the site UI shows ranks instead).
+We derive `usage(P) = games(P) / (Σ games / 6)` — the fraction of 6-Pokémon
+teams including P. This reproduces the spec's worked examples (Garchomp ≈ 40%
+vs the spec's 39%; Charizardite Y at 95.4% of Charizard's items vs the spec's
+92.3%). Caveat: the site's own leaderboard ordering does not always follow raw
+game counts (it appears to use an internal weighting we cannot reproduce), so
+our usage ranking may differ slightly from the site's displayed order.
+
+### D8: Spreads are SP-denominated at the source; nature comes from a separate list
+Pikalytics reports Champions spreads directly in SP (0–32, field "ev", order
+hp/atk/def/spa/spd/spe) — no EV→SP conversion needed. Spreads carry no nature;
+natures are a separate ranked list, so the modal set combines modal spread +
+modal nature + modal ability + modal item (each independently modal). Schema
+deviation from the spec example: `modal_set.sps` (SP) instead of
+`modal_set.evs` (EVs), to avoid mislabeling the denomination.
+
+### D9: Species mapping table
+"Aegislash" (Pikalytics) → "Aegislash-Both" (calc dex): the calc splits
+Aegislash by stance; "-Both" uses Blade offenses + Shield defenses, which is
+the damage-calc convention and correct for both attacker and defender roles
+under Stance Change. All other 69 scraped species, and every scraped move,
+item, and ability name, resolve in the calc dex unchanged ("Other" rows are
+skipped).

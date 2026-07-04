@@ -20,7 +20,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@smogon/calc": "file:vendor/smogon-calc-0.11.0-champions-master.tgz"
+    "@smogon/calc": "file:vendor/smogon-calc-0.11.0-champions-master.tgz",
+    "axios": "^1.18.1",
+    "cheerio": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^26.1.0",
