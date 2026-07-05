@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  # Pushes made by the refresh-data cron use GITHUB_TOKEN, which does NOT
+  # trigger push workflows — so also redeploy when that workflow completes.
+  workflow_run:
+    workflows: ["Refresh data"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build
+        env:
+          VITE_BASE: /cinnabar-lab/
+      # SPA fallback: Pages serves 404.html for unknown paths like /marimekko
+      - run: cp dist/index.html dist/404.html
+      - uses: actions/configure-pages@v4
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

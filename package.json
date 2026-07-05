@@ -14,7 +14,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -p .",
+    "typecheck": "tsc -p . && tsc -p tsconfig.web.json",
     "sanity": "tsx scripts/sanity-checks.ts",
     "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts"
   },

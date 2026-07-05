@@ -8,7 +8,7 @@ export default function HeatmapPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchJSON<Viz2Data>('/viz2-data.json').then(setData).catch((e) => setError(String(e)));
+    fetchJSON<Viz2Data>('viz2-data.json').then(setData).catch((e) => setError(String(e)));
   }, []);
 
   if (error) return <div className="error-note">Could not load viz2-data.json — {error}</div>;

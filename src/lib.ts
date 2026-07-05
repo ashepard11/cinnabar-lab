@@ -105,7 +105,10 @@ export function formatDate(iso: string): string {
   return iso.slice(0, 10);
 }
 
-export async function fetchJSON<T>(path: string): Promise<T> {
+/** Fetch a data file relative to the app's base URL (works at "/" locally
+ * and under "/cinnabar-lab/" on GitHub Pages). */
+export async function fetchJSON<T>(name: string): Promise<T> {
+  const path = import.meta.env.BASE_URL + name;
   const res = await fetch(path);
   if (!res.ok) throw new Error(`Failed to fetch ${path}: ${res.status}`);
   return res.json() as Promise<T>;

@@ -8,7 +8,7 @@ export default function MarimekkoPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchJSON<Viz1Data>('/viz1-data.json').then(setData).catch((e) => setError(String(e)));
+    fetchJSON<Viz1Data>('viz1-data.json').then(setData).catch((e) => setError(String(e)));
   }, []);
 
   if (error) return <div className="error-note">Could not load viz1-data.json — {error}</div>;
