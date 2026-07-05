@@ -1,0 +1,146 @@
+/**
+ * Client-side access to data/matchups.sqlite via sql.js (WASM SQLite).
+ * The file is ~10 MB and served statically alongside the JSON viz data
+ * (SPEC-sim.md Phase 6: "if the sqlite file is < 20 MB, sql.js is simpler").
+ */
+import initSqlJs, { type Database } from 'sql.js';
+import wasmUrl from 'sql.js/dist/sql-wasm.wasm?url';
+
+export interface MatchupRow {
+  variant_A: string;
+  variant_B: string;
+  condition: string;
+  n_simulated: number;
+  wins_A: number;
+  wins_B: number;
+  draws: number;
+  p_A_wins: number;
+  ci_low: number;
+  ci_high: number;
+  mean_turns: number;
+}
+
+export const CONDITION_IDS = [
+  'fresh', 'tailwind_A', 'tailwind_B', 'trick_room', 'sun', 'rain',
+  'A_boosted_atk', 'A_boosted_spa', 'B_boosted_atk', 'B_boosted_spa',
+] as const;
+export type ConditionId = (typeof CONDITION_IDS)[number];
+
+let dbPromise: Promise<Database> | null = null;
+
+export function loadMatchupDb(): Promise<Database> {
+  if (!dbPromise) {
+    dbPromise = (async () => {
+      const SQL = await initSqlJs({ locateFile: () => wasmUrl });
+      const resp = await fetch(import.meta.env.BASE_URL + 'matchups.sqlite');
+      if (!resp.ok) throw new Error(`fetch matchups.sqlite: HTTP ${resp.status}`);
+      const buf = await resp.arrayBuffer();
+      return new SQL.Database(new Uint8Array(buf));
+    })();
+  }
+  return dbPromise;
+}
+
+function rows(db: Database, sql: string, params: any[] = []): MatchupRow[] {
+  const stmt = db.prepare(sql);
+  stmt.bind(params);
+  const out: MatchupRow[] = [];
+  while (stmt.step()) out.push(stmt.getAsObject() as unknown as MatchupRow);
+  stmt.free();
+  return out;
+}
+
+export function allVariantIds(db: Database): string[] {
+  return rows(db, 'SELECT DISTINCT variant_A AS variant_A FROM matchups ORDER BY variant_A')
+    .map((r) => r.variant_A);
+}
+
+/** Full row set for one condition (used to paint the grid). */
+export function conditionRows(db: Database, condition: ConditionId): MatchupRow[] {
+  return rows(db, 'SELECT * FROM matchups WHERE condition = ?', [condition]);
+}
+
+export function getMatchup(db: Database, A: string, B: string, condition: string): MatchupRow | null {
+  const r = rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND variant_B = ? AND condition = ?', [A, B, condition]);
+  return r[0] ?? null;
+}
+
+export function allConditionsFor(db: Database, A: string, B: string): MatchupRow[] {
+  return rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND variant_B = ?', [A, B]);
+}
+
+export function matchupsFor(db: Database, A: string, condition: ConditionId): Map<string, MatchupRow> {
+  const out = new Map<string, MatchupRow>();
+  for (const r of rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND condition = ?', [A, condition])) {
+    out.set(r.variant_B, r);
+  }
+  return out;
+}
+
+export function metadata(db: Database): Record<string, string> {
+  const stmt = db.prepare('SELECT key, value FROM metadata');
+  const out: Record<string, string> = {};
+  while (stmt.step()) {
+    const row = stmt.getAsObject() as any;
+    out[row.key] = row.value;
+  }
+  stmt.free();
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Team-builder scoring (client-side mirror of lib/analysis/team.ts)
+// ---------------------------------------------------------------------------
+
+export interface PartnerSuggestion {
+  variant: string;
+  coverage_score: number;
+  top_improvements: Array<{ opponent: string; before: number; after: number }>;
+}
+
+export function urgency(p0: number): number {
+  return 1.5 - p0;
+}
+
+export function suggestPartners(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+  weights: Map<string, number>,
+): PartnerSuggestion[] {
+  const all = allVariantIds(db);
+  const coreSet = new Set(core);
+  const coreRows = core.map((c) => matchupsFor(db, c, condition));
+
+  const teamBest = new Map<string, number>();
+  for (const V of all) {
+    if (coreSet.has(V)) continue;
+    let best = -1;
+    for (const r of coreRows) {
+      const row = r.get(V);
+      if (row && row.p_A_wins > best) best = row.p_A_wins;
+    }
+    if (best >= 0) teamBest.set(V, best);
+  }
+
+  const out: PartnerSuggestion[] = [];
+  for (const candidate of all) {
+    if (coreSet.has(candidate)) continue;
+    const candRows = matchupsFor(db, candidate, condition);
+    let score = 0;
+    const improvements: Array<{ opponent: string; before: number; after: number }> = [];
+    for (const [V, before] of teamBest) {
+      if (V === candidate) continue;
+      const row = candRows.get(V);
+      if (!row) continue;
+      const after = Math.max(before, row.p_A_wins);
+      if (after <= before) continue;
+      score += (weights.get(V) ?? 0) * (after - before) * urgency(before);
+      improvements.push({ opponent: V, before, after });
+    }
+    improvements.sort((a, b) => (b.after - b.before) - (a.after - a.before));
+    out.push({ variant: candidate, coverage_score: score, top_improvements: improvements.slice(0, 5) });
+  }
+  out.sort((a, b) => b.coverage_score - a.coverage_score);
+  return out;
+}
