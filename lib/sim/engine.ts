@@ -207,7 +207,11 @@ export async function runBattle(setup: BattleSetup): Promise<BattleResult> {
   await stream.write(`>player p2 {"name":"B","team":${JSON.stringify(Teams.pack([setup.side_B as any]))}}`);
 
   await consume;
-  // Free the battle; destroy() throws if the stream already ended naturally.
+  // Free the battle explicitly. stream.destroy() throws on `pushEnd` when the
+  // consume loop returned early (win/tie seen before stream end), and that
+  // throw happens BEFORE its internal battle.destroy() — leaking the Battle
+  // object (~MBs each; found as unbounded memory growth in the matrix build).
+  try { stream.battle?.destroy(); } catch { /* already destroyed */ }
   try { stream.destroy(); } catch { /* already ended */ }
 
   if (winner === null) winner = 'draw';
