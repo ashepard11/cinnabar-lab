@@ -15,7 +15,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc -p .",
-    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts"
+    "sanity": "tsx scripts/sanity-checks.ts",
+    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts"
   },
   "repository": {
     "type": "git",

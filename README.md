@@ -1,109 +1,95 @@
-# Pokémon Champions VGC Analytics — Project Handoff
+# Pokémon Champions VGC — Damage Visualizations
 
-## What this repository will contain
+Two complementary views of the Pokémon Champions VGC metagame (**Regulation
+M-B, Season 3** ranked battle data from Pikalytics):
 
-Two sequential projects, both operating on the current Pokémon Champions VGC metagame (Regulation M-B doubles):
+1. **Damage sources (Marimekko)** — "Where does the damage I take come from?"
+   Expected damage output across the metagame, weighted by Pokémon usage and
+   move usage, broken down by attack type and physical/special category.
+2. **Field weakness (Heatmap)** — "If I bring a generic 90 BP attack of each
+   type, how much damage does it do to the field?" An 18×2 grid of relative
+   damage vs the usage-weighted defender field.
 
-1. **Damage Visualizations** (`SPEC-damageviz.md`) — two charts showing where damage comes from in the metagame and where the field is weakest. Small project, ~1–2 days of Fable time. Builds the shared scraper, variant selector, and Pokémon construction helpers used by project 2.
+This is project 1 of 2; the shared scraper, variant selection, and Pokémon
+construction helpers in `lib/` are the foundation for the follow-on battle
+simulator (`SPEC-sim.md`). Design decisions and their reasoning live in
+[DECISIONS.md](DECISIONS.md).
 
-2. **Battle Simulator + Analysis** (`SPEC-sim.md`) — 1v1 battle simulator driving Pokémon Showdown's sim engine, matchup matrix across the metagame, and team-building analysis on top. Larger project, ~1 week of Fable time. Depends on project 1's data outputs.
-
-Both specs are self-contained and include phase-by-phase implementation guidance, test cases, and known limitations.
-
-## Implementation order
-
-**Sequential.** Fable finishes and commits the damage-viz project (project 1) before starting the sim project (project 2). This isn't just about dependencies — the damage viz is a fast feedback loop that validates the scraper and variant selection logic before those become foundations for a much larger project.
-
-## Running this with Claude Fable 5
-
-### Setup
-
-1. **Create a GitHub repo** for the project (empty, `main` branch). Clone it locally.
-2. **Update Claude Code** to v2.1.170 or later: `claude update`. Fable 5 doesn't appear in the model picker on older versions.
-3. **Copy the three spec files** (`README.md`, `SPEC-damageviz.md`, `SPEC-sim.md`) into the repo root and commit them.
-4. **Add a `CLAUDE.md`** at the repo root with the following contents (adjust as needed):
-
-   ```markdown
-   # Project instructions
-
-   This repo contains two sequential projects. Start with SPEC-damageviz.md. When it is complete, tested, and committed with a green build, move on to SPEC-sim.md.
-
-   Working style:
-   - Commit after each phase. Meaningful commit messages.
-   - When a phase completes, verify the "Test cases to verify correctness" section for that phase before moving on.
-   - If you get stuck or need to make a design decision the spec doesn't cover, document the decision in a `DECISIONS.md` file with your reasoning.
-   - Prefer small, focused PRs when the work is naturally decomposable.
-   - Do not modify SPEC-*.md files without explicit user approval.
-   ```
-
-5. **Decide on the permission model.** Three options:
-   - **Auto mode (recommended).** Fable runs without prompting for most actions; a classifier reviews each action before it runs and blocks dangerous ones. No sandbox required. Best default for long autonomous coding.
-   - **Dev container + `--dangerously-skip-permissions`.** Anthropic's reference dev container with firewall-restricted network access. Stronger isolation. Use if you want extra caution.
-   - **claude-pod (community docker wrapper).** Small unofficial Docker sandbox mounting only the project folder. Middle ground.
-
-### Launching Fable
-
-**Interactive (recommended for first-time users):**
+## Quick start
 
 ```bash
-cd ~/projects/pokemon-champions-viz
-claude --model fable
-# in-session:
-/output-style proactive
-# Then paste in this exact prompt:
+npm ci
+npm run dev        # frontend at http://localhost:5173 (uses committed data/)
 ```
 
-Prompt to hand Fable:
-
-> Read `README.md`, `SPEC-damageviz.md`, and `SPEC-sim.md`. Then implement the damage visualization project (`SPEC-damageviz.md`) end to end, following its phases in order. Commit after each phase. Run the sanity-check test cases before declaring the project complete. When it is complete and green, stop and message me — do not start the sim project yet.
-
-Then walk away. Come back in a few hours, review the commits, run the visualizations locally, and if everything looks good, start a fresh session:
+Rebuild the data pipeline (scrape → variants → viz1 → viz2):
 
 ```bash
-claude --model fable
-# in-session:
+npm run build-all
 ```
 
-> The damage viz project is complete. Now implement the battle simulator project (`SPEC-sim.md`) end to end. Follow the same commit-per-phase pattern. When Phase 1 (move-selection policy) begins, write a design doc justifying your choice before implementing.
+Individual steps: `npm run scrape`, `build-variants`, `build-viz1`,
+`build-viz2`. Tests: `npm test` (calc-engine smoke test + variant-selection
+unit tests), `npm run typecheck`.
 
-**Headless (fully unattended):**
+Data refreshes automatically every Monday via
+`.github/workflows/refresh-data.yml` (also runnable manually via
+workflow_dispatch). The frontend fetches `data/*.json` at runtime, so a data
+refresh does not require a JS rebuild.
 
-```bash
-claude --model fable -p "$(cat << 'EOF'
-Read README.md, SPEC-damageviz.md, and SPEC-sim.md. Implement the damage viz project first, following its phases in order. Commit after each phase. Run sanity checks before declaring complete. When the damage viz project is done and all its tests pass, proceed immediately to the sim project. Same discipline. Do not stop between projects unless a phase fails.
-EOF
-)" --output-format stream-json > run.log 2>&1 &
+## How it works
+
+- **Calc engine** — `@smogon/calc` with native Pokémon Champions support
+  (generation 0), vendored from smogon/damage-calc master
+  (`vendor/smogon-calc-*.tgz`) because the npm release predates Champions.
+  Champions' SP system (0–32 per stat, level-independent stat formula) is
+  first-class. See DECISIONS.md D1–D2.
+- **Scraper** (`lib/scrape.ts`) — hits Pikalytics' JSON API for the current
+  M-series season (`battledataregmbs3`, Glicko 1760 cutoff), auto-discovers
+  the stats month, includes every Pokémon at ≥1% usage. Usage % is derived
+  from per-Pokémon game counts (D7).
+- **Variant builder** (`lib/variants.ts`) — buckets each Pokémon's items
+  (each Mega Stone its own variant, each damage-boosting item its own
+  variant, everything else one "no item" bucket), keeps buckets clearing a 1%
+  usage product, always keeps Megas. Currently 89 variants from 70 Pokémon.
+- **Viz pipelines** (`scripts/build-viz1.ts`, `build-viz2.ts`) — damage calcs
+  against a standard synthetic target (viz 1) / the weighted defender field
+  (viz 2), written to `data/viz{1,2}-data.json`.
+
+## Known v1 limitations
+
+1. **Defender items beyond Megas are ignored.** Type-resist berries, Assault
+   Vest, Eviolite would matter for the heatmap but are skipped to keep the
+   variant count manageable.
+2. **Variable-BP moves use in-model defaults or are skipped.** The model is
+   one clean hit (full HP, no boosts, no prior damage/faints, attacker's own
+   auto-weather). Weather Ball, Acrobatics, Facade etc. resolve exactly under
+   that model; Last Respects and Rage Fist are included at base BP
+   (undercounted); weight-based moves (Grass Knot, Low Kick, Heavy Slam, Heat
+   Crash) and fixed-damage moves (Super Fang, Beat Up) are skipped. See
+   DECISIONS.md D17.
+3. **Tera is not modeled.** Champions doesn't have Tera; correct for this
+   format, but don't compare cells directly against Sw/Sh–S/V VGC formats.
+4. **The viz-1 target is a single synthetic 100/80/80 Pokémon** with neutral
+   (`???`) typing. Real targets with real typings/abilities would shift cells.
+5. **Within-Pokémon ability variation is collapsed to modal** (e.g. a
+   Solar Power / Blaze split counts as 100% modal). Moot for Megas, whose
+   forme ability replaces the base ability.
+6. **Crit chance, accuracy, and secondary effects are ignored.** Damage is
+   the average roll of a connecting hit.
+7. **Switching, Protect, Fake Out timing, and redirection are not modeled.**
+   The calc answers "if this move connects, how much does it do."
+8. **Usage % is derived, not published.** This format's API exposes game
+   counts, not usage percentages; we derive usage assuming 6-Pokémon teams
+   (D7), which reproduces known reference values but may drift slightly from
+   Pikalytics' own displayed ordering.
+
+## Repo layout
+
 ```
-
-### Cost expectations
-
-- Fable is $10/$50 per million input/output tokens (2× Opus 4.8 pricing).
-- On subscriptions (Pro/Max/Team): Fable draws from the same 5-hour and weekly limits as other models but consumes them ~2× as fast.
-- Realistic total cost for both projects: **$50–$200** in API credits, depending on how many blind alleys Fable goes down. Cap at ~$300 by killing the session if it burns past that.
-
-### What Fable is (and isn't) good at
-
-Based on Anthropic's guidance:
-- **Good at:** long-horizon coding, multi-file refactors, root-cause debugging, architecture decisions, sustained autonomous sessions
-- **Less useful for:** simple edits, quick answers (Sonnet or Opus is more cost-effective)
-- **Will do without prompting:** verify its own work, plan before implementing, catch design holes
-
-For this project specifically:
-- The damage viz project is on the small side for Fable — Sonnet 4.6 would probably also handle it. Consider Sonnet for the damage viz and Fable for the sim if you want to save cost.
-- The sim project is squarely in Fable territory — long-running, ambiguous design decisions (policy choice), multi-file architecture, needs sanity-checking against Pokémon-mechanics ground truth.
-
-### Watch-outs
-
-- **Automatic model fallback.** Fable's safety classifiers can bounce requests in cybersecurity/biology domains, causing silent fallback to Opus. Nothing in this project should trigger this, but if you see the model switch, that's why.
-- **Context management.** Very long sessions can lose early context. If Fable seems to forget the spec halfway through the sim project, break the work into more sessions rather than one giant run.
-- **Data retention.** Fable requires 30-day data retention for its safety classifiers (Anthropic keeps prompts/outputs for 30 days). Not usable under Zero Data Retention.
-
-## Human-in-the-loop moments
-
-Fable can run autonomously for most of both projects, but three moments benefit from human review:
-
-1. **End of damage viz Phase 0.** Confirm `@smogon/calc` is producing sensible Champions damage numbers before the whole pipeline gets built on top of it.
-2. **Start of sim Phase 1.** Fable proposes the move-selection policy. Read the design doc, push back if the choice seems wrong. This is the single decision most likely to make the final output wrong.
-3. **After sim Phase 3.** Sanity-check the 5 well-known matchups (Zard Y vs Incineroar, Kingambit vs Amoonguss, etc.) before letting the full matrix build run for an hour.
-
-Everything else Fable can drive on its own.
+data/       scraped usage, variants, and viz JSON (committed, cron-refreshed)
+lib/        pipeline library: scrape, variants, items, moves, calc, pokemon, types
+scripts/    runnable pipeline steps + tests
+src/        React frontend (Vite, React Router, D3 scale-chromatic)
+vendor/     vendored @smogon/calc build with Champions support
+```
