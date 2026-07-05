@@ -16,7 +16,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -p . && tsc -p tsconfig.web.json",
     "sanity": "tsx scripts/sanity-checks.ts",
-    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts"
+    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts",
+    "sim-smoke": "tsx scripts/sim-smoke.ts"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "axios": "^1.18.1",
     "cheerio": "^1.2.0",
     "d3-scale-chromatic": "^3.1.0",
+    "pokemon-showdown": "file:vendor/pokemon-showdown-0.11.10-champions-master-e440c4a.tgz",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1"
