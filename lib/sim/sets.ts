@@ -31,9 +31,10 @@ export const EXCLUDED_MOVES = new Set(
     // hazards (worthless with no bench)
     'Stealth Rock', 'Spikes', 'Toxic Spikes', 'Sticky Web',
     // redirection / ally-targeted
+    // (Pollen Puff stays eligible: vs an enemy it is a plain 90 BP attack)
     'Follow Me', 'Rage Powder', 'Ally Switch', 'Helping Hand', 'Coaching',
     'Aromatic Mist', 'Decorate', 'Instruct', 'Heal Pulse', 'Life Dew',
-    'Pollen Puff', 'Beat Up',
+    'Beat Up',
   ].map((m) => m.toLowerCase()),
 );
 

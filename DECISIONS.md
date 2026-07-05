@@ -208,3 +208,30 @@ ally-targeted moves, hazards). Filtering *before* taking the top 4 keeps
 support-heavy Pokémon (e.g. Amoonguss) from fielding near-empty movesets —
 they get their best 4 *eligible* moves instead, which is also the closest
 1v1-endgame analogue of what they'd actually click.
+
+## Battle simulator — sanity gate
+
+### D24: Garchomp vs Rotom-Wash deviates from the spec's expected result — verified as format math
+The spec expects Rotom-W to win ~80%+ ("Hydro Pump 2HKOs Garchomp; Levitate
+means Earthquake does nothing"); the simulator gives Garchomp ~100%. Debugged
+per the gate rule and root-caused to the metagame data, not the policy:
+this format's modal Rotom-W is an offensive spread (Modest, 32 SpA / 32 SpE,
+2 HP SP → 127 HP / 127 Def), not the Gen-9 bulky pivot the expectation
+assumes. Jolly Garchomp outspeeds it (169 vs 138) and Dragon Claw (80 BP,
+STAB, atk 182) is a guaranteed 2HKO (min roll 66 > 127/2), while Champions'
+Hydro Pump is 80-accurate and needs two turns Rotom never gets. Even Rotom's
+optimal line loses on paper: T1 Will-O-Wisp (takes 76, leaving 51), burned
+Claw does 33–39, so Rotom dies turn 3 before the second Hydro can fire; no
+crit or miss path exists (Claw is 100% accurate, crit Hydro still fails to
+OHKO). The policy correctly finds the matchup unwinnable. Precedent: D3
+(Champions' level-independent stats shift damage ratios above Gen-9
+intuition). Logged in scripts/sim-sanity.ts as DEVIATION, not FAIL.
+
+### D25: Amoonguss sanity case uses a synthetic variant
+Amoonguss is below the scraper's usage cutoff and has no entry in
+defender-variants.json, but the spec names it in a sanity matchup. The gate
+uses a standard bulky set (Calm, 32 HP / 32 SpD, Regenerator, Spore /
+Pollen Puff / Giga Drain / Protect) defined inline in scripts/sim-sanity.ts.
+Related fix: Pollen Puff was removed from the v1 move exclusion list —
+against an enemy it is a plain 90 BP attack; only its ally-heal mode is
+teammate-dependent.
