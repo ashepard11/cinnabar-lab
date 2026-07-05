@@ -19,7 +19,8 @@
     "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts",
     "sim-smoke": "tsx scripts/sim-smoke.ts",
     "inspect-matchup": "tsx scripts/inspect-matchup.ts",
-    "sim-sanity": "tsx scripts/sim-sanity.ts"
+    "sim-sanity": "tsx scripts/sim-sanity.ts",
+    "build-matchups": "tsx scripts/build-matchups.ts"
   },
   "repository": {
     "type": "git",

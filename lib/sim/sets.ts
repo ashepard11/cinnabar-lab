@@ -62,11 +62,21 @@ export function pickMoves(variant: Variant): string[] {
   return eligible;
 }
 
+/**
+ * Species-name mapping calc-dex → Showdown-dex. "Aegislash-Both" is a
+ * damage-calc convention (D9); Showdown uses plain Aegislash and implements
+ * real Stance Change (better than the calc's blend). The reverse mapping for
+ * the planning model's calc lookups lives in lib/sim/model.ts.
+ */
+const SPECIES_TO_SHOWDOWN: Record<string, string> = {
+  'Aegislash-Both': 'Aegislash',
+};
+
 /** Convert a defender variant to a Showdown set for the Champions sim. */
 export function variantToSet(variant: Variant): SimSet {
   return {
     name: variant.id.slice(0, 18), // battle nickname = variant id (truncated)
-    species: variant.species,
+    species: SPECIES_TO_SHOWDOWN[variant.species] ?? variant.species,
     item: variant.item ?? '',
     ability: variant.ability,
     moves: pickMoves(variant),

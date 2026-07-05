@@ -271,6 +271,19 @@ export function clearDamageCache(): void {
 
 const HP_SCALING_MOVES = new Set(['waterspout', 'eruption', 'dragonenergy']);
 
+/**
+ * Showdown-dex → calc-dex species mapping (reverse of lib/sim/sets.ts).
+ * The calc has no plain "Aegislash"; in-battle formes map to their stance.
+ */
+const SPECIES_TO_CALC: Record<string, string> = {
+  'Aegislash': 'Aegislash-Shield',
+  'Aegislash-Blade': 'Aegislash-Blade',
+};
+
+function calcSpecies(name: string): string {
+  return SPECIES_TO_CALC[name] ?? name;
+}
+
 function damageKey(state: PlanState, atk: number, moveIdx: number, move: PlanMove): string {
   const a = state.mons[atk];
   const d = state.mons[1 - atk];
@@ -308,7 +321,7 @@ function calcDamage(state: PlanState, atk: number, moveIdx: number, move: PlanMo
     // Note: weight/HP-scaling moves (Low Kick, Eruption…) have basePower 0 in
     // dex data — the calc resolves their real BP, so they go through it too.
     try {
-      const attacker = new CalcPokemon(CALC_GEN as any, a.species, {
+      const attacker = new CalcPokemon(CALC_GEN as any, calcSpecies(a.species), {
         ability: a.ability, item: a.item || undefined, nature: a.nature,
         evs: a.sps as any, boosts: a.boosts as any,
         status: a.status === 'brn' ? 'brn' : undefined,
@@ -316,7 +329,7 @@ function calcDamage(state: PlanState, atk: number, moveIdx: number, move: PlanMo
       // The calc's HP scale matches the battle's (level-independent formula),
       // so absolute current HP can be set directly for Eruption-style moves.
       if (HP_SCALING_MOVES.has(move.id)) attacker.originalCurHP = Math.max(1, a.hp);
-      const defender = new CalcPokemon(CALC_GEN as any, d.species, {
+      const defender = new CalcPokemon(CALC_GEN as any, calcSpecies(d.species), {
         ability: d.ability, item: d.item || undefined, nature: d.nature,
         evs: d.sps as any, boosts: d.boosts as any,
       });
