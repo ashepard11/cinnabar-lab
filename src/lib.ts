@@ -6,9 +6,15 @@
 export interface Viz1Contributor {
   variant_id: string;
   species: string;
+  item: string | null;
   move: string;
   expected_damage: number;
   share: number;
+}
+
+/** "Basculegion (Mystic Water)" / plain species when no distinguishing item. */
+export function contributorName(species: string, item: string | null): string {
+  return item ? `${species} (${item})` : species;
 }
 export interface Viz1Cell {
   type: string;
@@ -24,6 +30,7 @@ export interface Viz1Data {
 export interface Viz2Contributor {
   variant_id: string;
   species: string;
+  item: string | null;
   damage: number;
   weighted_contribution: number;
 }

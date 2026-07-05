@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 import type {Viz1Cell, Viz1Data} from '../lib';
-import {cellColor, pct, textOn} from '../lib';
+import {cellColor, contributorName, pct, textOn} from '../lib';
 import {Tooltip, useTooltip} from './Tooltip';
 
 const WIDTH = 960;
@@ -57,7 +57,7 @@ function CellTooltip({cell}: {cell: Viz1Cell}) {
       <ul className="tooltip-list">
         {cell.contributors.slice(0, 5).map((c) => (
           <li key={`${c.variant_id}-${c.move}`}>
-            <span className="who">{c.species} — {c.move}</span>
+            <span className="who">{contributorName(c.species, c.item)} — {c.move}</span>
             <span>{pct(c.share)}</span>
           </li>
         ))}

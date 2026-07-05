@@ -152,6 +152,9 @@ export interface VariantsData {
 export interface Viz1Contributor {
   variant_id: string;
   species: string;
+  /** Held item for display (null for no-item variants and Megas, whose forme
+   * is already in the species name). Disambiguates same-species variants. */
+  item: string | null;
   move: string;
   expected_damage: number;
   /** expected_damage normalized by the all-cells total (sums to ≤ cell share). */
@@ -173,6 +176,8 @@ export interface Viz1Data {
 export interface Viz2Contributor {
   variant_id: string;
   species: string;
+  /** Held item for display (null for no-item variants and Megas). */
+  item: string | null;
   damage: number;
   weighted_contribution: number;
 }

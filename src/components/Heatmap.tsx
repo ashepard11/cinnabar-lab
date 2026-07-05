@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {interpolateRdBu} from 'd3-scale-chromatic';
 import type {Viz2Cell, Viz2Data} from '../lib';
-import {pct, textOn} from '../lib';
+import {contributorName, pct, textOn} from '../lib';
 import {Tooltip, useTooltip} from './Tooltip';
 
 const CELL_W = 150;
@@ -40,7 +40,7 @@ function CellTooltip({cell, average}: {cell: Viz2Cell; average: number}) {
       <ul className="tooltip-list">
         {cell.contributors.slice(0, 5).map((c) => (
           <li key={c.variant_id}>
-            <span className="who">{c.species}</span>
+            <span className="who">{contributorName(c.species, c.item)}</span>
             <span>{pct(c.damage, 0)} taken</span>
           </li>
         ))}

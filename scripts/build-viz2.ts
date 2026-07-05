@@ -93,6 +93,7 @@ function main() {
         contributors: contributors.slice(0, CONTRIBUTORS_KEPT).map((c) => ({
           variant_id: c.variant.id,
           species: c.variant.species,
+          item: c.variant.is_mega ? null : c.variant.item,
           damage: c.damage,
           weighted_contribution: weightOf(c.variant) * c.damage,
         })),

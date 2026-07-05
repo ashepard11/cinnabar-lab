@@ -68,6 +68,7 @@ function main() {
       cells.get(key)!.contributors.push({
         variant_id: v.id,
         species: v.species,
+        item: v.is_mega ? null : v.item,
         move: move.name,
         expected_damage: expected,
         share: 0, // normalized once the all-cells total is known
