@@ -54,6 +54,12 @@ Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity),
 `npm run typecheck`. Damage-viz data refreshes weekly via
 `.github/workflows/refresh-data.yml`.
 
+Note: the weekly refresh regenerates usage/variants/viz JSON only. The
+matchup matrix is a snapshot tied to the variant set it was built from
+(policy + engine versions stamped in its `metadata` table) — after a data
+refresh changes `defender-variants.json`, re-run `npm run build-matchups`
+(hours, resumable, incremental) to bring the matrix back in sync.
+
 ## How it works
 
 - **Calc engine** — `@smogon/calc` with native Pokémon Champions support
