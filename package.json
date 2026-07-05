@@ -17,7 +17,8 @@
     "typecheck": "tsc -p . && tsc -p tsconfig.web.json",
     "sanity": "tsx scripts/sanity-checks.ts",
     "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts",
-    "sim-smoke": "tsx scripts/sim-smoke.ts"
+    "sim-smoke": "tsx scripts/sim-smoke.ts",
+    "inspect-matchup": "tsx scripts/inspect-matchup.ts"
   },
   "repository": {
     "type": "git",
