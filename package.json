@@ -11,8 +11,11 @@
     "build-viz1": "tsx scripts/build-viz1.ts",
     "build-viz2": "tsx scripts/build-viz2.ts",
     "build-all": "npm run scrape && npm run build-variants && npm run build-viz1 && npm run build-viz2",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "typecheck": "tsc -p .",
-    "test": "tsx scripts/phase0-smoke.ts"
+    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts"
   },
   "repository": {
     "type": "git",
@@ -22,11 +25,21 @@
   "dependencies": {
     "@smogon/calc": "file:vendor/smogon-calc-0.11.0-champions-master.tgz",
     "axios": "^1.18.1",
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "d3-scale-chromatic": "^3.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
+    "@types/d3-scale-chromatic": "^3.1.0",
     "@types/node": "^26.1.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "playwright": "^1.61.1",
     "tsx": "^4.23.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vite": "^8.1.3"
   }
 }

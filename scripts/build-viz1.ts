@@ -70,6 +70,7 @@ function main() {
         species: v.species,
         move: move.name,
         expected_damage: expected,
+        share: 0, // normalized once the all-cells total is known
       });
     }
   }
@@ -87,7 +88,8 @@ function main() {
         share: cellTotal / total,
         contributors: c.contributors
           .sort((a, b) => b.expected_damage - a.expected_damage)
-          .slice(0, CONTRIBUTORS_KEPT),
+          .slice(0, CONTRIBUTORS_KEPT)
+          .map((x) => ({...x, share: x.expected_damage / total})),
       };
     })
     .sort((a, b) => b.share - a.share);

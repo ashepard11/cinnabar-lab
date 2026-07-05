@@ -154,6 +154,8 @@ export interface Viz1Contributor {
   species: string;
   move: string;
   expected_damage: number;
+  /** expected_damage normalized by the all-cells total (sums to ≤ cell share). */
+  share: number;
 }
 
 export interface Viz1Cell {
