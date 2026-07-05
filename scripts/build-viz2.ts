@@ -43,26 +43,70 @@ function syntheticAttacker(category: MoveCategory, defenderAbility: string): Pok
   };
 }
 
+/**
+ * A defender as the heatmap sees it. Held items have no defensive effect in
+ * our model (damage-boost items are offensive-only; defensive items were
+ * bucketed away in Phase 2), so same-species variants that differ only by
+ * item are merged with summed weight — unlike the marimekko, where the item
+ * changes attacking output. Megas keep their own entries (different stats,
+ * typing, ability). Merging is exactly weight-linear, so cell values are
+ * unchanged; only the contributor drilldown gets cleaner.
+ */
+interface Defender {
+  id: string;
+  species: string;
+  ability: string;
+  nature: string;
+  sps: Variant['sps'];
+  item: string | null;
+  weight: number;
+}
+
+function mergeDefensiveVariants(variants: Variant[]): Defender[] {
+  const byProfile = new Map<string, Defender>();
+  for (const v of variants) {
+    // Megas hold their stone (cosmetic here); merged non-Megas hold nothing
+    // since the merge spans items. Key on everything that affects damage taken.
+    const key = [v.species, v.ability, v.nature, JSON.stringify(v.sps)].join('|');
+    const existing = byProfile.get(key);
+    if (existing) {
+      existing.weight += v.weight;
+    } else {
+      byProfile.set(key, {
+        id: v.is_mega ? v.id : `${v.species.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_defense`,
+        species: v.species,
+        ability: v.ability,
+        nature: v.nature,
+        sps: v.sps,
+        item: v.is_mega ? v.item : null,
+        weight: v.weight,
+      });
+    }
+  }
+  return [...byProfile.values()];
+}
+
 function main() {
   const {variants}: VariantsData = JSON.parse(
     fs.readFileSync(path.join(DATA_DIR, 'defender-variants.json'), 'utf8')
   );
+  const defenders = mergeDefensiveVariants(variants);
 
-  // Variant weights are team-inclusion rates and sum to ~5.4 (six team slots,
-  // minus sub-threshold mass). Normalize them to a probability distribution so
+  // Weights are team-inclusion rates and sum to ~5.4 (six team slots, minus
+  // sub-threshold mass). Normalize them to a probability distribution so
   // weighted_damage reads as "average damage vs a random defender from the
   // field" — the `relative` values are unaffected, but the absolute numbers
   // shown in tooltips become meaningful.
-  const totalWeight = variants.reduce((a, v) => a + v.weight, 0);
-  const weightOf = (v: Variant) => v.weight / totalWeight;
+  const totalWeight = defenders.reduce((a, v) => a + v.weight, 0);
+  const weightOf = (v: Defender) => v.weight / totalWeight;
 
   const cells: Viz2Cell[] = [];
   for (const type of ALL_TYPES) {
     for (const category of CATEGORIES) {
-      const contributors: Array<{variant: Variant; damage: number}> = [];
+      const contributors: Array<{variant: Defender; damage: number}> = [];
       let weighted = 0;
 
-      for (const v of variants) {
+      for (const v of defenders) {
         const defender: PokemonSpec = {
           species: v.species,
           ability: v.ability,
@@ -93,7 +137,7 @@ function main() {
         contributors: contributors.slice(0, CONTRIBUTORS_KEPT).map((c) => ({
           variant_id: c.variant.id,
           species: c.variant.species,
-          item: c.variant.is_mega ? null : c.variant.item,
+          item: null, // items are merged away defensively; Mega formes are in the species name
           damage: c.damage,
           weighted_contribution: weightOf(c.variant) * c.damage,
         })),

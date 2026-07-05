@@ -146,3 +146,14 @@ Toss) and Beat Up are skipped as before.
 Aggregation uses the calc's post-resolution move type/category, not the dex
 default. Concretely: Charizard-Mega-Y's Weather Ball (84% usage) counts as
 Fire Special, not Normal.
+
+### D19: Heatmap defenders merge same-species item variants (user request, 2026-07-04)
+Held items in our variant set have no defensive effect (damage-boost items are
+offensive-only; defensive items were bucketed away in Phase 2), so for viz 2
+the same-species non-Mega variants are merged into one defender with summed
+weight, keyed on (species, ability, nature, spread). Megas stay separate —
+different stats/typing/ability. Merging is weight-linear so every cell value
+is unchanged; the contributor drilldown just stops splitting one Pokémon
+across duplicate rows (e.g. Garchomp no longer appears twice in Fairy
+Special). The marimekko intentionally keeps item variants separate: items
+change attacking output.
