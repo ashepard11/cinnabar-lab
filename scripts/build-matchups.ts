@@ -44,6 +44,7 @@ interface WorkUnit {
 function openDb(): DatabaseSync {
   const db = new DatabaseSync(DB_PATH);
   db.exec('PRAGMA journal_mode = WAL;');
+  db.exec('PRAGMA busy_timeout = 10000;'); // survive transient reader locks
   db.exec(`
     CREATE TABLE IF NOT EXISTS matchups (
       variant_A TEXT NOT NULL,
