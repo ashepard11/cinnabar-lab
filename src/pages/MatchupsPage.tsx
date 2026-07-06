@@ -83,8 +83,8 @@ export default function MatchupsPage() {
             <tr>
               <th className="matrix-corner" />
               {ordered.map((col) => (
-                <th key={col} className="matrix-col-label" title={label(col)}>
-                  <span>{label(col)}</span>
+                <th key={col} className="matrix-col-label" title={`${label(col)} — open Pokémon detail`}>
+                  <Link to={`/pokemon/${col}`}><span>{label(col)}</span></Link>
                 </th>
               ))}
             </tr>
@@ -92,7 +92,9 @@ export default function MatchupsPage() {
           <tbody>
             {ordered.map((row) => (
               <tr key={row}>
-                <th className="matrix-row-label" title={label(row)}>{label(row)}</th>
+                <th className="matrix-row-label" title={`${label(row)} — open Pokémon detail`}>
+                  <Link to={`/pokemon/${row}`}>{label(row)}</Link>
+                </th>
                 {ordered.map((col) => {
                   if (row === col) return <td key={col} className="matrix-diag" />;
                   const r = grid.cell.get(`${row}|${col}`);

@@ -3,6 +3,7 @@ import MarimekkoPage from './pages/MarimekkoPage';
 import HeatmapPage from './pages/HeatmapPage';
 import MatchupsPage from './pages/MatchupsPage';
 import MatchupDetailPage from './pages/MatchupDetailPage';
+import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
 
 function Landing() {
@@ -60,6 +61,7 @@ export default function App() {
         <NavLink to="/marimekko">Damage sources</NavLink>
         <NavLink to="/heatmap">Field weakness</NavLink>
         <NavLink to="/matchups">Matchups</NavLink>
+        <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
       </nav>
       <Routes>
@@ -68,6 +70,8 @@ export default function App() {
         <Route path="/heatmap" element={<HeatmapPage />} />
         <Route path="/matchups" element={<MatchupsPage />} />
         <Route path="/matchup/:A/:B" element={<MatchupDetailPage />} />
+        <Route path="/pokemon" element={<PokemonDetailPage />} />
+        <Route path="/pokemon/:variantId" element={<PokemonDetailPage />} />
         <Route path="/team-builder" element={<TeamBuilderPage />} />
       </Routes>
     </div>

@@ -259,3 +259,21 @@ than being duplicated in each ranking. Both lists show the same row count
 (TOP_N = 20). Rows expand accordion-style (one at a time) into a card with
 per-member win rates, the opponent's metagame weight, and the reused
 ConditionCards component (extracted from the matchup detail page).
+
+### D28: Pokémon detail page + cross-page component sharing (user request, 2026-07-06)
+New `/pokemon/:variantId` page (nav between Matchups and Team builder):
+searchable selector → best/worst top-5 matchup lists with a
+"Metagame-weighted" (default) ↔ "Raw win rate" sort toggle. Weighted ranking
+= usage_weight × p for best and usage_weight × (1 − p) for worst — the same
+usage-weighting philosophy as the team builder (the builder's extra urgency
+factor is core-relative and has no analogue for a single Pokémon; the
+weight × loss-rate form is exactly `weakestMatchups` with a 1-Pokémon core,
+up to the urgency factor). Selecting navigates to the id-bearing URL so
+matchup views are deep-linkable; the bare `/pokemon` route renders only the
+selector. Supporting refactors so all three analysis pages share primitives
+instead of duplicating them: `useVariants` hook (one fetch/label/weights
+source), `ConditionSelect`, and `MatchupCard` (the accordion expansion card,
+extracted from the weakest-matchups section; team builder composes it with
+its per-member table). Matrix row/column headers now link to the page
+(hover underline + accent as affordance); cells still open the pairwise
+matchup detail.
