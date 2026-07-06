@@ -146,56 +146,65 @@ async function main() {
   let errors = 0;
   const t0 = Date.now();
   const logEvery = Math.max(1, Math.floor(total / 100));
+  let lastLogAt = t0;
+  let lastLogDone = 0;
+  // Recycle workers periodically: dex/calc caches grow slowly per worker
+  // (saturating, but recycling keeps GC pressure flat over multi-hour runs).
+  const RECYCLE_AFTER = 400;
 
   await new Promise<void>((resolve, reject) => {
-    const pool: Worker[] = [];
-    const dispatch = (worker: Worker) => {
-      if (next < units.length) {
-        worker.postMessage({ type: 'work', unit: units[next++] });
-      } else {
-        worker.postMessage({ type: 'exit' });
-      }
-    };
-    const finish = () => {
-      if (done + errors >= total) resolve();
-    };
-
-    for (let w = 0; w < workers; w++) {
+    const spawnWorker = () => {
       const worker = new Worker(
         `require('tsx/cjs'); require(${JSON.stringify(path.join(__dirname, 'matchup-worker.ts'))});`,
         { eval: true, workerData: { variantsPath: VARIANTS_PATH, policyId, maxN } },
       );
-      pool.push(worker);
+      let completed = 0;
+      const dispatch = () => {
+        if (next < units.length) {
+          if (completed >= RECYCLE_AFTER) {
+            worker.postMessage({ type: 'exit' });
+            spawnWorker();
+            return;
+          }
+          worker.postMessage({ type: 'work', unit: units[next++] });
+        } else {
+          worker.postMessage({ type: 'exit' });
+        }
+      };
       worker.on('message', (msg: any) => {
         if (msg.type === 'ready') {
-          dispatch(worker);
+          dispatch();
         } else if (msg.type === 'result') {
           const r: MatchupResult = msg.result;
           writeRow(r);
           writeRow(mirrorResult(r, mirrorCondition(msg.unit.conditionId)));
           done++;
+          completed++;
           if (done % logEvery === 0 || done === total) {
-            const elapsed = (Date.now() - t0) / 1000;
-            const rate = done / elapsed;
-            const eta = (total - done) / rate;
+            const now = Date.now();
+            const windowRate = (done - lastLogDone) / ((now - lastLogAt) / 1000);
+            lastLogAt = now;
+            lastLogDone = done;
+            const eta = (total - done) / windowRate;
             console.log(
               `${done}/${total} (${((done / total) * 100).toFixed(1)}%) — ` +
-              `${rate.toFixed(1)} cells/s — ETA ${(eta / 60).toFixed(1)} min`,
+              `${windowRate.toFixed(1)} cells/s (window) — ETA ${(eta / 60).toFixed(1)} min`,
             );
           }
-          dispatch(worker);
+          dispatch();
         } else if (msg.type === 'error') {
           errors++;
           console.error(`ERROR ${msg.unit.aId} vs ${msg.unit.bId} [${msg.unit.conditionId}]: ${msg.error}`);
-          dispatch(worker);
-          finish();
+          dispatch();
         }
       });
       worker.on('error', (e) => {
         console.error('worker crashed:', e);
         reject(e);
       });
-    }
+    };
+
+    for (let w = 0; w < workers; w++) spawnWorker();
 
     const poll = setInterval(() => {
       if (done + errors >= total) {
