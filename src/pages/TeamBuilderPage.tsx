@@ -2,17 +2,70 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import {
-  loadMatchupDb, allVariantIds, suggestPartners,
-  CONDITION_IDS, type ConditionId,
+  loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups, allConditionsFor,
+  CONDITION_IDS, type ConditionId, type WeakMatchup, type MatchupRow,
 } from '../lib/matchupDb';
 import { fetchJSON } from '../lib';
 import Combobox from '../components/Combobox';
+import ConditionCards from '../components/ConditionCards';
 
 interface VariantMeta {
   id: string;
   species: string;
   item: string | null;
   weight: number;
+}
+
+/** Both team-builder lists show the same number of rows. */
+const TOP_N = 20;
+
+function WeakMatchupCard({
+  db, weak, condition, label,
+}: {
+  db: Database;
+  weak: WeakMatchup;
+  condition: ConditionId;
+  label: (id: string) => string;
+}) {
+  // All-conditions view of the core's best answer vs this opponent, same
+  // component the matchup detail page uses.
+  const rows = useMemo(() => {
+    const byCondition = new Map<string, MatchupRow>();
+    for (const r of allConditionsFor(db, weak.best_member, weak.opponent)) byCondition.set(r.condition, r);
+    return byCondition;
+  }, [db, weak.best_member, weak.opponent]);
+
+  return (
+    <div className="weak-card">
+      <table className="weak-card-members">
+        <thead>
+          <tr><th>Core member</th><th>vs {label(weak.opponent)} ({condition})</th></tr>
+        </thead>
+        <tbody>
+          {[...weak.per_member].sort((a, b) => b.p - a.p).map((m) => (
+            <tr key={m.member} className={m.member === weak.best_member ? 'weak-best-member' : ''}>
+              <td>
+                {label(m.member)}
+                {m.member === weak.best_member && <span className="weak-best-tag"> best answer</span>}
+              </td>
+              <td>{Math.round(m.p * 100)}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="weak-card-meta">
+        Metagame weight of {label(weak.opponent)}: {(weak.weight * 100).toFixed(1)}% of teams ·
+        weakness score {weak.weakness_score.toFixed(3)}
+      </p>
+      <h4 className="weak-card-subhead">
+        {label(weak.best_member)} vs {label(weak.opponent)} by starting condition
+      </h4>
+      <ConditionCards rows={rows} />
+      <p className="weak-card-meta">
+        <Link to={`/matchup/${weak.best_member}/${weak.opponent}`}>Full matchup detail →</Link>
+      </p>
+    </div>
+  );
 }
 
 export default function TeamBuilderPage() {
@@ -39,11 +92,24 @@ export default function TeamBuilderPage() {
 
   const ids = useMemo(() => (db ? allVariantIds(db) : []), [db]);
 
+  const weights = useMemo(
+    () => new Map((variants ?? []).map((v) => [v.id, v.weight])),
+    [variants],
+  );
+
   const suggestions = useMemo(() => {
     if (!db || core.length === 0 || !variants) return null;
-    const weights = new Map(variants.map((v) => [v.id, v.weight]));
-    return suggestPartners(db, core, condition, weights).slice(0, 20);
-  }, [db, core, condition, variants]);
+    return suggestPartners(db, core, condition, weights).slice(0, TOP_N);
+  }, [db, core, condition, variants, weights]);
+
+  const weakest = useMemo(() => {
+    if (!db || core.length === 0 || !variants) return null;
+    return weakestMatchups(db, core, condition, weights).slice(0, TOP_N);
+  }, [db, core, condition, variants, weights]);
+
+  // accordion: id of the one expanded weakest-matchup row (or null)
+  const [expanded, setExpanded] = useState<string | null>(null);
+  useEffect(() => setExpanded(null), [core, condition]);
 
   const toggle = (id: string) => {
     setCore((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
@@ -99,6 +165,35 @@ export default function TeamBuilderPage() {
           ))}
         </div>
       </div>
+
+      {weakest && (
+        <>
+          <h2>Weakest matchups</h2>
+          <p className="footer-note" style={{ marginTop: 0 }}>
+            The core's worst opponents, ranked the same way partner suggestions
+            value fixing them (usage-weighted, losing matchups over close ones).
+            Click a row for detail.
+          </p>
+          <div className="weak-list">
+            {weakest.map((w) => (
+              <div key={w.opponent} className="weak-row-wrap">
+                <button
+                  className={`weak-row${expanded === w.opponent ? ' expanded' : ''}`}
+                  onClick={() => setExpanded(expanded === w.opponent ? null : w.opponent)}
+                  aria-expanded={expanded === w.opponent}
+                >
+                  <span className="weak-opponent">{label(w.opponent)}</span>
+                  <span className="weak-rate">best: {Math.round(w.team_best * 100)}%</span>
+                  <span className="weak-caret">{expanded === w.opponent ? '▾' : '▸'}</span>
+                </button>
+                {expanded === w.opponent && (
+                  <WeakMatchupCard db={db} weak={w} condition={condition} label={label} />
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {suggestions && (
         <>
