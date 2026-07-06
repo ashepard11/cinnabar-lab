@@ -106,15 +106,38 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .stat-block th { background: var(--surface-raised); color: var(--ink-secondary); font-weight: 550; }
 .stat-block-moves { margin-top: 8px !important; font-size: 12px !important; max-width: 420px; line-height: 1.5; }
 
-.variant-picker { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-.variant-chip {
-  border: 1px solid var(--border); border-radius: 14px; background: var(--surface);
-  padding: 3px 10px; font-size: 12.5px; cursor: pointer; color: var(--ink-secondary);
+.core-picker { margin-bottom: 20px; max-width: 460px; }
+
+.combobox { position: relative; }
+.combobox-input {
+  width: 100%; padding: 7px 10px; font-size: 13.5px;
+  border: 1px solid var(--border); border-radius: 8px; color: var(--ink);
 }
-.variant-chip:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-.variant-chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
-.variant-chip:disabled { opacity: 0.45; cursor: default; }
-.core-summary { color: var(--ink-secondary); }
+.combobox-input:focus { outline: none; border-color: var(--accent); }
+.combobox-input:disabled { background: var(--surface-raised); color: var(--ink-muted); }
+.combobox-list {
+  position: absolute; z-index: 5; left: 0; right: 0; margin: 4px 0 0; padding: 4px;
+  list-style: none; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; box-shadow: 0 4px 18px rgba(20, 25, 45, 0.14);
+  max-height: 300px; overflow-y: auto;
+}
+.combobox-option { padding: 5px 8px; border-radius: 5px; font-size: 13px; cursor: pointer; color: var(--ink); }
+.combobox-option.highlighted { background: var(--accent); color: #fff; }
+.combobox-empty { padding: 5px 8px; font-size: 13px; color: var(--ink-muted); }
+
+.core-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; min-height: 26px; }
+.core-empty { color: var(--ink-muted); font-size: 12.5px; align-self: center; }
+.core-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent); color: #fff; border-radius: 14px;
+  padding: 3px 6px 3px 12px; font-size: 12.5px;
+}
+.core-chip-remove {
+  border: none; background: rgba(255, 255, 255, 0.25); color: #fff;
+  width: 16px; height: 16px; border-radius: 50%; font-size: 9px; line-height: 1;
+  cursor: pointer; padding: 0;
+}
+.core-chip-remove:hover { background: rgba(255, 255, 255, 0.45); }
 
 .partners { border-collapse: collapse; font-size: 13px; width: 100%; }
 .partners th, .partners td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }

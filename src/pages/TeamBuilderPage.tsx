@@ -6,6 +6,7 @@ import {
   CONDITION_IDS, type ConditionId,
 } from '../lib/matchupDb';
 import { fetchJSON } from '../lib';
+import Combobox from '../components/Combobox';
 
 interface VariantMeta {
   id: string;
@@ -73,22 +74,30 @@ export default function TeamBuilderPage() {
             {CONDITION_IDS.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
         </label>
-        <span className="core-summary">
-          Core ({core.length}/4): {core.length ? core.map(label).join(' + ') : '(none picked)'}
-        </span>
       </div>
 
-      <div className="variant-picker">
-        {sorted.map((id) => (
-          <button
-            key={id}
-            className={`variant-chip${core.includes(id) ? ' selected' : ''}`}
-            onClick={() => toggle(id)}
-            disabled={!core.includes(id) && core.length >= 4}
-          >
-            {label(id)}
-          </button>
-        ))}
+      <div className="core-picker">
+        <Combobox
+          options={sorted.filter((id) => !core.includes(id)).map((id) => ({ id, label: label(id) }))}
+          placeholder={core.length >= 4 ? 'Core is full (4/4)' : 'Add Pokémon to core…'}
+          disabled={core.length >= 4}
+          onSelect={(id) => toggle(id)}
+        />
+        <div className="core-chips">
+          {core.length === 0 && <span className="core-empty">No core picked yet — add 1–4 Pokémon.</span>}
+          {core.map((id) => (
+            <span key={id} className="core-chip">
+              {label(id)}
+              <button
+                className="core-chip-remove"
+                aria-label={`Remove ${label(id)} from core`}
+                onClick={() => toggle(id)}
+              >
+                ✕
+              </button>
+            </span>
+          ))}
+        </div>
       </div>
 
       {suggestions && (

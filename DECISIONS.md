@@ -235,3 +235,15 @@ Pollen Puff / Giga Drain / Protect) defined inline in scripts/sim-sanity.ts.
 Related fix: Pollen Puff was removed from the v1 move exclusion list —
 against an enemy it is a plain 90 BP attack; only its ally-heal mode is
 teammate-dependent.
+
+## Battle simulator — frontend QoL (user request, 2026-07-06)
+
+### D26: Custom combobox instead of a component library
+The team-builder core selector moved from toggle-pills over all 89 variants
+to a search-filterable combobox with the selected core rendered as removable
+chips. The codebase has no component library (plain React + CSS throughout),
+so a ~100-line custom combobox (`src/components/Combobox.tsx`: substring
+filter, keyboard navigation, outside-click close) was written rather than
+introducing Radix/Headless UI as a dependency for a single control. Selected
+variants are excluded from the dropdown options, and the 4-Pokémon core limit
+disables the input rather than individual options.
