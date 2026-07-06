@@ -2,21 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import { loadMatchupDb, allConditionsFor, type MatchupRow } from '../lib/matchupDb';
-import { fetchJSON } from '../lib';
+import { useVariants, type VariantMeta } from '../lib/useVariants';
 import ConditionCards from '../components/ConditionCards';
 
-interface VariantFull {
-  id: string;
-  species: string;
-  item: string | null;
-  ability: string;
-  nature: string;
-  sps: Record<string, number>;
-  weight: number;
-  moves: Array<{ name: string; usage: number }>;
-}
-
-function StatBlock({ v }: { v: VariantFull }) {
+function StatBlock({ v }: { v: VariantMeta }) {
   const stats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
   return (
     <div className="stat-block">
@@ -38,14 +27,11 @@ function StatBlock({ v }: { v: VariantFull }) {
 export default function MatchupDetailPage() {
   const { A, B } = useParams<{ A: string; B: string }>();
   const [db, setDb] = useState<Database | null>(null);
-  const [variants, setVariants] = useState<VariantFull[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [dbError, setDbError] = useState<string | null>(null);
+  const { byId, error } = useVariants();
 
   useEffect(() => {
-    loadMatchupDb().then(setDb).catch((e) => setError(String(e)));
-    fetchJSON<{ variants: VariantFull[] }>('defender-variants.json')
-      .then((d) => setVariants(d.variants))
-      .catch((e) => setError(String(e)));
+    loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));
   }, []);
 
   const rows = useMemo(() => {
@@ -55,11 +41,11 @@ export default function MatchupDetailPage() {
     return byCondition;
   }, [db, A, B]);
 
-  if (error) return <div className="error-note">Could not load matchup data — {error}</div>;
+  if (error || dbError) return <div className="error-note">Could not load matchup data — {error ?? dbError}</div>;
   if (!rows || !A || !B) return <div className="loading">Loading…</div>;
 
-  const vA = variants?.find((v) => v.id === A);
-  const vB = variants?.find((v) => v.id === B);
+  const vA = byId.get(A);
+  const vB = byId.get(B);
   const fresh = rows.get('fresh');
 
   return (

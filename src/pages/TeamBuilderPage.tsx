@@ -2,19 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import {
-  loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups, allConditionsFor,
-  CONDITION_IDS, type ConditionId, type WeakMatchup, type MatchupRow,
+  loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups,
+  type ConditionId, type WeakMatchup,
 } from '../lib/matchupDb';
-import { fetchJSON } from '../lib';
+import { useVariants } from '../lib/useVariants';
 import Combobox from '../components/Combobox';
-import ConditionCards from '../components/ConditionCards';
-
-interface VariantMeta {
-  id: string;
-  species: string;
-  item: string | null;
-  weight: number;
-}
+import ConditionSelect from '../components/ConditionSelect';
+import MatchupCard from '../components/MatchupCard';
 
 /** Both team-builder lists show the same number of rows. */
 const TOP_N = 20;
@@ -27,16 +21,13 @@ function WeakMatchupCard({
   condition: ConditionId;
   label: (id: string) => string;
 }) {
-  // All-conditions view of the core's best answer vs this opponent, same
-  // component the matchup detail page uses.
-  const rows = useMemo(() => {
-    const byCondition = new Map<string, MatchupRow>();
-    for (const r of allConditionsFor(db, weak.best_member, weak.opponent)) byCondition.set(r.condition, r);
-    return byCondition;
-  }, [db, weak.best_member, weak.opponent]);
-
   return (
-    <div className="weak-card">
+    <MatchupCard
+      db={db}
+      A={weak.best_member}
+      B={weak.opponent}
+      heading={`${label(weak.best_member)} vs ${label(weak.opponent)} by starting condition`}
+    >
       <table className="weak-card-members">
         <thead>
           <tr><th>Core member</th><th>vs {label(weak.opponent)} ({condition})</th></tr>
@@ -57,45 +48,22 @@ function WeakMatchupCard({
         Metagame weight of {label(weak.opponent)}: {(weak.weight * 100).toFixed(1)}% of teams ·
         weakness score {weak.weakness_score.toFixed(3)}
       </p>
-      <h4 className="weak-card-subhead">
-        {label(weak.best_member)} vs {label(weak.opponent)} by starting condition
-      </h4>
-      <ConditionCards rows={rows} />
-      <p className="weak-card-meta">
-        <Link to={`/matchup/${weak.best_member}/${weak.opponent}`}>Full matchup detail →</Link>
-      </p>
-    </div>
+    </MatchupCard>
   );
 }
 
 export default function TeamBuilderPage() {
   const [db, setDb] = useState<Database | null>(null);
-  const [variants, setVariants] = useState<VariantMeta[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [dbError, setDbError] = useState<string | null>(null);
+  const { variants, error, label, weights } = useVariants();
   const [core, setCore] = useState<string[]>([]);
   const [condition, setCondition] = useState<ConditionId>('fresh');
 
   useEffect(() => {
-    loadMatchupDb().then(setDb).catch((e) => setError(String(e)));
-    fetchJSON<{ variants: VariantMeta[] }>('defender-variants.json')
-      .then((d) => setVariants(d.variants))
-      .catch((e) => setError(String(e)));
+    loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));
   }, []);
 
-  const label = useMemo(() => {
-    const m = new Map((variants ?? []).map((v) => [v.id, v]));
-    return (id: string) => {
-      const v = m.get(id);
-      return v ? (v.item && !v.id.includes('mega') ? `${v.species} (${v.item})` : v.species) : id;
-    };
-  }, [variants]);
-
   const ids = useMemo(() => (db ? allVariantIds(db) : []), [db]);
-
-  const weights = useMemo(
-    () => new Map((variants ?? []).map((v) => [v.id, v.weight])),
-    [variants],
-  );
 
   const suggestions = useMemo(() => {
     if (!db || core.length === 0 || !variants) return null;
@@ -115,13 +83,10 @@ export default function TeamBuilderPage() {
     setCore((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
   };
 
-  if (error) return <div className="error-note">Could not load matchup data — {error}</div>;
-  if (!db || !variants) return <div className="loading">Loading matchup matrix (~10 MB)…</div>;
+  if (error || dbError) return <div className="error-note">Could not load matchup data — {error ?? dbError}</div>;
+  if (!db || !variants) return <div className="loading">Loading matchup matrix (~18 MB)…</div>;
 
-  const sorted = [...ids].sort((a, b) => {
-    const w = new Map(variants.map((v) => [v.id, v.weight]));
-    return (w.get(b) ?? 0) - (w.get(a) ?? 0);
-  });
+  const sorted = [...ids].sort((a, b) => (weights.get(b) ?? 0) - (weights.get(a) ?? 0));
 
   return (
     <div>
@@ -134,12 +99,7 @@ export default function TeamBuilderPage() {
       </p>
 
       <div className="controls">
-        <label>
-          Condition{' '}
-          <select value={condition} onChange={(e) => setCondition(e.target.value as ConditionId)}>
-            {CONDITION_IDS.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-        </label>
+        <ConditionSelect value={condition} onChange={setCondition} />
       </div>
 
       <div className="core-picker">
