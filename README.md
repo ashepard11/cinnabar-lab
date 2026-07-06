@@ -1,7 +1,9 @@
-# Pokémon Champions VGC — Damage Visualizations
+# Pokémon Champions VGC — Metagame Analytics
 
-Two complementary views of the Pokémon Champions VGC metagame (**Regulation
-M-B, Season 3** ranked battle data from Pikalytics):
+Analytics for the Pokémon Champions VGC metagame (**Regulation M-B, Season 3**
+ranked battle data from Pikalytics), in two projects sharing one pipeline:
+
+**Damage visualizations** (`SPEC-damageviz.md`):
 
 1. **Damage sources (Marimekko)** — "Where does the damage I take come from?"
    Expected damage output across the metagame, weighted by Pokémon usage and
@@ -10,10 +12,21 @@ M-B, Season 3** ranked battle data from Pikalytics):
    type, how much damage does it do to the field?" An 18×2 grid of relative
    damage vs the usage-weighted defender field.
 
-This is project 1 of 2; the shared scraper, variant selection, and Pokémon
-construction helpers in `lib/` are the foundation for the follow-on battle
-simulator (`SPEC-sim.md`). Design decisions and their reasoning live in
-[DECISIONS.md](DECISIONS.md).
+**Battle simulator** (`SPEC-sim.md`):
+
+3. **Matchup matrix** (`/matchups`) — P(A beats B) in a simulated 1v1
+   Champions endgame for every pair of the 89 metagame variants × 10 starting
+   conditions (fresh, Tailwind either side, Trick Room, sun, rain, ±1 boosts),
+   from seeded Pokémon Showdown battles.
+4. **Matchup detail** (`/matchup/:A/:B`) — one pairing across all conditions,
+   with confidence intervals and both modal sets.
+5. **Team builder** (`/team-builder`) — pick a 1–4 variant core, get partners
+   ranked by how well they patch the core's worst matchups, weighted by
+   opponent usage and matchup urgency.
+
+Design decisions and their reasoning live in [DECISIONS.md](DECISIONS.md);
+the move-selection policy design is documented in
+[docs/policy-design.md](docs/policy-design.md).
 
 ## Quick start
 
@@ -22,20 +35,30 @@ npm ci
 npm run dev        # frontend at http://localhost:5173 (uses committed data/)
 ```
 
-Rebuild the data pipeline (scrape → variants → viz1 → viz2):
+Rebuild the damage-viz data pipeline (scrape → variants → viz1 → viz2):
 
 ```bash
 npm run build-all
 ```
 
-Individual steps: `npm run scrape`, `build-variants`, `build-viz1`,
-`build-viz2`. Tests: `npm test` (calc-engine smoke test + variant-selection
-unit tests), `npm run typecheck`.
+Battle-simulator commands:
 
-Data refreshes automatically every Monday via
-`.github/workflows/refresh-data.yml` (also runnable manually via
-workflow_dispatch). The frontend fetches `data/*.json` at runtime, so a data
-refresh does not require a JS rebuild.
+```bash
+npm run sim-smoke        # Phase 0 engine smoke test (Zard Y vs Incineroar)
+npm run sim-sanity       # sanity gate: 5 spec matchups + invariants
+npm run build-matchups   # full matrix build into data/matchups.sqlite (~hours; resumable)
+npm run inspect-matchup -- --A charizard_mega_y --B incineroar_no_item --condition fresh --verbose
+```
+
+Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity),
+`npm run typecheck`. Damage-viz data refreshes weekly via
+`.github/workflows/refresh-data.yml`.
+
+Note: the weekly refresh regenerates usage/variants/viz JSON only. The
+matchup matrix is a snapshot tied to the variant set it was built from
+(policy + engine versions stamped in its `metadata` table) — after a data
+refresh changes `defender-variants.json`, re-run `npm run build-matchups`
+(hours, resumable, incremental) to bring the matrix back in sync.
 
 ## How it works
 
@@ -44,6 +67,16 @@ refresh does not require a JS rebuild.
   (`vendor/smogon-calc-*.tgz`) because the npm release predates Champions.
   Champions' SP system (0–32 per stat, level-independent stat formula) is
   first-class. See DECISIONS.md D1–D2.
+- **Battle engine** — `pokemon-showdown` built from smogon master and
+  vendored (`vendor/pokemon-showdown-*.tgz`; the npm release predates
+  Champions). 1v1 battles run headless through `BattleStream` in the
+  Champions BSS format — mechanically identical to a doubles endgame for
+  strict 1v1 (D20–D21). Every battle is seeded and reproducible.
+- **Move policy** — `nash-d2`: each turn, both sides' payoff matrix over move
+  pairs is evaluated to depth 2 with a calc-backed forward model and solved
+  as a zero-sum matrix game (fictitious play); moves are sampled from the
+  equilibrium mixture. Rationale, option survey, and validation plan:
+  [docs/policy-design.md](docs/policy-design.md).
 - **Scraper** (`lib/scrape.ts`) — hits Pikalytics' JSON API for the current
   M-series season (`battledataregmbs3`, Glicko 1760 cutoff), auto-discovers
   the stats month, includes every Pokémon at ≥1% usage. Usage % is derived
@@ -52,11 +85,13 @@ refresh does not require a JS rebuild.
   (each Mega Stone its own variant, each damage-boosting item its own
   variant, everything else one "no item" bucket), keeps buckets clearing a 1%
   usage product, always keeps Megas. Currently 89 variants from 70 Pokémon.
-- **Viz pipelines** (`scripts/build-viz1.ts`, `build-viz2.ts`) — damage calcs
-  against a standard synthetic target (viz 1) / the weighted defender field
-  (viz 2), written to `data/viz{1,2}-data.json`.
+- **Matchup matrix build** (`scripts/build-matchups.ts`) — worker-thread pool
+  over all unordered pairs × conditions; adaptive sampling (20–200 battles
+  per cell, Wilson CI); each simulated cell also writes its exact mirror row.
+  Output: `data/matchups.sqlite` (schema per spec + a `metadata` table with
+  policy/calc/engine versions). The frontend loads it with sql.js.
 
-## Known v1 limitations
+## Known limitations — damage viz (v1)
 
 1. **Defender items beyond Megas are ignored.** Type-resist berries, Assault
    Vest, Eviolite would matter for the heatmap but are skipped to keep the
@@ -84,12 +119,41 @@ refresh does not require a JS rebuild.
    (D7), which reproduces known reference values but may drift slightly from
    Pikalytics' own displayed ordering.
 
+## Known limitations — battle simulator (v1)
+
+1. **No support moves.** Weather-setters, Tailwind, Trick Room, and screens
+   are available only as *starting conditions*, not as playable moves during
+   the simulation (they're filtered out of movesets, D23). Pokémon whose
+   value comes from support (Grimmsnarl, Farigiraf, Pelipper-as-setter) are
+   underrepresented. v2 scope.
+2. **No switching.** 1v1 endgame only; pivot value (Parting Shot momentum,
+   U-turn) doesn't exist in a 1v1, so pivot Pokémon are undervalued.
+3. **Policy realism.** `nash-d2` is a depth-2 equilibrium search, not a
+   human. It misses long-horizon plays (multi-turn setup chains) and models
+   Encore/Disable/Perish Song as planning no-ops (they still resolve for
+   real in battle). Read the matrix as "under one specific, documented
+   decision policy" — the policy id is stamped in the sqlite metadata, and
+   changing it invalidates (and regenerates) the matrix.
+4. **Modal spreads only.** Both sides use their variant's modal spread and
+   top-4 eligible moves; real players tune spreads to benchmarks.
+5. **Redirection is skipped in 1v1** — correct for the endgame unit, but the
+   matrix says nothing about teammate-dependent value (Follow Me, Rage
+   Powder).
+6. **Community-consensus checks are calibrated to Gen-9 intuitions.** Where
+   Champions' stat system and modal spreads genuinely flip a matchup
+   (Garchomp vs offensive Rotom-W), the simulator result deviates from the
+   Gen-9 expectation by design; such cases are verified by hand and
+   documented (D24).
+
 ## Repo layout
 
 ```
-data/       scraped usage, variants, and viz JSON (committed, cron-refreshed)
-lib/        pipeline library: scrape, variants, items, moves, calc, pokemon, types
-scripts/    runnable pipeline steps + tests
-src/        React frontend (Vite, React Router, D3 scale-chromatic)
-vendor/     vendored @smogon/calc build with Champions support
+data/       scraped usage, variants, viz JSON, matchups.sqlite (committed)
+docs/       policy design doc
+lib/        pipeline library: scrape, variants, calc, pokemon, types
+lib/sim/    battle simulator: engine, model, policy, condition, harness, sets
+lib/analysis/  matchup-matrix and team-coverage query APIs
+scripts/    runnable pipeline steps + tests + matrix build
+src/        React frontend (Vite, React Router, D3 scale-chromatic, sql.js)
+vendor/     vendored @smogon/calc and pokemon-showdown builds with Champions
 ```

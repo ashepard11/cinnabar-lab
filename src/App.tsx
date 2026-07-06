@@ -1,15 +1,18 @@
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import MarimekkoPage from './pages/MarimekkoPage';
 import HeatmapPage from './pages/HeatmapPage';
+import MatchupsPage from './pages/MatchupsPage';
+import MatchupDetailPage from './pages/MatchupDetailPage';
+import TeamBuilderPage from './pages/TeamBuilderPage';
 
 function Landing() {
   return (
     <div>
-      <h1>Pokémon Champions VGC — Damage Visualizations</h1>
+      <h1>Pokémon Champions VGC — Metagame Analytics</h1>
       <p className="subtitle">
-        Two views of the current Regulation M-B doubles metagame, built from
+        Views of the current Regulation M-B doubles metagame, built from
         Pikalytics ranked battle data: where the damage you face comes from,
-        and where the field is weakest.
+        where the field is weakest, and who beats whom in a 1v1 endgame.
       </p>
       <div className="landing-cards">
         <Link className="landing-card" to="/marimekko">
@@ -28,6 +31,22 @@ function Landing() {
             relative damage, with the defenders that drive each cell.
           </p>
         </Link>
+        <Link className="landing-card" to="/matchups">
+          <h2>Who wins the 1v1?</h2>
+          <p>
+            A simulated matchup matrix over the whole metagame: P(A beats B) in
+            a 1v1 Champions endgame, from seeded Pokémon Showdown battles with
+            a game-theoretic move policy, across 10 starting conditions.
+          </p>
+        </Link>
+        <Link className="landing-card" to="/team-builder">
+          <h2>What covers my core?</h2>
+          <p>
+            Pick up to four Pokémon as a team core and get partners ranked by
+            how well they patch the core's worst 1v1 matchups, weighted by how
+            common each opponent is.
+          </p>
+        </Link>
       </div>
     </div>
   );
@@ -37,14 +56,19 @@ export default function App() {
   return (
     <div className="app-shell">
       <nav className="nav">
-        <Link to="/" className="nav-title">Champions VGC Damage Viz</Link>
+        <Link to="/" className="nav-title">Champions VGC Analytics</Link>
         <NavLink to="/marimekko">Damage sources</NavLink>
         <NavLink to="/heatmap">Field weakness</NavLink>
+        <NavLink to="/matchups">Matchups</NavLink>
+        <NavLink to="/team-builder">Team builder</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/marimekko" element={<MarimekkoPage />} />
         <Route path="/heatmap" element={<HeatmapPage />} />
+        <Route path="/matchups" element={<MatchupsPage />} />
+        <Route path="/matchup/:A/:B" element={<MatchupDetailPage />} />
+        <Route path="/team-builder" element={<TeamBuilderPage />} />
       </Routes>
     </div>
   );

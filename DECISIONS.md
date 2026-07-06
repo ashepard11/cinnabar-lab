@@ -157,3 +157,81 @@ is unchanged; the contributor drilldown just stops splitting one Pokémon
 across duplicate rows (e.g. Garchomp no longer appears twice in Fairy
 Special). The marimekko intentionally keeps item variants separate: items
 change attacking output.
+
+## Battle simulator (SPEC-sim.md) — Phase 0
+
+### D20: Vendored pokemon-showdown master build (same pattern as D1)
+The released `pokemon-showdown@0.11.10` npm package has no Champions data
+(newest VGC format is 2025 Reg G). The master branch of smogon/pokemon-showdown
+ships full Champions support: format `gen9championsvgc2026regmb`
+("[Gen 9 Champions] VGC 2026 Reg M-B", mod `champions`), the Champions
+level-independent stat formula (`HP = base + SP + 75`, `stat = nature ×
+(base + SP + 20)` — a battle set's `evs` field IS the SP field), Grav Apple
+90 BP, and — unlike the calc's data (see D4) — Growth retyped to Grass.
+Master has no `prepare` script, so a git install would ship unbuilt
+TypeScript; instead the package was built from master (commit
+`e440c4a18385274f10c405d0b158b6a962ce6d94`, `npm install && node build &&
+npm run build-npm && npm pack --ignore-scripts`) and vendored as
+`vendor/pokemon-showdown-0.11.10-champions-master-e440c4a.tgz`.
+
+### D21: 1v1 battles run in the Champions BSS (singles) format
+`gen9championsvgc2026regmb` is `gameType: doubles`, and the Showdown engine
+cannot start a doubles battle with a 1-Pokémon team: the second active slot is
+`null` and the turn loop crashes dereferencing it (sim/battle.ts `runAction`
+phazing loop; null slots only ever arise at start, never in real endgames,
+where fainted Pokémon still occupy their slot). Rather than patch the engine,
+1v1 battles use `gen9championsbssregmb` ("[Gen 9 Champions] BSS Reg M-B",
+same `champions` mod, `gameType: singles`). For a strict 1v1 this is
+mechanically identical to a doubles endgame: the doubles-only spread-damage
+reduction (×0.75) only engages when a move actually hits ≥2 targets, and
+every other doubles-specific mechanic (redirection, ally targeting) is a
+no-op with one Pokémon per side — the spec itself notes this ("Redirection is
+skipped in 1v1"). The deviation is logged here per the spec's Phase 0
+fallback instructions.
+
+### D22: Mega variants start the battle already in their Mega forme
+BattleStream runs no team validation, so sides are sent hackmons-style with
+`species: "Charizard-Mega-Y"` + the stone. This matches the variant data
+(Pikalytics spreads/abilities are for the Mega), makes Drought fire on
+switch-in (verified in the smoke test), and sidesteps the mega-declaration
+choice API entirely — the policy never needs to decide "when to Mega" (in
+Champions Reg M-B the Mega slot mon just Megas turn 1 anyway). The champions
+mod's `canMegaEvo` returns null for a mon already in its Mega forme, so no
+double-Mega is possible.
+
+### D23: v1 movesets = top-4 usage moves after scope exclusions
+The spec fixes each side to its variant's modal spread but doesn't pin the
+moveset. v1 uses the variant's 4 highest-usage moves after removing moves the
+v1 scope forbids as actions (weather/terrain setters, Tailwind, Trick Room,
+screens) plus moves that are strictly dead in a 1v1 (redirection,
+ally-targeted moves, hazards). Filtering *before* taking the top 4 keeps
+support-heavy Pokémon (e.g. Amoonguss) from fielding near-empty movesets —
+they get their best 4 *eligible* moves instead, which is also the closest
+1v1-endgame analogue of what they'd actually click.
+
+## Battle simulator — sanity gate
+
+### D24: Garchomp vs Rotom-Wash deviates from the spec's expected result — verified as format math
+The spec expects Rotom-W to win ~80%+ ("Hydro Pump 2HKOs Garchomp; Levitate
+means Earthquake does nothing"); the simulator gives Garchomp ~100%. Debugged
+per the gate rule and root-caused to the metagame data, not the policy:
+this format's modal Rotom-W is an offensive spread (Modest, 32 SpA / 32 SpE,
+2 HP SP → 127 HP / 127 Def), not the Gen-9 bulky pivot the expectation
+assumes. Jolly Garchomp outspeeds it (169 vs 138) and Dragon Claw (80 BP,
+STAB, atk 182) is a guaranteed 2HKO (min roll 66 > 127/2), while Champions'
+Hydro Pump is 80-accurate and needs two turns Rotom never gets. Even Rotom's
+optimal line loses on paper: T1 Will-O-Wisp (takes 76, leaving 51), burned
+Claw does 33–39, so Rotom dies turn 3 before the second Hydro can fire; no
+crit or miss path exists (Claw is 100% accurate, crit Hydro still fails to
+OHKO). The policy correctly finds the matchup unwinnable. Precedent: D3
+(Champions' level-independent stats shift damage ratios above Gen-9
+intuition). Logged in scripts/sim-sanity.ts as DEVIATION, not FAIL.
+
+### D25: Amoonguss sanity case uses a synthetic variant
+Amoonguss is below the scraper's usage cutoff and has no entry in
+defender-variants.json, but the spec names it in a sanity matchup. The gate
+uses a standard bulky set (Calm, 32 HP / 32 SpD, Regenerator, Spore /
+Pollen Puff / Giga Drain / Protect) defined inline in scripts/sim-sanity.ts.
+Related fix: Pollen Puff was removed from the v1 move exclusion list —
+against an enemy it is a plain 90 BP attack; only its ally-heal mode is
+teammate-dependent.
