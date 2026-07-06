@@ -247,3 +247,15 @@ filter, keyboard navigation, outside-click close) was written rather than
 introducing Radix/Headless UI as a dependency for a single control. Selected
 variants are excluded from the dropdown options, and the 4-Pokémon core limit
 disables the input rather than individual options.
+
+### D27: Weakest-matchups section shares the partner-suggestion weighting
+The team builder now lists the core's worst matchups above the partner
+suggestions, ranked by `usage_weight × (1 − team_best) × urgency(team_best)`
+— the same urgency function suggestPartners uses, so the two lists
+prioritize identically ("what hurts most" ↔ "who fixes it"). The shared
+per-opponent computation lives in `computeTeamBest` (lib/analysis/team.ts,
+mirrored in src/lib/matchupDb.ts per the existing Node/browser split) rather
+than being duplicated in each ranking. Both lists show the same row count
+(TOP_N = 20). Rows expand accordion-style (one at a time) into a card with
+per-member win rates, the opponent's metagame weight, and the reused
+ConditionCards component (extracted from the matchup detail page).

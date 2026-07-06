@@ -139,6 +139,27 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 }
 .core-chip-remove:hover { background: rgba(255, 255, 255, 0.45); }
 
+.weak-list { margin-bottom: 28px; }
+.weak-row-wrap { border-bottom: 1px solid var(--border); }
+.weak-row {
+  display: flex; align-items: baseline; gap: 12px; width: 100%;
+  border: none; background: none; text-align: left; cursor: pointer;
+  padding: 7px 4px; font-size: 13px; color: var(--ink);
+}
+.weak-row:hover { background: var(--surface-raised); }
+.weak-row.expanded { background: var(--surface-raised); font-weight: 600; }
+.weak-opponent { flex: 1; }
+.weak-rate { color: #b3423a; font-variant-numeric: tabular-nums; }
+.weak-caret { color: var(--ink-muted); font-size: 11px; }
+.weak-card { padding: 12px 4px 18px; }
+.weak-card-members { border-collapse: collapse; font-size: 12.5px; margin-bottom: 8px; }
+.weak-card-members th, .weak-card-members td { text-align: left; padding: 3px 14px 3px 0; border-bottom: 1px solid var(--border); }
+.weak-card-members th { color: var(--ink-secondary); font-weight: 600; font-size: 12px; }
+.weak-best-member td { font-weight: 600; }
+.weak-best-tag { color: var(--accent); font-weight: 600; font-size: 11px; }
+.weak-card-meta { color: var(--ink-muted); font-size: 12.5px; margin: 6px 0; }
+.weak-card-subhead { font-size: 13px; margin: 14px 0 8px; color: var(--ink-secondary); }
+
 .partners { border-collapse: collapse; font-size: 13px; width: 100%; }
 .partners th, .partners td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .partners th { color: var(--ink-secondary); font-weight: 600; font-size: 12.5px; }

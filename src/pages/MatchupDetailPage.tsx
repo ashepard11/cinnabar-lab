@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Database } from 'sql.js';
-import { interpolateRdBu } from 'd3-scale-chromatic';
-import { loadMatchupDb, allConditionsFor, CONDITION_IDS, type MatchupRow } from '../lib/matchupDb';
+import { loadMatchupDb, allConditionsFor, type MatchupRow } from '../lib/matchupDb';
 import { fetchJSON } from '../lib';
+import ConditionCards from '../components/ConditionCards';
 
 interface VariantFull {
   id: string;
@@ -76,23 +76,7 @@ export default function MatchupDetailPage() {
       )}
 
       <h2>By starting condition</h2>
-      <div className="condition-cards">
-        {CONDITION_IDS.map((c) => {
-          const r = rows.get(c);
-          if (!r) return <div key={c} className="condition-card condition-missing">{c}: —</div>;
-          const pct = Math.round(r.p_A_wins * 100);
-          return (
-            <div key={c} className="condition-card" style={{ borderTopColor: interpolateRdBu(r.p_A_wins) }}>
-              <div className="condition-name">{c}</div>
-              <div className="condition-value">{pct}%</div>
-              <div className="condition-ci">
-                CI {Math.round(r.ci_low * 100)}–{Math.round(r.ci_high * 100)} · n={r.n_simulated}
-                <br />⌀ {r.mean_turns.toFixed(1)} turns
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ConditionCards rows={rows} />
       <p className="footer-note">
         Conditions are from side A's ({vA?.species ?? A}) perspective: e.g. tailwind_A
         means {vA?.species ?? A} has Tailwind up.

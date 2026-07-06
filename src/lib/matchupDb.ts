@@ -102,6 +102,72 @@ export function urgency(p0: number): number {
   return 1.5 - p0;
 }
 
+/**
+ * Per-opponent win rates of each core member, plus the core's best answer.
+ * Shared foundation of suggestPartners and weakestMatchups so both rank
+ * with the same weighting.
+ */
+export function computeTeamBest(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+): Map<string, { best: number; per_member: Array<{ member: string; p: number }> }> {
+  const all = allVariantIds(db);
+  const coreSet = new Set(core);
+  const coreRows = core.map((c) => ({ member: c, rows: matchupsFor(db, c, condition) }));
+  const out = new Map<string, { best: number; per_member: Array<{ member: string; p: number }> }>();
+  for (const V of all) {
+    if (coreSet.has(V)) continue;
+    const per_member: Array<{ member: string; p: number }> = [];
+    let best = -1;
+    for (const { member, rows } of coreRows) {
+      const row = rows.get(V);
+      if (!row) continue;
+      per_member.push({ member, p: row.p_A_wins });
+      if (row.p_A_wins > best) best = row.p_A_wins;
+    }
+    if (best >= 0) out.set(V, { best, per_member });
+  }
+  return out;
+}
+
+export interface WeakMatchup {
+  opponent: string;
+  team_best: number;
+  per_member: Array<{ member: string; p: number }>;
+  best_member: string;
+  weight: number;
+  weakness_score: number;
+}
+
+/**
+ * The core's worst matchups, ranked by the same weighting suggestPartners
+ * uses to value fixing them: usage weight × how badly the core loses ×
+ * urgency (losing matchups over close ones).
+ */
+export function weakestMatchups(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+  weights: Map<string, number>,
+): WeakMatchup[] {
+  const teamBest = computeTeamBest(db, core, condition);
+  const out: WeakMatchup[] = [];
+  for (const [V, { best, per_member }] of teamBest) {
+    const bestEntry = per_member.reduce((a, b) => (b.p > a.p ? b : a), per_member[0]);
+    out.push({
+      opponent: V,
+      team_best: best,
+      per_member,
+      best_member: bestEntry.member,
+      weight: weights.get(V) ?? 0,
+      weakness_score: (weights.get(V) ?? 0) * (1 - best) * urgency(best),
+    });
+  }
+  out.sort((a, b) => b.weakness_score - a.weakness_score);
+  return out;
+}
+
 export function suggestPartners(
   db: Database,
   core: string[],
@@ -110,18 +176,9 @@ export function suggestPartners(
 ): PartnerSuggestion[] {
   const all = allVariantIds(db);
   const coreSet = new Set(core);
-  const coreRows = core.map((c) => matchupsFor(db, c, condition));
-
+  const teamBestFull = computeTeamBest(db, core, condition);
   const teamBest = new Map<string, number>();
-  for (const V of all) {
-    if (coreSet.has(V)) continue;
-    let best = -1;
-    for (const r of coreRows) {
-      const row = r.get(V);
-      if (row && row.p_A_wins > best) best = row.p_A_wins;
-    }
-    if (best >= 0) teamBest.set(V, best);
-  }
+  for (const [V, { best }] of teamBestFull) teamBest.set(V, best);
 
   const out: PartnerSuggestion[] = [];
   for (const candidate of all) {
