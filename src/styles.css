@@ -213,3 +213,17 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .cond-sens-value { font-size: 12.5px; color: var(--ink); white-space: nowrap; text-align: right; }
 .cond-sens-delta.pos { color: #1a7f4b; }
 .cond-sens-delta.neg { color: #c0392b; }
+
+/* Team builder — condition sensitivity bar chart (Part A) */
+.cond-sens { margin: 4px 0 28px; }
+.cond-sens-row { display: grid; grid-template-columns: 120px 1fr 78px; align-items: center; gap: 12px; padding: 3px 0; }
+.cond-sens-label { font-size: 12.5px; color: var(--ink-secondary); white-space: nowrap; }
+.cond-sens-row.is-fresh .cond-sens-label { color: var(--ink); font-weight: 600; }
+.cond-sens-baseline { color: var(--ink-muted); font-weight: 400; font-size: 11px; }
+.cond-sens-track { position: relative; height: 18px; background: var(--surface-raised); border-radius: 4px; overflow: hidden; }
+.cond-sens-bar { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 4px; }
+.cond-sens-row.is-fresh .cond-sens-bar { background: var(--ink-muted); }
+.cond-sens-fresh-line { position: absolute; top: -2px; bottom: -2px; width: 0; border-left: 2px dashed var(--ink); opacity: 0.55; }
+.cond-sens-value { font-size: 12.5px; color: var(--ink); white-space: nowrap; text-align: right; }
+.cond-sens-delta.pos { color: #1a7f4b; }
+.cond-sens-delta.neg { color: #c0392b; }

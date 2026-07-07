@@ -8,6 +8,7 @@ import {
 import { useVariants } from '../lib/useVariants';
 import Combobox from '../components/Combobox';
 import ConditionSelect from '../components/ConditionSelect';
+import ConditionSensitivity from '../components/ConditionSensitivity';
 import MatchupCard from '../components/MatchupCard';
 
 /** Both team-builder lists show the same number of rows. */
@@ -156,6 +157,20 @@ export default function TeamBuilderPage() {
           ))}
         </div>
       </div>
+
+      {core.length > 0 && (
+        <>
+          <h2>Condition sensitivity</h2>
+          <p className="footer-note" style={{ marginTop: 0 }}>
+            The core's metagame-weighted average win rate under each starting
+            condition (best core member vs each opponent, weighted by opponent
+            usage). Bars sorted by shift from <code>fresh</code>; the dashed line
+            marks the <code>fresh</code> baseline. This sweep is independent of
+            the condition selector above.
+          </p>
+          <ConditionSensitivity db={db} core={core} weights={weights} />
+        </>
+      )}
 
       {weakest && (
         <>
