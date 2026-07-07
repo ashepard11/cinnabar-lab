@@ -155,6 +155,24 @@ export interface WeakMatchup {
  * key exposes the opponents with no redundant answer. Client mirror of
  * lib/analysis/team.ts. (Diverges from suggestPartners — see DECISIONS.md.)
  */
+type TeamBestEntry = { best: number; per_member: Array<{ member: string; p: number }> };
+
+/** Build one WeakMatchup from a computeTeamBest entry (shared by the list and the probe). */
+function toWeakMatchup(opponent: string, entry: TeamBestEntry, weight: number): WeakMatchup {
+  const byRate = [...entry.per_member].sort((a, b) => b.p - a.p);
+  const second = byRate[1]?.p ?? 0;
+  return {
+    opponent,
+    team_best: entry.best,
+    team_second_best: second,
+    per_member: entry.per_member,
+    best_member: byRate[0].member,
+    weight,
+    primary_key: weight * entry.best,
+    secondary_key: weight * second,
+  };
+}
+
 export function weakestMatchups(
   db: Database,
   core: string[],
@@ -163,23 +181,25 @@ export function weakestMatchups(
 ): WeakMatchup[] {
   const teamBest = computeTeamBest(db, core, condition);
   const out: WeakMatchup[] = [];
-  for (const [V, { best, per_member }] of teamBest) {
-    const byRate = [...per_member].sort((a, b) => b.p - a.p);
-    const second = byRate[1]?.p ?? 0;
-    const w = weights.get(V) ?? 0;
-    out.push({
-      opponent: V,
-      team_best: best,
-      team_second_best: second,
-      per_member,
-      best_member: byRate[0].member,
-      weight: w,
-      primary_key: w * best,
-      secondary_key: w * second,
-    });
-  }
+  for (const [V, entry] of teamBest) out.push(toWeakMatchup(V, entry, weights.get(V) ?? 0));
   out.sort((a, b) => a.primary_key - b.primary_key || a.secondary_key - b.secondary_key);
   return out;
+}
+
+/**
+ * The core-vs-one-opponent card for an arbitrary opponent (the team builder's
+ * "check specific matchup" probe). Same per-member computation as the weakest
+ * list; null if the opponent has no matchup data or is a core member.
+ */
+export function weakMatchupFor(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+  weights: Map<string, number>,
+  opponent: string,
+): WeakMatchup | null {
+  const entry = computeTeamBest(db, core, condition).get(opponent);
+  return entry ? toWeakMatchup(opponent, entry, weights.get(opponent) ?? 0) : null;
 }
 
 export type RankSort = 'weighted' | 'raw';

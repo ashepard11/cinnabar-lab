@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import {
-  loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups,
+  loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups, weakMatchupFor,
   type ConditionId, type WeakMatchup,
 } from '../lib/matchupDb';
 import { useVariants } from '../lib/useVariants';
@@ -79,6 +79,14 @@ export default function TeamBuilderPage() {
   // accordion: id of the one expanded weakest-matchup row (or null)
   const [expanded, setExpanded] = useState<string | null>(null);
   useEffect(() => setExpanded(null), [core, condition]);
+
+  // "check specific matchup" probe: an arbitrary opponent, shown expanded
+  const [probe, setProbe] = useState<string | null>(null);
+  useEffect(() => setProbe(null), [core]);
+  const probeMatchup = useMemo(() => {
+    if (!db || !probe || core.length === 0 || !variants) return null;
+    return weakMatchupFor(db, core, condition, weights, probe);
+  }, [db, probe, core, condition, weights, variants]);
 
   const toggle = (id: string) => {
     setCore((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 4 ? [...c, id] : c));
@@ -157,6 +165,40 @@ export default function TeamBuilderPage() {
               </div>
             ))}
           </div>
+        </>
+      )}
+
+      {weakest && (
+        <>
+          <h2>Check specific matchup</h2>
+          <p className="footer-note" style={{ marginTop: 0 }}>
+            Probe any opponent outside the weakest-N list: see how the core's
+            best answer fares against it under each starting condition.
+          </p>
+          <div className="core-picker">
+            <Combobox
+              options={sorted.filter((id) => !core.includes(id)).map((id) => ({ id, label: label(id) }))}
+              placeholder="Check specific matchup…"
+              onSelect={(id) => setProbe(id)}
+            />
+            {probe && probeMatchup && (
+              <div className="core-chips">
+                <span className="core-chip">
+                  vs {label(probe)}
+                  <button
+                    className="core-chip-remove"
+                    aria-label={`Clear ${label(probe)} matchup`}
+                    onClick={() => setProbe(null)}
+                  >
+                    ✕
+                  </button>
+                </span>
+              </div>
+            )}
+          </div>
+          {probe && probeMatchup && (
+            <WeakMatchupCard db={db} weak={probeMatchup} condition={condition} label={label} />
+          )}
         </>
       )}
 

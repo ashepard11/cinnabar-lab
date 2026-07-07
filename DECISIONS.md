@@ -298,3 +298,21 @@ lexicographic comparison is exact (no epsilon bucketing): with continuous
 usage weights the primary key ties only on exact equality, so the secondary
 key acts as a strict tie-breaker; the "broadly covered ⇒ secondary decides"
 behavior emerges from the clustering of primary values, not from rounding.
+
+### D30: Pokémon-page set display + win-rate thresholds + team-builder matchup probe (user request, 2026-07-06)
+Three UI tweaks: (1) The Pokémon detail page shows the exact set the sim
+uses (SP spread, nature, ability, item, top-4 eligible moves) via a shared
+`StatBlock` component extracted from the matchup detail page's "Sets used"
+block. The move list mirrors `lib/sim/sets.ts` `pickMoves`/`EXCLUDED_MOVES`
+client-side (the Node source can't be bundled — it pulls in
+pokemon-showdown), so "Sets used" now shows the 4 played moves rather than
+the top-8 by usage. (2) The page's best/worst lists move from a fixed top-5
+to win-rate thresholds (best > 80%, worst < 20%), with empty states and each
+list scrolling within its column when long. (3) The team builder gains a
+"Check specific matchup" combobox below the weakest list that renders the
+weakest-matchup card for the core's best answer vs. any chosen opponent
+(expanded by default), reusing `WeakMatchupCard` and a new `weakMatchupFor`
+(shared `toWeakMatchup` builder with `weakestMatchups`) so probing an
+arbitrary opponent draws on the same per-member computation as the list.
+Team-builder core and probe stay in component state (no URL params, as
+before); the id-bearing routes on the matchup/Pokémon pages are unchanged.
