@@ -13,6 +13,16 @@ import MatchupCard from '../components/MatchupCard';
 /** Both team-builder lists show the same number of rows. */
 const TOP_N = 20;
 
+/** Mega variants carry `_mega` in their id (e.g. charizard_mega_y, froslass_mega). */
+const isMega = (id: string) => /_mega(_|$)/.test(id);
+
+type PartnerFilter = 'all' | 'mega' | 'non_mega';
+const PARTNER_FILTER_LABELS: Record<PartnerFilter, string> = {
+  all: 'All Pokémon',
+  mega: 'Megas only',
+  non_mega: 'Non-megas only',
+};
+
 function WeakMatchupCard({
   db, weak, condition, label,
 }: {
@@ -66,10 +76,22 @@ export default function TeamBuilderPage() {
 
   const ids = useMemo(() => (db ? allVariantIds(db) : []), [db]);
 
-  const suggestions = useMemo(() => {
+  const [partnerFilter, setPartnerFilter] = useState<PartnerFilter>('all');
+
+  // Full ranking (expensive) recomputes only on core/condition change; the
+  // mega filter re-slices the cached result without re-scoring.
+  const allSuggestions = useMemo(() => {
     if (!db || core.length === 0 || !variants) return null;
-    return suggestPartners(db, core, condition, weights).slice(0, TOP_N);
+    return suggestPartners(db, core, condition, weights);
   }, [db, core, condition, variants, weights]);
+
+  const suggestions = useMemo(() => {
+    if (!allSuggestions) return null;
+    const filtered = partnerFilter === 'all'
+      ? allSuggestions
+      : allSuggestions.filter((s) => isMega(s.variant) === (partnerFilter === 'mega'));
+    return filtered.slice(0, TOP_N);
+  }, [allSuggestions, partnerFilter]);
 
   const weakest = useMemo(() => {
     if (!db || core.length === 0 || !variants) return null;
@@ -204,7 +226,25 @@ export default function TeamBuilderPage() {
 
       {suggestions && (
         <>
-          <h2>Suggested partners</h2>
+          <div className="section-head">
+            <h2>Suggested partners</h2>
+            <label className="partner-filter">
+              Show{' '}
+              <select
+                value={partnerFilter}
+                onChange={(e) => setPartnerFilter(e.target.value as PartnerFilter)}
+              >
+                {(Object.keys(PARTNER_FILTER_LABELS) as PartnerFilter[]).map((f) => (
+                  <option key={f} value={f}>{PARTNER_FILTER_LABELS[f]}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+          {suggestions.length === 0 ? (
+            <p className="ranked-empty">
+              No {partnerFilter === 'mega' ? 'mega' : 'non-mega'} candidates improve this core's coverage.
+            </p>
+          ) : (
           <table className="partners">
             <thead>
               <tr><th>#</th><th>Candidate</th><th>Coverage score</th><th>Biggest matchup fixes</th></tr>
@@ -229,6 +269,7 @@ export default function TeamBuilderPage() {
               ))}
             </tbody>
           </table>
+          )}
         </>
       )}
     </div>
