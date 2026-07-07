@@ -245,6 +245,50 @@ export function rankOpponents(
   return { best: scored('best'), worst: scored('worst') };
 }
 
+export interface VariantRanking {
+  variant: string;
+  /**
+   * Metagame-weighted win rate under the condition:
+   *   Σ over V of normalizedWeight(V) × P(variant beats V | condition).
+   * With weights summing to 1 this is the average chance of beating a random
+   * opponent drawn from the field, i.e. a probability in [0, 1].
+   */
+  expected_win_rate: number;
+}
+
+/**
+ * Rank every variant by metagame-weighted win rate under one condition, best
+ * first. `normalizedWeights` must sum to 1 across the variant set (see
+ * useVariants.normalizeWeights) for the result to read as a probability.
+ *
+ * The matrix omits self-matchups, so A-vs-A is synthesized at 0.5 — a speed-tied
+ * mirror is a coin flip — rather than dropped, so the weighted mean stays over
+ * the whole field including the variant itself (task requirement: include self).
+ */
+export function rankByExpectedWinRate(
+  db: Database,
+  condition: ConditionId,
+  normalizedWeights: Map<string, number>,
+): VariantRanking[] {
+  const ids = allVariantIds(db);
+  const p = new Map<string, number>();
+  for (const r of conditionRows(db, condition)) {
+    p.set(`${r.variant_A}|${r.variant_B}`, r.p_A_wins);
+  }
+  const out: VariantRanking[] = ids.map((A) => {
+    let sum = 0;
+    for (const V of ids) {
+      const w = normalizedWeights.get(V) ?? 0;
+      if (w === 0) continue;
+      const pav = A === V ? 0.5 : (p.get(`${A}|${V}`) ?? 0.5);
+      sum += w * pav;
+    }
+    return { variant: A, expected_win_rate: sum };
+  });
+  out.sort((a, b) => b.expected_win_rate - a.expected_win_rate);
+  return out;
+}
+
 export function suggestPartners(
   db: Database,
   core: string[],

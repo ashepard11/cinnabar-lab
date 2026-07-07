@@ -19,7 +19,28 @@ export interface VariantsState {
   label: (id: string) => string;
   /** Metagame weights (team-inclusion rate) keyed by variant id. */
   weights: Map<string, number>;
+  /**
+   * Metagame weights renormalized to sum to 1 across the variant set. Use this
+   * anywhere a weighted mean over the field is needed (e.g. the rankings page's
+   * expected win rate), so the result reads as a true probability in [0, 1].
+   */
+  weightsNormalized: Map<string, number>;
   byId: Map<string, VariantMeta>;
+}
+
+/**
+ * Renormalize a weight map to sum to 1. The raw weights in defender-variants.json
+ * are team-inclusion rates (they sum to ~5.4, one per team slot), which is fine
+ * for scale-invariant rankings but wrong for a weighted average — normalize once,
+ * here, so every page that needs a distribution shares the same definition.
+ */
+export function normalizeWeights(weights: Map<string, number>): Map<string, number> {
+  let total = 0;
+  for (const w of weights.values()) total += w;
+  const out = new Map<string, number>();
+  if (total <= 0) return out;
+  for (const [id, w] of weights) out.set(id, w / total);
+  return out;
 }
 
 /**
@@ -39,6 +60,7 @@ export function useVariants(): VariantsState {
 
   const byId = useMemo(() => new Map((variants ?? []).map((v) => [v.id, v])), [variants]);
   const weights = useMemo(() => new Map((variants ?? []).map((v) => [v.id, v.weight])), [variants]);
+  const weightsNormalized = useMemo(() => normalizeWeights(weights), [weights]);
   const label = useMemo(
     () => (id: string) => {
       const v = byId.get(id);
@@ -47,5 +69,5 @@ export function useVariants(): VariantsState {
     [byId],
   );
 
-  return { variants, error, label, weights, byId };
+  return { variants, error, label, weights, weightsNormalized, byId };
 }

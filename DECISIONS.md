@@ -327,3 +327,42 @@ weakest-matchup card for the core's best answer vs. any chosen opponent
 arbitrary opponent draws on the same per-member computation as the list.
 Team-builder core and probe stay in component state (no URL params, as
 before); the id-bearing routes on the matchup/Pokémon pages are unchanged.
+
+### D31: Metagame power-rankings page (user request, 2026-07-07)
+A `/rankings` page ranks every variant by its **metagame-weighted win rate**
+under one starting condition: for variant A,
+`expected_win_rate(A, C) = Σ over V of weight(V) × P(A beats V | C)`, i.e. the
+average chance A beats a random opponent drawn from the field by usage.
+
+Three modeling choices worth recording:
+
+1. **Weights are normalized to sum to 1 across the variant set.** The raw
+   `weight` in `defender-variants.json` is a team-inclusion rate (the 89 sum to
+   ~5.4, one per team slot). That is fine for the scale-invariant rankings the
+   team builder and Pokémon page already do (`weight × p`), but for a *weighted
+   mean* it must be a distribution or the "win rate" wouldn't land in [0, 1].
+   Normalization lives in a shared `normalizeWeights` helper (exposed as
+   `weightsNormalized` from `useVariants`) so every page shares one definition,
+   per the task's "factor it into a shared helper" instruction. The **Usage**
+   column still shows the raw team-inclusion rate — that's the number the
+   Pokémon and team-builder pages already display as "% of teams", so the two
+   readings stay consistent (normalized weight is an internal math detail).
+
+2. **Self-matchups are synthesized at 50%.** The matrix omits A-vs-A rows (the
+   sim only ran `A != B`), but the task requires including self: a speed-tied
+   mirror is a coin flip, so `P(A beats A) = 0.5`. Dropping self instead would
+   silently renormalize each row's field to 88/89 and shift every number; adding
+   it at 0.5 keeps the mean over the whole field. (Verified: with self included
+   the normalized field weights sum to exactly 1.0 across all 89 ids.)
+
+3. **Condition lives in a query param** (`/rankings?condition=trick_room`) so a
+   filtered view is shareable, and changing it re-runs the whole ranking live —
+   switching to `trick_room` floats slow bulky abusers (Torkoal, Camerupt,
+   Mawile, Swampert) to the top where `fresh` favors fast threats (Floette-Mega,
+   Dragonite-Mega, Charizard-Y), which is the "who's most dangerous in Trick
+   Room" question the page is meant to answer. Columns (rank, name, win rate,
+   usage) are client-side sortable; **rank stays pinned to the win-rate order**
+   (a variant's standing in the meta) even when the table is sorted by another
+   column. There is no reusable sprite/"chip" primitive in the app — the matrix
+   and detail pages render variants as clickable text labels via `label(id)` +
+   a `/pokemon/:id` link — so the rankings rows follow that same convention.
