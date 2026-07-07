@@ -28,6 +28,16 @@ export function urgency(p0: number): number {
 }
 
 /**
+ * Weight of backup-coverage improvements relative to best-answer improvements
+ * in the partner score. Mirrors the weakest-matchups ranking, which values a
+ * thin *backup* answer (its secondary key) below a thin *best* answer (primary).
+ * A partner that only deepens redundancy against a threat the core already
+ * answers should score below one that fixes a matchup outright, so backup gains
+ * are discounted by half. (DECISIONS.md D29.)
+ */
+export const BACKUP_WEIGHT = 0.5;
+
+/**
  * Per-opponent win rates of each core member, plus the core's best answer.
  * Shared foundation of suggestPartners and weakestMatchups so both rank
  * with the same weighting. (Mirrored client-side in src/lib/matchupDb.ts.)
@@ -108,6 +118,18 @@ export function weakestMatchups(
   return out;
 }
 
+/**
+ * Rank candidate partners by how much they improve the core's coverage,
+ * matching the weakest-matchups ranking (D29): a partner is scored on how much
+ * it lifts *both* the core's best answer and its backup (second-best) answer
+ * against each opponent, usage-weighted and urgency-weighted. Adding a strong
+ * candidate demotes the old best answer to backup, so it also deepens
+ * redundancy — that gain is credited via the secondary term (discounted by
+ * BACKUP_WEIGHT). Diverges from weakestMatchups only in framing (a candidate's
+ * marginal improvement vs. an opponent's residual weakness), not in what it
+ * values. The displayed "biggest fixes" stay best-answer upgrades for
+ * legibility; the backup term influences the score, not which fixes are shown.
+ */
 export function suggestPartners(
   core: VariantId[],
   condition: ConditionId,
@@ -117,28 +139,37 @@ export function suggestPartners(
   const all = variantIds();
   const coreSet = new Set(core);
 
-  const teamBest = new Map<VariantId, number>();
-  for (const [V, { best }] of computeTeamBest(core, condition)) teamBest.set(V, best);
+  // The core's current best and backup answer to each opponent (mirrors weakestMatchups).
+  const teamCover = new Map<VariantId, { best: number; second: number }>();
+  for (const [V, { per_member }] of computeTeamBest(core, condition)) {
+    const byRate = [...per_member].sort((a, b) => b.p - a.p);
+    teamCover.set(V, { best: byRate[0].p, second: byRate[1]?.p ?? 0 });
+  }
 
   const suggestions: PartnerSuggestion[] = [];
   for (const candidate of all) {
     if (coreSet.has(candidate)) continue;
     const candRows = matchupsFor(candidate, condition);
     let score = 0;
-    const improvements: Array<{ opponent: VariantId; before: number; after: number }> = [];
-    for (const [V, before] of teamBest) {
+    const improvements: Array<{ opponent: VariantId; before: number; after: number; gain: number }> = [];
+    for (const [V, { best, second }] of teamCover) {
       if (V === candidate) continue;
       const r = candRows.get(V);
       if (!r) continue;
-      const after = Math.max(before, r.p_A_wins);
-      const improvement = after - before;
-      if (improvement <= 0) continue;
+      const p = r.p_A_wins;
+      // With the candidate added, recompute the core's top-two answers to V.
+      const bestAfter = Math.max(best, p);
+      const secondAfter = p >= best ? best : Math.max(second, p);
+      const bestGain = bestAfter - best;
+      const secondGain = secondAfter - second;
+      if (bestGain <= 0 && secondGain <= 0) continue;
       const w = metagame_weights.get(V) ?? 0;
-      score += w * improvement * urgency(before);
-      improvements.push({ opponent: V, before, after });
+      const gain = w * (bestGain * urgency(best) + BACKUP_WEIGHT * secondGain * urgency(second));
+      score += gain;
+      if (bestGain > 0) improvements.push({ opponent: V, before: best, after: bestAfter, gain });
     }
-    improvements.sort((a, b) => (b.after - b.before) - (a.after - a.before));
-    const top = improvements.slice(0, 5);
+    improvements.sort((a, b) => b.gain - a.gain);
+    const top = improvements.slice(0, 5).map(({ opponent, before, after }) => ({ opponent, before, after }));
     suggestions.push({
       variant: candidate,
       coverage_score: score,

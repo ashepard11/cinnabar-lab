@@ -278,7 +278,7 @@ its per-member table). Matrix row/column headers now link to the page
 (hover underline + accent as affordance); cells still open the pairwise
 matchup detail.
 
-### D29: Weakest matchups switch to lexicographic sort; suggestPartners does not (user request, 2026-07-06)
+### D29: Weakest matchups switch to lexicographic sort; suggestPartners re-aligned to match (user request, 2026-07-06/07)
 The weakest-matchups list now ranks opponents lexicographically by two keys,
 both descending (worst first):
 primary `weight(V) × (1 − team_best(core, V))`, then secondary
@@ -300,15 +300,30 @@ matches the stated goal ("worst first") and the "roughly what the current
 logic does" note (D27 was itself `weight × (1 − best)` descending). A
 well-covered opponent now scores `weight × 0 = 0` and sinks to the bottom.
 
-This **diverges from `suggestPartners`**, which keeps its coverage-improvement
-score (`Σ weight × (after − before) × urgency`). The two answer different
-questions — "which opponents have thin redundant coverage" vs. "which partner
-most improves the core's worst matchups" — so a shared score is no longer
-appropriate. They still share the `computeTeamBest` foundation. The
-lexicographic comparison is exact (no epsilon bucketing): with continuous
+The lexicographic comparison is exact (no epsilon bucketing): with continuous
 usage weights the primary key ties only on exact equality, so the secondary
 key acts as a strict tie-breaker; the "broadly covered ⇒ secondary decides"
 behavior emerges from the clustering of primary values, not from rounding.
+
+**`suggestPartners` re-aligned to match (user request, 2026-07-07):** the
+partner score now credits improvements to *both* the best and the backup
+answer, so it values the same thing the ranking does. For each opponent V a
+candidate's win rate `p` is folded into the core's top-two answers:
+`best_after = max(best, p)`, and `second_after = best` if `p ≥ best` (the old
+best is demoted to backup) else `max(second, p)`. The score sums
+`weight(V) × [ (best_after − best) × urgency(best)
+             + BACKUP_WEIGHT × (second_after − second) × urgency(second) ]`
+with `BACKUP_WEIGHT = 0.5`, mirroring the ranking's primary-over-secondary
+precedence (a scalar sum can't be strictly lexicographic, so backup gains are
+discounted rather than dominated). A strong candidate that duplicates an
+existing answer now earns backup credit `weight × 0.5 × (best − second) ×
+urgency(second)` — thin backups (low `second`, high urgency) reward redundancy
+most, exactly the opponents the secondary key elevates. `urgency(second)` is
+1.5 for a single-member core (no backup exists), so the backup term there
+rewards adding a broadly-competent second answer to high-usage threats. The
+displayed "biggest fixes" stay best-answer upgrades (pushed only when
+`best_after > best`) for legibility, but are ordered by each opponent's total
+score contribution. Both modules still share the `computeTeamBest` foundation.
 
 ### D30: Pokémon-page set display + win-rate thresholds + team-builder matchup probe (user request, 2026-07-06)
 Three UI tweaks: (1) The Pokémon detail page shows the exact set the sim
