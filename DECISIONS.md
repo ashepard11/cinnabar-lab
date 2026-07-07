@@ -279,15 +279,26 @@ its per-member table). Matrix row/column headers now link to the page
 matchup detail.
 
 ### D29: Weakest matchups switch to lexicographic sort; suggestPartners does not (user request, 2026-07-06)
-The weakest-matchups list now ranks opponents lexicographically by two keys:
-primary `weight(V) × team_best(core, V)` ascending, then secondary
-`weight(V) × team_second_best(core, V)` ascending, where `team_second_best`
-is the second-highest win rate among core members against V (0 for a
-single-member core, so it degenerates to the primary key alone). The intent:
-once the field is broadly covered, the primary keys of the remaining
+The weakest-matchups list now ranks opponents lexicographically by two keys,
+both descending (worst first):
+primary `weight(V) × (1 − team_best(core, V))`, then secondary
+`weight(V) × (1 − team_second_best(core, V))`, where `team_second_best` is the
+second-highest win rate among core members against V (0 for a single-member
+core, so its complement is 1 and the secondary key reduces to `weight`). The
+intent: once the field is broadly covered, the primary keys of the remaining
 opponents sit close together, and the secondary key surfaces the matchups
 with no *redundant* answer — thin backup coverage the single-best-answer
 score (old D27 `weight × (1 − team_best) × urgency`) could not see.
+
+**Correction (same day):** the request phrased the keys as
+`weight × team_best` sorted *ascending*. Taken literally that is dominated by
+`weight` (which spans ~100× across the field), so low-usage opponents produce a
+near-zero product regardless of win rate and flood the top — e.g. a rare
+Sableye-Mega the core beats 100%/100% sorted as the *worst* matchup. The
+`(1 − p)` complement with descending sort is the non-degenerate reading that
+matches the stated goal ("worst first") and the "roughly what the current
+logic does" note (D27 was itself `weight × (1 − best)` descending). A
+well-covered opponent now scores `weight × 0 = 0` and sinks to the bottom.
 
 This **diverges from `suggestPartners`**, which keeps its coverage-improvement
 score (`Σ weight × (after − before) × urgency`). The two answer different

@@ -64,21 +64,23 @@ export interface WeakMatchup {
   per_member: Array<{ member: VariantId; p: number }>;
   best_member: VariantId;
   weight: number;
-  /** weight × team_best — how well the field-weighted best answer holds up. */
+  /** weight × (1 − team_best) — field-weighted weakness of the best answer. */
   primary_key: number;
-  /** weight × team_second_best — how thin the field-weighted backup answer is. */
+  /** weight × (1 − team_second_best) — field-weighted weakness of the backup answer. */
   secondary_key: number;
 }
 
 /**
- * The core's worst matchups, ranked lexicographically to surface gaps in
- * *redundant* coverage:
- *   primary   = weight(V) × team_best(core, V)        (ascending, worst first)
- *   secondary = weight(V) × team_second_best(core, V) (ascending, worst first)
- * When the best answer is thin the primary key ranks it; when the field is
- * broadly covered and primary keys sit close, the secondary key exposes the
- * opponents with no redundant answer. This diverges from suggestPartners,
- * which keeps its coverage-improvement score (see DECISIONS.md).
+ * The core's worst matchups, ranked lexicographically (both keys descending,
+ * worst first) to surface gaps in *redundant* coverage:
+ *   primary   = weight(V) × (1 − team_best(core, V))
+ *   secondary = weight(V) × (1 − team_second_best(core, V))
+ * The primary key ranks common opponents the core's best answer loses to.
+ * When the field is broadly covered and primary keys sit close, the secondary
+ * key exposes the opponents whose *backup* answer is thin (no redundant
+ * answer). Using the (1 − p) complement (not p) keeps low-usage opponents the
+ * core already beats from flooding the top of the list. Diverges from
+ * suggestPartners, which keeps its coverage-improvement score (DECISIONS.md).
  */
 export function weakestMatchups(
   core: VariantId[],
@@ -98,11 +100,11 @@ export function weakestMatchups(
       per_member,
       best_member: byRate[0].member,
       weight: w,
-      primary_key: w * best,
-      secondary_key: w * second,
+      primary_key: w * (1 - best),
+      secondary_key: w * (1 - second),
     });
   }
-  out.sort((a, b) => a.primary_key - b.primary_key || a.secondary_key - b.secondary_key);
+  out.sort((a, b) => b.primary_key - a.primary_key || b.secondary_key - a.secondary_key);
   return out;
 }
 

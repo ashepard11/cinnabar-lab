@@ -140,21 +140,12 @@ export interface WeakMatchup {
   per_member: Array<{ member: string; p: number }>;
   best_member: string;
   weight: number;
-  /** weight × team_best — how well the field-weighted best answer holds up. */
+  /** weight × (1 − team_best) — field-weighted weakness of the best answer. */
   primary_key: number;
-  /** weight × team_second_best — how thin the field-weighted backup answer is. */
+  /** weight × (1 − team_second_best) — field-weighted weakness of the backup answer. */
   secondary_key: number;
 }
 
-/**
- * The core's worst matchups, ranked lexicographically to surface gaps in
- * *redundant* coverage:
- *   primary   = weight(V) × team_best(core, V)        (ascending, worst first)
- *   secondary = weight(V) × team_second_best(core, V) (ascending, worst first)
- * When the field is broadly covered and primary keys sit close, the secondary
- * key exposes the opponents with no redundant answer. Client mirror of
- * lib/analysis/team.ts. (Diverges from suggestPartners — see DECISIONS.md.)
- */
 type TeamBestEntry = { best: number; per_member: Array<{ member: string; p: number }> };
 
 /** Build one WeakMatchup from a computeTeamBest entry (shared by the list and the probe). */
@@ -168,11 +159,21 @@ function toWeakMatchup(opponent: string, entry: TeamBestEntry, weight: number): 
     per_member: entry.per_member,
     best_member: byRate[0].member,
     weight,
-    primary_key: weight * entry.best,
-    secondary_key: weight * second,
+    primary_key: weight * (1 - entry.best),
+    secondary_key: weight * (1 - second),
   };
 }
 
+/**
+ * The core's worst matchups, ranked lexicographically (both keys descending,
+ * worst first) to surface gaps in *redundant* coverage:
+ *   primary   = weight(V) × (1 − team_best(core, V))
+ *   secondary = weight(V) × (1 − team_second_best(core, V))
+ * The (1 − p) complement keeps low-usage opponents the core already beats from
+ * flooding the top; when the field is broadly covered and primary keys sit
+ * close, the secondary key exposes opponents with no redundant answer. Client
+ * mirror of lib/analysis/team.ts. (Diverges from suggestPartners — DECISIONS.md.)
+ */
 export function weakestMatchups(
   db: Database,
   core: string[],
@@ -182,7 +183,7 @@ export function weakestMatchups(
   const teamBest = computeTeamBest(db, core, condition);
   const out: WeakMatchup[] = [];
   for (const [V, entry] of teamBest) out.push(toWeakMatchup(V, entry, weights.get(V) ?? 0));
-  out.sort((a, b) => a.primary_key - b.primary_key || a.secondary_key - b.secondary_key);
+  out.sort((a, b) => b.primary_key - a.primary_key || b.secondary_key - a.secondary_key);
   return out;
 }
 
