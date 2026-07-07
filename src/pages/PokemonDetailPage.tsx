@@ -9,6 +9,7 @@ import { useVariants } from '../lib/useVariants';
 import Combobox from '../components/Combobox';
 import ConditionSelect from '../components/ConditionSelect';
 import MatchupCard from '../components/MatchupCard';
+import StatBlock from '../components/StatBlock';
 
 /** Rows per list (best and worst). */
 const TOP_N = 5;
@@ -106,6 +107,12 @@ export default function PokemonDetailPage() {
           onSelect={(id) => navigate(`/pokemon/${id}`)}
         />
       </div>
+
+      {selected && meta && (
+        <div className="stat-blocks pokemon-set">
+          <StatBlock v={meta} />
+        </div>
+      )}
 
       {selected && (
         <div className="controls">

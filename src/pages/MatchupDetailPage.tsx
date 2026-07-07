@@ -2,27 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import { loadMatchupDb, allConditionsFor, type MatchupRow } from '../lib/matchupDb';
-import { useVariants, type VariantMeta } from '../lib/useVariants';
+import { useVariants } from '../lib/useVariants';
 import ConditionCards from '../components/ConditionCards';
-
-function StatBlock({ v }: { v: VariantMeta }) {
-  const stats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
-  return (
-    <div className="stat-block">
-      <h3>{v.species}{v.item ? ` @ ${v.item}` : ''}</h3>
-      <p>{v.ability} · {v.nature}</p>
-      <table>
-        <tbody>
-          <tr>{stats.map((s) => <th key={s}>{s.toUpperCase()}</th>)}</tr>
-          <tr>{stats.map((s) => <td key={s}>{v.sps[s] ?? 0}</td>)}</tr>
-        </tbody>
-      </table>
-      <p className="stat-block-moves">
-        {v.moves.slice(0, 8).map((m) => `${m.name} (${Math.round(m.usage * 100)}%)`).join(' · ')}
-      </p>
-    </div>
-  );
-}
+import StatBlock from '../components/StatBlock';
 
 export default function MatchupDetailPage() {
   const { A, B } = useParams<{ A: string; B: string }>();

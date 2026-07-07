@@ -144,6 +144,7 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .matrix-row-label a:hover, .matrix-col-label a:hover span { color: var(--accent); text-decoration: underline; }
 
 /* Pokémon detail page */
+.pokemon-set { margin-bottom: 20px; }
 .ranked-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: start; }
 .ranked-list h2 { margin-top: 0; }
 .ranked-rate-win { color: #2b6cb8; font-variant-numeric: tabular-nums; }
