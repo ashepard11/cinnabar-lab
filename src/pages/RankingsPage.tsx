@@ -10,6 +10,7 @@ import ConditionSelect from '../components/ConditionSelect';
 
 type SortKey = 'rank' | 'name' | 'winrate' | 'usage';
 type SortDir = 'asc' | 'desc';
+type MegaFilter = 'all' | 'mega' | 'non-mega';
 
 interface Row {
   variant: string;
@@ -17,6 +18,7 @@ interface Row {
   rank: number;
   expected_win_rate: number;
   usage: number;
+  is_mega: boolean;
 }
 
 /** Read the shareable condition from the URL, falling back to the default. */
@@ -29,10 +31,11 @@ function parseCondition(raw: string | null): ConditionId {
 export default function RankingsPage() {
   const [db, setDb] = useState<Database | null>(null);
   const [dbError, setDbError] = useState<string | null>(null);
-  const { variants, error, label, weights, weightsNormalized } = useVariants();
+  const { variants, error, label, weights, weightsNormalized, byId } = useVariants();
   const [searchParams, setSearchParams] = useSearchParams();
   const condition = parseCondition(searchParams.get('condition'));
   const [sort, setSort] = useState<{ key: SortKey; dir: SortDir }>({ key: 'winrate', dir: 'desc' });
+  const [megaFilter, setMegaFilter] = useState<MegaFilter>('all');
 
   useEffect(() => {
     loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));
@@ -56,13 +59,16 @@ export default function RankingsPage() {
       rank: i + 1,
       expected_win_rate: r.expected_win_rate,
       usage: weights.get(r.variant) ?? 0,
+      is_mega: byId.get(r.variant)?.is_mega ?? false,
     }));
-  }, [db, variants, condition, weightsNormalized, weights, label]);
+  }, [db, variants, condition, weightsNormalized, weights, label, byId]);
 
   const rows = useMemo(() => {
     if (!ranked) return [];
+    const filtered = ranked.filter((r) =>
+      megaFilter === 'all' ? true : megaFilter === 'mega' ? r.is_mega : !r.is_mega);
     const dir = sort.dir === 'asc' ? 1 : -1;
-    return [...ranked].sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       switch (sort.key) {
         case 'name': return dir * a.name.localeCompare(b.name);
         case 'usage': return dir * (a.usage - b.usage);
@@ -71,7 +77,7 @@ export default function RankingsPage() {
         default: return dir * (a.expected_win_rate - b.expected_win_rate);
       }
     });
-  }, [ranked, sort]);
+  }, [ranked, sort, megaFilter]);
 
   const meta = useMemo(() => (db ? metadata(db) : null), [db]);
 
@@ -96,6 +102,14 @@ export default function RankingsPage() {
       </p>
       <div className="controls">
         <ConditionSelect value={condition} onChange={setCondition} />
+        <label>
+          Show{' '}
+          <select value={megaFilter} onChange={(e) => setMegaFilter(e.target.value as MegaFilter)}>
+            <option value="all">all Pokémon</option>
+            <option value="mega">Megas only</option>
+            <option value="non-mega">non-Megas only</option>
+          </select>
+        </label>
       </div>
       <div className="rankings-scroll">
         <table className="rankings">

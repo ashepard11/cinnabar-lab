@@ -4,6 +4,7 @@ import { fetchJSON } from '../lib';
 export interface VariantMeta {
   id: string;
   species: string;
+  is_mega: boolean;
   item: string | null;
   ability: string;
   nature: string;

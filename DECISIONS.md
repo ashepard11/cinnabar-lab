@@ -363,6 +363,6 @@ Three modeling choices worth recording:
    Room" question the page is meant to answer. Columns (rank, name, win rate,
    usage) are client-side sortable; **rank stays pinned to the win-rate order**
    (a variant's standing in the meta) even when the table is sorted by another
-   column. There is no reusable sprite/"chip" primitive in the app — the matrix
+   column. A Megas / non-Megas / all filter (on the authoritative `is_mega` field) hides rows without recomputing the ranking, so rank stays the variant's standing in the whole 89-variant field (Megas show as a non-contiguous 1,2,4,5,… set). There is no reusable sprite/"chip" primitive in the app — the matrix
    and detail pages render variants as clickable text labels via `label(id)` +
    a `/pokemon/:id` link — so the rankings rows follow that same convention.
