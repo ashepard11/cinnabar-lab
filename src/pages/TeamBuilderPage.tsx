@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import type { Database } from 'sql.js';
 import {
   loadMatchupDb, allVariantIds, suggestPartners, weakestMatchups, weakMatchupFor,
-  type ConditionId, type WeakMatchup,
+  CONDITION_IDS, type ConditionId, type WeakMatchup,
 } from '../lib/matchupDb';
 import { useVariants } from '../lib/useVariants';
 import Combobox from '../components/Combobox';
@@ -68,8 +68,36 @@ export default function TeamBuilderPage() {
   const [db, setDb] = useState<Database | null>(null);
   const [dbError, setDbError] = useState<string | null>(null);
   const { variants, error, label, weights } = useVariants();
-  const [core, setCore] = useState<string[]>([]);
-  const [condition, setCondition] = useState<ConditionId>('fresh');
+
+  // Core and condition live in the URL query so the whole view is shareable:
+  //   /team-builder?core=charizard_mega_y,floette_mega&condition=sun
+  // condition defaults to (and is omitted for) fresh, matching prior behaviour.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const core = useMemo(() => {
+    const raw = searchParams.get('core');
+    return raw ? raw.split(',').filter(Boolean).slice(0, 4) : [];
+  }, [searchParams]);
+  const conditionParam = searchParams.get('condition');
+  const condition: ConditionId = (CONDITION_IDS as readonly string[]).includes(conditionParam ?? '')
+    ? (conditionParam as ConditionId)
+    : 'fresh';
+
+  const setCore = (updater: string[] | ((prev: string[]) => string[])) => {
+    setSearchParams((prev) => {
+      const p = new URLSearchParams(prev);
+      const current = (p.get('core') ?? '').split(',').filter(Boolean);
+      const next = typeof updater === 'function' ? updater(current) : updater;
+      if (next.length) p.set('core', next.join(',')); else p.delete('core');
+      return p;
+    }, { replace: true });
+  };
+  const setCondition = (c: ConditionId) => {
+    setSearchParams((prev) => {
+      const p = new URLSearchParams(prev);
+      if (c === 'fresh') p.delete('condition'); else p.set('condition', c);
+      return p;
+    }, { replace: true });
+  };
 
   useEffect(() => {
     loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));

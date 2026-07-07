@@ -381,3 +381,40 @@ Three modeling choices worth recording:
    column. A Megas / non-Megas / all filter (on the authoritative `is_mega` field) hides rows without recomputing the ranking, so rank stays the variant's standing in the whole 89-variant field (Megas show as a non-contiguous 1,2,4,5,… set). There is no reusable sprite/"chip" primitive in the app — the matrix
    and detail pages render variants as clickable text labels via `label(id)` +
    a `/pokemon/:id` link — so the rankings rows follow that same convention.
+
+### D32: Team-builder condition sensitivity chart + condition/core in the URL (user request, 2026-07-07)
+Two additions to `/team-builder`, both driven off the existing matchup matrix.
+
+**Part A — "Condition sensitivity" bar chart.** Once a core is picked, a
+horizontal bar per starting condition shows the core's aggregate performance:
+`agg(C) = Σ over V of weight(V) × team_best(core, V | C) / Σ over V of weight(V)`,
+where `team_best` is the best core member's win rate vs opponent V (the same
+quantity the weakest-matchups list ranks on). Modeling choices:
+
+1. **Renormalized weighted mean, not a raw sum.** The spec phrases the bar as a
+   weighted sum, but dividing by the total weight of the opponents that have
+   matchup data makes each bar a true average win rate in [0, 1] that reads as
+   a "%". This is scale-invariant, so passing raw team-inclusion weights or the
+   `weightsNormalized` distribution gives the same number — the component takes
+   the raw `weights` the page already holds and normalizes internally. Core
+   members are excluded from the opponent field (no self-matchup rows exist),
+   consistent with `computeTeamBest`.
+2. **Sorted by delta from fresh, descending** (most-beneficial condition on
+   top). `fresh` therefore lands mid-list at Δ0; it is drawn as a distinct
+   (muted) bar *and* marked by a dashed vertical reference line at its value in
+   every row's track, so the shift is readable both by bar length and against
+   the baseline. Each row shows the absolute % and the signed delta ("79% (+7)").
+3. **Independent of the page's condition selector** (Part B), by explicit
+   request: the chart always shows the full sweep. It is memoized on the core
+   composition since each recompute walks every (member × opponent × condition)
+   triple.
+
+**Part B — condition and core in the URL query.** The condition selector (and
+the core itself) now live in the query string —
+`/team-builder?core=charizard_mega_y,floette_mega&condition=sun` — so the whole
+view is shareable, following the same query-param convention the rankings page
+established (D31). `condition` defaults to and is omitted for `fresh`, matching
+prior behaviour; the selector drives weakest-matchups, suggested-partners, and
+the check-specific-matchup card (all already condition-aware), but **not** the
+Part A chart. The lexicographic weakest-matchups sort (D29) is unchanged and
+simply re-runs under the selected condition.
