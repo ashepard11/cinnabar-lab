@@ -11,14 +11,16 @@ import ConditionSelect from '../components/ConditionSelect';
 import MatchupCard from '../components/MatchupCard';
 import StatBlock from '../components/StatBlock';
 
-/** Rows per list (best and worst). */
-const TOP_N = 5;
+/** A matchup counts as "best" above this win rate, "worst" below its mirror. */
+const BEST_THRESHOLD = 0.8;
+const WORST_THRESHOLD = 0.2;
 
 function MatchupList({
-  title, rows, selected, db, label, expanded, onToggle,
+  title, rows, emptyLabel, selected, db, label, expanded, onToggle,
 }: {
   title: string;
   rows: RankedOpponent[];
+  emptyLabel: string;
   selected: string;
   db: Database;
   label: (id: string) => string;
@@ -28,7 +30,8 @@ function MatchupList({
   return (
     <div className="ranked-list">
       <h2>{title}</h2>
-      <div className="weak-list">
+      {rows.length === 0 && <p className="ranked-empty">{emptyLabel}</p>}
+      <div className="weak-list weak-list-scroll">
         {rows.map((r) => (
           <div key={r.opponent} className="weak-row-wrap">
             <button
@@ -81,7 +84,9 @@ export default function PokemonDetailPage() {
 
   const ranked = useMemo(() => {
     if (!db || !selected || !variants) return null;
-    return rankOpponents(db, selected, condition, weights, sort, TOP_N);
+    return rankOpponents(db, selected, condition, weights, sort, {
+      best: BEST_THRESHOLD, worst: WORST_THRESHOLD,
+    });
   }, [db, selected, condition, weights, sort, variants]);
 
   if (error || dbError) return <div className="error-note">Could not load matchup data — {error ?? dbError}</div>;
@@ -130,8 +135,9 @@ export default function PokemonDetailPage() {
       {ranked && selected && (
         <div className="ranked-columns">
           <MatchupList
-            title="Best matchups"
+            title={`Best matchups (>${Math.round(BEST_THRESHOLD * 100)}%)`}
             rows={ranked.best}
+            emptyLabel={`No matchups above ${Math.round(BEST_THRESHOLD * 100)}% win rate under these conditions.`}
             selected={selected}
             db={db}
             label={label}
@@ -139,8 +145,9 @@ export default function PokemonDetailPage() {
             onToggle={(id) => setExpanded(expanded === id ? null : id)}
           />
           <MatchupList
-            title="Worst matchups"
+            title={`Worst matchups (<${Math.round(WORST_THRESHOLD * 100)}%)`}
             rows={ranked.worst}
+            emptyLabel={`No matchups below ${Math.round(WORST_THRESHOLD * 100)}% win rate under these conditions.`}
             selected={selected}
             db={db}
             label={label}
@@ -153,7 +160,9 @@ export default function PokemonDetailPage() {
       {selected && (
         <p className="footer-note">
           Win rates are P({label(selected)} wins) in a simulated 1v1 endgame under the
-          selected starting condition. "Metagame-weighted" ranks by usage ×
+          selected starting condition. Best lists every opponent beaten above{' '}
+          {Math.round(BEST_THRESHOLD * 100)}%, worst every opponent lost to below{' '}
+          {Math.round(WORST_THRESHOLD * 100)}%. "Metagame-weighted" orders by usage ×
           win rate (best) / usage × loss rate (worst) — the same philosophy the
           team builder uses; "raw win rate" ignores usage.
         </p>

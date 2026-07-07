@@ -148,6 +148,9 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .ranked-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: start; }
 .ranked-list h2 { margin-top: 0; }
 .ranked-rate-win { color: #2b6cb8; font-variant-numeric: tabular-nums; }
+.ranked-empty { color: var(--ink-muted); font-size: 13px; padding: 4px 0 8px; }
+/* keep a long best/worst list contained rather than pushing the page down */
+.weak-list-scroll { max-height: 70vh; overflow-y: auto; }
 
 .weak-list { margin-bottom: 28px; }
 .weak-row-wrap { border-bottom: 1px solid var(--border); }

@@ -179,9 +179,11 @@ export interface RankedOpponent {
 
 /**
  * One variant's best and worst matchups against the metagame (the Pokémon
- * detail page). 'weighted' mirrors the team-builder weighting philosophy:
- * best = weight × p (wins that matter most in practice), worst =
- * weight × (1 − p). 'raw' ignores usage and sorts by p alone.
+ * detail page). Best = every opponent it beats with p > thresholds.best,
+ * worst = every opponent it loses to with p < thresholds.worst; each list is
+ * ordered by the chosen sort. 'weighted' mirrors the team-builder weighting
+ * philosophy (best = weight × p, worst = weight × (1 − p)); 'raw' orders by
+ * p alone. The win-rate filter is on p, independent of the sort.
  */
 export function rankOpponents(
   db: Database,
@@ -189,7 +191,7 @@ export function rankOpponents(
   condition: ConditionId,
   weights: Map<string, number>,
   sort: RankSort,
-  n: number,
+  thresholds: { best: number; worst: number },
 ): { best: RankedOpponent[]; worst: RankedOpponent[] } {
   const entries: Array<{ opponent: string; p: number; weight: number }> = [];
   for (const [opponent, row] of matchupsFor(db, variant, condition)) {
@@ -197,14 +199,14 @@ export function rankOpponents(
   }
   const scored = (mode: 'best' | 'worst'): RankedOpponent[] =>
     entries
+      .filter((e) => (mode === 'best' ? e.p > thresholds.best : e.p < thresholds.worst))
       .map((e) => ({
         ...e,
         score: sort === 'weighted'
           ? e.weight * (mode === 'best' ? e.p : 1 - e.p)
           : (mode === 'best' ? e.p : 1 - e.p),
       }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, n);
+      .sort((a, b) => b.score - a.score);
   return { best: scored('best'), worst: scored('worst') };
 }
 
