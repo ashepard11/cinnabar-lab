@@ -277,3 +277,24 @@ extracted from the weakest-matchups section; team builder composes it with
 its per-member table). Matrix row/column headers now link to the page
 (hover underline + accent as affordance); cells still open the pairwise
 matchup detail.
+
+### D29: Weakest matchups switch to lexicographic sort; suggestPartners does not (user request, 2026-07-06)
+The weakest-matchups list now ranks opponents lexicographically by two keys:
+primary `weight(V) × team_best(core, V)` ascending, then secondary
+`weight(V) × team_second_best(core, V)` ascending, where `team_second_best`
+is the second-highest win rate among core members against V (0 for a
+single-member core, so it degenerates to the primary key alone). The intent:
+once the field is broadly covered, the primary keys of the remaining
+opponents sit close together, and the secondary key surfaces the matchups
+with no *redundant* answer — thin backup coverage the single-best-answer
+score (old D27 `weight × (1 − team_best) × urgency`) could not see.
+
+This **diverges from `suggestPartners`**, which keeps its coverage-improvement
+score (`Σ weight × (after − before) × urgency`). The two answer different
+questions — "which opponents have thin redundant coverage" vs. "which partner
+most improves the core's worst matchups" — so a shared score is no longer
+appropriate. They still share the `computeTeamBest` foundation. The
+lexicographic comparison is exact (no epsilon bucketing): with continuous
+usage weights the primary key ties only on exact equality, so the secondary
+key acts as a strict tie-breaker; the "broadly covered ⇒ secondary decides"
+behavior emerges from the clustering of primary values, not from rounding.

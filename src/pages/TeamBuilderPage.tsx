@@ -46,7 +46,8 @@ function WeakMatchupCard({
       </table>
       <p className="weak-card-meta">
         Metagame weight of {label(weak.opponent)}: {(weak.weight * 100).toFixed(1)}% of teams ·
-        weakness score {weak.weakness_score.toFixed(3)}
+        best answer {Math.round(weak.team_best * 100)}% ·
+        backup {weak.per_member.length > 1 ? `${Math.round(weak.team_second_best * 100)}%` : 'none'}
       </p>
     </MatchupCard>
   );
@@ -130,9 +131,10 @@ export default function TeamBuilderPage() {
         <>
           <h2>Weakest matchups</h2>
           <p className="footer-note" style={{ marginTop: 0 }}>
-            The core's worst opponents, ranked the same way partner suggestions
-            value fixing them (usage-weighted, losing matchups over close ones).
-            Click a row for detail.
+            The core's worst opponents, ranked by usage-weighted best answer,
+            then by usage-weighted backup answer — so once the field is broadly
+            covered, matchups with no redundant answer rise to the top. Click a
+            row for detail.
           </p>
           <div className="weak-list">
             {weakest.map((w) => (
@@ -143,7 +145,10 @@ export default function TeamBuilderPage() {
                   aria-expanded={expanded === w.opponent}
                 >
                   <span className="weak-opponent">{label(w.opponent)}</span>
-                  <span className="weak-rate">best: {Math.round(w.team_best * 100)}%</span>
+                  <span className="weak-rate">
+                    best: {Math.round(w.team_best * 100)}%
+                    {w.per_member.length > 1 && ` · backup: ${Math.round(w.team_second_best * 100)}%`}
+                  </span>
                   <span className="weak-caret">{expanded === w.opponent ? '▾' : '▸'}</span>
                 </button>
                 {expanded === w.opponent && (

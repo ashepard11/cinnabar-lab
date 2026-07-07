@@ -133,17 +133,27 @@ export function computeTeamBest(
 
 export interface WeakMatchup {
   opponent: string;
+  /** Highest win rate any core member has against V. */
   team_best: number;
+  /** Second-highest win rate among core members against V (0 if <2 members). */
+  team_second_best: number;
   per_member: Array<{ member: string; p: number }>;
   best_member: string;
   weight: number;
-  weakness_score: number;
+  /** weight × team_best — how well the field-weighted best answer holds up. */
+  primary_key: number;
+  /** weight × team_second_best — how thin the field-weighted backup answer is. */
+  secondary_key: number;
 }
 
 /**
- * The core's worst matchups, ranked by the same weighting suggestPartners
- * uses to value fixing them: usage weight × how badly the core loses ×
- * urgency (losing matchups over close ones).
+ * The core's worst matchups, ranked lexicographically to surface gaps in
+ * *redundant* coverage:
+ *   primary   = weight(V) × team_best(core, V)        (ascending, worst first)
+ *   secondary = weight(V) × team_second_best(core, V) (ascending, worst first)
+ * When the field is broadly covered and primary keys sit close, the secondary
+ * key exposes the opponents with no redundant answer. Client mirror of
+ * lib/analysis/team.ts. (Diverges from suggestPartners — see DECISIONS.md.)
  */
 export function weakestMatchups(
   db: Database,
@@ -154,17 +164,21 @@ export function weakestMatchups(
   const teamBest = computeTeamBest(db, core, condition);
   const out: WeakMatchup[] = [];
   for (const [V, { best, per_member }] of teamBest) {
-    const bestEntry = per_member.reduce((a, b) => (b.p > a.p ? b : a), per_member[0]);
+    const byRate = [...per_member].sort((a, b) => b.p - a.p);
+    const second = byRate[1]?.p ?? 0;
+    const w = weights.get(V) ?? 0;
     out.push({
       opponent: V,
       team_best: best,
+      team_second_best: second,
       per_member,
-      best_member: bestEntry.member,
-      weight: weights.get(V) ?? 0,
-      weakness_score: (weights.get(V) ?? 0) * (1 - best) * urgency(best),
+      best_member: byRate[0].member,
+      weight: w,
+      primary_key: w * best,
+      secondary_key: w * second,
     });
   }
-  out.sort((a, b) => b.weakness_score - a.weakness_score);
+  out.sort((a, b) => a.primary_key - b.primary_key || a.secondary_key - b.secondary_key);
   return out;
 }
 
