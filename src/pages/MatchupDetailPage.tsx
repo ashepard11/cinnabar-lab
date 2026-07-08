@@ -1,51 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Database } from 'sql.js';
-import { interpolateRdBu } from 'd3-scale-chromatic';
-import { loadMatchupDb, allConditionsFor, CONDITION_IDS, type MatchupRow } from '../lib/matchupDb';
-import { fetchJSON } from '../lib';
-
-interface VariantFull {
-  id: string;
-  species: string;
-  item: string | null;
-  ability: string;
-  nature: string;
-  sps: Record<string, number>;
-  weight: number;
-  moves: Array<{ name: string; usage: number }>;
-}
-
-function StatBlock({ v }: { v: VariantFull }) {
-  const stats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
-  return (
-    <div className="stat-block">
-      <h3>{v.species}{v.item ? ` @ ${v.item}` : ''}</h3>
-      <p>{v.ability} · {v.nature}</p>
-      <table>
-        <tbody>
-          <tr>{stats.map((s) => <th key={s}>{s.toUpperCase()}</th>)}</tr>
-          <tr>{stats.map((s) => <td key={s}>{v.sps[s] ?? 0}</td>)}</tr>
-        </tbody>
-      </table>
-      <p className="stat-block-moves">
-        {v.moves.slice(0, 8).map((m) => `${m.name} (${Math.round(m.usage * 100)}%)`).join(' · ')}
-      </p>
-    </div>
-  );
-}
+import { loadMatchupDb, allConditionsFor, type MatchupRow } from '../lib/matchupDb';
+import { useVariants } from '../lib/useVariants';
+import ConditionCards from '../components/ConditionCards';
+import StatBlock from '../components/StatBlock';
 
 export default function MatchupDetailPage() {
   const { A, B } = useParams<{ A: string; B: string }>();
   const [db, setDb] = useState<Database | null>(null);
-  const [variants, setVariants] = useState<VariantFull[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [dbError, setDbError] = useState<string | null>(null);
+  const { byId, error } = useVariants();
 
   useEffect(() => {
-    loadMatchupDb().then(setDb).catch((e) => setError(String(e)));
-    fetchJSON<{ variants: VariantFull[] }>('defender-variants.json')
-      .then((d) => setVariants(d.variants))
-      .catch((e) => setError(String(e)));
+    loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));
   }, []);
 
   const rows = useMemo(() => {
@@ -55,11 +23,11 @@ export default function MatchupDetailPage() {
     return byCondition;
   }, [db, A, B]);
 
-  if (error) return <div className="error-note">Could not load matchup data — {error}</div>;
+  if (error || dbError) return <div className="error-note">Could not load matchup data — {error ?? dbError}</div>;
   if (!rows || !A || !B) return <div className="loading">Loading…</div>;
 
-  const vA = variants?.find((v) => v.id === A);
-  const vB = variants?.find((v) => v.id === B);
+  const vA = byId.get(A);
+  const vB = byId.get(B);
   const fresh = rows.get('fresh');
 
   return (
@@ -76,23 +44,7 @@ export default function MatchupDetailPage() {
       )}
 
       <h2>By starting condition</h2>
-      <div className="condition-cards">
-        {CONDITION_IDS.map((c) => {
-          const r = rows.get(c);
-          if (!r) return <div key={c} className="condition-card condition-missing">{c}: —</div>;
-          const pct = Math.round(r.p_A_wins * 100);
-          return (
-            <div key={c} className="condition-card" style={{ borderTopColor: interpolateRdBu(r.p_A_wins) }}>
-              <div className="condition-name">{c}</div>
-              <div className="condition-value">{pct}%</div>
-              <div className="condition-ci">
-                CI {Math.round(r.ci_low * 100)}–{Math.round(r.ci_high * 100)} · n={r.n_simulated}
-                <br />⌀ {r.mean_turns.toFixed(1)} turns
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ConditionCards rows={rows} />
       <p className="footer-note">
         Conditions are from side A's ({vA?.species ?? A}) perspective: e.g. tailwind_A
         means {vA?.species ?? A} has Tailwind up.

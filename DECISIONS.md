@@ -235,3 +235,186 @@ Pollen Puff / Giga Drain / Protect) defined inline in scripts/sim-sanity.ts.
 Related fix: Pollen Puff was removed from the v1 move exclusion list —
 against an enemy it is a plain 90 BP attack; only its ally-heal mode is
 teammate-dependent.
+
+## Battle simulator — frontend QoL (user request, 2026-07-06)
+
+### D26: Custom combobox instead of a component library
+The team-builder core selector moved from toggle-pills over all 89 variants
+to a search-filterable combobox with the selected core rendered as removable
+chips. The codebase has no component library (plain React + CSS throughout),
+so a ~100-line custom combobox (`src/components/Combobox.tsx`: substring
+filter, keyboard navigation, outside-click close) was written rather than
+introducing Radix/Headless UI as a dependency for a single control. Selected
+variants are excluded from the dropdown options, and the 4-Pokémon core limit
+disables the input rather than individual options.
+
+### D27: Weakest-matchups section shares the partner-suggestion weighting
+The team builder now lists the core's worst matchups above the partner
+suggestions, ranked by `usage_weight × (1 − team_best) × urgency(team_best)`
+— the same urgency function suggestPartners uses, so the two lists
+prioritize identically ("what hurts most" ↔ "who fixes it"). The shared
+per-opponent computation lives in `computeTeamBest` (lib/analysis/team.ts,
+mirrored in src/lib/matchupDb.ts per the existing Node/browser split) rather
+than being duplicated in each ranking. Both lists show the same row count
+(TOP_N = 20). Rows expand accordion-style (one at a time) into a card with
+per-member win rates, the opponent's metagame weight, and the reused
+ConditionCards component (extracted from the matchup detail page).
+
+### D28: Pokémon detail page + cross-page component sharing (user request, 2026-07-06)
+New `/pokemon/:variantId` page (nav between Matchups and Team builder):
+searchable selector → best/worst top-5 matchup lists with a
+"Metagame-weighted" (default) ↔ "Raw win rate" sort toggle. Weighted ranking
+= usage_weight × p for best and usage_weight × (1 − p) for worst — the same
+usage-weighting philosophy as the team builder (the builder's extra urgency
+factor is core-relative and has no analogue for a single Pokémon; the
+weight × loss-rate form is exactly `weakestMatchups` with a 1-Pokémon core,
+up to the urgency factor). Selecting navigates to the id-bearing URL so
+matchup views are deep-linkable; the bare `/pokemon` route renders only the
+selector. Supporting refactors so all three analysis pages share primitives
+instead of duplicating them: `useVariants` hook (one fetch/label/weights
+source), `ConditionSelect`, and `MatchupCard` (the accordion expansion card,
+extracted from the weakest-matchups section; team builder composes it with
+its per-member table). Matrix row/column headers now link to the page
+(hover underline + accent as affordance); cells still open the pairwise
+matchup detail.
+
+### D29: Weakest matchups switch to lexicographic sort; suggestPartners re-aligned to match (user request, 2026-07-06/07)
+The weakest-matchups list now ranks opponents lexicographically by two keys,
+both descending (worst first):
+primary `weight(V) × (1 − team_best(core, V))`, then secondary
+`weight(V) × (1 − team_second_best(core, V))`, where `team_second_best` is the
+second-highest win rate among core members against V (0 for a single-member
+core, so its complement is 1 and the secondary key reduces to `weight`). The
+intent: once the field is broadly covered, the primary keys of the remaining
+opponents sit close together, and the secondary key surfaces the matchups
+with no *redundant* answer — thin backup coverage the single-best-answer
+score (old D27 `weight × (1 − team_best) × urgency`) could not see.
+
+**Correction (same day):** the request phrased the keys as
+`weight × team_best` sorted *ascending*. Taken literally that is dominated by
+`weight` (which spans ~100× across the field), so low-usage opponents produce a
+near-zero product regardless of win rate and flood the top — e.g. a rare
+Sableye-Mega the core beats 100%/100% sorted as the *worst* matchup. The
+`(1 − p)` complement with descending sort is the non-degenerate reading that
+matches the stated goal ("worst first") and the "roughly what the current
+logic does" note (D27 was itself `weight × (1 − best)` descending). A
+well-covered opponent now scores `weight × 0 = 0` and sinks to the bottom.
+
+The lexicographic comparison is exact (no epsilon bucketing): with continuous
+usage weights the primary key ties only on exact equality, so the secondary
+key acts as a strict tie-breaker; the "broadly covered ⇒ secondary decides"
+behavior emerges from the clustering of primary values, not from rounding.
+
+**`suggestPartners` re-aligned to match (user request, 2026-07-07):** the
+partner score now credits improvements to *both* the best and the backup
+answer, so it values the same thing the ranking does. For each opponent V a
+candidate's win rate `p` is folded into the core's top-two answers:
+`best_after = max(best, p)`, and `second_after = best` if `p ≥ best` (the old
+best is demoted to backup) else `max(second, p)`. The score sums
+`weight(V) × [ (best_after − best) × urgency(best)
+             + BACKUP_WEIGHT × (second_after − second) × urgency(second) ]`
+with `BACKUP_WEIGHT = 0.5`, mirroring the ranking's primary-over-secondary
+precedence (a scalar sum can't be strictly lexicographic, so backup gains are
+discounted rather than dominated). A strong candidate that duplicates an
+existing answer now earns backup credit `weight × 0.5 × (best − second) ×
+urgency(second)` — thin backups (low `second`, high urgency) reward redundancy
+most, exactly the opponents the secondary key elevates. `urgency(second)` is
+1.5 for a single-member core (no backup exists), so the backup term there
+rewards adding a broadly-competent second answer to high-usage threats. The
+displayed "biggest fixes" stay best-answer upgrades (pushed only when
+`best_after > best`) for legibility, but are ordered by each opponent's total
+score contribution. Both modules still share the `computeTeamBest` foundation.
+
+### D30: Pokémon-page set display + win-rate thresholds + team-builder matchup probe (user request, 2026-07-06)
+Three UI tweaks: (1) The Pokémon detail page shows the exact set the sim
+uses (SP spread, nature, ability, item, top-4 eligible moves) via a shared
+`StatBlock` component extracted from the matchup detail page's "Sets used"
+block. The move list mirrors `lib/sim/sets.ts` `pickMoves`/`EXCLUDED_MOVES`
+client-side (the Node source can't be bundled — it pulls in
+pokemon-showdown), so "Sets used" now shows the 4 played moves rather than
+the top-8 by usage. (2) The page's best/worst lists move from a fixed top-5
+to win-rate thresholds (best > 80%, worst < 20%), with empty states and each
+list scrolling within its column when long. (3) The team builder gains a
+"Check specific matchup" combobox below the weakest list that renders the
+weakest-matchup card for the core's best answer vs. any chosen opponent
+(expanded by default), reusing `WeakMatchupCard` and a new `weakMatchupFor`
+(shared `toWeakMatchup` builder with `weakestMatchups`) so probing an
+arbitrary opponent draws on the same per-member computation as the list.
+Team-builder core and probe stay in component state (no URL params, as
+before); the id-bearing routes on the matchup/Pokémon pages are unchanged.
+
+### D31: Metagame power-rankings page (user request, 2026-07-07)
+A `/rankings` page ranks every variant by its **metagame-weighted win rate**
+under one starting condition: for variant A,
+`expected_win_rate(A, C) = Σ over V of weight(V) × P(A beats V | C)`, i.e. the
+average chance A beats a random opponent drawn from the field by usage.
+
+Three modeling choices worth recording:
+
+1. **Weights are normalized to sum to 1 across the variant set.** The raw
+   `weight` in `defender-variants.json` is a team-inclusion rate (the 89 sum to
+   ~5.4, one per team slot). That is fine for the scale-invariant rankings the
+   team builder and Pokémon page already do (`weight × p`), but for a *weighted
+   mean* it must be a distribution or the "win rate" wouldn't land in [0, 1].
+   Normalization lives in a shared `normalizeWeights` helper (exposed as
+   `weightsNormalized` from `useVariants`) so every page shares one definition,
+   per the task's "factor it into a shared helper" instruction. The **Usage**
+   column still shows the raw team-inclusion rate — that's the number the
+   Pokémon and team-builder pages already display as "% of teams", so the two
+   readings stay consistent (normalized weight is an internal math detail).
+
+2. **Self-matchups are synthesized at 50%.** The matrix omits A-vs-A rows (the
+   sim only ran `A != B`), but the task requires including self: a speed-tied
+   mirror is a coin flip, so `P(A beats A) = 0.5`. Dropping self instead would
+   silently renormalize each row's field to 88/89 and shift every number; adding
+   it at 0.5 keeps the mean over the whole field. (Verified: with self included
+   the normalized field weights sum to exactly 1.0 across all 89 ids.)
+
+3. **Condition lives in a query param** (`/rankings?condition=trick_room`) so a
+   filtered view is shareable, and changing it re-runs the whole ranking live —
+   switching to `trick_room` floats slow bulky abusers (Torkoal, Camerupt,
+   Mawile, Swampert) to the top where `fresh` favors fast threats (Floette-Mega,
+   Dragonite-Mega, Charizard-Y), which is the "who's most dangerous in Trick
+   Room" question the page is meant to answer. Columns (rank, name, win rate,
+   usage) are client-side sortable; **rank stays pinned to the win-rate order**
+   (a variant's standing in the meta) even when the table is sorted by another
+   column. A Megas / non-Megas / all filter (on the authoritative `is_mega` field) hides rows without recomputing the ranking, so rank stays the variant's standing in the whole 89-variant field (Megas show as a non-contiguous 1,2,4,5,… set). There is no reusable sprite/"chip" primitive in the app — the matrix
+   and detail pages render variants as clickable text labels via `label(id)` +
+   a `/pokemon/:id` link — so the rankings rows follow that same convention.
+
+### D32: Team-builder condition sensitivity chart + condition/core in the URL (user request, 2026-07-07)
+Two additions to `/team-builder`, both driven off the existing matchup matrix.
+
+**Part A — "Condition sensitivity" bar chart.** Once a core is picked, a
+horizontal bar per starting condition shows the core's aggregate performance:
+`agg(C) = Σ over V of weight(V) × team_best(core, V | C) / Σ over V of weight(V)`,
+where `team_best` is the best core member's win rate vs opponent V (the same
+quantity the weakest-matchups list ranks on). Modeling choices:
+
+1. **Renormalized weighted mean, not a raw sum.** The spec phrases the bar as a
+   weighted sum, but dividing by the total weight of the opponents that have
+   matchup data makes each bar a true average win rate in [0, 1] that reads as
+   a "%". This is scale-invariant, so passing raw team-inclusion weights or the
+   `weightsNormalized` distribution gives the same number — the component takes
+   the raw `weights` the page already holds and normalizes internally. Core
+   members are excluded from the opponent field (no self-matchup rows exist),
+   consistent with `computeTeamBest`.
+2. **Sorted by delta from fresh, descending** (most-beneficial condition on
+   top). `fresh` therefore lands mid-list at Δ0; it is drawn as a distinct
+   (muted) bar *and* marked by a dashed vertical reference line at its value in
+   every row's track, so the shift is readable both by bar length and against
+   the baseline. Each row shows the absolute % and the signed delta ("79% (+7)").
+3. **Independent of the page's condition selector** (Part B), by explicit
+   request: the chart always shows the full sweep. It is memoized on the core
+   composition since each recompute walks every (member × opponent × condition)
+   triple.
+
+**Part B — condition and core in the URL query.** The condition selector (and
+the core itself) now live in the query string —
+`/team-builder?core=charizard_mega_y,floette_mega&condition=sun` — so the whole
+view is shareable, following the same query-param convention the rankings page
+established (D31). `condition` defaults to and is omitted for `fresh`, matching
+prior behaviour; the selector drives weakest-matchups, suggested-partners, and
+the check-specific-matchup card (all already condition-aware), but **not** the
+Part A chart. The lexicographic weakest-matchups sort (D29) is unchanged and
+simply re-runs under the selected condition.

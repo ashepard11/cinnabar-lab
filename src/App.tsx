@@ -3,6 +3,8 @@ import MarimekkoPage from './pages/MarimekkoPage';
 import HeatmapPage from './pages/HeatmapPage';
 import MatchupsPage from './pages/MatchupsPage';
 import MatchupDetailPage from './pages/MatchupDetailPage';
+import RankingsPage from './pages/RankingsPage';
+import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
 
 function Landing() {
@@ -39,6 +41,14 @@ function Landing() {
             a game-theoretic move policy, across 10 starting conditions.
           </p>
         </Link>
+        <Link className="landing-card" to="/rankings">
+          <h2>Who's most dangerous?</h2>
+          <p>
+            Every variant ranked by its metagame-weighted win rate — the average
+            chance it beats a random opponent drawn from the field — under any of
+            the 10 starting conditions. Switch to Trick Room to see who rises.
+          </p>
+        </Link>
         <Link className="landing-card" to="/team-builder">
           <h2>What covers my core?</h2>
           <p>
@@ -60,6 +70,8 @@ export default function App() {
         <NavLink to="/marimekko">Damage sources</NavLink>
         <NavLink to="/heatmap">Field weakness</NavLink>
         <NavLink to="/matchups">Matchups</NavLink>
+        <NavLink to="/rankings">Rankings</NavLink>
+        <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
       </nav>
       <Routes>
@@ -68,6 +80,9 @@ export default function App() {
         <Route path="/heatmap" element={<HeatmapPage />} />
         <Route path="/matchups" element={<MatchupsPage />} />
         <Route path="/matchup/:A/:B" element={<MatchupDetailPage />} />
+        <Route path="/rankings" element={<RankingsPage />} />
+        <Route path="/pokemon" element={<PokemonDetailPage />} />
+        <Route path="/pokemon/:variantId" element={<PokemonDetailPage />} />
         <Route path="/team-builder" element={<TeamBuilderPage />} />
       </Routes>
     </div>

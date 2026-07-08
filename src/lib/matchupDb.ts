@@ -102,6 +102,211 @@ export function urgency(p0: number): number {
   return 1.5 - p0;
 }
 
+/**
+ * Weight of backup-coverage improvements relative to best-answer improvements
+ * in the partner score. Mirrors the weakest-matchups ranking, which values a
+ * thin backup answer (its secondary key) below a thin best answer (primary).
+ * (DECISIONS.md D29; client mirror of lib/analysis/team.ts.)
+ */
+export const BACKUP_WEIGHT = 0.5;
+
+/**
+ * Per-opponent win rates of each core member, plus the core's best answer.
+ * Shared foundation of suggestPartners and weakestMatchups so both rank
+ * with the same weighting.
+ */
+export function computeTeamBest(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+): Map<string, { best: number; per_member: Array<{ member: string; p: number }> }> {
+  const all = allVariantIds(db);
+  const coreSet = new Set(core);
+  const coreRows = core.map((c) => ({ member: c, rows: matchupsFor(db, c, condition) }));
+  const out = new Map<string, { best: number; per_member: Array<{ member: string; p: number }> }>();
+  for (const V of all) {
+    if (coreSet.has(V)) continue;
+    const per_member: Array<{ member: string; p: number }> = [];
+    let best = -1;
+    for (const { member, rows } of coreRows) {
+      const row = rows.get(V);
+      if (!row) continue;
+      per_member.push({ member, p: row.p_A_wins });
+      if (row.p_A_wins > best) best = row.p_A_wins;
+    }
+    if (best >= 0) out.set(V, { best, per_member });
+  }
+  return out;
+}
+
+export interface WeakMatchup {
+  opponent: string;
+  /** Highest win rate any core member has against V. */
+  team_best: number;
+  /** Second-highest win rate among core members against V (0 if <2 members). */
+  team_second_best: number;
+  per_member: Array<{ member: string; p: number }>;
+  best_member: string;
+  weight: number;
+  /** weight × (1 − team_best) — field-weighted weakness of the best answer. */
+  primary_key: number;
+  /** weight × (1 − team_second_best) — field-weighted weakness of the backup answer. */
+  secondary_key: number;
+}
+
+type TeamBestEntry = { best: number; per_member: Array<{ member: string; p: number }> };
+
+/** Build one WeakMatchup from a computeTeamBest entry (shared by the list and the probe). */
+function toWeakMatchup(opponent: string, entry: TeamBestEntry, weight: number): WeakMatchup {
+  const byRate = [...entry.per_member].sort((a, b) => b.p - a.p);
+  const second = byRate[1]?.p ?? 0;
+  return {
+    opponent,
+    team_best: entry.best,
+    team_second_best: second,
+    per_member: entry.per_member,
+    best_member: byRate[0].member,
+    weight,
+    primary_key: weight * (1 - entry.best),
+    secondary_key: weight * (1 - second),
+  };
+}
+
+/**
+ * The core's worst matchups, ranked lexicographically (both keys descending,
+ * worst first) to surface gaps in *redundant* coverage:
+ *   primary   = weight(V) × (1 − team_best(core, V))
+ *   secondary = weight(V) × (1 − team_second_best(core, V))
+ * The (1 − p) complement keeps low-usage opponents the core already beats from
+ * flooding the top; when the field is broadly covered and primary keys sit
+ * close, the secondary key exposes opponents with no redundant answer. Client
+ * mirror of lib/analysis/team.ts. (Diverges from suggestPartners — DECISIONS.md.)
+ */
+export function weakestMatchups(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+  weights: Map<string, number>,
+): WeakMatchup[] {
+  const teamBest = computeTeamBest(db, core, condition);
+  const out: WeakMatchup[] = [];
+  for (const [V, entry] of teamBest) out.push(toWeakMatchup(V, entry, weights.get(V) ?? 0));
+  out.sort((a, b) => b.primary_key - a.primary_key || b.secondary_key - a.secondary_key);
+  return out;
+}
+
+/**
+ * The core-vs-one-opponent card for an arbitrary opponent (the team builder's
+ * "check specific matchup" probe). Same per-member computation as the weakest
+ * list; null if the opponent has no matchup data or is a core member.
+ */
+export function weakMatchupFor(
+  db: Database,
+  core: string[],
+  condition: ConditionId,
+  weights: Map<string, number>,
+  opponent: string,
+): WeakMatchup | null {
+  const entry = computeTeamBest(db, core, condition).get(opponent);
+  return entry ? toWeakMatchup(opponent, entry, weights.get(opponent) ?? 0) : null;
+}
+
+export type RankSort = 'weighted' | 'raw';
+
+export interface RankedOpponent {
+  opponent: string;
+  p: number;       // P(selected beats opponent)
+  weight: number;  // opponent's metagame weight
+  score: number;   // value the list was ranked by
+}
+
+/**
+ * One variant's best and worst matchups against the metagame (the Pokémon
+ * detail page). Best = every opponent it beats with p > thresholds.best,
+ * worst = every opponent it loses to with p < thresholds.worst; each list is
+ * ordered by the chosen sort. 'weighted' mirrors the team-builder weighting
+ * philosophy (best = weight × p, worst = weight × (1 − p)); 'raw' orders by
+ * p alone. The win-rate filter is on p, independent of the sort.
+ */
+export function rankOpponents(
+  db: Database,
+  variant: string,
+  condition: ConditionId,
+  weights: Map<string, number>,
+  sort: RankSort,
+  thresholds: { best: number; worst: number },
+): { best: RankedOpponent[]; worst: RankedOpponent[] } {
+  const entries: Array<{ opponent: string; p: number; weight: number }> = [];
+  for (const [opponent, row] of matchupsFor(db, variant, condition)) {
+    entries.push({ opponent, p: row.p_A_wins, weight: weights.get(opponent) ?? 0 });
+  }
+  const scored = (mode: 'best' | 'worst'): RankedOpponent[] =>
+    entries
+      .filter((e) => (mode === 'best' ? e.p > thresholds.best : e.p < thresholds.worst))
+      .map((e) => ({
+        ...e,
+        score: sort === 'weighted'
+          ? e.weight * (mode === 'best' ? e.p : 1 - e.p)
+          : (mode === 'best' ? e.p : 1 - e.p),
+      }))
+      .sort((a, b) => b.score - a.score);
+  return { best: scored('best'), worst: scored('worst') };
+}
+
+export interface VariantRanking {
+  variant: string;
+  /**
+   * Metagame-weighted win rate under the condition:
+   *   Σ over V of normalizedWeight(V) × P(variant beats V | condition).
+   * With weights summing to 1 this is the average chance of beating a random
+   * opponent drawn from the field, i.e. a probability in [0, 1].
+   */
+  expected_win_rate: number;
+}
+
+/**
+ * Rank every variant by metagame-weighted win rate under one condition, best
+ * first. `normalizedWeights` must sum to 1 across the variant set (see
+ * useVariants.normalizeWeights) for the result to read as a probability.
+ *
+ * The matrix omits self-matchups, so A-vs-A is synthesized at 0.5 — a speed-tied
+ * mirror is a coin flip — rather than dropped, so the weighted mean stays over
+ * the whole field including the variant itself (task requirement: include self).
+ */
+export function rankByExpectedWinRate(
+  db: Database,
+  condition: ConditionId,
+  normalizedWeights: Map<string, number>,
+): VariantRanking[] {
+  const ids = allVariantIds(db);
+  const p = new Map<string, number>();
+  for (const r of conditionRows(db, condition)) {
+    p.set(`${r.variant_A}|${r.variant_B}`, r.p_A_wins);
+  }
+  const out: VariantRanking[] = ids.map((A) => {
+    let sum = 0;
+    for (const V of ids) {
+      const w = normalizedWeights.get(V) ?? 0;
+      if (w === 0) continue;
+      const pav = A === V ? 0.5 : (p.get(`${A}|${V}`) ?? 0.5);
+      sum += w * pav;
+    }
+    return { variant: A, expected_win_rate: sum };
+  });
+  out.sort((a, b) => b.expected_win_rate - a.expected_win_rate);
+  return out;
+}
+
+/**
+ * Rank candidate partners by how much they improve the core's coverage,
+ * matching the weakest-matchups ranking (D29): scored on how much the candidate
+ * lifts both the core's best answer and its backup (second-best) answer against
+ * each opponent, usage- and urgency-weighted. A strong candidate demotes the
+ * old best answer to backup, deepening redundancy — credited via the secondary
+ * term (discounted by BACKUP_WEIGHT). Displayed "biggest fixes" stay best-answer
+ * upgrades; the backup term influences the score, not which fixes are shown.
+ * Client mirror of lib/analysis/team.ts.
+ */
 export function suggestPartners(
   db: Database,
   core: string[],
@@ -110,17 +315,12 @@ export function suggestPartners(
 ): PartnerSuggestion[] {
   const all = allVariantIds(db);
   const coreSet = new Set(core);
-  const coreRows = core.map((c) => matchupsFor(db, c, condition));
 
-  const teamBest = new Map<string, number>();
-  for (const V of all) {
-    if (coreSet.has(V)) continue;
-    let best = -1;
-    for (const r of coreRows) {
-      const row = r.get(V);
-      if (row && row.p_A_wins > best) best = row.p_A_wins;
-    }
-    if (best >= 0) teamBest.set(V, best);
+  // The core's current best and backup answer to each opponent (mirrors weakestMatchups).
+  const teamCover = new Map<string, { best: number; second: number }>();
+  for (const [V, { per_member }] of computeTeamBest(db, core, condition)) {
+    const byRate = [...per_member].sort((a, b) => b.p - a.p);
+    teamCover.set(V, { best: byRate[0].p, second: byRate[1]?.p ?? 0 });
   }
 
   const out: PartnerSuggestion[] = [];
@@ -128,18 +328,25 @@ export function suggestPartners(
     if (coreSet.has(candidate)) continue;
     const candRows = matchupsFor(db, candidate, condition);
     let score = 0;
-    const improvements: Array<{ opponent: string; before: number; after: number }> = [];
-    for (const [V, before] of teamBest) {
+    const improvements: Array<{ opponent: string; before: number; after: number; gain: number }> = [];
+    for (const [V, { best, second }] of teamCover) {
       if (V === candidate) continue;
       const row = candRows.get(V);
       if (!row) continue;
-      const after = Math.max(before, row.p_A_wins);
-      if (after <= before) continue;
-      score += (weights.get(V) ?? 0) * (after - before) * urgency(before);
-      improvements.push({ opponent: V, before, after });
+      const p = row.p_A_wins;
+      const bestAfter = Math.max(best, p);
+      const secondAfter = p >= best ? best : Math.max(second, p);
+      const bestGain = bestAfter - best;
+      const secondGain = secondAfter - second;
+      if (bestGain <= 0 && secondGain <= 0) continue;
+      const w = weights.get(V) ?? 0;
+      const gain = w * (bestGain * urgency(best) + BACKUP_WEIGHT * secondGain * urgency(second));
+      score += gain;
+      if (bestGain > 0) improvements.push({ opponent: V, before: best, after: bestAfter, gain });
     }
-    improvements.sort((a, b) => (b.after - b.before) - (a.after - a.before));
-    out.push({ variant: candidate, coverage_score: score, top_improvements: improvements.slice(0, 5) });
+    improvements.sort((a, b) => b.gain - a.gain);
+    const top = improvements.slice(0, 5).map(({ opponent, before, after }) => ({ opponent, before, after }));
+    out.push({ variant: candidate, coverage_score: score, top_improvements: top });
   }
   out.sort((a, b) => b.coverage_score - a.coverage_score);
   return out;

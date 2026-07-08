@@ -4,16 +4,10 @@ import type { Database } from 'sql.js';
 import { interpolateRdBu } from 'd3-scale-chromatic';
 import {
   loadMatchupDb, allVariantIds, conditionRows, metadata,
-  CONDITION_IDS, type ConditionId, type MatchupRow,
+  type ConditionId, type MatchupRow,
 } from '../lib/matchupDb';
-import { fetchJSON } from '../lib';
-
-interface VariantMeta {
-  id: string;
-  species: string;
-  item: string | null;
-  weight: number;
-}
+import { useVariants } from '../lib/useVariants';
+import ConditionSelect from '../components/ConditionSelect';
 
 type SortMode = 'usage' | 'winrate' | 'alpha';
 
@@ -24,16 +18,13 @@ function cellShade(p: number): string {
 
 export default function MatchupsPage() {
   const [db, setDb] = useState<Database | null>(null);
-  const [variants, setVariants] = useState<VariantMeta[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [dbError, setDbError] = useState<string | null>(null);
+  const { variants, error, label, weights } = useVariants();
   const [condition, setCondition] = useState<ConditionId>('fresh');
   const [sort, setSort] = useState<SortMode>('usage');
 
   useEffect(() => {
-    loadMatchupDb().then(setDb).catch((e) => setError(String(e)));
-    fetchJSON<{ variants: VariantMeta[] }>('defender-variants.json')
-      .then((d) => setVariants(d.variants))
-      .catch((e) => setError(String(e)));
+    loadMatchupDb().then(setDb).catch((e) => setDbError(String(e)));
   }, []);
 
   const grid = useMemo(() => {
@@ -57,25 +48,15 @@ export default function MatchupsPage() {
 
   const ordered = useMemo(() => {
     if (!grid) return [];
-    const weight = new Map((variants ?? []).map((v) => [v.id, v.weight]));
     const ids = [...grid.ids];
     if (sort === 'alpha') ids.sort();
     else if (sort === 'winrate') ids.sort((a, b) => (grid.avgWin.get(b) ?? 0) - (grid.avgWin.get(a) ?? 0));
-    else ids.sort((a, b) => (weight.get(b) ?? 0) - (weight.get(a) ?? 0));
+    else ids.sort((a, b) => (weights.get(b) ?? 0) - (weights.get(a) ?? 0));
     return ids;
-  }, [grid, sort, variants]);
+  }, [grid, sort, weights]);
 
-  const label = useMemo(() => {
-    const bySpecies = new Map((variants ?? []).map((v) => [v.id, v]));
-    return (id: string) => {
-      const v = bySpecies.get(id);
-      if (!v) return id;
-      return v.item && !v.id.includes('mega') ? `${v.species} (${v.item})` : v.species;
-    };
-  }, [variants]);
-
-  if (error) return <div className="error-note">Could not load matchup data — {error}</div>;
-  if (!grid) return <div className="loading">Loading matchup matrix (~10 MB)…</div>;
+  if (error || dbError) return <div className="error-note">Could not load matchup data — {error ?? dbError}</div>;
+  if (!grid) return <div className="loading">Loading matchup matrix (~18 MB)…</div>;
 
   return (
     <div>
@@ -86,12 +67,7 @@ export default function MatchupsPage() {
         Blue = row wins, red = row loses. Click a cell for detail.
       </p>
       <div className="controls">
-        <label>
-          Condition{' '}
-          <select value={condition} onChange={(e) => setCondition(e.target.value as ConditionId)}>
-            {CONDITION_IDS.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-        </label>
+        <ConditionSelect value={condition} onChange={setCondition} />
         <label>
           Sort{' '}
           <select value={sort} onChange={(e) => setSort(e.target.value as SortMode)}>
@@ -107,8 +83,8 @@ export default function MatchupsPage() {
             <tr>
               <th className="matrix-corner" />
               {ordered.map((col) => (
-                <th key={col} className="matrix-col-label" title={label(col)}>
-                  <span>{label(col)}</span>
+                <th key={col} className="matrix-col-label" title={`${label(col)} — open Pokémon detail`}>
+                  <Link to={`/pokemon/${col}`}><span>{label(col)}</span></Link>
                 </th>
               ))}
             </tr>
@@ -116,7 +92,9 @@ export default function MatchupsPage() {
           <tbody>
             {ordered.map((row) => (
               <tr key={row}>
-                <th className="matrix-row-label" title={label(row)}>{label(row)}</th>
+                <th className="matrix-row-label" title={`${label(row)} — open Pokémon detail`}>
+                  <Link to={`/pokemon/${row}`}>{label(row)}</Link>
+                </th>
                 {ordered.map((col) => {
                   if (row === col) return <td key={col} className="matrix-diag" />;
                   const r = grid.cell.get(`${row}|${col}`);
