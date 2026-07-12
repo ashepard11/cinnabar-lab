@@ -88,8 +88,11 @@ refresh changes `defender-variants.json`, re-run `npm run build-matchups`
 - **Matchup matrix build** (`scripts/build-matchups.ts`) — worker-thread pool
   over all unordered pairs × conditions; adaptive sampling (20–200 battles
   per cell, Wilson CI); each simulated cell also writes its exact mirror row.
-  Output: `data/matchups.sqlite` (schema per spec + a `metadata` table with
-  policy/calc/engine versions). The frontend loads it with sql.js.
+  Output: `data/matchups.sqlite`, schema v2 (DECISIONS.md D34): rows keyed on
+  content-addressed variant ids (`lib/variant-cid.ts`) plus a provenance run
+  key (policy/calc/engine versions via `sim_runs`); readers query the
+  `matchups_current` view, which exposes the human-readable slugs. A v1 file
+  migrates in place with `npm run migrate-matchups` (no re-simulation).
 
 ## Known limitations — damage viz (v1)
 

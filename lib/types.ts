@@ -124,7 +124,14 @@ export interface UsageData {
 // ---------------------------------------------------------------------------
 
 export interface Variant {
+  /** Human-readable slug (species_item) — display and URL name. */
   id: string;
+  /**
+   * Content-addressed id: hash of the resolved battle set (lib/variant-cid.ts).
+   * Stable across usage/weight drift; matchup rows key on it (schema v2).
+   * Optional because synthetic variants (tests) compute it on demand.
+   */
+  cid?: string;
   species: string;
   is_mega: boolean;
   mega_stone?: string;
@@ -140,7 +147,8 @@ export interface Variant {
 }
 
 export interface VariantsData {
-  schema_version: 1;
+  /** 2 = variants carry `cid` (content-addressed id, BACKLOG item 02). */
+  schema_version: 1 | 2;
   generated_at: string;
   variants: Variant[];
 }

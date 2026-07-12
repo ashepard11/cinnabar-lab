@@ -25,18 +25,28 @@ const check = (label: string, ok: boolean, detail = '') => {
   if (!ok) failures++;
 };
 
+// 0. schema v2 (BACKLOG item 02) — cids + provenance run key present
+const meta = Object.fromEntries(
+  (db.prepare('SELECT key, value FROM metadata').all() as any[]).map((r) => [r.key, r.value]),
+) as Record<string, string>;
+check('schema v2', meta.schema_version === '2' && !!meta.current_run_id,
+  `schema_version=${meta.schema_version ?? 'v1'}, current run ${meta.current_run_id ?? '—'}`);
+const currentVariants = (db.prepare('SELECT COUNT(*) c FROM variants WHERE current = 1').get() as any).c as number;
+check('variants table matches json', currentVariants === ids.length,
+  `${currentVariants} current variants (json has ${ids.length})`);
+
 // 1. completeness
 const expected = ids.length * (ids.length - 1) * CONDITION_IDS.length;
-const count = (db.prepare('SELECT COUNT(*) c FROM matchups').get() as any).c as number;
+const count = (db.prepare('SELECT COUNT(*) c FROM matchups_current').get() as any).c as number;
 check('row count', count === expected, `${count} rows (expected ${expected})`);
 
 const nullCheck = (db.prepare(
-  'SELECT COUNT(*) c FROM matchups WHERE n_simulated <= 0 OR p_A_wins < 0 OR p_A_wins > 1',
+  'SELECT COUNT(*) c FROM matchups_current WHERE n_simulated <= 0 OR p_A_wins < 0 OR p_A_wins > 1',
 ).get() as any).c as number;
 check('no invalid rows', nullCheck === 0, `${nullCheck} invalid`);
 
 // 2. mirror consistency (sampled: every 37th row to keep it fast)
-const rows = db.prepare('SELECT * FROM matchups').all() as any[];
+const rows = db.prepare('SELECT * FROM matchups_current').all() as any[];
 const byKey = new Map<string, any>(rows.map((r) => [`${r.variant_A}|${r.variant_B}|${r.condition}`, r]));
 let mirrorBad = 0;
 let sampled = 0;
@@ -69,13 +79,13 @@ const stats = db.prepare(`
          SUM(draws) draws,
          AVG(mean_turns) turns,
          SUM(CASE WHEN ci_high - ci_low > 0.15 THEN 1 ELSE 0 END) wide_ci
-  FROM matchups
+  FROM matchups_current
 `).get() as any;
 console.log(`\n  stats: avg n=${stats.avg_n.toFixed(1)} battles/cell, avg CI width ${stats.avg_ci.toFixed(3)}, ` +
   `${stats.wide_ci} cells with CI > 0.15 (${((stats.wide_ci / stats.n) * 100).toFixed(1)}%), ` +
   `${stats.draws} total draws, mean ${stats.turns.toFixed(1)} turns`);
 
-const battles = (db.prepare('SELECT SUM(n_simulated) s FROM matchups').get() as any).s / 2; // rows double-count via mirrors
+const battles = (db.prepare('SELECT SUM(n_simulated) s FROM matchups_current').get() as any).s / 2; // rows double-count via mirrors
 console.log(`  total battles simulated: ${Math.round(battles).toLocaleString()}`);
 
 db.close();

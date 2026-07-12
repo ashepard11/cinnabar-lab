@@ -47,7 +47,7 @@ function rowToResult(row: any): MatchupResult {
 
 export function getMatchup(A: VariantId, B: VariantId, condition: ConditionId): MatchupResult | null {
   const row = getDb()
-    .prepare('SELECT * FROM matchups WHERE variant_A = ? AND variant_B = ? AND condition = ?')
+    .prepare('SELECT * FROM matchups_current WHERE variant_A = ? AND variant_B = ? AND condition = ?')
     .get(A, B, condition);
   return row ? rowToResult(row) : null;
 }
@@ -55,14 +55,14 @@ export function getMatchup(A: VariantId, B: VariantId, condition: ConditionId): 
 /** A's easiest wins under a condition, best first. */
 export function bestMatchupsFor(A: VariantId, condition: ConditionId, n: number): MatchupResult[] {
   return (getDb()
-    .prepare('SELECT * FROM matchups WHERE variant_A = ? AND condition = ? ORDER BY p_A_wins DESC LIMIT ?')
+    .prepare('SELECT * FROM matchups_current WHERE variant_A = ? AND condition = ? ORDER BY p_A_wins DESC LIMIT ?')
     .all(A, condition, n) as any[]).map(rowToResult);
 }
 
 /** A's hardest losses under a condition, worst first. */
 export function worstMatchupsFor(A: VariantId, condition: ConditionId, n: number): MatchupResult[] {
   return (getDb()
-    .prepare('SELECT * FROM matchups WHERE variant_A = ? AND condition = ? ORDER BY p_A_wins ASC LIMIT ?')
+    .prepare('SELECT * FROM matchups_current WHERE variant_A = ? AND condition = ? ORDER BY p_A_wins ASC LIMIT ?')
     .all(A, condition, n) as any[]).map(rowToResult);
 }
 
@@ -70,7 +70,7 @@ export function worstMatchupsFor(A: VariantId, condition: ConditionId, n: number
 export function matchupsFor(A: VariantId, condition: ConditionId): Map<VariantId, MatchupResult> {
   const out = new Map<VariantId, MatchupResult>();
   for (const row of getDb()
-    .prepare('SELECT * FROM matchups WHERE variant_A = ? AND condition = ?')
+    .prepare('SELECT * FROM matchups_current WHERE variant_A = ? AND condition = ?')
     .all(A, condition) as any[]) {
     out.set(row.variant_B, rowToResult(row));
   }
@@ -101,7 +101,7 @@ export function coverageDelta(A: VariantId, B: VariantId, condition: ConditionId
 
 /** Distinct variant ids present in the matrix. */
 export function variantIds(): VariantId[] {
-  return (getDb().prepare('SELECT DISTINCT variant_A AS id FROM matchups ORDER BY id').all() as any[])
+  return (getDb().prepare('SELECT DISTINCT variant_A AS id FROM matchups_current ORDER BY id').all() as any[])
     .map((r) => r.id);
 }
 

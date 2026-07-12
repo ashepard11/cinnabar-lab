@@ -22,6 +22,10 @@ import * as path from 'path';
 import { CONDITION_IDS, mirrorCondition, type ConditionId } from '../lib/sim/condition';
 import { mirrorResult, type MatchupResult } from '../lib/sim/harness';
 import { getPolicy, DEFAULT_POLICY_ID } from '../lib/sim/policy';
+import { SIM_ENGINE_VERSION } from '../lib/sim/engine';
+import {
+  SCHEMA_VERSION, calcVersion, ensureSchemaV2, syncVariants, upsertRun,
+} from '../lib/analysis/schema';
 import type { VariantsData } from '../lib/types';
 
 const ROOT = path.join(__dirname, '..');
@@ -45,49 +49,34 @@ function openDb(): DatabaseSync {
   const db = new DatabaseSync(DB_PATH);
   db.exec('PRAGMA journal_mode = WAL;');
   db.exec('PRAGMA busy_timeout = 10000;'); // survive transient reader locks
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS matchups (
-      variant_A TEXT NOT NULL,
-      variant_B TEXT NOT NULL,
-      condition TEXT NOT NULL,
-      n_simulated INTEGER NOT NULL,
-      wins_A INTEGER NOT NULL,
-      wins_B INTEGER NOT NULL,
-      draws INTEGER NOT NULL,
-      p_A_wins REAL NOT NULL,
-      ci_low REAL NOT NULL,
-      ci_high REAL NOT NULL,
-      mean_turns REAL NOT NULL,
-      generated_at TEXT NOT NULL,
-      PRIMARY KEY (variant_A, variant_B, condition)
-    );
-    CREATE INDEX IF NOT EXISTS idx_A ON matchups(variant_A);
-    CREATE INDEX IF NOT EXISTS idx_B ON matchups(variant_B);
-    CREATE INDEX IF NOT EXISTS idx_condition ON matchups(condition);
-    CREATE TABLE IF NOT EXISTS metadata (
-      key TEXT PRIMARY KEY,
-      value TEXT NOT NULL
-    );
-  `);
+  ensureSchemaV2(db);
   return db;
 }
 
-function writeMetadata(db: DatabaseSync, policyId: string): void {
+/** Record provenance and pin the view to this build's run. Returns run_id. */
+function writeMetadata(db: DatabaseSync, policyId: string): number {
   const policy = getPolicy(policyId);
-  const calcVersion = JSON.parse(
-    fs.readFileSync(path.join(ROOT, 'node_modules', '@smogon', 'calc', 'package.json'), 'utf8'),
-  ).version as string;
-  const stmt = db.prepare('INSERT OR REPLACE INTO metadata (key, value) VALUES (?, ?)');
-  const meta: Record<string, string> = {
+  const runId = upsertRun(db, {
     policy_id: policy.id,
     policy_version: policy.version,
-    calc_version: `${calcVersion} (champions master, vendored)`,
+    calc_version: calcVersion(ROOT),
+    engine_version: SIM_ENGINE_VERSION,
+  });
+  const stmt = db.prepare('INSERT OR REPLACE INTO metadata (key, value) VALUES (?, ?)');
+  const meta: Record<string, string> = {
+    schema_version: SCHEMA_VERSION,
+    current_run_id: String(runId),
+    policy_id: policy.id,
+    policy_version: policy.version,
+    calc_version: calcVersion(ROOT),
+    engine_version: SIM_ENGINE_VERSION,
     showdown_commit: SHOWDOWN_COMMIT,
     seeding_scheme: 'sha256(matchup::A:B:condition:iteration) -> sodium',
     format: 'gen9championsbssregmb (1v1; see DECISIONS.md D21)',
     built_at: new Date().toISOString(),
   };
   for (const [k, v] of Object.entries(meta)) stmt.run(k, v);
+  return runId;
 }
 
 async function main() {
@@ -101,12 +90,21 @@ async function main() {
   console.log(`${ids.length} variants, ${CONDITION_IDS.length} conditions, policy ${policyId}`);
 
   const db = openDb();
-  writeMetadata(db, policyId);
+  const runId = writeMetadata(db, policyId);
+  const slugToCid = syncVariants(db, data.variants);
+  const cidOf = (slug: string): string => {
+    const cid = slugToCid.get(slug);
+    if (!cid) throw new Error(`no cid for variant ${slug}`);
+    return cid;
+  };
 
-  // Resume support: skip units whose primary row already exists.
+  // Resume support: skip units whose primary row already exists for this run.
+  // Rows from other runs (older policy/calc/engine) are ignored, not clobbered.
   const existing = new Set<string>();
-  for (const row of db.prepare('SELECT variant_A, variant_B, condition FROM matchups').all() as any[]) {
-    existing.add(`${row.variant_A}|${row.variant_B}|${row.condition}`);
+  for (const row of db.prepare(
+    'SELECT variant_A_cid, variant_B_cid, condition FROM matchups WHERE run_id = ?',
+  ).all(runId) as any[]) {
+    existing.add(`${row.variant_A_cid}|${row.variant_B_cid}|${row.condition}`);
   }
 
   // Work units: unordered pairs × all conditions (mirror rows are derived).
@@ -114,7 +112,7 @@ async function main() {
   for (let i = 0; i < ids.length; i++) {
     for (let j = i + 1; j < ids.length; j++) {
       for (const conditionId of CONDITION_IDS) {
-        if (existing.has(`${ids[i]}|${ids[j]}|${conditionId}`)) continue;
+        if (existing.has(`${cidOf(ids[i])}|${cidOf(ids[j])}|${conditionId}`)) continue;
         units.push({ aId: ids[i], bId: ids[j], conditionId });
       }
     }
@@ -130,14 +128,14 @@ async function main() {
 
   const insert = db.prepare(`
     INSERT OR REPLACE INTO matchups
-    (variant_A, variant_B, condition, n_simulated, wins_A, wins_B, draws,
+    (variant_A_cid, variant_B_cid, condition, run_id, n_simulated, wins_A, wins_B, draws,
      p_A_wins, ci_low, ci_high, mean_turns, generated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
   const writeRow = (r: MatchupResult) => {
     insert.run(
-      r.variant_A_id, r.variant_B_id, r.condition, r.n_simulated, r.wins_A,
-      r.wins_B, r.draws, r.p_A_wins, r.ci_low, r.ci_high, r.mean_turns,
+      cidOf(r.variant_A_id), cidOf(r.variant_B_id), r.condition, runId, r.n_simulated,
+      r.wins_A, r.wins_B, r.draws, r.p_A_wins, r.ci_low, r.ci_high, r.mean_turns,
       new Date().toISOString(),
     );
   };
@@ -216,7 +214,7 @@ async function main() {
   });
 
   db.exec('PRAGMA wal_checkpoint(TRUNCATE);');
-  const count = (db.prepare('SELECT COUNT(*) AS c FROM matchups').get() as any).c;
+  const count = (db.prepare('SELECT COUNT(*) AS c FROM matchups WHERE run_id = ?').get(runId) as any).c;
   db.close();
   const mins = ((Date.now() - t0) / 60000).toFixed(1);
   console.log(`\ndone: ${done} cells simulated, ${errors} errors, ${count} rows total, ${mins} min`);

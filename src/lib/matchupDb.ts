@@ -51,27 +51,27 @@ function rows(db: Database, sql: string, params: any[] = []): MatchupRow[] {
 }
 
 export function allVariantIds(db: Database): string[] {
-  return rows(db, 'SELECT DISTINCT variant_A AS variant_A FROM matchups ORDER BY variant_A')
+  return rows(db, 'SELECT DISTINCT variant_A AS variant_A FROM matchups_current ORDER BY variant_A')
     .map((r) => r.variant_A);
 }
 
 /** Full row set for one condition (used to paint the grid). */
 export function conditionRows(db: Database, condition: ConditionId): MatchupRow[] {
-  return rows(db, 'SELECT * FROM matchups WHERE condition = ?', [condition]);
+  return rows(db, 'SELECT * FROM matchups_current WHERE condition = ?', [condition]);
 }
 
 export function getMatchup(db: Database, A: string, B: string, condition: string): MatchupRow | null {
-  const r = rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND variant_B = ? AND condition = ?', [A, B, condition]);
+  const r = rows(db, 'SELECT * FROM matchups_current WHERE variant_A = ? AND variant_B = ? AND condition = ?', [A, B, condition]);
   return r[0] ?? null;
 }
 
 export function allConditionsFor(db: Database, A: string, B: string): MatchupRow[] {
-  return rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND variant_B = ?', [A, B]);
+  return rows(db, 'SELECT * FROM matchups_current WHERE variant_A = ? AND variant_B = ?', [A, B]);
 }
 
 export function matchupsFor(db: Database, A: string, condition: ConditionId): Map<string, MatchupRow> {
   const out = new Map<string, MatchupRow>();
-  for (const r of rows(db, 'SELECT * FROM matchups WHERE variant_A = ? AND condition = ?', [A, condition])) {
+  for (const r of rows(db, 'SELECT * FROM matchups_current WHERE variant_A = ? AND condition = ?', [A, condition])) {
     out.set(r.variant_B, r);
   }
   return out;

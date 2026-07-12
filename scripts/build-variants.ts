@@ -6,6 +6,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import {buildAllVariants} from '../lib/variants';
 import {speciesExists, abilityExists} from '../lib/pokemon';
+import {variantCid} from '../lib/variant-cid';
 import type {UsageData, VariantsData} from '../lib/types';
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
@@ -24,8 +25,19 @@ function main() {
     if (!abilityExists(v.ability)) throw new Error(`Unknown ability in variant ${v.id}: ${v.ability}`);
   }
 
+  // Content-addressed ids (BACKLOG item 02). Distinct variants must not
+  // collide: same-cid duplicates would be battle-identical by construction,
+  // which the item bucketing should never produce.
+  const byCid = new Map<string, string>();
+  for (const v of variants) {
+    v.cid = variantCid(v);
+    const clash = byCid.get(v.cid);
+    if (clash) throw new Error(`cid collision: ${v.id} and ${clash} are battle-identical (${v.cid})`);
+    byCid.set(v.cid, v.id);
+  }
+
   const out: VariantsData = {
-    schema_version: 1,
+    schema_version: 2,
     generated_at: new Date().toISOString(),
     variants,
   };
