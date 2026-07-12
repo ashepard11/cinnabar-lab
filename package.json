@@ -20,6 +20,7 @@
     "sim-smoke": "tsx scripts/sim-smoke.ts",
     "inspect-matchup": "tsx scripts/inspect-matchup.ts",
     "sim-sanity": "tsx scripts/sim-sanity.ts",
+    "endgame-suite": "tsx scripts/endgame-suite.ts",
     "build-matchups": "tsx scripts/build-matchups.ts"
   },
   "repository": {

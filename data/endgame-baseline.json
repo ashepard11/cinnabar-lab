@@ -1,0 +1,117 @@
+{
+  "policy_id": "nash-d2",
+  "policy_version": "1.0.0",
+  "n": 120,
+  "min_n": 40,
+  "recorded_at": "2026-07-10T03:19:31.000Z",
+  "results": {
+    "bd-azumarill-vs-garchomp": {
+      "p_A_wins": 0.95,
+      "wins_A": 38,
+      "wins_B": 2,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 1.75,
+      "consensus_met": true
+    },
+    "bd-azumarill-vs-incineroar": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 4.8,
+      "consensus_met": true
+    },
+    "bulkup-ceruledge-vs-amoonguss": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 32.875,
+      "consensus_met": true
+    },
+    "bulkup-ceruledge-vs-corviknight": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 15.1,
+      "consensus_met": true
+    },
+    "dd-gyarados-vs-incineroar": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 3.275,
+      "consensus_met": true
+    },
+    "curse-snorlax-vs-rotom-wash": {
+      "p_A_wins": 0.7083333333333334,
+      "wins_A": 85,
+      "wins_B": 35,
+      "draws": 0,
+      "n_simulated": 120,
+      "mean_turns": 6.591666666666667,
+      "consensus_met": false
+    },
+    "cm-cresselia-vs-rotom-wash": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 28.175,
+      "consensus_met": true
+    },
+    "idrest-toxapex-vs-sneasler": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 9.7,
+      "consensus_met": true
+    },
+    "idrest-toxapex-vs-incineroar": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 6.1,
+      "consensus_met": true
+    },
+    "haze-toxapex-vs-cm-sylveon": {
+      "p_A_wins": 0.125,
+      "wins_A": 15,
+      "wins_B": 105,
+      "draws": 0,
+      "n_simulated": 120,
+      "mean_turns": 5.866666666666666,
+      "consensus_met": false
+    },
+    "bulkup-annihilape-vs-incineroar": {
+      "p_A_wins": 1,
+      "wins_A": 40,
+      "wins_B": 0,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 2.975,
+      "consensus_met": true
+    },
+    "dd-dragonite-vs-kingambit": {
+      "p_A_wins": 0.975,
+      "wins_A": 39,
+      "wins_B": 1,
+      "draws": 0,
+      "n_simulated": 40,
+      "mean_turns": 3.8,
+      "consensus_met": true
+    }
+  }
+}

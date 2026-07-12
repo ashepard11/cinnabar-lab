@@ -418,3 +418,43 @@ prior behaviour; the selector drives weakest-matchups, suggested-partners, and
 the check-specific-matchup card (all already condition-aware), but **not** the
 Part A chart. The lexicographic weakest-matchups sort (D29) is unchanged and
 simply re-runs under the selected condition.
+
+### D33: Endgame test suite — case design, consensus verification, and baseline gate (BACKLOG item 01, 2026-07-09)
+`scripts/endgame-suite.ts` runs 12 known-hard 1v1 endgames
+(`scripts/endgame-cases.ts`) against the production policy and reports the
+delta from a per-case consensus floor. Design decisions:
+
+1. **Consensus ≠ CI gate.** The suite exists to *measure* how far nash-d2 is
+   from correct play (input to BACKLOG item 07), so consensus misses are
+   reported but do not fail the build. What fails CI (new
+   `.github/workflows/ci.yml`, also runs typecheck) is a **regression against
+   the recorded baseline** (`data/endgame-baseline.json`): any case whose
+   P(A wins) drops more than 2 pp below its recorded value. Battles are
+   deterministically seeded (`seedNamespace: 'endgame'`), so unchanged code
+   reproduces the baseline exactly — the epsilon only absorbs hypothetical
+   cross-platform float drift. Policy id/version changes, added/removed cases,
+   or a missing baseline all fail with an instruction to review deltas and
+   re-record via `npm run endgame-suite -- --update-baseline`.
+2. **All sides are frozen synthetic variants** (some copied from
+   `data/defender-variants.json` as of 2026-07-09) rather than references into
+   the data file, so the weekly refresh-data cron cannot silently change what
+   the suite measures. Cresselia and Amoonguss are off-dex in Champions
+   (nonstandard: Past) but simulate fine — same precedent as sim-sanity's
+   synthetic Amoonguss; Cresselia is named by the backlog item itself.
+3. **Consensus floors were verified against engine-observed damage, not Gen-9
+   intuition.** This mattered: the planned "Iron Defense + Rest Toxapex vs
+   Garchomp" case was dropped because observed Earthquake damage (~69% per hit
+   to a fully-invested Bold Toxapex, crits ignoring Iron Defense) means even
+   optimal sequencing loses — Champions' 66-SP math is wall-hostile and Gen-9
+   wall intuition does not transfer (same lesson as D24). Replaced with
+   Incineroar (resisted chip, no recovery), keeping Sneasler as the
+   resisted-attacker ID+Rest case.
+4. **Recorded baseline (nash-d2@1.0.0): 10/12 consensus met, total shortfall
+   67 pp**, from two verified long-horizon policy gaps: *Haze Toxapex vs Calm
+   Mind Sylveon* (12.5% vs 0.70 floor — the policy never plays Haze; its value
+   only appears ≥3 turns out, past the depth-2 horizon) and *Curse + Rest
+   Snorlax vs Rotom-Wash* (70.8% vs 0.80 floor — the policy races at low HP
+   instead of entering the sustainable Rest loop, whose ~33%/turn net healing
+   beats Thunderbolt's ~23%/turn and whose PP advantage is decisive). Battle
+   logs confirming both are reproducible via
+   `npm run endgame-suite -- --case <id> --verbose`.
