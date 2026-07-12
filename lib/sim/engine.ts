@@ -22,6 +22,14 @@ import * as crypto from 'crypto';
 
 export const SIM_FORMAT = 'gen9championsbssregmb';
 
+/**
+ * Version of the simulation engine as a whole: this driver, the seeding
+ * scheme, the planning model, and the vendored showdown build. Bump on any
+ * change that can alter battle outcomes — matchup rows are keyed on it
+ * (schema v2, BACKLOG item 02), so stale cached rows become distinguishable.
+ */
+export const SIM_ENGINE_VERSION = '1.0.0';
+
 /** Maximum turns before a battle is declared a draw (PP stall safety net). */
 export const MAX_TURNS = 500;
 

@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-07-06T10:24:51.651Z",
+  "schema_version": 2,
+  "generated_at": "2026-07-12T17:52:09.366Z",
   "variants": [
     {
       "id": "garchomp_life_orb",
@@ -59,7 +59,8 @@
           "name": "Dragon Tail",
           "usage": 0.02
         }
-      ]
+      ],
+      "cid": "b81efa96488db225"
     },
     {
       "id": "garchomp_soft_sand",
@@ -118,7 +119,8 @@
           "name": "Dragon Tail",
           "usage": 0.02
         }
-      ]
+      ],
+      "cid": "62b00a37c907bbf9"
     },
     {
       "id": "garchomp_no_item",
@@ -177,7 +179,8 @@
           "name": "Dragon Tail",
           "usage": 0.02
         }
-      ]
+      ],
+      "cid": "7ee9621dff483549"
     },
     {
       "id": "basculegion_mystic_water",
@@ -236,7 +239,8 @@
           "name": "Waterfall",
           "usage": 0.006
         }
-      ]
+      ],
+      "cid": "5d8734869e065ff8"
     },
     {
       "id": "basculegion_life_orb",
@@ -295,7 +299,8 @@
           "name": "Waterfall",
           "usage": 0.006
         }
-      ]
+      ],
+      "cid": "02de32630aacfe83"
     },
     {
       "id": "basculegion_no_item",
@@ -354,7 +359,8 @@
           "name": "Waterfall",
           "usage": 0.006
         }
-      ]
+      ],
+      "cid": "7b89eac335d57676"
     },
     {
       "id": "kingambit_black_glasses",
@@ -413,7 +419,8 @@
           "name": "Assurance",
           "usage": 0.001
         }
-      ]
+      ],
+      "cid": "b108eda46851045d"
     },
     {
       "id": "kingambit_life_orb",
@@ -472,7 +479,8 @@
           "name": "Assurance",
           "usage": 0.001
         }
-      ]
+      ],
+      "cid": "d33593382a90c000"
     },
     {
       "id": "kingambit_no_item",
@@ -531,7 +539,8 @@
           "name": "Assurance",
           "usage": 0.001
         }
-      ]
+      ],
+      "cid": "432a0774c3cb2f6b"
     },
     {
       "id": "incineroar_charcoal",
@@ -590,7 +599,8 @@
           "name": "Snarl",
           "usage": 0.024
         }
-      ]
+      ],
+      "cid": "206ec31f442c1983"
     },
     {
       "id": "incineroar_no_item",
@@ -649,7 +659,8 @@
           "name": "Snarl",
           "usage": 0.024
         }
-      ]
+      ],
+      "cid": "6348f4da7d2dbe83"
     },
     {
       "id": "sinistcha_no_item",
@@ -708,7 +719,8 @@
           "name": "Leaf Storm",
           "usage": 0.008
         }
-      ]
+      ],
+      "cid": "024cee1a8526e616"
     },
     {
       "id": "sneasler_no_item",
@@ -767,7 +779,8 @@
           "name": "Rock Tomb",
           "usage": 0.024
         }
-      ]
+      ],
+      "cid": "244400d9167e7084"
     },
     {
       "id": "charizard_mega_y",
@@ -827,7 +840,8 @@
           "name": "Overheat",
           "usage": 0.022000000000000002
         }
-      ]
+      ],
+      "cid": "b3e49ebad0d4367b"
     },
     {
       "id": "charizard_mega_x",
@@ -887,7 +901,8 @@
           "name": "Overheat",
           "usage": 0.022000000000000002
         }
-      ]
+      ],
+      "cid": "579b514ac0567c3e"
     },
     {
       "id": "floette_mega",
@@ -947,7 +962,8 @@
           "name": "Energy Ball",
           "usage": 0.002
         }
-      ]
+      ],
+      "cid": "ecc6e7a87992c098"
     },
     {
       "id": "whimsicott_no_item",
@@ -1006,7 +1022,8 @@
           "name": "Taunt",
           "usage": 0.038
         }
-      ]
+      ],
+      "cid": "e44db8e5f05ae054"
     },
     {
       "id": "archaludon_no_item",
@@ -1065,7 +1082,8 @@
           "name": "Substitute",
           "usage": 0.003
         }
-      ]
+      ],
+      "cid": "294a12dc9de3473f"
     },
     {
       "id": "pelipper_no_item",
@@ -1124,7 +1142,8 @@
           "name": "Ice Beam",
           "usage": 0.034
         }
-      ]
+      ],
+      "cid": "0d139b488c72ba6b"
     },
     {
       "id": "farigiraf_no_item",
@@ -1183,7 +1202,8 @@
           "name": "Foul Play",
           "usage": 0.064
         }
-      ]
+      ],
+      "cid": "3cba8a8d93d115d7"
     },
     {
       "id": "sylveon_no_item",
@@ -1242,7 +1262,8 @@
           "name": "Shadow Ball",
           "usage": 0.036000000000000004
         }
-      ]
+      ],
+      "cid": "5f29a1803653b87e"
     },
     {
       "id": "aerodactyl_mega",
@@ -1302,7 +1323,8 @@
           "name": "Rain Dance",
           "usage": 0.005
         }
-      ]
+      ],
+      "cid": "12e5002bf5dbd9fc"
     },
     {
       "id": "aerodactyl_no_item",
@@ -1361,7 +1383,8 @@
           "name": "Rain Dance",
           "usage": 0.005
         }
-      ]
+      ],
+      "cid": "877bef9ccf0e5065"
     },
     {
       "id": "swampert_mega",
@@ -1421,7 +1444,8 @@
           "name": "Bulk Up",
           "usage": 0.049
         }
-      ]
+      ],
+      "cid": "32bb8e94204339eb"
     },
     {
       "id": "grimmsnarl_no_item",
@@ -1480,7 +1504,8 @@
           "name": "Taunt",
           "usage": 0.027999999999999997
         }
-      ]
+      ],
+      "cid": "199ab4a670f9cf95"
     },
     {
       "id": "venusaur_mega",
@@ -1540,7 +1565,8 @@
           "name": "Solar Beam",
           "usage": 0.027000000000000003
         }
-      ]
+      ],
+      "cid": "bc17d25604f0165b"
     },
     {
       "id": "venusaur_no_item",
@@ -1599,7 +1625,8 @@
           "name": "Solar Beam",
           "usage": 0.027000000000000003
         }
-      ]
+      ],
+      "cid": "0bd04caa0f94951f"
     },
     {
       "id": "froslass_mega",
@@ -1659,7 +1686,8 @@
           "name": "Substitute",
           "usage": 0.026000000000000002
         }
-      ]
+      ],
+      "cid": "65759830f2d594a9"
     },
     {
       "id": "metagross_mega",
@@ -1719,7 +1747,8 @@
           "name": "Thunder Punch",
           "usage": 0.059000000000000004
         }
-      ]
+      ],
+      "cid": "29cb29385e52ae6b"
     },
     {
       "id": "staraptor_mega",
@@ -1779,7 +1808,8 @@
           "name": "Quick Attack",
           "usage": 0.040999999999999995
         }
-      ]
+      ],
+      "cid": "0fb76124be7787ae"
     },
     {
       "id": "dragonite_mega",
@@ -1839,7 +1869,8 @@
           "name": "Heat Wave",
           "usage": 0.138
         }
-      ]
+      ],
+      "cid": "9755a0045e004927"
     },
     {
       "id": "delphox_mega",
@@ -1899,7 +1930,8 @@
           "name": "Flamethrower",
           "usage": 0.011000000000000001
         }
-      ]
+      ],
+      "cid": "ba332631bbf1f4b0"
     },
     {
       "id": "gholdengo_life_orb",
@@ -1958,7 +1990,8 @@
           "name": "Thunder",
           "usage": 0.017
         }
-      ]
+      ],
+      "cid": "e2e8beece2bfa215"
     },
     {
       "id": "gholdengo_no_item",
@@ -2017,7 +2050,8 @@
           "name": "Thunder",
           "usage": 0.017
         }
-      ]
+      ],
+      "cid": "04882156ee2a5a7f"
     },
     {
       "id": "rotom_wash_no_item",
@@ -2076,7 +2110,8 @@
           "name": "Trick",
           "usage": 0.053
         }
-      ]
+      ],
+      "cid": "ee1c1380d017b503"
     },
     {
       "id": "tyranitar_mega",
@@ -2136,7 +2171,8 @@
           "name": "Earthquake",
           "usage": 0.018000000000000002
         }
-      ]
+      ],
+      "cid": "9914e3566af2aeed"
     },
     {
       "id": "tyranitar_no_item",
@@ -2195,7 +2231,8 @@
           "name": "Earthquake",
           "usage": 0.018000000000000002
         }
-      ]
+      ],
+      "cid": "c2016c15c04faa73"
     },
     {
       "id": "raichu_mega_y",
@@ -2255,7 +2292,8 @@
           "name": "Nuzzle",
           "usage": 0.10400000000000001
         }
-      ]
+      ],
+      "cid": "df5989403dfe079b"
     },
     {
       "id": "raichu_mega_x",
@@ -2315,7 +2353,8 @@
           "name": "Nuzzle",
           "usage": 0.10400000000000001
         }
-      ]
+      ],
+      "cid": "42ef72ec34eedf1f"
     },
     {
       "id": "raichu_no_item",
@@ -2374,7 +2413,8 @@
           "name": "Nuzzle",
           "usage": 0.10400000000000001
         }
-      ]
+      ],
+      "cid": "241412cd1c149c2b"
     },
     {
       "id": "torkoal_charcoal",
@@ -2433,7 +2473,8 @@
           "name": "Ancient Power",
           "usage": 0.036000000000000004
         }
-      ]
+      ],
+      "cid": "6b7827ff86c3ab1e"
     },
     {
       "id": "maushold_no_item",
@@ -2492,7 +2533,8 @@
           "name": "Charm",
           "usage": 0.105
         }
-      ]
+      ],
+      "cid": "1c591cb55605955e"
     },
     {
       "id": "sableye_mega",
@@ -2552,7 +2594,8 @@
           "name": "Taunt",
           "usage": 0.048
         }
-      ]
+      ],
+      "cid": "8b286f401c266787"
     },
     {
       "id": "sableye_no_item",
@@ -2611,7 +2654,8 @@
           "name": "Taunt",
           "usage": 0.048
         }
-      ]
+      ],
+      "cid": "ef9b2f51b638e6f0"
     },
     {
       "id": "scovillain_mega",
@@ -2671,7 +2715,8 @@
           "name": "Fire Blast",
           "usage": 0.027999999999999997
         }
-      ]
+      ],
+      "cid": "a3e874aa17d64a43"
     },
     {
       "id": "hydreigon_no_item",
@@ -2730,7 +2775,8 @@
           "name": "Dragon Pulse",
           "usage": 0.073
         }
-      ]
+      ],
+      "cid": "3b385347b2418c33"
     },
     {
       "id": "milotic_no_item",
@@ -2789,7 +2835,8 @@
           "name": "Psych Up",
           "usage": 0.048
         }
-      ]
+      ],
+      "cid": "14a6dece6b118f48"
     },
     {
       "id": "glimmora_mega",
@@ -2849,7 +2896,8 @@
           "name": "Mortal Spin",
           "usage": 0.013000000000000001
         }
-      ]
+      ],
+      "cid": "a381ab2df3e99b88"
     },
     {
       "id": "glimmora_no_item",
@@ -2908,7 +2956,8 @@
           "name": "Mortal Spin",
           "usage": 0.013000000000000001
         }
-      ]
+      ],
+      "cid": "89f6a0fb54f76dec"
     },
     {
       "id": "talonflame_sharp_beak",
@@ -2967,7 +3016,8 @@
           "name": "Rain Dance",
           "usage": 0.07400000000000001
         }
-      ]
+      ],
+      "cid": "4da6f47f5990823b"
     },
     {
       "id": "talonflame_no_item",
@@ -3026,7 +3076,8 @@
           "name": "Rain Dance",
           "usage": 0.07400000000000001
         }
-      ]
+      ],
+      "cid": "524e3ac34b82a95f"
     },
     {
       "id": "mawile_mega",
@@ -3086,7 +3137,8 @@
           "name": "Stone Edge",
           "usage": 0.01
         }
-      ]
+      ],
+      "cid": "b79a3be4192062a6"
     },
     {
       "id": "ninetales_alola_no_item",
@@ -3145,7 +3197,8 @@
           "name": "Icicle Spear",
           "usage": 0.02
         }
-      ]
+      ],
+      "cid": "380e5c54f238637e"
     },
     {
       "id": "gengar_mega",
@@ -3205,7 +3258,8 @@
           "name": "Destiny Bond",
           "usage": 0.023
         }
-      ]
+      ],
+      "cid": "ae0193d508ee34cd"
     },
     {
       "id": "corviknight_no_item",
@@ -3264,7 +3318,8 @@
           "name": "Agility",
           "usage": 0.016
         }
-      ]
+      ],
+      "cid": "42f922e8deb10c3c"
     },
     {
       "id": "kangaskhan_mega",
@@ -3324,7 +3379,8 @@
           "name": "Facade",
           "usage": 0.026000000000000002
         }
-      ]
+      ],
+      "cid": "fac9f0a62a8a49ee"
     },
     {
       "id": "kangaskhan_silk_scarf",
@@ -3383,7 +3439,8 @@
           "name": "Facade",
           "usage": 0.026000000000000002
         }
-      ]
+      ],
+      "cid": "960822de4ba27d98"
     },
     {
       "id": "politoed_no_item",
@@ -3442,7 +3499,8 @@
           "name": "Helping Hand",
           "usage": 0.11
         }
-      ]
+      ],
+      "cid": "681710c491ab285d"
     },
     {
       "id": "scizor_mega",
@@ -3502,7 +3560,8 @@
           "name": "Pounce",
           "usage": 0.015
         }
-      ]
+      ],
+      "cid": "8361a3ddd4607fb6"
     },
     {
       "id": "blastoise_mega",
@@ -3562,7 +3621,8 @@
           "name": "Muddy Water",
           "usage": 0.031
         }
-      ]
+      ],
+      "cid": "551065ab4f44372b"
     },
     {
       "id": "vivillon_no_item",
@@ -3621,7 +3681,8 @@
           "name": "Struggle Bug",
           "usage": 0.028999999999999998
         }
-      ]
+      ],
+      "cid": "f3fd77eb4c04d5e0"
     },
     {
       "id": "lycanroc_dusk_no_item",
@@ -3680,7 +3741,8 @@
           "name": "Psychic Fangs",
           "usage": 0.015
         }
-      ]
+      ],
+      "cid": "d91720b005f7fca1"
     },
     {
       "id": "kommo_o_no_item",
@@ -3739,7 +3801,8 @@
           "name": "Helping Hand",
           "usage": 0.034
         }
-      ]
+      ],
+      "cid": "c18f9984845495b5"
     },
     {
       "id": "excadrill_mega",
@@ -3799,7 +3862,8 @@
           "name": "Brick Break",
           "usage": 0.002
         }
-      ]
+      ],
+      "cid": "5a509ac92d8f0336"
     },
     {
       "id": "excadrill_no_item",
@@ -3858,7 +3922,8 @@
           "name": "Brick Break",
           "usage": 0.002
         }
-      ]
+      ],
+      "cid": "6a6ce89e4def7507"
     },
     {
       "id": "gardevoir_mega",
@@ -3918,7 +3983,8 @@
           "name": "Dazzling Gleam",
           "usage": 0.075
         }
-      ]
+      ],
+      "cid": "b480d401f773928f"
     },
     {
       "id": "arcanine_hisui_no_item",
@@ -3977,7 +4043,8 @@
           "name": "Snarl",
           "usage": 0.027000000000000003
         }
-      ]
+      ],
+      "cid": "0fea55eedbba5a3c"
     },
     {
       "id": "pyroar_mega",
@@ -4037,7 +4104,8 @@
           "name": "Snarl",
           "usage": 0.039
         }
-      ]
+      ],
+      "cid": "22243f764c7c0131"
     },
     {
       "id": "ceruledge_no_item",
@@ -4096,7 +4164,8 @@
           "name": "Ally Switch",
           "usage": 0.003
         }
-      ]
+      ],
+      "cid": "4b420d2b794a92ad"
     },
     {
       "id": "blaziken_mega",
@@ -4156,7 +4225,8 @@
           "name": "Blaze Kick",
           "usage": 0.077
         }
-      ]
+      ],
+      "cid": "bb25298dfb948cda"
     },
     {
       "id": "annihilape_no_item",
@@ -4215,7 +4285,8 @@
           "name": "Shadow Claw",
           "usage": 0.044000000000000004
         }
-      ]
+      ],
+      "cid": "e790d0912282271b"
     },
     {
       "id": "aegislash_both_no_item",
@@ -4274,7 +4345,8 @@
           "name": "Protect",
           "usage": 0.045
         }
-      ]
+      ],
+      "cid": "e684b4e5bf6b7e2f"
     },
     {
       "id": "rotom_heat_no_item",
@@ -4333,7 +4405,8 @@
           "name": "Nasty Plot",
           "usage": 0.037000000000000005
         }
-      ]
+      ],
+      "cid": "412d4a651a9b25ba"
     },
     {
       "id": "scrafty_mega",
@@ -4393,7 +4466,8 @@
           "name": "Coaching",
           "usage": 0.079
         }
-      ]
+      ],
+      "cid": "693ad237a0b4ac3f"
     },
     {
       "id": "gyarados_mega",
@@ -4453,7 +4527,8 @@
           "name": "Earthquake",
           "usage": 0.07400000000000001
         }
-      ]
+      ],
+      "cid": "e2ec53914f84be5b"
     },
     {
       "id": "toxapex_no_item",
@@ -4508,7 +4583,8 @@
           "name": "Ice Beam",
           "usage": 0.008
         }
-      ]
+      ],
+      "cid": "cd46ff2ba67018e9"
     },
     {
       "id": "primarina_no_item",
@@ -4567,7 +4643,8 @@
           "name": "Aqua Jet",
           "usage": 0.055999999999999994
         }
-      ]
+      ],
+      "cid": "b3d4f447754011e0"
     },
     {
       "id": "mamoswine_no_item",
@@ -4626,7 +4703,8 @@
           "name": "Freeze-Dry",
           "usage": 0.052000000000000005
         }
-      ]
+      ],
+      "cid": "afae6046cba631b0"
     },
     {
       "id": "tsareena_no_item",
@@ -4685,7 +4763,8 @@
           "name": "Helping Hand",
           "usage": 0.111
         }
-      ]
+      ],
+      "cid": "95e7bedd4584dd84"
     },
     {
       "id": "clefable_mega",
@@ -4745,7 +4824,8 @@
           "name": "Moonlight",
           "usage": 0.071
         }
-      ]
+      ],
+      "cid": "ae213ef7fe5b3c8e"
     },
     {
       "id": "camerupt_mega",
@@ -4805,7 +4885,8 @@
           "name": "Stomping Tantrum",
           "usage": 0.009000000000000001
         }
-      ]
+      ],
+      "cid": "fb8e8113d72598cd"
     },
     {
       "id": "palafin_mystic_water",
@@ -4864,7 +4945,8 @@
           "name": "Drain Punch",
           "usage": 0.043
         }
-      ]
+      ],
+      "cid": "09fce692c5269a0d"
     },
     {
       "id": "espathra_no_item",
@@ -4923,7 +5005,8 @@
           "name": "Skill Swap",
           "usage": 0.019
         }
-      ]
+      ],
+      "cid": "a07fb3239ae4dba1"
     },
     {
       "id": "gallade_mega",
@@ -4983,7 +5066,8 @@
           "name": "Close Combat",
           "usage": 0.043
         }
-      ]
+      ],
+      "cid": "2b7d76f07bd92dd5"
     },
     {
       "id": "sceptile_mega",
@@ -5043,7 +5127,8 @@
           "name": "Vacuum Wave",
           "usage": 0.018000000000000002
         }
-      ]
+      ],
+      "cid": "f629f663b038b16b"
     },
     {
       "id": "meowscarada_no_item",
@@ -5102,7 +5187,8 @@
           "name": "Brick Break",
           "usage": 0.077
         }
-      ]
+      ],
+      "cid": "6c90a2a68428d877"
     },
     {
       "id": "lopunny_mega",
@@ -5162,7 +5248,8 @@
           "name": "Iron Tail",
           "usage": 0.049
         }
-      ]
+      ],
+      "cid": "9ec5a3e2c211e0b6"
     },
     {
       "id": "eelektross_mega",
@@ -5222,7 +5309,8 @@
           "name": "Muddy Water",
           "usage": 0.08800000000000001
         }
-      ]
+      ],
+      "cid": "cbe6fc2342ed83c4"
     },
     {
       "id": "vileplume_no_item",
@@ -5281,7 +5369,8 @@
           "name": "Weather Ball",
           "usage": 0.105
         }
-      ]
+      ],
+      "cid": "3fff761612823110"
     }
   ]
 }

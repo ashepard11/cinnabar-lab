@@ -458,3 +458,38 @@ delta from a per-case consensus floor. Design decisions:
    beats Thunderbolt's ~23%/turn and whose PP advantage is decisive). Battle
    logs confirming both are reproducible via
    `npm run endgame-suite -- --case <id> --verbose`.
+
+### D34: Content-addressed variant ids and matchup provenance keys (BACKLOG item 02, 2026-07-12)
+Every variant now has a `cid` — the first 16 hex chars of a sha256 over its
+*resolved battle set* (`lib/variant-cid.ts`): species, item, ability, nature,
+level, SP spread, IVs, and the `pickMoves`-resolved top-4 moveset, sorted.
+Decisions:
+
+1. **cid = hash of what the simulator actually receives**, built from
+   `variantToSet` output rather than the raw variant record, so identity can
+   never drift from behavior. Usage-weight changes, move reordering within the
+   same top 4, and slug renames do not change a cid; anything that changes the
+   battle set does. The human-readable slug (`Variant.id`) stays as the
+   display/URL name — cids are join keys, not UI.
+2. **Schema v2 of `matchups.sqlite`** (`lib/analysis/schema.ts`): rows keyed
+   on `(variant_A_cid, variant_B_cid, condition, run_id)`, where `sim_runs`
+   normalizes the backlog's (policy_version, calc_version, engine_version)
+   tuple — plus policy_id — into an integer key instead of repeating four
+   version strings across 78k browser-fetched rows. A new
+   `SIM_ENGINE_VERSION` constant (lib/sim/engine.ts) versions the driver +
+   seeding + planning model + vendored showdown as one unit. Rows from
+   superseded runs or retired variants remain in the table as reusable cache
+   (foundation for BACKLOG item 03); the `matchups_current` view — pinned via
+   `metadata.current_run_id` and `variants.current` — exposes exactly the live
+   matrix in the legacy column shape, so all readers (sql.js frontend,
+   lib/analysis/matrix.ts, verify-matchups) kept their slug-based API.
+3. **In-place migration, no re-simulation** (`npm run migrate-matchups`):
+   results are deterministic and the seeding scheme was deliberately left
+   keyed on slugs (changing it would invalidate the whole matrix and the
+   endgame baseline for zero behavioral gain), so v1 rows stay valid and were
+   re-keyed with the version tuple from v1 metadata. 78,320 rows migrated;
+   807-row spot-check through the view matched exactly; file shrank
+   18.0 → 12.9 MB (short cids + VACUUM). Verified end-to-end through sql.js
+   (the browser's actual path): grid-paint query returns 7,832 rows in ~115 ms.
+4. **Seed derivation is unchanged and slug-based**; if it ever moves to cids,
+   that is a results-changing edit and must bump `SIM_ENGINE_VERSION`.
