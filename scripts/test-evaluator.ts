@@ -652,6 +652,73 @@ Timid Nature
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 7: variant matching');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {matchVariant} = require('../lib/evaluator/match') as typeof import('../lib/evaluator/match');
+  const {pickMoves} = require('../lib/sim/sets') as typeof import('../lib/sim/sets');
+  const {canonicalSpec} = require('../lib/variant-cid') as typeof import('../lib/variant-cid');
+  const all = variants.variants;
+
+  const chompVariant = all.find((v) => v.id === 'garchomp_life_orb')!;
+  const modalMoves = pickMoves(chompVariant);
+  const modalSps = chompVariant.sps;
+  const evLine = (['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const)
+    .filter((s) => (modalSps[s] ?? 0) > 0)
+    .map((s) => `${modalSps[s]! * 8} ${({hp: 'HP', atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'})[s]}`)
+    .join(' / ');
+
+  // Exact replica of the variant's resolved battle set → exact match, no badge.
+  const exact = parseTeam(
+    `Garchomp @ ${chompVariant.item}\nAbility: ${chompVariant.ability}\nEVs: ${evLine}\n${chompVariant.nature} Nature\n` +
+    modalMoves.map((m) => `- ${m}`).join('\n'), dex);
+  const exactMatch = matchVariant(exact.sets[0], all);
+  check('modal Garchomp matches garchomp_life_orb exactly (no badge)',
+    exactMatch.variantId === 'garchomp_life_orb' && exactMatch.exact,
+    exactMatch.differences.join('; '));
+
+  // Cross-check exactness against the cid machinery (item 02): the fields we
+  // compare are the fields canonicalSpec hashes.
+  const spec = canonicalSpec(chompVariant);
+  check('exactness fields cover canonicalSpec fields',
+    spec.moves.length === exact.sets[0].moves.length &&
+    toID(spec.ability) === toID(exact.sets[0].ability) &&
+    toID(spec.nature) === toID(exact.sets[0].nature));
+
+  // Same variant, different moves → matched with badge.
+  const diffMoves = parseTeam(
+    `Garchomp @ Life Orb\nAbility: Rough Skin\nEVs: ${evLine}\n${chompVariant.nature} Nature\n- Earthquake\n- Swords Dance\n- Protect\n- Dragon Claw`, dex);
+  const diffMatch = matchVariant(diffMoves.sets[0], all);
+  check('modal Garchomp with different moves matches with badge',
+    diffMatch.variantId === 'garchomp_life_orb' && !diffMatch.exact &&
+    diffMatch.differences.some((d) => d.startsWith('moves')));
+
+  // Defensive item (no variant) → aggregate/no-item bucket with badge.
+  const lefties = parseTeam('Garchomp @ Leftovers\nAbility: Rough Skin\n- Earthquake', dex);
+  const leftMatch = matchVariant(lefties.sets[0], all);
+  const chompAggregate = all.find((v) => toID(v.species) === 'garchomp' && v.item === null);
+  check('Leftovers Garchomp falls to the aggregate variant with an item badge',
+    leftMatch.variantId === (chompAggregate?.id ?? null) && !leftMatch.exact &&
+    leftMatch.differences.some((d) => d.startsWith('item')),
+    `matched ${leftMatch.variantId}`);
+
+  // Mega: battleSpecies keys the mega variant.
+  const mega = parseTeam('Charizard @ Charizardite Y\nAbility: Blaze\n- Heat Wave', dex);
+  const megaMatch = matchVariant(mega.sets[0], all);
+  check('Charizardite Y set matches the charizard_mega_y variant',
+    megaMatch.variantId === 'charizard_mega_y', `matched ${megaMatch.variantId}`);
+
+  // Species with no variant at all → unmatched.
+  const offMeta = all.some((v) => toID(v.species) === 'machamp')
+    ? null
+    : matchVariant(parseTeam('Machamp\nAbility: No Guard\n- Close Combat', dex).sets[0], all);
+  check('off-meta species is unmatched (item 05 note)',
+    offMeta !== null && offMeta.variantId === null);
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

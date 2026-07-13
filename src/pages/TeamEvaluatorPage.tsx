@@ -4,6 +4,7 @@ import { useDex } from '../lib/useDex';
 import TeamInput from '../components/evaluator/TeamInput';
 import EvalSection from '../components/evaluator/EvalSection';
 import TypeMatrix from '../components/evaluator/TypeMatrix';
+import WorstMatchups from '../components/evaluator/WorstMatchups';
 import BoardControlTable from '../components/evaluator/BoardControlTable';
 import DamageMarimekko from '../components/evaluator/DamageMarimekko';
 import RngExposure from '../components/evaluator/RngExposure';
@@ -138,6 +139,12 @@ export default function TeamEvaluatorPage() {
         {/* Section order per spec Phase 8: worst matchups · type matchups ·
             damage sources · board control · RNG exposure · relevant BST.
             Earlier sections land as their phases complete. */}
+        <EvalSection
+          title="Worst matchups"
+          subtitle="The team's hardest 1v1 opponents from the simulated matchup matrix, ranked by usage-weighted best answer then backup answer — same logic as the team builder. Pasted sets map to their nearest known variant until custom-set simulation lands (backlog item 05)."
+        >
+          <WorstMatchups sets={sets} />
+        </EvalSection>
         <EvalSection
           title="Type matchups"
           subtitle="Two views: what each attacking type does to the team, and the best hit the team has into each defending type."
