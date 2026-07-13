@@ -35,20 +35,11 @@ export const MAX_TURNS = 500;
 
 export type SideID = 'p1' | 'p2';
 
-/** Showdown PokemonSet shape (the package exports the type from sim/teams). */
-export interface SimSet {
-  name: string;
-  species: string;
-  item: string;
-  ability: string;
-  moves: string[];
-  nature: string;
-  gender: string;
-  /** Champions SP (0–32 per stat) — the champions mod reads set.evs as SP. */
-  evs: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
-  ivs: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
-  level: number;
-}
+// SimSet lives in ./sets (a browser-safe module) so lib/evaluator can import
+// the moveset-resolution helpers without pulling this Node-only file into the
+// web build; re-exported here so existing imports keep working.
+import type { SimSet } from './sets';
+export type { SimSet } from './sets';
 
 export interface PolicyContext {
   /** Live battle object — omniscient view, do not mutate. */

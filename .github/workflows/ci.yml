@@ -17,6 +17,9 @@ jobs:
       - run: npm run typecheck
       # Content-addressed variant id invariants (BACKLOG item 02); fast.
       - run: npm run test-cid
+      # Team evaluator (BACKLOG item 08): parser parity, type/tag/RNG/BST
+      # rules, damage-source oracle, variant matching, taxonomy-rot gate.
+      - run: npm run test-evaluator
       # Endgame test suite (BACKLOG item 01): deterministic policy benchmarks
       # gated against data/endgame-baseline.json — any regression fails.
       - run: npm run endgame-suite

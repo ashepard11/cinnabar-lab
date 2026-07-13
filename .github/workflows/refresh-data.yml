@@ -19,6 +19,9 @@ jobs:
       - run: npm run build-variants
       - run: npm run build-viz1
       - run: npm run build-viz2
+      # evaluator dex depends on the vendored packages + variant roster, both
+      # refreshed above; regenerating keeps its validation in the loop.
+      - run: npm run build-evaluator-dex
       - name: Commit refreshed data
         run: |
           git config user.name "github-actions[bot]"

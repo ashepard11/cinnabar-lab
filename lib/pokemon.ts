@@ -23,21 +23,10 @@ export const GEN = Generations.get(0);
 
 const STAT_IDS: StatID[] = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
 
-/** Convert one EV value to SP, mirroring the official damage-calc UI. */
-export function evToSp(ev: number): number {
-  if (ev === 4) return 1;
-  return Math.min(32, Math.ceil(ev / 8));
-}
-
-/** Convert an EV spread (0–252 per stat) to an SP spread (0–32 per stat). */
-export function evsToSps(evs: Partial<StatsTable>): Partial<StatsTable> {
-  const sps: Partial<StatsTable> = {};
-  for (const stat of STAT_IDS) {
-    const ev = evs[stat];
-    if (ev !== undefined) sps[stat] = evToSp(ev);
-  }
-  return sps;
-}
+// EV → SP conversion lives in lib/sp.ts (browser-safe, no calc import) so
+// lib/evaluator/* can use it without bundling the calc; re-exported here so
+// existing imports keep working.
+export {evToSp, evsToSps} from './sp';
 
 /** Build an @smogon/calc Pokemon from our spec. Throws if the species is unknown. */
 export function buildPokemon(spec: PokemonSpec): Pokemon {

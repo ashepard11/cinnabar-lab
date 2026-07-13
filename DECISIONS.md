@@ -493,3 +493,127 @@ Decisions:
    (the browser's actual path): grid-paint query returns 7,832 rows in ~115 ms.
 4. **Seed derivation is unchanged and slug-based**; if it ever moves to cids,
    that is a results-changing edit and must bump `SIM_ENGINE_VERSION`.
+
+### D35: Team evaluator spec — data sourcing, taxonomy, and scoring decisions (BACKLOG item 08 prework, 2026-07-12)
+`SPEC-team-evaluator.md` written per the backlog's prework instruction (full
+spec before implementation, mirroring the structure of the prior two specs).
+Decisions locked at spec stage:
+
+1. **Data source: vendored dexes only, exported at build time.** The backlog
+   offered "PokéAPI or Showdown data"; PokéAPI is rejected because it has no
+   Champions balance changes and would disagree with the rest of the pipeline.
+   A new `data/evaluator-dex.json` is built from the Showdown Champions mod's
+   rich move metadata (accuracy, priority, secondaries, selfSwitch,
+   sideCondition, …) **filtered by existence in the calc dex** — verified
+   during spec work that the Showdown mod inherits the full gen-9 dex (Teleport
+   and Serene Grace report `exists: true` there) while `@smogon/calc` gen 0 is
+   the trimmed Champions roster (both are absent, along with Heal Block,
+   Splintered Stormshards, Dazzling, Air Lock, Storm Drain, Well-Baked Body,
+   Wonder Guard). The frontend keeps its fetch-prebuilt-JSON architecture;
+   `pokemon-showdown` is never bundled into the browser.
+2. **Curated tables are validated, drop-with-warning.** Every curated
+   move/ability/item name must resolve in the calc dex or sit on an asserted
+   expected-drop list; CI fails on unexpected drops *and* on expected drops
+   that reappear (so the list gets pruned if dex gaps close). Category tags are
+   derived from structured move fields wherever they exist; curation is
+   reserved for semantics the data lacks (mostly abilities).
+3. **Type chart: ability-modified is the primary view**, using only the pasted
+   set's actual ability, with modified cells marked and a free toggle to the
+   raw chart (both computed in one pass). Attacker-side abilities are out of
+   scope except Scrappy. Type-changing mechanics (Terapagos-style) are v1
+   limitations pending the Phase 0 metagame verification.
+4. **RNG exposure: tallies + per-interaction probabilities, no team-level
+   scalar.** Summing flinch chances, miss chances, and crit rates into one
+   number has no defensible semantics; the backlog's stated user need is
+   served by bucketed counts and itemized lists.
+5. **Matchup section reuses the team-builder machinery** (`weakestMatchups`,
+   `WeakMatchupCard`, `ConditionSensitivity`) with the team's members mapped
+   to nearest known variants (species + mega, then exact item, then aggregate
+   variant). Exactness is checked via item 02's `canonicalSpec`; inexact
+   matches get an "approximated as …" badge, unmatched members are excluded
+   with an explicit pointer to item 05. Deferred elements blocked on items
+   04/05 (exact-set matchups, custom-set matchup evaluation, defensive-item
+   fidelity) and the unblocked-but-unanswerable metagame baseline column are
+   tabled in the spec's "Deferred elements" section.
+6. **Showdown paste parsing is hand-rolled for the browser** but tested for
+   field-level parity against the vendored `Teams.import()` in Node, keeping
+   the vendored parser as the semantics oracle without shipping it.
+
+### D36: Team evaluator spec revisions (user review, 2026-07-12)
+Ten user-directed changes to `SPEC-team-evaluator.md`, applied before any
+implementation. The substantive ones and their knock-on decisions:
+
+1. **New "damage sources by type" section** — a team-local Marimekko
+   mirroring viz 1's one-clean-hit model (same `STANDARD_TARGET`, auto-weather
+   field, ×1.5 spread convention, `classifyMove` filter) with the metagame
+   weight and move-usage terms removed (a pasted team's moves are
+   certainties). Emits the `Viz1Data` shape so the existing `Marimekko`
+   component renders unmodified. Knock-on: the vendored `@smogon/calc` now
+   runs in the browser (it is browser-safe by design; the official calc UI
+   ships it) — the single exception to the frontend's prebuilt-JSON-only
+   rule, confined to `lib/evaluator/damage.ts`.
+2. **Lightning Rod correction** — it *is* in the Champions dex (Raichu, Reg
+   M-B); the spec's expected-drop marker on it was an editing error (the
+   spec-time dex check had it present). Newly verified gaps recorded while
+   re-checking: `Grassy Surge`, `Jungle Healing`, `Black Sludge` are absent.
+   Also verified: **Grassy Glide is `priority: 0` in the Champions data**
+   (its +1 is terrain-conditional at runtime), so it needs a curated
+   conditional entry — the derived priority rule misses it.
+3. **Utility-attack rule for relevant BST**: a damaging move with BP ≤ 60 and
+   a 100%-chance secondary (Fake Out, Nuzzle, Icy Wind, Snarl, …) does not
+   establish attack-stat usage; low-BP moves without a rider (Aqua Jet) do.
+   Encoded as `isUtilityAttack(move)` with a curated override list.
+4. **Relevant BST is an average across members, not a sum** — mean of (HP +
+   relevant offensive stat(s) + Def + SpD + Spe); with a Trick Room setter,
+   shown both with and without Speed (worked example: 100/100/50/100/100/100
+   physical attacker → 500 with, 400 without).
+5. **Taxonomy re-cut to 10 categories**: priority split out of speed control
+   (damage-first priority moves only — `priority > 0`, no 100%-chance
+   secondary — so Fake Out stays in targeting control only); Prankster
+   dropped from speed control entirely; new Protect-moves category
+   (Protect/Detect/Baneful Bunker-class; Wide/Quick Guard explicitly *not*
+   Protect-class and now live in option control only, also removed from
+   damage mitigation); new healing category (recovery via `flags.heal`,
+   drain via `drain`, curated Leech Seed, Regenerator-class abilities,
+   healing items — the first item-driven tags — and Grassy Terrain providers
+   double-listed from terrain control); pivoting is now rule-only
+   (`selfSwitch`/`forceSwitch`; Regenerator moved to healing, Emergency
+   Exit/Wimp Out dropped as involuntary).
+
+### D37: Team evaluator implementation notes (BACKLOG item 08, 2026-07-13)
+Implementation deviations and discoveries beyond the spec (D35/D36):
+
+1. **Dex export sourcing is per-field, not per-entry:** the calc's gen-0 move
+   entries can be *stubs* (Metal Claw carries only `flags`), so the calc wins
+   only where it actually has a value and the Showdown mod backfills the rest.
+   Secondary effects split target `boosts` from `selfBoosts` (Power-Up Punch
+   class) so tag/RNG rules can't misread self-buffs as debuffs; Outrage-class
+   self-lock ships as a new `selfVolatile` field.
+2. **Mega formes take the Mega forme's slot-0 ability** at parse time
+   (Charizardite Y → Drought), mirroring the variant builder — required for
+   auto-weather damage parity with viz 1. Documented divergence from
+   `Teams.import()`, which keeps the pasted ability; the parity test skips
+   ability comparison for megas.
+3. **@smogon/calc in the browser is a dynamic import:** bundling it in the
+   entry chunk raised the app 110 → 241 KB gzipped, so
+   `lib/evaluator/damage.ts` loads as a split chunk (~123 KB) when the
+   damage-sources section first renders. Entry stays ~120 KB.
+4. **`SimSet` moved from `lib/sim/engine.ts` to `lib/sim/sets.ts`** (engine
+   re-exports it) so `match.ts` can import `pickMoves` without dragging Node
+   `crypto` into the web build. Type-only move; endgame gate re-run: PASS.
+5. **Exactness badge compares fields directly, not via `canonicalSpec`:**
+   the cid helper imports `node:crypto`, so the browser-safe `match.ts`
+   re-implements the comparison over the same field set (ability, nature, SP
+   spread, resolved top-4 moves); a Node test cross-checks it against
+   `canonicalSpec` so the two can't drift silently.
+6. **Spec erratum:** the Phase 2 test case said Rotom-Wash's raw Ground
+   multiplier is 1× — it is 2× (Electric/Water); the Levitate cell asserts
+   `raw 2 → effective 0`.
+7. **Curated-table drop lists are asserted in both directions** (missing
+   entry ⇒ must be on the expected list; listed entry reappearing in the dex
+   ⇒ test fails too). Current drops: 17 board-control entries + Razor Claw /
+   Serene Grace (RNG) + Storm Drain / Well-Baked Body (type chart).
+8. **Verified end-to-end** with Playwright against the production build:
+   example team through all six sections, URL round-trip, zero console
+   errors. `evaluator-dex.json` regenerates in the weekly refresh-data
+   workflow; `npm run test-evaluator` (158 checks) runs in `npm test` and CI.

@@ -6,6 +6,7 @@ import MatchupDetailPage from './pages/MatchupDetailPage';
 import RankingsPage from './pages/RankingsPage';
 import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
+import TeamEvaluatorPage from './pages/TeamEvaluatorPage';
 
 function Landing() {
   return (
@@ -57,6 +58,14 @@ function Landing() {
             common each opponent is.
           </p>
         </Link>
+        <Link className="landing-card" to="/team-evaluator">
+          <h2>How does my team hold up?</h2>
+          <p>
+            Paste a full team and get a multi-angle evaluation: worst matchups,
+            type coverage both ways, where its damage comes from, board control
+            options, RNG exposure, and effective stat totals.
+          </p>
+        </Link>
       </div>
     </div>
   );
@@ -73,6 +82,7 @@ export default function App() {
         <NavLink to="/rankings">Rankings</NavLink>
         <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
+        <NavLink to="/team-evaluator">Team evaluator</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -84,6 +94,7 @@ export default function App() {
         <Route path="/pokemon" element={<PokemonDetailPage />} />
         <Route path="/pokemon/:variantId" element={<PokemonDetailPage />} />
         <Route path="/team-builder" element={<TeamBuilderPage />} />
+        <Route path="/team-evaluator" element={<TeamEvaluatorPage />} />
       </Routes>
     </div>
   );

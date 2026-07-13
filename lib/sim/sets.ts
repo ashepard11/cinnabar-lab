@@ -8,7 +8,23 @@
  * actions in v1, and redirection/ally-targeted moves do nothing in a 1v1.
  */
 import type { Variant } from '../types';
-import type { SimSet } from './engine';
+
+/** Showdown PokemonSet shape (the package exports the type from sim/teams).
+ * Defined here — not in engine.ts — so this module stays browser-safe
+ * (lib/evaluator/match.ts imports pickMoves; engine re-exports the type). */
+export interface SimSet {
+  name: string;
+  species: string;
+  item: string;
+  ability: string;
+  moves: string[];
+  nature: string;
+  gender: string;
+  /** Champions SP (0–32 per stat) — the champions mod reads set.evs as SP. */
+  evs: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+  ivs: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+  level: number;
+}
 
 /**
  * Moves excluded from v1 movesets.
