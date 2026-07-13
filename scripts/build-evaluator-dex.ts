@@ -156,8 +156,16 @@ for (const n of GEN.natures) {
   natures[toID(n.name)] = {name: n.name, ...(n.plus ? {plus: n.plus} : {}), ...(n.minus ? {minus: n.minus} : {})};
 }
 
-// --- attacking-type enumeration ----------------------------------------------
+// --- attacking-type enumeration + raw chart -----------------------------------
 const types = [...GEN.types].map((t) => t.name).filter((t) => t !== '???' && t !== 'Stellar') as TypeName[];
+
+const typeChart = {} as EvaluatorDex['typeChart'];
+for (const atk of types) {
+  const eff = GEN.types.get(calcToID(atk))!.effectiveness;
+  const row = {} as Record<TypeName, number>;
+  for (const def of types) row[def] = eff[def] ?? 1;
+  typeChart[atk] = row;
+}
 
 const dex: EvaluatorDex = {
   generated_at: new Date().toISOString(),
@@ -168,6 +176,7 @@ const dex: EvaluatorDex = {
   items,
   natures,
   megaStones,
+  typeChart,
 };
 
 // --- validation ---------------------------------------------------------------

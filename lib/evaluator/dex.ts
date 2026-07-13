@@ -93,6 +93,8 @@ export interface EvaluatorDex {
   natures: Record<string, DexNature>;
   /** Mega Stone id → (base species id → mega forme name), Champions-legal only. */
   megaStones: Record<string, Record<string, string>>;
+  /** Raw chart: attacking type → defending type → 0 | 0.5 | 1 | 2. */
+  typeChart: Record<TypeName, Record<TypeName, number>>;
 }
 
 /** Mega forme name when `item` mega-evolves `species`, else null. */

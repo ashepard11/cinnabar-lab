@@ -210,6 +210,76 @@ Modest Nature
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 2: type matchup matrices');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {defensiveMatrix, offensiveMatrix, droppedTypeAbilityMods, bucketOf} =
+    require('../lib/evaluator/typechart') as typeof import('../lib/evaluator/typechart');
+
+  const team = parseTeam(`
+Garchomp @ Life Orb
+Ability: Rough Skin
+Jolly Nature
+- Earthquake
+- Ice Beam
+
+Rotom-Wash
+Ability: Levitate
+Modest Nature
+- Hydro Pump
+
+Snorlax
+Ability: Thick Fat
+Adamant Nature
+- Body Slam
+
+Gengar
+Ability: Cursed Body
+Timid Nature
+- Shadow Ball
+`, dex);
+  check('type fixture parses 4 sets', team.sets.length === 4 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  const def = defensiveMatrix(dex, team.sets);
+  const row = (t: string) => def.cells[def.types.indexOf(t as never)];
+  check('Garchomp: Ice 4×, Electric 0×, Fire 0.5×',
+    row('Ice')[0].effective === 4 && row('Electric')[0].effective === 0 && row('Fire')[0].effective === 0.5);
+  check('Rotom-Wash + Levitate: Ground effective 0, raw 2, marked modified',
+    row('Ground')[1].effective === 0 && row('Ground')[1].raw === 2 && row('Ground')[1].modified &&
+    (row('Ground')[1].note ?? '').includes('Levitate'));
+  check('Thick Fat Snorlax: Ice and Fire 1 → 0.5, marked',
+    row('Ice')[2].effective === 0.5 && row('Ice')[2].raw === 1 && row('Ice')[2].modified &&
+    row('Fire')[2].effective === 0.5);
+  check('unmodified cells not marked', row('Water')[0].modified === false);
+  check('Ground-row summary counts Rotom-Wash as immune',
+    def.summary[def.types.indexOf('Ground' as never)].immune === 1);
+
+  const off = offensiveMatrix(dex, team.sets);
+  const orow = (t: string) => off.cells[off.types.indexOf(t as never)];
+  check('offense: EQ covers Steel 2×, Ice Beam covers Flying 2×',
+    orow('Steel')[0].best === 2 && orow('Steel')[0].bestMove === 'Earthquake' &&
+    orow('Flying')[0].best === 2 && orow('Flying')[0].bestMove === 'Ice Beam');
+  check('Normal-only attacker (Body Slam Snorlax): Ghost row 0× without Scrappy',
+    orow('Ghost')[2].best === 0);
+  check('Ghost-only attacker (Shadow Ball Gengar): Normal row 0×', orow('Normal')[3].best === 0);
+
+  const scrappyTeam = parseTeam('Snorlax\nAbility: Thick Fat\n- Body Slam', dex);
+  scrappyTeam.sets[0].ability = 'Scrappy'; // force for the rule test
+  const offScrappy = offensiveMatrix(dex, scrappyTeam.sets);
+  check('Scrappy turns the Ghost 0× into 1×, flagged',
+    offScrappy.cells[offScrappy.types.indexOf('Ghost' as never)][0].best === 1 &&
+    offScrappy.cells[offScrappy.types.indexOf('Ghost' as never)][0].scrappy === true);
+
+  check('ability-table drops are exactly the expected dex gaps',
+    JSON.stringify(droppedTypeAbilityMods(dex).sort()) === JSON.stringify(['Storm Drain', 'Well-Baked Body']),
+    droppedTypeAbilityMods(dex).join(', '));
+  check('Dry Skin fire ×1.25 buckets to 1 for display', bucketOf(1.25) === 1);
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

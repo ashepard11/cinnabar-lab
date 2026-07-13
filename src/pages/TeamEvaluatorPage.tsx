@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDex } from '../lib/useDex';
 import TeamInput from '../components/evaluator/TeamInput';
+import EvalSection from '../components/evaluator/EvalSection';
+import TypeMatrix from '../components/evaluator/TypeMatrix';
 import {
   decodeTeam, encodeTeam, exportTeam, parseTeam,
 } from '../../lib/evaluator/parse';
@@ -129,9 +131,15 @@ export default function TeamEvaluatorPage() {
     if (!hasTeam || !dex) return null;
     return (
       <>
-        {/* Evaluation sections land here phase by phase:
-            worst matchups · type matchups · damage sources · board control ·
-            RNG exposure · relevant BST */}
+        {/* Section order per spec Phase 8: worst matchups · type matchups ·
+            damage sources · board control · RNG exposure · relevant BST.
+            Earlier sections land as their phases complete. */}
+        <EvalSection
+          title="Type matchups"
+          subtitle="Two views: what each attacking type does to the team, and the best hit the team has into each defending type."
+        >
+          <TypeMatrix dex={dex} sets={sets} />
+        </EvalSection>
       </>
     );
   }, [hasTeam, dex, sets]);
