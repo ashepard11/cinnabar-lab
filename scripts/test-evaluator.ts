@@ -87,6 +87,129 @@ console.log('Phase 0: evaluator dex export');
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 1: paste parsing');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam, exportTeam, encodeTeam, decodeTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {Teams} = require('pokemon-showdown') as typeof import('pokemon-showdown');
+  const {evsToSps} = require('../lib/sp') as typeof import('../lib/sp');
+
+  const FIXTURE = `
+Garchomp @ Life Orb
+Ability: Rough Skin
+EVs: 4 HP / 252 Atk / 252 Spe
+Jolly Nature
+- Earthquake
+- Dragon Claw
+- Rock Slide
+- Protect
+
+Chompy (Kingambit) (M) @ Black Glasses
+Ability: Defiant
+Level: 50
+EVs: 252 HP / 252 Atk / 4 SpD
+Adamant Nature
+- Sucker Punch
+- Kowtow Cleave
+- Iron Head
+- Swords Dance
+
+Incineroar
+Ability: Intimidate
+EVs: 252 HP / 4 Atk / 252 SpD
+Careful Nature
+- Fake Out
+- Flare Blitz
+- Parting Shot
+
+Charizard @ Charizardite Y
+Ability: Blaze
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Heat Wave
+- Solar Beam
+- Overheat
+- Protect
+
+Rotom-Wash @ Sitrus Berry
+Ability: Levitate
+EVs: 252 HP / 252 SpA
+Modest Nature
+- Hydro Pump
+- Thunderbolt
+- Will-O-Wisp
+- Protect
+
+Sylveon
+Ability: Pixilate
+EVs: 252 HP / 252 SpA / 4 SpD
+Modest Nature
+- Hyper Voice
+- Moonblast
+- Calm Mind
+- Protect
+`;
+
+  const team = parseTeam(FIXTURE, dex);
+  check('fixture parses 6 sets, 0 failures',
+    team.sets.length === 6 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  // Parity with the vendored Teams.import (the semantics oracle).
+  const oracle = Teams.import(FIXTURE)!;
+  let parityOk = true;
+  const parityDetails: string[] = [];
+  for (let i = 0; i < oracle.length; i++) {
+    const o = oracle[i];
+    const s = team.sets[i];
+    const same = (a: string, b: string) => toID(a) === toID(b);
+    if (!same(o.species, s.species)) { parityOk = false; parityDetails.push(`set ${i} species ${o.species}≠${s.species}`); }
+    if (toID(o.item ?? '') !== toID(s.item ?? '')) { parityOk = false; parityDetails.push(`set ${i} item ${o.item}≠${s.item}`); }
+    if (!same(o.ability, s.ability)) { parityOk = false; parityDetails.push(`set ${i} ability`); }
+    if (!same(o.nature, s.nature)) { parityOk = false; parityDetails.push(`set ${i} nature`); }
+    const oSps = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...evsToSps(o.evs)};
+    if (JSON.stringify(oSps) !== JSON.stringify(s.sps)) { parityOk = false; parityDetails.push(`set ${i} sps ${JSON.stringify(oSps)}≠${JSON.stringify(s.sps)}`); }
+    if (o.moves.length !== s.moves.length || !o.moves.every((m, j) => same(m, s.moves[j]))) {
+      parityOk = false; parityDetails.push(`set ${i} moves`);
+    }
+  }
+  check('field parity with vendored Teams.import on the fixture', parityOk, parityDetails.join('; '));
+  check('EV 4 special case converts to SP 1', team.sets[0].sps.hp === 1);
+  check('nickname + gender stripped (Kingambit)', team.sets[1].species === 'Kingambit');
+  check('itemless set parses (Incineroar)', team.sets[2].item === null);
+  check('3-move set keeps 3 moves', team.sets[2].moves.length === 3);
+  check('mega stone resolves battle forme',
+    team.sets[3].species === 'Charizard' && team.sets[3].battleSpecies === 'Charizard-Mega-Y' && team.sets[3].isMega);
+
+  // Round-trip: parse(export(team)) reproduces every battle-relevant field.
+  const reparsed = parseTeam(exportTeam(team.sets), dex);
+  check('parse(export(team)) round-trips',
+    JSON.stringify(reparsed.sets) === JSON.stringify(team.sets));
+
+  // URL round-trip.
+  const decoded = decodeTeam(encodeTeam(team.sets), dex);
+  check('encode/decode ?team= round-trips',
+    JSON.stringify(decoded.sets) === JSON.stringify(team.sets));
+  check('?team= stays URL-sized', encodeTeam(team.sets).length < 1500,
+    `${encodeTeam(team.sets).length} chars`);
+
+  // Unknown species → failure entry, others survive. (Replace a block rather
+  // than appending a 7th — the parser caps teams at 6 blocks.)
+  const withBad = parseTeam(FIXTURE.replace('Sylveon\n', 'Missingno\n'), dex);
+  check('unknown species yields 5 sets + 1 failure',
+    withBad.sets.length === 5 && withBad.failures.length === 1 &&
+    withBad.failures[0].message.includes('Missingno'));
+
+  // Unknown move degrades that move only, with a warning.
+  const badMove = parseTeam('Garchomp\nAbility: Rough Skin\nJolly Nature\n- Earthquake\n- Splintered Stormshards', dex);
+  check('unknown move excluded with warning, set survives',
+    badMove.sets[0].moves.length === 1 &&
+    badMove.sets[0].invalidMoves.length === 1 &&
+    badMove.sets[0].warnings.some((w) => w.includes('Splintered Stormshards')));
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

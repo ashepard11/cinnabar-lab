@@ -15,6 +15,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as zlib from 'node:zlib';
 import {Dex} from 'pokemon-showdown';
+import {MEGA_STONES} from '@smogon/calc';
 import {GEN, toID as calcToID} from '../lib/pokemon';
 import {SIM_FORMAT} from '../lib/sim/engine';
 import {toID} from '../lib/evaluator/dex';
@@ -137,6 +138,19 @@ for (const a of GEN.abilities) abilities[toID(a.name)] = a.name;
 const items: Record<string, string> = {};
 for (const i of GEN.items) items[toID(i.name)] = i.name;
 
+// Mega Stone mapping (Champions-legal stones + formes only), so the parser
+// can resolve mega formes without importing @smogon/calc in the browser.
+const megaStones: EvaluatorDex['megaStones'] = {};
+for (const [stone, mapping] of Object.entries(MEGA_STONES as Record<string, Record<string, string>>)) {
+  const stoneId = toID(stone);
+  if (!(stoneId in items)) continue; // stone not in Champions
+  const forSpecies: Record<string, string> = {};
+  for (const [base, mega] of Object.entries(mapping)) {
+    if (species[toID(mega)]) forSpecies[toID(base)] = species[toID(mega)].name;
+  }
+  if (Object.keys(forSpecies).length) megaStones[stoneId] = forSpecies;
+}
+
 const natures: EvaluatorDex['natures'] = {};
 for (const n of GEN.natures) {
   natures[toID(n.name)] = {name: n.name, ...(n.plus ? {plus: n.plus} : {}), ...(n.minus ? {minus: n.minus} : {})};
@@ -153,6 +167,7 @@ const dex: EvaluatorDex = {
   abilities,
   items,
   natures,
+  megaStones,
 };
 
 // --- validation ---------------------------------------------------------------

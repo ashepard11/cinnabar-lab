@@ -91,6 +91,14 @@ export interface EvaluatorDex {
   abilities: Record<string, string>;
   items: Record<string, string>;
   natures: Record<string, DexNature>;
+  /** Mega Stone id → (base species id → mega forme name), Champions-legal only. */
+  megaStones: Record<string, Record<string, string>>;
+}
+
+/** Mega forme name when `item` mega-evolves `species`, else null. */
+export function megaFormeFor(dex: EvaluatorDex, item: string | null, species: string): string | null {
+  if (!item) return null;
+  return dex.megaStones[toID(item)]?.[toID(species)] ?? null;
 }
 
 export function getSpecies(dex: EvaluatorDex, name: string): DexSpecies | undefined {
