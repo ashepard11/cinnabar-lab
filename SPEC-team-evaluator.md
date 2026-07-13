@@ -19,14 +19,20 @@ static-analysis evaluation of the team:
 
 1. **Worst matchups** — reusing the team builder's weakest-matchups ranking.
 2. **Type matchup matrix** — defensive and offensive, ability-aware.
-3. **Total relevant BST** — stat totals excluding stats the set doesn't use.
-4. **Board control inventory** — structured tallies of speed / weather /
-   terrain / targeting control, damage mitigation, pivoting, option control.
+3. **Total relevant BST** — averaged stat totals excluding stats the set
+   doesn't use.
+4. **Board control inventory** — structured tallies of speed control,
+   priority, weather / terrain / targeting control, damage mitigation,
+   Protect moves, healing, pivoting, option control.
 5. **RNG exposure** — favorable and unfavorable variance the team is exposed to.
+6. **Damage sources by type** — a team-local Marimekko of where the team's
+   damage output comes from, mirroring the damage-viz "damage sources" tab's
+   one-clean-hit model against the standard neutral target.
 
 Everything except the worst-matchups section is a pure function of the parsed
-team plus static dex data — no simulation, no network calls beyond the initial
-data fetch. The worst-matchups section queries the existing matchup matrix.
+team plus static dex data and the vendored damage calc — no simulation, no
+network calls beyond the initial data fetch. The worst-matchups section
+queries the existing matchup matrix.
 
 ## Deferred elements — blocked on other backlog items
 
@@ -35,9 +41,9 @@ These are specified here so the v1 code leaves the right seams, but they
 
 | Deferred element | Blocked on | v1 behavior |
 |---|---|---|
-| **Exact-set worst matchups.** Matchup rows for the *pasted* set (its real moves/spread), rather than the nearest known variant. Requires computing the set's cid, checking the matchup cache, and simulating on demand. | **Item 05** (custom set simulation; its deployment question — client-side sim vs. backend queue — is still undecided) | Approximate each team member by its nearest known variant (matching rules in Phase 6). Members with no matching variant are **excluded** from the worst-matchups section with a visible explanation. |
+| **Exact-set worst matchups.** Matchup rows for the *pasted* set (its real moves/spread), rather than the nearest known variant. Requires computing the set's cid, checking the matchup cache, and simulating on demand. | **Item 05** (custom set simulation; its deployment question — client-side sim vs. backend queue — is still undecided) | Approximate each team member by its nearest known variant (matching rules in Phase 7). Members with no matching variant are **excluded** from the worst-matchups section with a visible explanation. |
 | **Custom-set evaluation against the metagame** generally (the backlog's open question "whether team members that aren't in `defender-variants.json` can be evaluated"). | **Item 05** | Static sections (types, BST, board control, RNG) work for *any* legal set — they need only dex data. Only the matchup section degrades. |
-| **Defensive-item matching fidelity.** A pasted set holding Leftovers, Sitrus Berry, etc. currently buckets to a no-item/aggregate variant, because defensive items don't get their own variants yet. | **Item 04** (defensive item variants) | Match on species + mega flag, then offensive item if a variant for it exists, else the species' aggregate variant. The "approximated as …" badge (Phase 6) makes the mismatch visible. |
+| **Defensive-item matching fidelity.** A pasted set holding Leftovers, Sitrus Berry, etc. currently buckets to a no-item/aggregate variant, because defensive items don't get their own variants yet. | **Item 04** (defensive item variants) | Match on species + mega flag, then offensive item if a variant for it exists, else the species' aggregate variant. The "approximated as …" badge (Phase 7) makes the mismatch visible. |
 | **Metagame baseline comparison** ("you have 3 speed-control options; the metagame average is 2.1"). A true baseline needs team-level composition data; Pikalytics gives per-Pokémon usage, not full teams. A variant-usage-weighted expectation is computable today but answers a different question ("what does an average *slot* carry"), and would be misleading labeled as a team average. | No single item — needs either scraped team data or a corpus of item-05 custom teams | Omit. Section headers show raw tallies only. Leave the tally data structures pure (tag table in, tallies out) so a baseline column can be added without rework. |
 
 When item 05 lands, the intended upgrade path for the matchup section is:
@@ -56,9 +62,11 @@ Champions caveats that shape this spec:
 
 - The **authoritative dex is the vendored `@smogon/calc` generation 0** (see
   `lib/pokemon.ts`). It is *trimmed to the Champions roster* — verified during
-  spec work: `Teleport`, `Heal Block`, `Splintered Stormshards` are absent
-  among moves; `Serene Grace`, `Dazzling`, `Air Lock`, `Storm Drain`,
-  `Well-Baked Body`, `Wonder Guard` are absent among abilities. The vendored
+  spec work: `Teleport`, `Heal Block`, `Splintered Stormshards`, `Jungle
+  Healing` are absent among moves; `Serene Grace`, `Dazzling`, `Air Lock`,
+  `Storm Drain`, `Well-Baked Body`, `Wonder Guard`, `Grassy Surge` are absent
+  among abilities; `Black Sludge` among items. `Lightning Rod` *is* present
+  (Raichu carries it in Reg M-B). The vendored
   `pokemon-showdown` Champions mod (`Dex.forFormat('gen9championsbssregmb')`)
   **inherits the full gen-9 dex**, so `exists` is true there even for content
   not in Champions. Consequence: *metadata comes from the Showdown mod;
@@ -85,6 +93,12 @@ Champions caveats that shape this spec:
   trimmed dex (`data/evaluator-dex.json`) with exactly the fields the
   evaluator needs. Do **not** bundle `pokemon-showdown` into the browser (it
   is Node-oriented and huge).
+- **Damage calc in the browser.** The damage-sources section (Phase 6) runs
+  the vendored `@smogon/calc` client-side — the package is browser-safe by
+  design (the official damage-calc UI ships it), and it is the same Champions
+  build the rest of the pipeline uses. This is the one exception to the
+  "prebuilt JSON only" rule; measure the bundle-size cost in Phase 6 and
+  record it in DECISIONS.md.
 - **Shared pure logic in `lib/evaluator/`** (imported by both Node test
   scripts and the React app, like `lib/analysis/` + `src/lib/matchupDb.ts`
   pair today — but here the logic is dex-driven and browser-safe, so one
@@ -107,6 +121,7 @@ Champions caveats that shape this spec:
 │       ├── bst.ts                   # relevant-BST computation
 │       ├── tags.ts                  # board-control taxonomy (rules + curated tables)
 │       ├── rng.ts                   # RNG exposure scan
+│       ├── damage.ts                # team damage-sources calc (browser @smogon/calc)
 │       └── match.ts                 # pasted set -> nearest defender-variant id
 ├── scripts/
 │   ├── build-evaluator-dex.ts       # Showdown-mod metadata ∩ calc-dex existence
@@ -119,6 +134,7 @@ Champions caveats that shape this spec:
         ├── RelevantBst.tsx
         ├── BoardControlTable.tsx
         ├── RngExposure.tsx
+        ├── DamageMarimekko.tsx      # Viz1Data adapter over the existing Marimekko
         └── EvalSection.tsx          # collapsible section wrapper
 ```
 
@@ -269,7 +285,7 @@ additions require a DECISIONS.md entry:
 | Levitate | Ground → 0× |
 | Flash Fire | Fire → 0× |
 | Water Absorb, Dry Skin*, Storm Drain† | Water → 0× |
-| Volt Absorb, Lightning Rod†, Motor Drive | Electric → 0× |
+| Volt Absorb, Lightning Rod, Motor Drive | Electric → 0× |
 | Sap Sipper | Grass → 0× |
 | Earth Eater | Ground → 0× |
 | Well-Baked Body† | Fire → 0× |
@@ -317,30 +333,53 @@ coverage (field coverage is what the matchup section measures).
 
 `lib/evaluator/bst.ts`. Per member, sum base stats **excluding** stats the set
 demonstrably doesn't use; show the per-stat breakdown with excluded stats
-struck through, per-member totals, and the team total.
+struck through, per-member totals, and the **team average** (below).
 
 Exclusion rules (locked; anything subtler is a flagged note, not an exclusion):
 
-- **Atk** excluded if the set has zero physical damaging moves. Physical
-  moves that don't use the user's Atk stat — **Body Press** (uses Def) and
-  **Foul Play** (uses target's Atk) — do *not* count as "using Atk"; a set
-  whose only physical moves are those still excludes Atk (and Body Press adds
-  a note that Def is doing double duty).
-- **SpA** excluded if zero special damaging moves.
+- **Atk** excluded if the set has zero physical *attacking* moves. Two
+  refinements to "attacking":
+  - Physical moves that don't use the user's Atk stat — **Body Press** (uses
+    Def) and **Foul Play** (uses target's Atk) — do *not* count as "using
+    Atk"; a set whose only physical moves are those still excludes Atk (and
+    Body Press adds a note that Def is doing double duty).
+  - **Utility attacks don't count.** A damaging move whose primary purpose is
+    its guaranteed effect rather than its damage does not establish stat
+    usage: base power ≤ 60 **and** a 100%-chance secondary effect (flinch,
+    status, or stat change) — Fake Out, Nuzzle, Icy Wind, Electroweb, Snarl,
+    Bulldoze, Rock Tomb. Encode as a predicate `isUtilityAttack(move)` over
+    the exported metadata (BP + secondaries), with a curated override list
+    for edge cases; borderline additions go through DECISIONS.md. A member
+    whose only physical move is Fake Out shows Atk struck through with the
+    note "utility attacks only (Fake Out)". Low-BP moves *without* a rider
+    (Aqua Jet) still count — their purpose is the damage.
+- **SpA** excluded by the same rules applied to special moves.
 - **HP, Def, SpD** always included — every Pokémon takes hits.
-- **Spe** always included, but **flagged** (not excluded) when the team has a
-  Trick Room setter (a member whose moves include Trick Room): "Speed value is
-  ambiguous under Trick Room." Per the backlog: probably include but flag.
-  The flag is team-level, on the total, plus a marker on the slowest members.
+- **Spe** always included in the per-member breakdown; its team-level
+  treatment under Trick Room is handled by the dual average below.
+
+**Team metric — average, not sum:** relevant BST = the mean across members of
+(HP + relevant offensive stat(s) + Def + SpD + Spe). A physical attacker with
+100 HP / 100 Atk / 50 SpA / 100 Def / 100 SpD / 100 Spe contributes 500 (SpA
+dropped). When the team has a **Trick Room setter** (a member whose moves
+include Trick Room), show **two averages: with and without Speed** — the same
+attacker contributes 400 to the speedless average. Without a Trick Room
+setter, only the with-Speed average is shown.
 
 Sanity guard: fixed-damage-only sets (Seismic Toss) count as having no
 physical *scaling* moves — reuse the `basePower > 0` classification logic from
 `lib/moves.ts` rather than re-inventing it.
 
 **Test cases to verify correctness (Phase 3):**
-- A special attacker with 4 special moves: Atk struck, total = BST − base Atk.
+- A special attacker with 4 special moves: Atk struck, member total =
+  BST − base Atk.
 - A Body-Press-only "physical" set: Atk still struck, Def note present.
-- Team with a Trick Room setter: team total flagged; no stat excluded by it.
+- A set whose only physical move is Fake Out: Atk struck with the
+  utility-attack note; the same set with Knock Off added counts Atk.
+- The worked example: a 100/100/50/100/100/100 physical attacker contributes
+  500 to the with-Speed average and 400 to the without-Speed average.
+- Team with a Trick Room setter shows both averages; without one, only the
+  with-Speed average renders.
 
 ## Phase 4: Board control inventory
 
@@ -359,22 +398,39 @@ validated with the same drop-and-warn policy. The taxonomy below is the
 DECISIONS.md entry.
 
 **1. Speed control**
-- Rule: damaging moves with `priority > 0`; status moves with `priority > 0`
-  that affect the opponent are out of scope (none matter here). Moves whose
-  `secondaries`/`boosts` lower the target's `spe` (Icy Wind, Electroweb,
-  Bulldoze, Rock Tomb, …) — derived, 100%-chance secondaries only (Bulldoze
-  qualifies; a 10% Bubble Beam does not). `sideCondition: 'tailwind'`.
-  `pseudoWeather: 'trickroom'`. `status: 'par'` moves (Thunder Wave, Glare;
-  Nuzzle arrives via its 100% secondary).
-- Curated abilities: Prankster, Gale Wings, Quick Draw, Unburden (annotation
-  "conditional"), Chlorophyll / Swift Swim / Sand Rush / Slush Rush (each
-  annotated with the weather it needs, and cross-linked: shown dimmed unless
-  the team also has the matching weather setter), Surge Surfer (Electric
-  Terrain), Quark Drive / Protosynthesis ("conditional").
-- Display sub-groups: priority · speed drops · Tailwind · Trick Room ·
-  paralysis · abilities.
+- Rule: moves whose `secondaries`/`boosts` lower the target's `spe` (Icy
+  Wind, Electroweb, Bulldoze, Rock Tomb, …) — derived, 100%-chance
+  secondaries only (Bulldoze qualifies; a 10% Bubble Beam does not).
+  `sideCondition: 'tailwind'`. `pseudoWeather: 'trickroom'`. `status: 'par'`
+  moves (Thunder Wave, Glare; Nuzzle arrives via its 100% secondary).
+  Priority moves are **not** speed control — they have their own category
+  (below).
+- Curated abilities: Quick Draw ("30% chance"), Unburden ("conditional"),
+  Chlorophyll / Swift Swim / Sand Rush / Slush Rush (each annotated with the
+  weather it needs, and cross-linked: shown dimmed unless the team also has
+  the matching weather setter), Surge Surfer (Electric Terrain), Quark
+  Drive / Protosynthesis ("conditional"). **Prankster is deliberately not
+  counted** (user decision: status-move priority is not board-level speed
+  control); Gale Wings lives under priority.
+- Display sub-groups: speed drops · Tailwind · Trick Room · paralysis ·
+  abilities.
 
-**2. Weather control**
+**2. Priority** (split out of speed control; damage-first moves only)
+- Rule: damaging moves (`category ≠ Status`) with `priority > 0` **and no
+  100%-chance secondary** — the category counts moves whose primary purpose
+  is the damage (Aqua Jet, Sucker Punch, Extreme Speed, Bullet Punch, Jet
+  Punch, First Impression, Accelerock, Ice Shard, Shadow Sneak, Quick
+  Attack, Vacuum Wave — all derived). Fake Out fails the rule (100% flinch
+  rider) and is *not* priority for this purpose; it lives in targeting
+  control. Sucker Punch gets a "fails vs non-attacking targets" annotation.
+- Curated conditional entries: **Grassy Glide** — verified `priority: 0` in
+  the Champions data (its +1 is granted in-battle under Grassy Terrain), so
+  the derived rule misses it; curate it with a "+1 in Grassy Terrain"
+  annotation, dimmed unless the team provides Grassy Terrain (same
+  cross-link mechanism as Chlorophyll).
+- Curated abilities: Gale Wings ("full-HP Flying-move priority").
+
+**3. Weather control**
 - Rule: moves with a `weather` field (Sunny Day, Rain Dance, Sandstorm,
   Snowscape, plus Chilly Reception if in dex).
 - Curated abilities — setters: Drought, Drizzle, Sand Stream, Snow Warning,
@@ -385,50 +441,85 @@ DECISIONS.md entry.
   tag the *mega forme's* ability — the parser must resolve mega formes the
   same way the variant builder does.
 
-**3. Terrain control**
+**4. Terrain control**
 - Rule: moves with a `terrain` field. Terrain *removal*: Ice Spinner, Steel
   Roller (curated — removal isn't a structured field). Splintered Stormshards
   is not in Champions (verified); do not carry it.
 - Curated abilities: Grassy/Electric/Psychic/Misty Surge; Seed Sower
-  ("conditional" annotation).
+  ("conditional" annotation). (Grassy Surge is an expected dex-gap drop at
+  spec time.) Grassy Terrain providers are double-listed under healing with a
+  "passive team healing" annotation.
 
-**4. Targeting control**
+**5. Targeting control**
 - Rule: `volatileStatus: 'followme'`-class moves (Follow Me, Rage Powder).
-- Curated: Fake Out (flinch pressure — also appears under speed control via
-  priority; double-listing is correct, the categories answer different
-  questions), Ally Switch. Redirection *immunity* annotations: members whose
+- Curated: Fake Out (flinch pressure — this is its *only* category: its 100%
+  rider disqualifies it from priority, per user decision), Ally Switch.
+  Redirection *immunity* annotations: members whose
   ability (Stalwart, Propeller Tail) or moves (Snipe Shot) ignore redirection,
   and Grass-types' immunity to Rage Powder (derived from typing) — rendered as
   a second line in the cell ("ignores redirection: …").
 
-**5. Damage mitigation**
-- Rule: `sideCondition` ∈ {reflect, lightscreen, auroraveil, wideguard,
-  quickguard}. Moves with 100%-chance offensive-stat drops on the target:
+**6. Damage mitigation**
+- Rule: `sideCondition` ∈ {reflect, lightscreen, auroraveil} — **Wide Guard
+  and Quick Guard are excluded** (user decision: they live in option control
+  only), and Protect-class moves are excluded (they have their own category,
+  below). Moves with 100%-chance offensive-stat drops on the target:
   `atk`/`spa` drops via `boosts` or 100% secondaries (Charm, Feather Dance,
   Eerie Impulse, Snarl via its 100% SpA-drop secondary, Lunge, Breaking
   Swipe). `status: 'brn'` moves (Will-O-Wisp; Scald/Lava Plume's 30% burns do
   **not** qualify — those live in RNG exposure). Self defensive boosts ≥ +2 or
   cumulative defensive-boost moves (Iron Defense, Cotton Guard, Acid Armor,
-  Amnesia — derived from self `boosts` on def/spd ≥ +2). Protect-class:
-  `volatileStatus` ∈ {protect, banefulbunker, burningbulwark, silktrap,
-  spikyshield, kingsshield, obstruct} plus Detect — derived where the field
-  exists, curated fallback list otherwise.
+  Amnesia — derived from self `boosts` on def/spd ≥ +2).
 - Curated abilities: Intimidate, Friend Guard, Multiscale, Fur Coat, Ice
   Scales, Fluffy ("contact only"), Armor Tail-class *isn't* mitigation (it's
   option control, below).
-- Display sub-groups: screens · guards · Protect-class · stat drops · burn ·
-  self-boosts · abilities. (Protect on nearly every set is expected — the
-  sub-group keeps it from drowning the interesting rows.)
+- Display sub-groups: screens · stat drops · burn · self-boosts · abilities.
 
-**6. Pivoting**
-- Rule: damaging or status moves with `selfSwitch` (U-turn, Volt Switch, Flip
-  Turn, Parting Shot, Baton Pass, Teleport†, Chilly Reception, Shed Tail);
-  `forceSwitch` moves (Roar, Whirlwind, Dragon Tail, Circle Throw). †Teleport
-  verified absent from Champions dex — expect the drop warning.
-- Curated abilities: Regenerator (annotation "rewards pivoting"), Emergency
-  Exit / Wimp Out ("involuntary").
+**7. Protect moves** (new category — the fundamental doubles tempo tool)
+- Rule: single-target self-protection: `volatileStatus` ∈ {protect,
+  banefulbunker, burningbulwark, silktrap, spikyshield, kingsshield,
+  obstruct} plus Detect — derived where the field exists, curated fallback
+  list otherwise. **Wide Guard and Quick Guard do not belong here** (team
+  guards, not self-protection; they stay in option control). Variant riders
+  are annotated (Baneful Bunker poisons on contact, Spiky Shield chips, Silk
+  Trap drops Speed, …).
+- No ability or item entries in v1.
+- Protect on nearly every set is expected — the interesting finding is the
+  inverse, so members *without* any Protect-class move get an explicit
+  "no Protect" marker in their cell.
 
-**7. Option control** (denying the opponent choices)
+**8. Healing** (new category)
+- Rule — recovery moves: `flags.heal` / `heal` data (Recover, Morning Sun,
+  Life Dew, Jungle Healing†, Wish, Rest — Rest annotated "2-turn sleep").
+  Drain attacks via the `drain` field (Giga Drain, Drain Punch, Horn Leech,
+  Leech Life, …) as their own sub-group. Curated move supplement: Leech Seed
+  (verified: no `heal`/`drain` field in the data).
+- Curated abilities: Regenerator ("heals on switch — pairs with pivoting"),
+  Poison Heal, Rain Dish ("rain"), Ice Body ("snow"), Dry Skin ("rain") —
+  weather/status-conditional entries use the same dimming cross-link as
+  Chlorophyll. Grassy Surge† provides Grassy Terrain healing.
+- Curated items (first item-driven tags; validate against the calc *items*
+  dex like moves/abilities): Leftovers, Black Sludge† ("Poison-types only"),
+  Shell Bell, Sitrus Berry and the 33%-HP pinch berries (Figy, Wiki, Mago,
+  Aguav, Iapapa — annotate the confusion condition).
+- Field: members providing Grassy Terrain (move or ability) are listed with a
+  "passive team healing (grounded)" annotation — double-listed with terrain
+  control by design.
+- Display sub-groups: recovery moves · drain attacks · abilities · items ·
+  field.
+- † expected dex-gap drops at spec time (Jungle Healing, Grassy Surge, Black
+  Sludge verified absent).
+
+**9. Pivoting**
+- Rule **only** — no curated ability entries (user decision: "rewards
+  pivoting" abilities like Regenerator are healing, not pivoting; involuntary
+  switches like Emergency Exit / Wimp Out are not a plan and are dropped
+  entirely): damaging or status moves with `selfSwitch` (U-turn, Volt Switch,
+  Flip Turn, Parting Shot, Baton Pass, Teleport†, Chilly Reception, Shed
+  Tail); `forceSwitch` moves (Roar, Whirlwind, Dragon Tail, Circle Throw).
+  †Teleport verified absent from Champions dex — expect the drop warning.
+
+**10. Option control** (denying the opponent choices)
 - Curated abilities: Armor Tail, Dazzling†, Queenly Majesty (block priority);
   Sweet Veil, Vital Spirit, Insomnia (block sleep); Aroma Veil (blocks
   Taunt/Encore/Disable-class); Oblivious ("Taunt-immune + attract"); Own
@@ -436,8 +527,9 @@ DECISIONS.md entry.
   (status-move immunity); Magic Bounce.
 - Rule-derived moves: Encore, Disable, Taunt, Torment, Imprison, Heal Block†
   (volatileStatus-based where exposed, curated fallback); Wide Guard / Quick
-  Guard (double-listed with damage mitigation — they deny *spread/priority
-  options* and mitigate; both readings are useful); terrain double-listing:
+  Guard (their **only** category — user decision: they deny spread/priority
+  options rather than mitigate, and they are not Protect-class);
+  terrain double-listing:
   Electric/Misty Terrain rows in *terrain control* get an "also blocks
   sleep/status (grounded)" annotation rather than a duplicate row here.
 - †Expected dex-gap drops.
@@ -445,13 +537,24 @@ DECISIONS.md entry.
 **Test cases to verify correctness (Phase 4):**
 - A fixture team (write it as a Showdown paste in the test file) containing
   Tailwind + Fake Out + Icy Wind + Follow Me + U-turn + Will-O-Wisp + Encore
-  produces exactly the expected cell contents per category (golden-object
-  assertion, not snapshot — failures must read clearly).
-- Fake Out appears in both speed control and targeting control.
+  + Aqua Jet + Protect + Recover + a Leftovers holder produces exactly the
+  expected cell contents per category (golden-object assertion, not
+  snapshot — failures must read clearly).
+- Fake Out appears in targeting control **only** — not priority (100% rider),
+  not speed control.
+- Aqua Jet lands in priority; Grassy Glide renders dimmed until a member
+  provides Grassy Terrain.
+- Prankster on a fixture member produces no speed-control entry.
+- Protect appears in the Protect-moves category and nowhere in damage
+  mitigation; Wide Guard appears in option control only; a member with no
+  Protect-class move gets the "no Protect" marker.
+- Regenerator appears under healing, not pivoting; U-turn under pivoting.
+- Grassy Terrain provider is double-listed: terrain control + healing.
 - A team with Chlorophyll but no sun setter renders the ability dimmed with
   the "needs sun" annotation; adding Drought to another member un-dims it.
-- Every move/ability name in every curated table resolves in the calc dex or
-  is on the expected-drop list (this is the taxonomy-rot gate, run in CI).
+- Every move/ability/item name in every curated table resolves in the calc
+  dex or is on the expected-drop list (this is the taxonomy-rot gate, run in
+  CI).
 
 ## Phase 5: RNG exposure
 
@@ -505,7 +608,47 @@ tallies. If a scalar is ever wanted, it goes through a DECISIONS.md entry.
   upside" callout (the backlog's example insight — make it a real UI state,
   not an empty table).
 
-## Phase 6: Worst matchups
+## Phase 6: Damage sources by type
+
+`lib/evaluator/damage.ts` + `src/components/evaluator/DamageMarimekko.tsx`.
+
+A team-local version of the damage-viz "damage sources" Marimekko: where does
+this team's damage output come from, by (type × category)? Mirror the viz-1
+pipeline (SPEC-damageviz.md Phase 3) exactly, minus the metagame weighting:
+
+1. For each member × damaging move: attacker built from the *parsed set*
+   (species, ability, item, nature, SP spread, mega state); defender =
+   `STANDARD_TARGET` (`lib/variants.ts` — base 100 HP / 80 Def / 80 SpD, no
+   investment, no ability); field = doubles, plus the attacker's auto-set
+   weather (Drought → Sun, etc.), matching viz 1's field rule.
+2. `expected = avg_damage × spread_multiplier` (×1.5 for spread moves, same
+   convention as viz 1). **No** `V.weight` term (the team is given, not
+   sampled from the metagame) and **no** `move_weight` term (a pasted set's
+   four moves are certainties, not usage frequencies).
+3. Move filter: reuse `classifyMove` from `lib/moves.ts` verbatim (status,
+   OHKO, weight-based and no-BP exclusions; state-dependent-BP moves included
+   at in-model BP and flagged, same as viz 1).
+4. Aggregate by the calc-**resolved** type and category (Weather Ball under
+   Drought counts as Fire — `CalcResultDetailed.effective` already reports
+   this), normalize shares to sum 1.0, and emit the exact `Viz1Data` shape so
+   the existing `Marimekko` component renders it **unmodified** — the
+   contributors drilldown becomes member × move.
+
+This section runs the vendored `@smogon/calc` in the browser (see Tech
+stack). `lib/calc.ts`, `lib/pokemon.ts`, `lib/moves.ts`, and
+`STANDARD_TARGET` should be importable as-is — verify none of them
+transitively imports Node APIs or `pokemon-showdown`, and lift the pure
+pieces into a shared module if any does.
+
+**Test cases to verify correctness (Phase 6):**
+- Oracle test (Node): for a fixture set, each member × move `expected` equals
+  a direct `lib/calc.ts calculate()` result × the spread multiplier.
+- A Drought member's Fire moves compute under Sun (parity with viz 1's
+  auto-weather rule); its resolved Weather Ball aggregates as Fire.
+- Shares sum to 1.0; a team with no damaging moves renders an explicit empty
+  state instead of an empty chart.
+
+## Phase 7: Worst matchups
 
 Reuse, don't rebuild: the section calls `weakestMatchups(db, coreIds,
 condition, weights)` from `src/lib/matchupDb.ts` with `coreIds` = the matched
@@ -539,7 +682,7 @@ requires custom-set simulation (backlog item 05)." The section header shows
 elements." Keep `match.ts` interface-compatible with a future
 `resolveOrSimulate(set): Promise<MatchupSource>`.
 
-**Test cases to verify correctness (Phase 6):**
+**Test cases to verify correctness (Phase 7):**
 - A pasted Garchomp @ Life Orb with the modal moves matches
   `garchomp_life_orb` with no badge (if moves/spread match the variant's
   resolved set) or with the badge (if they differ) — assert both fixtures.
@@ -547,16 +690,18 @@ elements." Keep `match.ts` interface-compatible with a future
 - A species absent from `defender-variants.json` yields unmatched + the
   item-05 note, and `weakestMatchups` is called without it.
 
-## Phase 7: Page assembly
+## Phase 8: Page assembly
 
 - Route `/team-evaluator`, nav link alongside the existing pages.
 - Team roster (chips + editor) **fixed at the top** (sticky), sections stacked
-  below in the order: Worst matchups · Type matchups · Board control ·
-  RNG exposure · Relevant BST. Each section is collapsible
+  below in the order: Worst matchups · Type matchups · Damage sources ·
+  Board control · RNG exposure · Relevant BST. Each section is collapsible
   (`EvalSection.tsx`; collapsed state in component state, not the URL — the
   URL carries the team and condition only). All sections except worst
-  matchups render synchronously from `TeamSet[]` + `evaluator-dex.json`; the
-  matchup section shows the existing sqlite-loading state.
+  matchups render synchronously from `TeamSet[]` + `evaluator-dex.json` (the
+  damage-sources section additionally runs the browser calc — ≤24 calcs per
+  edit, comfortably synchronous); the matchup section shows the existing
+  sqlite-loading state.
 - Heatmap cells follow the existing dataviz conventions on the site (the
   Heatmap component and its palette) — extend, don't fork, unless the bucket
   legend genuinely doesn't fit, and note it in DECISIONS.md if so.
@@ -582,6 +727,10 @@ Document these in the README and as page footnotes where visible:
 6. **No ability suppression / Mold Breaker / Tera-style type changes.**
 7. **Champions dex gaps** may silently thin curated tables — mitigated by the
    drop-warnings in CI, not eliminated.
+8. **Damage sources inherit the viz-1 model's limitations** — one clean hit
+   at full HP against the synthetic neutral target; state-dependent-BP moves
+   are undercounted (same flag set as `lib/moves.ts`); no boosts, no prior
+   chip, no opposing ability/item.
 
 ## Implementation order
 
@@ -592,10 +741,13 @@ Document these in the README and as page footnotes where visible:
 4. **Phase 4** (board control) — the big curated-table lift; doing it before
    RNG lets the tag-rule helpers stabilize.
 5. **Phase 5** (RNG exposure) — reuses Phase 4's rule helpers.
-6. **Phase 3** (relevant BST) — small, independent.
-7. **Phase 6** (worst matchups) — reuse of existing components; needs
+6. **Phase 3** (relevant BST) — small; reuses Phase 4's `isUtilityAttack`
+   plumbing.
+7. **Phase 6** (damage sources) — independent of the tag work; brings the
+   browser-calc plumbing.
+8. **Phase 7** (worst matchups) — reuse of existing components; needs
    `match.ts`.
-8. **Phase 7** (assembly polish, collapsible layout, URL/localStorage).
+9. **Phase 8** (assembly polish, collapsible layout, URL/localStorage).
 
 Commit per phase (house rule); Phases 2–6 are naturally reviewable PRs if
 split — at minimum split "input + dex" / "static sections" / "matchup section."
@@ -610,7 +762,7 @@ no simulation). Beyond the per-phase cases above:
   asserted (an entry *appearing* in the dex should fail the test too, so the
   list gets pruned when dex gaps close).
 - **Fixture team end-to-end:** one golden test parsing the example team and
-  asserting the full evaluation object (all five sections) — the regression
+  asserting the full evaluation object (all six sections) — the regression
   net for refactors.
 - **Typecheck** already covers both tsconfigs; the new page must compile under
   `tsconfig.web.json` (guards against accidentally importing
@@ -619,15 +771,18 @@ no simulation). Beyond the per-phase cases above:
 ## Notes for the implementer
 
 - `lib/evaluator/` must stay browser-safe: no Node imports, no
-  `pokemon-showdown`, no `@smogon/calc` (the dex export carries everything
-  needed). The only allowed cross-import from existing lib code is types and
-  pure helpers that are themselves browser-safe (`evsToSps` qualifies; check
-  before importing anything from `lib/pokemon.ts`, which imports
-  `@smogon/calc` at module top — if that's a problem, lift `evToSp` into a
-  shared pure module rather than duplicating it).
-- Double-listing across categories (Fake Out, Wide Guard) is intentional;
-  implement tags as independent per-category rules over the same move data,
-  not a partition.
+  `pokemon-showdown`. `@smogon/calc` is allowed **only** via
+  `lib/evaluator/damage.ts` (it is browser-safe, and Phase 6 needs it); every
+  other module works from the dex export alone so the calc stays out of the
+  non-damage code paths. Cross-imports from existing lib code are fine when
+  browser-safe (`evsToSps`, `lib/calc.ts`, `classifyMove`, `STANDARD_TARGET`
+  — verify none transitively imports Node APIs or `pokemon-showdown`, and
+  lift pure pieces into a shared module if any does).
+- Double-listing across categories (Grassy Terrain providers appear in both
+  terrain control and healing) is intentional; implement tags as independent
+  per-category rules over the same move data, not a partition. Equally
+  intentional are the single-listings the user pinned down: Fake Out is
+  targeting control only, Wide/Quick Guard are option control only.
 - Curated tables are data (`const` arrays of `{name, annotation}`), not
   conditionals — the validation gate and any future baseline column both want
   to iterate them.

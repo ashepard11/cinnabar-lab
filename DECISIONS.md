@@ -538,3 +538,44 @@ Decisions locked at spec stage:
 6. **Showdown paste parsing is hand-rolled for the browser** but tested for
    field-level parity against the vendored `Teams.import()` in Node, keeping
    the vendored parser as the semantics oracle without shipping it.
+
+### D36: Team evaluator spec revisions (user review, 2026-07-12)
+Ten user-directed changes to `SPEC-team-evaluator.md`, applied before any
+implementation. The substantive ones and their knock-on decisions:
+
+1. **New "damage sources by type" section** — a team-local Marimekko
+   mirroring viz 1's one-clean-hit model (same `STANDARD_TARGET`, auto-weather
+   field, ×1.5 spread convention, `classifyMove` filter) with the metagame
+   weight and move-usage terms removed (a pasted team's moves are
+   certainties). Emits the `Viz1Data` shape so the existing `Marimekko`
+   component renders unmodified. Knock-on: the vendored `@smogon/calc` now
+   runs in the browser (it is browser-safe by design; the official calc UI
+   ships it) — the single exception to the frontend's prebuilt-JSON-only
+   rule, confined to `lib/evaluator/damage.ts`.
+2. **Lightning Rod correction** — it *is* in the Champions dex (Raichu, Reg
+   M-B); the spec's expected-drop marker on it was an editing error (the
+   spec-time dex check had it present). Newly verified gaps recorded while
+   re-checking: `Grassy Surge`, `Jungle Healing`, `Black Sludge` are absent.
+   Also verified: **Grassy Glide is `priority: 0` in the Champions data**
+   (its +1 is terrain-conditional at runtime), so it needs a curated
+   conditional entry — the derived priority rule misses it.
+3. **Utility-attack rule for relevant BST**: a damaging move with BP ≤ 60 and
+   a 100%-chance secondary (Fake Out, Nuzzle, Icy Wind, Snarl, …) does not
+   establish attack-stat usage; low-BP moves without a rider (Aqua Jet) do.
+   Encoded as `isUtilityAttack(move)` with a curated override list.
+4. **Relevant BST is an average across members, not a sum** — mean of (HP +
+   relevant offensive stat(s) + Def + SpD + Spe); with a Trick Room setter,
+   shown both with and without Speed (worked example: 100/100/50/100/100/100
+   physical attacker → 500 with, 400 without).
+5. **Taxonomy re-cut to 10 categories**: priority split out of speed control
+   (damage-first priority moves only — `priority > 0`, no 100%-chance
+   secondary — so Fake Out stays in targeting control only); Prankster
+   dropped from speed control entirely; new Protect-moves category
+   (Protect/Detect/Baneful Bunker-class; Wide/Quick Guard explicitly *not*
+   Protect-class and now live in option control only, also removed from
+   damage mitigation); new healing category (recovery via `flags.heal`,
+   drain via `drain`, curated Leech Seed, Regenerator-class abilities,
+   healing items — the first item-driven tags — and Grassy Terrain providers
+   double-listed from terrain control); pivoting is now rule-only
+   (`selfSwitch`/`forceSwitch`; Regenerator moved to healing, Emergency
+   Exit/Wimp Out dropped as involuntary).
