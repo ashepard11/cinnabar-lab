@@ -5,6 +5,7 @@ import TeamInput from '../components/evaluator/TeamInput';
 import EvalSection from '../components/evaluator/EvalSection';
 import TypeMatrix from '../components/evaluator/TypeMatrix';
 import BoardControlTable from '../components/evaluator/BoardControlTable';
+import DamageMarimekko from '../components/evaluator/DamageMarimekko';
 import RngExposure from '../components/evaluator/RngExposure';
 import RelevantBst from '../components/evaluator/RelevantBst';
 import {
@@ -142,6 +143,12 @@ export default function TeamEvaluatorPage() {
           subtitle="Two views: what each attacking type does to the team, and the best hit the team has into each defending type."
         >
           <TypeMatrix dex={dex} sets={sets} />
+        </EvalSection>
+        <EvalSection
+          title="Damage sources"
+          subtitle="Where this team's damage output comes from, by attack type and physical/special split — the metagame damage-sources view, computed live for your six."
+        >
+          <DamageMarimekko dex={dex} sets={sets} />
         </EvalSection>
         <EvalSection
           title="Board control"

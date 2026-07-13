@@ -156,19 +156,26 @@ function parseBlock(block: string, dex: EvaluatorDex): ParsedSet | ParseFailure 
     if (natureLine) nature = natureLine[1];
   }
 
-  if (ability) {
+  // A held Mega Stone resolves the battle forme; the Mega forme's own ability
+  // replaces the pasted one, mirroring the variant builder (lib/variants.ts).
+  const megaForme = megaFormeFor(dex, item, spec.name);
+  const battleSpec = megaForme ? getSpecies(dex, megaForme) ?? spec : spec;
+
+  if (megaForme && battleSpec.abilities.length) {
+    ability = battleSpec.abilities[0];
+  } else if (ability) {
     const id = toID(ability);
     if (id in dex.abilities) {
       ability = dex.abilities[id];
-      if (spec.abilities.length && !spec.abilities.includes(ability)) {
-        warnings.push(`${ability} is not a listed ability slot for ${spec.name}`);
+      if (battleSpec.abilities.length && !battleSpec.abilities.includes(ability)) {
+        warnings.push(`${ability} is not a listed ability slot for ${battleSpec.name}`);
       }
     } else {
-      warnings.push(`unknown ability "${ability}" — using ${spec.abilities[0] ?? 'none'}`);
-      ability = spec.abilities[0] ?? '';
+      warnings.push(`unknown ability "${ability}" — using ${battleSpec.abilities[0] ?? 'none'}`);
+      ability = battleSpec.abilities[0] ?? '';
     }
   } else {
-    ability = spec.abilities[0] ?? '';
+    ability = battleSpec.abilities[0] ?? '';
     if (ability) warnings.push(`no ability line — defaulting to ${ability}`);
   }
 
@@ -186,8 +193,6 @@ function parseBlock(block: string, dex: EvaluatorDex): ParsedSet | ParseFailure 
   }
 
   if (moves.length === 0) warnings.push('no valid moves — most sections need at least one');
-
-  const megaForme = megaFormeFor(dex, item, spec.name);
 
   return {
     species: spec.name,

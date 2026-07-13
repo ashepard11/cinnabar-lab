@@ -166,7 +166,9 @@ Modest Nature
     const same = (a: string, b: string) => toID(a) === toID(b);
     if (!same(o.species, s.species)) { parityOk = false; parityDetails.push(`set ${i} species ${o.species}≠${s.species}`); }
     if (toID(o.item ?? '') !== toID(s.item ?? '')) { parityOk = false; parityDetails.push(`set ${i} item ${o.item}≠${s.item}`); }
-    if (!same(o.ability, s.ability)) { parityOk = false; parityDetails.push(`set ${i} ability`); }
+    // Documented divergence: Mega sets take the Mega forme's ability
+    // (mirroring the variant builder), so skip the oracle there.
+    if (!s.isMega && !same(o.ability, s.ability)) { parityOk = false; parityDetails.push(`set ${i} ability`); }
     if (!same(o.nature, s.nature)) { parityOk = false; parityDetails.push(`set ${i} nature`); }
     const oSps = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...evsToSps(o.evs)};
     if (JSON.stringify(oSps) !== JSON.stringify(s.sps)) { parityOk = false; parityDetails.push(`set ${i} sps ${JSON.stringify(oSps)}≠${JSON.stringify(s.sps)}`); }
@@ -583,6 +585,70 @@ Ability: Rough Skin
     !isUtilityAttack(getMove(dex, 'Aqua Jet')!) &&
     isUtilityAttack(getMove(dex, 'Icy Wind')!) &&
     !isUtilityAttack(getMove(dex, 'Knock Off')!));
+}
+
+// ---------------------------------------------------------------------------
+console.log('\nPhase 6: damage sources by type');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {teamDamageSources} = require('../lib/evaluator/damage') as typeof import('../lib/evaluator/damage');
+  const {calculate} = require('../lib/calc') as typeof import('../lib/calc');
+  const {STANDARD_TARGET} = require('../lib/variants') as typeof import('../lib/variants');
+
+  const team = parseTeam(`
+Garchomp @ Life Orb
+Ability: Rough Skin
+EVs: 4 HP / 252 Atk / 252 Spe
+Jolly Nature
+- Earthquake
+- Dragon Claw
+- Rock Slide
+- Protect
+
+Charizard @ Charizardite Y
+Ability: Blaze
+EVs: 252 SpA / 252 Spe
+Timid Nature
+- Heat Wave
+- Weather Ball
+- Solar Beam
+- Protect
+`, dex);
+  check('damage fixture parses 2 sets', team.sets.length === 2 && team.failures.length === 0);
+
+  const ds = teamDamageSources(team.sets);
+  check('shares sum to 1', Math.abs(ds.viz.cells.reduce((a, c) => a + c.share, 0) - 1) < 1e-9);
+  check('Protect skipped as status, listed in skipped',
+    ds.skipped.some((s) => s.move === 'Protect' && s.reason.includes('status')));
+
+  // Oracle: Earthquake expected = direct lib/calc result × 1.5 (spread).
+  const eq = calculate(
+    {species: 'Garchomp', ability: 'Rough Skin', item: 'Life Orb', nature: 'Jolly', sps: team.sets[0].sps},
+    STANDARD_TARGET, {name: 'Earthquake'}, {isDoubles: true, weather: null},
+  );
+  const eqEntry = ds.viz.cells.find((c) => c.type === 'Ground')!.contributors.find((c) => c.move === 'Earthquake')!;
+  check('oracle: Earthquake expected = calc avg × 1.5 spread',
+    Math.abs(eqEntry.expected_damage - eq.avg * 1.5) < 1e-9,
+    `${eqEntry.expected_damage} vs ${eq.avg * 1.5}`);
+
+  // Mega Charizard Y auto-weather: Weather Ball resolves as Fire under Sun,
+  // and Heat Wave computes in Sun (parity with viz 1's field rule).
+  const zardCells = ds.viz.cells.filter((c) => c.contributors.some((x) => x.species === 'Charizard-Mega-Y'));
+  check('mega forme used as attacker', zardCells.length > 0);
+  const wb = ds.viz.cells.find((c) => c.contributors.some((x) => x.move === 'Weather Ball'));
+  check('Weather Ball aggregates as Fire under Drought sun', wb?.type === 'Fire');
+  const hw = calculate(
+    {species: 'Charizard-Mega-Y', ability: 'Drought', item: null, nature: 'Timid', sps: team.sets[1].sps},
+    STANDARD_TARGET, {name: 'Heat Wave'}, {isDoubles: true, weather: 'Sun'},
+  );
+  const hwEntry = ds.viz.cells.find((c) => c.type === 'Fire')!.contributors.find((c) => c.move === 'Heat Wave')!;
+  check('Heat Wave computed under auto-sun', Math.abs(hwEntry.expected_damage - hw.avg * 1.5) < 1e-9,
+    `${hwEntry.expected_damage} vs ${hw.avg * 1.5}`);
+
+  check('no damaging moves → empty cells, no crash',
+    teamDamageSources(parseTeam('Sylveon\nAbility: Pixilate\n- Protect', dex).sets).viz.cells.length === 0);
 }
 
 // ---------------------------------------------------------------------------
