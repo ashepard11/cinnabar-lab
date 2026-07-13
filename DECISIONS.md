@@ -579,3 +579,41 @@ implementation. The substantive ones and their knock-on decisions:
    double-listed from terrain control); pivoting is now rule-only
    (`selfSwitch`/`forceSwitch`; Regenerator moved to healing, Emergency
    Exit/Wimp Out dropped as involuntary).
+
+### D37: Team evaluator implementation notes (BACKLOG item 08, 2026-07-13)
+Implementation deviations and discoveries beyond the spec (D35/D36):
+
+1. **Dex export sourcing is per-field, not per-entry:** the calc's gen-0 move
+   entries can be *stubs* (Metal Claw carries only `flags`), so the calc wins
+   only where it actually has a value and the Showdown mod backfills the rest.
+   Secondary effects split target `boosts` from `selfBoosts` (Power-Up Punch
+   class) so tag/RNG rules can't misread self-buffs as debuffs; Outrage-class
+   self-lock ships as a new `selfVolatile` field.
+2. **Mega formes take the Mega forme's slot-0 ability** at parse time
+   (Charizardite Y → Drought), mirroring the variant builder — required for
+   auto-weather damage parity with viz 1. Documented divergence from
+   `Teams.import()`, which keeps the pasted ability; the parity test skips
+   ability comparison for megas.
+3. **@smogon/calc in the browser is a dynamic import:** bundling it in the
+   entry chunk raised the app 110 → 241 KB gzipped, so
+   `lib/evaluator/damage.ts` loads as a split chunk (~123 KB) when the
+   damage-sources section first renders. Entry stays ~120 KB.
+4. **`SimSet` moved from `lib/sim/engine.ts` to `lib/sim/sets.ts`** (engine
+   re-exports it) so `match.ts` can import `pickMoves` without dragging Node
+   `crypto` into the web build. Type-only move; endgame gate re-run: PASS.
+5. **Exactness badge compares fields directly, not via `canonicalSpec`:**
+   the cid helper imports `node:crypto`, so the browser-safe `match.ts`
+   re-implements the comparison over the same field set (ability, nature, SP
+   spread, resolved top-4 moves); a Node test cross-checks it against
+   `canonicalSpec` so the two can't drift silently.
+6. **Spec erratum:** the Phase 2 test case said Rotom-Wash's raw Ground
+   multiplier is 1× — it is 2× (Electric/Water); the Levitate cell asserts
+   `raw 2 → effective 0`.
+7. **Curated-table drop lists are asserted in both directions** (missing
+   entry ⇒ must be on the expected list; listed entry reappearing in the dex
+   ⇒ test fails too). Current drops: 17 board-control entries + Razor Claw /
+   Serene Grace (RNG) + Storm Drain / Well-Baked Body (type chart).
+8. **Verified end-to-end** with Playwright against the production build:
+   example team through all six sections, URL round-trip, zero console
+   errors. `evaluator-dex.json` regenerates in the weekly refresh-data
+   workflow; `npm run test-evaluator` (158 checks) runs in `npm test` and CI.

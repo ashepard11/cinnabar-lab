@@ -148,14 +148,41 @@ refresh changes `defender-variants.json`, re-run `npm run build-matchups`
    Gen-9 expectation by design; such cases are verified by hand and
    documented (D24).
 
+## Known limitations — team evaluator (v1)
+
+1. **Nearest-variant matchup approximation.** Pasted sets map to the closest
+   known variant (species → exact item → aggregate bucket) for the
+   worst-matchups section; inexact matches carry an "approximated as …"
+   badge, and species outside the variant set are excluded with a note.
+   Exact-set and custom-set simulation is BACKLOG item 05; defensive-item
+   fidelity is item 04.
+2. **No metagame baseline column.** "Your team has 3 speed-control options —
+   the meta average is 2.1" needs team-level composition data Pikalytics
+   doesn't provide; tallies are raw counts.
+3. **Static analysis.** Board control and RNG tallies count *options*, not
+   their in-game value; the matchup section is where interaction quality
+   lives.
+4. **Type matrix is mono-type per axis** — real defenders are dual-typed;
+   the offensive grid shows per-type reach, not field coverage.
+5. **No item effects** beyond RNG items and healing items (no Air Balloon in
+   the type chart, no Covert Cloak in option control).
+6. **No ability suppression / Mold Breaker / type-changing mechanics.**
+7. **Damage sources inherit the viz-1 model's limits** — one clean hit at
+   full HP vs the synthetic neutral target; state-dependent-BP moves are
+   undercounted and flagged.
+8. **Champions dex gaps thin the curated tables** (Psychic/Misty Surge,
+   Serene Grace, pinch berries, …) — CI's taxonomy-rot gate tracks the exact
+   drop list in both directions, so a closed gap forces a table review.
+
 ## Repo layout
 
 ```
-data/       scraped usage, variants, viz JSON, matchups.sqlite (committed)
+data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex (committed)
 docs/       policy design doc
 lib/        pipeline library: scrape, variants, calc, pokemon, types
 lib/sim/    battle simulator: engine, model, policy, condition, harness, sets
 lib/analysis/  matchup-matrix and team-coverage query APIs
+lib/evaluator/ team evaluator: dex, parse, typechart, tags, rng, bst, damage, match
 scripts/    runnable pipeline steps + tests + matrix build
 src/        React frontend (Vite, React Router, D3 scale-chromatic, sql.js)
 vendor/     vendored @smogon/calc and pokemon-showdown builds with Champions

@@ -719,6 +719,115 @@ console.log('\nPhase 7: variant matching');
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nSuite-level: example team end-to-end');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {defensiveMatrix, offensiveMatrix} = require('../lib/evaluator/typechart') as typeof import('../lib/evaluator/typechart');
+  const {boardControl} = require('../lib/evaluator/tags') as typeof import('../lib/evaluator/tags');
+  const {rngExposure, noFavorableRng} = require('../lib/evaluator/rng') as typeof import('../lib/evaluator/rng');
+  const {relevantBst} = require('../lib/evaluator/bst') as typeof import('../lib/evaluator/bst');
+  const {teamDamageSources} = require('../lib/evaluator/damage') as typeof import('../lib/evaluator/damage');
+  const {matchTeam} = require('../lib/evaluator/match') as typeof import('../lib/evaluator/match');
+
+  // Keep in sync with EXAMPLE_TEAM in src/pages/TeamEvaluatorPage.tsx.
+  const EXAMPLE = `
+Garchomp @ Life Orb
+Ability: Rough Skin
+EVs: 4 HP / 252 Atk / 252 Spe
+Jolly Nature
+- Earthquake
+- Dragon Claw
+- Rock Slide
+- Protect
+
+Kingambit @ Black Glasses
+Ability: Defiant
+EVs: 252 HP / 252 Atk / 4 SpD
+Adamant Nature
+- Sucker Punch
+- Kowtow Cleave
+- Iron Head
+- Swords Dance
+
+Incineroar
+Ability: Intimidate
+EVs: 252 HP / 4 Atk / 252 SpD
+Careful Nature
+- Fake Out
+- Flare Blitz
+- Parting Shot
+- U-turn
+
+Charizard @ Charizardite Y
+Ability: Blaze
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Heat Wave
+- Solar Beam
+- Overheat
+- Protect
+
+Rotom-Wash @ Sitrus Berry
+Ability: Levitate
+EVs: 252 HP / 252 SpA
+Modest Nature
+- Hydro Pump
+- Thunderbolt
+- Will-O-Wisp
+- Protect
+
+Whimsicott @ Focus Sash
+Ability: Prankster
+EVs: 252 HP / 252 Spe
+Timid Nature
+- Tailwind
+- Moonblast
+- Encore
+- Icy Wind
+`;
+  const team = parseTeam(EXAMPLE, dex);
+  check('example team parses 6/6', team.sets.length === 6 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  // Every section computes without throwing and returns sane shapes.
+  const def = defensiveMatrix(dex, team.sets);
+  const off = offensiveMatrix(dex, team.sets);
+  check('type matrices: 18 rows × 6 members',
+    def.cells.length === 18 && def.cells[0].length === 6 &&
+    off.cells.length === 18 && off.cells[0].length === 6);
+
+  const inv = boardControl(dex, team.sets);
+  check('board control: 10 categories × 6 members',
+    inv.length === 10 && inv.every((c) => c.perMember.length === 6));
+  check('example team has tailwind + fake out + pivoting + encore coverage',
+    inv.find((c) => c.id === 'speed')!.perMember[5].some((t) => t.name === 'Tailwind') &&
+    inv.find((c) => c.id === 'targeting')!.perMember[2].some((t) => t.name === 'Fake Out') &&
+    inv.find((c) => c.id === 'pivoting')!.perMember[2].length === 2 &&
+    inv.find((c) => c.id === 'option')!.perMember[5].some((t) => t.name === 'Encore'));
+
+  const rng = rngExposure(dex, team.sets);
+  check('example team RNG: favorable present (Rock Slide flinch), unfavorable present (Hydro Pump acc)',
+    !noFavorableRng(rng) &&
+    rng.unfavorable.acc80to89.some((e) => e.source === 'Hydro Pump'));
+
+  const bst = relevantBst(dex, team.sets);
+  check('example team BST: no Trick Room → single average; all 6 members scored',
+    bst.hasTrickRoomSetter === false && bst.members.length === 6 && bst.averageWithSpeed > 400);
+
+  const ds = teamDamageSources(team.sets);
+  check('example team damage sources: shares sum to 1, Fire cell present (Zard Y)',
+    Math.abs(ds.viz.cells.reduce((a, c) => a + c.share, 0) - 1) < 1e-9 &&
+    ds.viz.cells.some((c) => c.type === 'Fire' && c.category === 'Special'));
+
+  const matches = matchTeam(team.sets, variants.variants);
+  check('example team matching: all 6 map to known variants',
+    matches.every((m) => m.variantId !== null),
+    matches.filter((m) => !m.variantId).map((m) => m.set.species).join(', '));
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);
