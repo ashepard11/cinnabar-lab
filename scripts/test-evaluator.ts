@@ -502,6 +502,90 @@ Ability: Chlorophyll
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 3: relevant BST');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {relevantBst, isUtilityAttack} = require('../lib/evaluator/bst') as typeof import('../lib/evaluator/bst');
+
+  const bstOf = (name: string) => {
+    const s = getSpecies(dex, name)!;
+    return s.baseStats.hp + s.baseStats.atk + s.baseStats.def + s.baseStats.spa + s.baseStats.spd + s.baseStats.spe;
+  };
+
+  const team = parseTeam(`
+Sylveon
+Ability: Pixilate
+- Hyper Voice
+- Moonblast
+- Shadow Ball
+- Protect
+
+Snorlax
+Ability: Thick Fat
+- Body Press
+- Curse
+- Rest
+
+Incineroar
+Ability: Intimidate
+- Fake Out
+- Parting Shot
+- Snarl
+
+Garchomp
+Ability: Rough Skin
+- Earthquake
+- Trick Room
+`, dex);
+  check('bst fixture parses 4 sets', team.sets.length === 4 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  const report = relevantBst(dex, team.sets);
+  const sylveon = report.members[0];
+  check('special attacker: Atk struck, total = BST − base Atk',
+    !sylveon.perStat.atk.included &&
+    sylveon.totalWithSpeed === bstOf('Sylveon') - getSpecies(dex, 'Sylveon')!.baseStats.atk);
+
+  const snorlax = report.members[1];
+  check('Body-Press-only set: Atk still struck, Def double-duty note',
+    !snorlax.perStat.atk.included &&
+    snorlax.notes.some((n) => n.includes('Body Press')));
+
+  const incin = report.members[2];
+  check('Fake Out + Snarl only: both attack stats struck with utility notes',
+    !incin.perStat.atk.included && (incin.perStat.atk.note ?? '').includes('Fake Out') &&
+    !incin.perStat.spa.included && (incin.perStat.spa.note ?? '').includes('Snarl'));
+
+  const withKnockOff = parseTeam('Incineroar\nAbility: Intimidate\n- Fake Out\n- Knock Off', dex);
+  const koReport = relevantBst(dex, withKnockOff.sets);
+  check('adding a real attack (Knock Off) restores Atk',
+    koReport.members[0].perStat.atk.included);
+
+  check('Trick Room setter triggers the dual average',
+    report.hasTrickRoomSetter &&
+    report.averageWithSpeed > report.averageWithoutSpeed);
+  const noTr = relevantBst(dex, team.sets.slice(0, 3));
+  check('no Trick Room setter → single average flag', noTr.hasTrickRoomSetter === false);
+
+  // Worked-example semantics: withSpeed − withoutSpeed = base Speed, per member.
+  check('speedless total drops exactly base Speed',
+    report.members.every((m, i) =>
+      m.totalWithSpeed - m.totalWithoutSpeed === getSpecies(dex, team.sets[i].battleSpecies)!.baseStats.spe));
+
+  // Average = mean of member totals.
+  const mean = report.members.reduce((a, m) => a + m.totalWithSpeed, 0) / report.members.length;
+  check('team average is the mean of member totals', Math.abs(report.averageWithSpeed - mean) < 1e-9);
+
+  check('isUtilityAttack: Fake Out yes, Aqua Jet no, Icy Wind yes, Knock Off no',
+    isUtilityAttack(getMove(dex, 'Fake Out')!) &&
+    !isUtilityAttack(getMove(dex, 'Aqua Jet')!) &&
+    isUtilityAttack(getMove(dex, 'Icy Wind')!) &&
+    !isUtilityAttack(getMove(dex, 'Knock Off')!));
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

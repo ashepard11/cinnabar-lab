@@ -316,3 +316,14 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .rng-note { color: #b3752a; font-size: 11px; }
 .rng-callout { border: 1px solid #b3423a55; background: #b3423a0d; border-radius: 8px; padding: 10px 14px; font-size: 13px; max-width: 460px; }
 .rng-callout.rng-good { border-color: #2e7d5b55; background: #2e7d5b0d; }
+
+/* --- team evaluator: relevant BST ------------------------------------------ */
+.bst-averages { display: flex; gap: 12px; margin-bottom: 14px; }
+.bst-averages .condition-card { min-width: 220px; }
+.bst-table { border-collapse: collapse; font-size: 12.5px; }
+.bst-table th, .bst-table td { border: 1px solid var(--border); padding: 3px 10px; text-align: center; }
+.bst-table thead th { background: var(--surface-raised); font-weight: 550; color: var(--ink-secondary); }
+.bst-member { text-align: left !important; font-weight: 600; }
+.bst-excluded { color: var(--ink-muted); background: var(--surface-raised); }
+.bst-total { font-weight: 650; }
+.bst-nospeed { color: var(--ink-muted); font-weight: 400; font-size: 11px; }

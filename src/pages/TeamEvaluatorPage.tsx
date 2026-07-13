@@ -6,6 +6,7 @@ import EvalSection from '../components/evaluator/EvalSection';
 import TypeMatrix from '../components/evaluator/TypeMatrix';
 import BoardControlTable from '../components/evaluator/BoardControlTable';
 import RngExposure from '../components/evaluator/RngExposure';
+import RelevantBst from '../components/evaluator/RelevantBst';
 import {
   decodeTeam, encodeTeam, exportTeam, parseTeam,
 } from '../../lib/evaluator/parse';
@@ -153,6 +154,12 @@ export default function TeamEvaluatorPage() {
           subtitle="Variance the team can exploit vs. variance it has to survive, itemized with per-use probabilities."
         >
           <RngExposure dex={dex} sets={sets} />
+        </EvalSection>
+        <EvalSection
+          title="Relevant BST"
+          subtitle="Base-stat totals excluding stats each set demonstrably doesn't use (unused attack stats, utility-attack-only categories), averaged across the team."
+        >
+          <RelevantBst dex={dex} sets={sets} />
         </EvalSection>
       </>
     );
