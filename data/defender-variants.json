@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-07-12T17:52:09.366Z",
+  "generated_at": "2026-07-13T09:29:42.950Z",
   "variants": [
     {
       "id": "garchomp_life_orb",
@@ -17,7 +17,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.2083491295397599,
+      "weight": 0.19952758946295152,
       "moves": [
         {
           "name": "Dragon Claw",
@@ -77,7 +77,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.01456421099695409,
+      "weight": 0.013947559651779136,
       "moves": [
         {
           "name": "Dragon Claw",
@@ -137,7 +137,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.17800702329610552,
+      "weight": 0.17047017352174496,
       "moves": [
         {
           "name": "Dragon Claw",
@@ -197,7 +197,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.07641310766880595,
+      "weight": 0.06898327889929427,
       "moves": [
         {
           "name": "Last Respects",
@@ -257,7 +257,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.04600380971897501,
+      "weight": 0.041530749541411865,
       "moves": [
         {
           "name": "Last Respects",
@@ -317,7 +317,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.26549656286967777,
+      "weight": 0.23968169862458877,
       "moves": [
         {
           "name": "Last Respects",
@@ -377,7 +377,7 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.1139215887180156,
+      "weight": 0.10693925914762652,
       "moves": [
         {
           "name": "Sucker Punch",
@@ -437,7 +437,7 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.020419907411719777,
+      "weight": 0.019168357771744377,
       "moves": [
         {
           "name": "Sucker Punch",
@@ -497,7 +497,7 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.22282776158052103,
+      "weight": 0.20917050059692982,
       "moves": [
         {
           "name": "Sucker Punch",
@@ -557,7 +557,7 @@
         "spd": 20,
         "spe": 0
       },
-      "weight": 0.012473373883398382,
+      "weight": 0.012231425120033534,
       "moves": [
         {
           "name": "Fake Out",
@@ -617,7 +617,7 @@
         "spd": 20,
         "spe": 0
       },
-      "weight": 0.3216107752638393,
+      "weight": 0.3153724206624862,
       "moves": [
         {
           "name": "Fake Out",
@@ -677,7 +677,7 @@
         "spd": 20,
         "spe": 0
       },
-      "weight": 0.30791657740063527,
+      "weight": 0.31006444958827145,
       "moves": [
         {
           "name": "Rage Powder",
@@ -723,66 +723,6 @@
       "cid": "024cee1a8526e616"
     },
     {
-      "id": "sneasler_no_item",
-      "species": "Sneasler",
-      "is_mega": false,
-      "item": null,
-      "ability": "Unburden",
-      "nature": "Jolly",
-      "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.2865095429268702,
-      "moves": [
-        {
-          "name": "Close Combat",
-          "usage": 0.993
-        },
-        {
-          "name": "Fake Out",
-          "usage": 0.9440000000000001
-        },
-        {
-          "name": "Dire Claw",
-          "usage": 0.9359999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.593
-        },
-        {
-          "name": "Coaching",
-          "usage": 0.217
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.078
-        },
-        {
-          "name": "Gunk Shot",
-          "usage": 0.036000000000000004
-        },
-        {
-          "name": "Feint",
-          "usage": 0.035
-        },
-        {
-          "name": "Throat Chop",
-          "usage": 0.032
-        },
-        {
-          "name": "Rock Tomb",
-          "usage": 0.024
-        }
-      ],
-      "cid": "244400d9167e7084"
-    },
-    {
       "id": "charizard_mega_y",
       "species": "Charizard-Mega-Y",
       "is_mega": true,
@@ -798,7 +738,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.2701994373911343,
+      "weight": 0.2572526720559113,
       "moves": [
         {
           "name": "Protect",
@@ -859,7 +799,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.011045888949952029,
+      "weight": 0.010516618668952347,
       "moves": [
         {
           "name": "Protect",
@@ -905,65 +845,64 @@
       "cid": "579b514ac0567c3e"
     },
     {
-      "id": "floette_mega",
-      "species": "Floette-Mega",
-      "is_mega": true,
-      "mega_stone": "Floettite",
-      "item": "Floettite",
-      "ability": "Fairy Aura",
-      "nature": "Modest",
+      "id": "sneasler_no_item",
+      "species": "Sneasler",
+      "is_mega": false,
+      "item": null,
+      "ability": "Unburden",
+      "nature": "Jolly",
       "sps": {
         "hp": 2,
-        "atk": 0,
+        "atk": 32,
         "def": 0,
-        "spa": 32,
+        "spa": 0,
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.25630750672988256,
+      "weight": 0.25301504922611046,
       "moves": [
         {
+          "name": "Close Combat",
+          "usage": 0.993
+        },
+        {
+          "name": "Fake Out",
+          "usage": 0.9440000000000001
+        },
+        {
+          "name": "Dire Claw",
+          "usage": 0.9359999999999999
+        },
+        {
           "name": "Protect",
-          "usage": 0.998
+          "usage": 0.593
         },
         {
-          "name": "Dazzling Gleam",
-          "usage": 0.971
+          "name": "Coaching",
+          "usage": 0.217
         },
         {
-          "name": "Moonblast",
-          "usage": 0.79
+          "name": "Rock Slide",
+          "usage": 0.078
         },
         {
-          "name": "Light of Ruin",
-          "usage": 0.58
+          "name": "Gunk Shot",
+          "usage": 0.036000000000000004
         },
         {
-          "name": "Calm Mind",
-          "usage": 0.42700000000000005
+          "name": "Feint",
+          "usage": 0.035
         },
         {
-          "name": "Draining Kiss",
-          "usage": 0.193
+          "name": "Throat Chop",
+          "usage": 0.032
         },
         {
-          "name": "Psychic",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "Grass Knot",
-          "usage": 0.003
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.003
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.002
+          "name": "Rock Tomb",
+          "usage": 0.024
         }
       ],
-      "cid": "ecc6e7a87992c098"
+      "cid": "244400d9167e7084"
     },
     {
       "id": "whimsicott_no_item",
@@ -980,7 +919,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.24864703745447433,
+      "weight": 0.2529852380537496,
       "moves": [
         {
           "name": "Tailwind",
@@ -1026,6 +965,127 @@
       "cid": "e44db8e5f05ae054"
     },
     {
+      "id": "floette_mega",
+      "species": "Floette-Mega",
+      "is_mega": true,
+      "mega_stone": "Floettite",
+      "item": "Floettite",
+      "ability": "Fairy Aura",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.2296995193949227,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.998
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.971
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.79
+        },
+        {
+          "name": "Light of Ruin",
+          "usage": 0.58
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.42700000000000005
+        },
+        {
+          "name": "Draining Kiss",
+          "usage": 0.193
+        },
+        {
+          "name": "Psychic",
+          "usage": 0.026000000000000002
+        },
+        {
+          "name": "Grass Knot",
+          "usage": 0.003
+        },
+        {
+          "name": "Giga Drain",
+          "usage": 0.003
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.002
+        }
+      ],
+      "cid": "ecc6e7a87992c098"
+    },
+    {
+      "id": "farigiraf_no_item",
+      "species": "Farigiraf",
+      "is_mega": false,
+      "item": null,
+      "ability": "Armor Tail",
+      "nature": "Bold",
+      "sps": {
+        "hp": 17,
+        "atk": 0,
+        "def": 19,
+        "spa": 10,
+        "spd": 20,
+        "spe": 0
+      },
+      "weight": 0.17609017290950918,
+      "moves": [
+        {
+          "name": "Trick Room",
+          "usage": 0.9570000000000001
+        },
+        {
+          "name": "Psychic",
+          "usage": 0.607
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.489
+        },
+        {
+          "name": "Protect",
+          "usage": 0.391
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.303
+        },
+        {
+          "name": "Hyper Voice",
+          "usage": 0.302
+        },
+        {
+          "name": "Twin Beam",
+          "usage": 0.247
+        },
+        {
+          "name": "Imprison",
+          "usage": 0.139
+        },
+        {
+          "name": "Roar",
+          "usage": 0.11599999999999999
+        },
+        {
+          "name": "Foul Play",
+          "usage": 0.064
+        }
+      ],
+      "cid": "3cba8a8d93d115d7"
+    },
+    {
       "id": "archaludon_no_item",
       "species": "Archaludon",
       "is_mega": false,
@@ -1040,7 +1100,7 @@
         "spd": 25,
         "spe": 3
       },
-      "weight": 0.15814532820402954,
+      "weight": 0.16077100263025904,
       "moves": [
         {
           "name": "Electro Shot",
@@ -1100,7 +1160,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.14994113565021377,
+      "weight": 0.1569831187760936,
       "moves": [
         {
           "name": "Hurricane",
@@ -1146,66 +1206,6 @@
       "cid": "0d139b488c72ba6b"
     },
     {
-      "id": "farigiraf_no_item",
-      "species": "Farigiraf",
-      "is_mega": false,
-      "item": null,
-      "ability": "Armor Tail",
-      "nature": "Bold",
-      "sps": {
-        "hp": 17,
-        "atk": 0,
-        "def": 19,
-        "spa": 10,
-        "spd": 20,
-        "spe": 0
-      },
-      "weight": 0.1530440818949859,
-      "moves": [
-        {
-          "name": "Trick Room",
-          "usage": 0.9570000000000001
-        },
-        {
-          "name": "Psychic",
-          "usage": 0.607
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.489
-        },
-        {
-          "name": "Protect",
-          "usage": 0.391
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.303
-        },
-        {
-          "name": "Hyper Voice",
-          "usage": 0.302
-        },
-        {
-          "name": "Twin Beam",
-          "usage": 0.247
-        },
-        {
-          "name": "Imprison",
-          "usage": 0.139
-        },
-        {
-          "name": "Roar",
-          "usage": 0.11599999999999999
-        },
-        {
-          "name": "Foul Play",
-          "usage": 0.064
-        }
-      ],
-      "cid": "3cba8a8d93d115d7"
-    },
-    {
       "id": "sylveon_no_item",
       "species": "Sylveon",
       "is_mega": false,
@@ -1220,7 +1220,7 @@
         "spd": 0,
         "spe": 5
       },
-      "weight": 0.1362389038441834,
+      "weight": 0.15289104793570582,
       "moves": [
         {
           "name": "Hyper Voice",
@@ -1281,7 +1281,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.08078044282161387,
+      "weight": 0.08233342830836902,
       "moves": [
         {
           "name": "Rock Slide",
@@ -1341,7 +1341,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.05015779129446612,
+      "weight": 0.051122063328725854,
       "moves": [
         {
           "name": "Rock Slide",
@@ -1402,7 +1402,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.09280049274849335,
+      "weight": 0.12146399700475424,
       "moves": [
         {
           "name": "Protect",
@@ -1462,7 +1462,7 @@
         "spd": 15,
         "spe": 0
       },
-      "weight": 0.09029984071835093,
+      "weight": 0.12164043393387382,
       "moves": [
         {
           "name": "Light Screen",
@@ -1508,188 +1508,6 @@
       "cid": "199ab4a670f9cf95"
     },
     {
-      "id": "venusaur_mega",
-      "species": "Venusaur-Mega",
-      "is_mega": true,
-      "mega_stone": "Venusaurite",
-      "item": "Venusaurite",
-      "ability": "Thick Fat",
-      "nature": "Modest",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.04066389243365593,
-      "moves": [
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.83
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.735
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.573
-        },
-        {
-          "name": "Sleep Powder",
-          "usage": 0.46299999999999997
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.225
-        },
-        {
-          "name": "Leaf Storm",
-          "usage": 0.061
-        },
-        {
-          "name": "Leech Seed",
-          "usage": 0.039
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.03
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.027000000000000003
-        }
-      ],
-      "cid": "bc17d25604f0165b"
-    },
-    {
-      "id": "venusaur_no_item",
-      "species": "Venusaur",
-      "is_mega": false,
-      "item": null,
-      "ability": "Chlorophyll",
-      "nature": "Modest",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.033958218839945244,
-      "moves": [
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.83
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.735
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.573
-        },
-        {
-          "name": "Sleep Powder",
-          "usage": 0.46299999999999997
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.225
-        },
-        {
-          "name": "Leaf Storm",
-          "usage": 0.061
-        },
-        {
-          "name": "Leech Seed",
-          "usage": 0.039
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.03
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.027000000000000003
-        }
-      ],
-      "cid": "0bd04caa0f94951f"
-    },
-    {
-      "id": "froslass_mega",
-      "species": "Froslass-Mega",
-      "is_mega": true,
-      "mega_stone": "Froslassite",
-      "item": "Froslassite",
-      "ability": "Snow Warning",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.0845408310589901,
-      "moves": [
-        {
-          "name": "Blizzard",
-          "usage": 0.9890000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.963
-        },
-        {
-          "name": "Shadow Ball",
-          "usage": 0.86
-        },
-        {
-          "name": "Aurora Veil",
-          "usage": 0.802
-        },
-        {
-          "name": "Rain Dance",
-          "usage": 0.106
-        },
-        {
-          "name": "Nasty Plot",
-          "usage": 0.040999999999999995
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Substitute",
-          "usage": 0.026000000000000002
-        }
-      ],
-      "cid": "65759830f2d594a9"
-    },
-    {
       "id": "metagross_mega",
       "species": "Metagross-Mega",
       "is_mega": true,
@@ -1705,7 +1523,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.07960456700541185,
+      "weight": 0.10370070619041004,
       "moves": [
         {
           "name": "Protect",
@@ -1766,7 +1584,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.07181443687882486,
+      "weight": 0.09068304318852388,
       "moves": [
         {
           "name": "Close Combat",
@@ -1812,128 +1630,6 @@
       "cid": "0fb76124be7787ae"
     },
     {
-      "id": "dragonite_mega",
-      "species": "Dragonite-Mega",
-      "is_mega": true,
-      "mega_stone": "Dragoninite",
-      "item": "Dragoninite",
-      "ability": "Multiscale",
-      "nature": "Modest",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.04804274057583576,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.6759999999999999
-        },
-        {
-          "name": "Dragon Pulse",
-          "usage": 0.466
-        },
-        {
-          "name": "Hurricane",
-          "usage": 0.455
-        },
-        {
-          "name": "Extreme Speed",
-          "usage": 0.391
-        },
-        {
-          "name": "Tailwind",
-          "usage": 0.365
-        },
-        {
-          "name": "Draco Meteor",
-          "usage": 0.273
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.207
-        },
-        {
-          "name": "Dragon Claw",
-          "usage": 0.179
-        },
-        {
-          "name": "Thunder",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.138
-        }
-      ],
-      "cid": "9755a0045e004927"
-    },
-    {
-      "id": "delphox_mega",
-      "species": "Delphox-Mega",
-      "is_mega": true,
-      "mega_stone": "Delphoxite",
-      "item": "Delphoxite",
-      "ability": "Levitate",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.06843657609657498,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.986
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.986
-        },
-        {
-          "name": "Nasty Plot",
-          "usage": 0.74
-        },
-        {
-          "name": "Psychic",
-          "usage": 0.525
-        },
-        {
-          "name": "Psyshock",
-          "usage": 0.461
-        },
-        {
-          "name": "Encore",
-          "usage": 0.125
-        },
-        {
-          "name": "Substitute",
-          "usage": 0.062
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.031
-        },
-        {
-          "name": "Calm Mind",
-          "usage": 0.015
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.011000000000000001
-        }
-      ],
-      "cid": "ba332631bbf1f4b0"
-    },
-    {
       "id": "gholdengo_life_orb",
       "species": "Gholdengo",
       "is_mega": false,
@@ -1948,7 +1644,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.025762199949700533,
+      "weight": 0.03330628507110176,
       "moves": [
         {
           "name": "Make It Rain",
@@ -2008,7 +1704,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.033987071173747406,
+      "weight": 0.043939690067416576,
       "moves": [
         {
           "name": "Make It Rain",
@@ -2054,11 +1750,12 @@
       "cid": "04882156ee2a5a7f"
     },
     {
-      "id": "rotom_wash_no_item",
-      "species": "Rotom-Wash",
-      "is_mega": false,
-      "item": null,
-      "ability": "Levitate",
+      "id": "venusaur_mega",
+      "species": "Venusaur-Mega",
+      "is_mega": true,
+      "mega_stone": "Venusaurite",
+      "item": "Venusaurite",
+      "ability": "Thick Fat",
       "nature": "Modest",
       "sps": {
         "hp": 2,
@@ -2068,171 +1765,110 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.058395586687407436,
+      "weight": 0.03910768049770058,
       "moves": [
         {
-          "name": "Hydro Pump",
-          "usage": 0.9640000000000001
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.779
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.715
+          "name": "Sludge Bomb",
+          "usage": 0.9540000000000001
         },
         {
           "name": "Protect",
-          "usage": 0.542
+          "usage": 0.83
         },
         {
-          "name": "Volt Switch",
-          "usage": 0.41200000000000003
+          "name": "Earth Power",
+          "usage": 0.735
         },
         {
-          "name": "Electroweb",
-          "usage": 0.228
+          "name": "Giga Drain",
+          "usage": 0.573
         },
         {
-          "name": "Light Screen",
-          "usage": 0.11
+          "name": "Sleep Powder",
+          "usage": 0.46299999999999997
         },
         {
-          "name": "Discharge",
-          "usage": 0.08900000000000001
+          "name": "Energy Ball",
+          "usage": 0.225
         },
         {
-          "name": "Eerie Impulse",
-          "usage": 0.054000000000000006
+          "name": "Leaf Storm",
+          "usage": 0.061
         },
         {
-          "name": "Trick",
-          "usage": 0.053
+          "name": "Leech Seed",
+          "usage": 0.039
+        },
+        {
+          "name": "Weather Ball",
+          "usage": 0.03
+        },
+        {
+          "name": "Solar Beam",
+          "usage": 0.027000000000000003
         }
       ],
-      "cid": "ee1c1380d017b503"
+      "cid": "bc17d25604f0165b"
     },
     {
-      "id": "tyranitar_mega",
-      "species": "Tyranitar-Mega",
-      "is_mega": true,
-      "mega_stone": "Tyranitarite",
-      "item": "Tyranitarite",
-      "ability": "Sand Stream",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.043626866436282684,
-      "moves": [
-        {
-          "name": "Rock Slide",
-          "usage": 0.988
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.929
-        },
-        {
-          "name": "Protect",
-          "usage": 0.919
-        },
-        {
-          "name": "Low Kick",
-          "usage": 0.435
-        },
-        {
-          "name": "Dragon Dance",
-          "usage": 0.31
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.17
-        },
-        {
-          "name": "High Horsepower",
-          "usage": 0.063
-        },
-        {
-          "name": "Crunch",
-          "usage": 0.06
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.025
-        },
-        {
-          "name": "Earthquake",
-          "usage": 0.018000000000000002
-        }
-      ],
-      "cid": "9914e3566af2aeed"
-    },
-    {
-      "id": "tyranitar_no_item",
-      "species": "Tyranitar",
+      "id": "venusaur_no_item",
+      "species": "Venusaur",
       "is_mega": false,
       "item": null,
-      "ability": "Sand Stream",
-      "nature": "Adamant",
+      "ability": "Chlorophyll",
+      "nature": "Modest",
       "sps": {
         "hp": 2,
-        "atk": 32,
+        "atk": 0,
         "def": 0,
-        "spa": 0,
+        "spa": 32,
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.01660192628333502,
+      "weight": 0.03265863381943285,
       "moves": [
         {
-          "name": "Rock Slide",
-          "usage": 0.988
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.929
+          "name": "Sludge Bomb",
+          "usage": 0.9540000000000001
         },
         {
           "name": "Protect",
-          "usage": 0.919
+          "usage": 0.83
         },
         {
-          "name": "Low Kick",
-          "usage": 0.435
+          "name": "Earth Power",
+          "usage": 0.735
         },
         {
-          "name": "Dragon Dance",
-          "usage": 0.31
+          "name": "Giga Drain",
+          "usage": 0.573
         },
         {
-          "name": "Ice Punch",
-          "usage": 0.17
+          "name": "Sleep Powder",
+          "usage": 0.46299999999999997
         },
         {
-          "name": "High Horsepower",
-          "usage": 0.063
+          "name": "Energy Ball",
+          "usage": 0.225
         },
         {
-          "name": "Crunch",
-          "usage": 0.06
+          "name": "Leaf Storm",
+          "usage": 0.061
         },
         {
-          "name": "Brick Break",
-          "usage": 0.025
+          "name": "Leech Seed",
+          "usage": 0.039
         },
         {
-          "name": "Earthquake",
-          "usage": 0.018000000000000002
+          "name": "Weather Ball",
+          "usage": 0.03
+        },
+        {
+          "name": "Solar Beam",
+          "usage": 0.027000000000000003
         }
       ],
-      "cid": "c2016c15c04faa73"
+      "cid": "0bd04caa0f94951f"
     },
     {
       "id": "raichu_mega_y",
@@ -2250,7 +1886,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.03721056847713703,
+      "weight": 0.048115302833003276,
       "moves": [
         {
           "name": "Fake Out",
@@ -2311,7 +1947,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.011193923079072627,
+      "weight": 0.01447435556298611,
       "moves": [
         {
           "name": "Fake Out",
@@ -2371,7 +2007,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.012670044803785502,
+      "weight": 0.01638306179107219,
       "moves": [
         {
           "name": "Fake Out",
@@ -2417,6 +2053,128 @@
       "cid": "241412cd1c149c2b"
     },
     {
+      "id": "delphox_mega",
+      "species": "Delphox-Mega",
+      "is_mega": true,
+      "mega_stone": "Delphoxite",
+      "item": "Delphoxite",
+      "ability": "Levitate",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.07490506342527074,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.986
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.986
+        },
+        {
+          "name": "Nasty Plot",
+          "usage": 0.74
+        },
+        {
+          "name": "Psychic",
+          "usage": 0.525
+        },
+        {
+          "name": "Psyshock",
+          "usage": 0.461
+        },
+        {
+          "name": "Encore",
+          "usage": 0.125
+        },
+        {
+          "name": "Substitute",
+          "usage": 0.062
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.031
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.015
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.011000000000000001
+        }
+      ],
+      "cid": "ba332631bbf1f4b0"
+    },
+    {
+      "id": "froslass_mega",
+      "species": "Froslass-Mega",
+      "is_mega": true,
+      "mega_stone": "Froslassite",
+      "item": "Froslassite",
+      "ability": "Snow Warning",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.07316034690220476,
+      "moves": [
+        {
+          "name": "Blizzard",
+          "usage": 0.9890000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.963
+        },
+        {
+          "name": "Shadow Ball",
+          "usage": 0.86
+        },
+        {
+          "name": "Aurora Veil",
+          "usage": 0.802
+        },
+        {
+          "name": "Rain Dance",
+          "usage": 0.106
+        },
+        {
+          "name": "Nasty Plot",
+          "usage": 0.040999999999999995
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Weather Ball",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Substitute",
+          "usage": 0.026000000000000002
+        }
+      ],
+      "cid": "65759830f2d594a9"
+    },
+    {
       "id": "torkoal_charcoal",
       "species": "Torkoal",
       "is_mega": false,
@@ -2431,7 +2189,7 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.05093156477919465,
+      "weight": 0.06063541595533505,
       "moves": [
         {
           "name": "Eruption",
@@ -2477,6 +2235,308 @@
       "cid": "6b7827ff86c3ab1e"
     },
     {
+      "id": "hydreigon_life_orb",
+      "species": "Hydreigon",
+      "is_mega": false,
+      "item": "Life Orb",
+      "ability": "Levitate",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.010437272913512279,
+      "moves": [
+        {
+          "name": "Dark Pulse",
+          "usage": 0.9690000000000001
+        },
+        {
+          "name": "Draco Meteor",
+          "usage": 0.919
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.611
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.564
+        },
+        {
+          "name": "Protect",
+          "usage": 0.235
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.2
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.12300000000000001
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.091
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.079
+        },
+        {
+          "name": "Dragon Pulse",
+          "usage": 0.073
+        }
+      ],
+      "cid": "0f8f97244fa59674"
+    },
+    {
+      "id": "hydreigon_no_item",
+      "species": "Hydreigon",
+      "is_mega": false,
+      "item": null,
+      "ability": "Levitate",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.046164860963612,
+      "moves": [
+        {
+          "name": "Dark Pulse",
+          "usage": 0.9690000000000001
+        },
+        {
+          "name": "Draco Meteor",
+          "usage": 0.919
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.611
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.564
+        },
+        {
+          "name": "Protect",
+          "usage": 0.235
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.2
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.12300000000000001
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.091
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.079
+        },
+        {
+          "name": "Dragon Pulse",
+          "usage": 0.073
+        }
+      ],
+      "cid": "3b385347b2418c33"
+    },
+    {
+      "id": "tyranitar_mega",
+      "species": "Tyranitar-Mega",
+      "is_mega": true,
+      "mega_stone": "Tyranitarite",
+      "item": "Tyranitarite",
+      "ability": "Sand Stream",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.03953296300918589,
+      "moves": [
+        {
+          "name": "Rock Slide",
+          "usage": 0.988
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.929
+        },
+        {
+          "name": "Protect",
+          "usage": 0.919
+        },
+        {
+          "name": "Low Kick",
+          "usage": 0.435
+        },
+        {
+          "name": "Dragon Dance",
+          "usage": 0.31
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.17
+        },
+        {
+          "name": "High Horsepower",
+          "usage": 0.063
+        },
+        {
+          "name": "Crunch",
+          "usage": 0.06
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.025
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.018000000000000002
+        }
+      ],
+      "cid": "9914e3566af2aeed"
+    },
+    {
+      "id": "tyranitar_no_item",
+      "species": "Tyranitar",
+      "is_mega": false,
+      "item": null,
+      "ability": "Sand Stream",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.015044017396914784,
+      "moves": [
+        {
+          "name": "Rock Slide",
+          "usage": 0.988
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.929
+        },
+        {
+          "name": "Protect",
+          "usage": 0.919
+        },
+        {
+          "name": "Low Kick",
+          "usage": 0.435
+        },
+        {
+          "name": "Dragon Dance",
+          "usage": 0.31
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.17
+        },
+        {
+          "name": "High Horsepower",
+          "usage": 0.063
+        },
+        {
+          "name": "Crunch",
+          "usage": 0.06
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.025
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.018000000000000002
+        }
+      ],
+      "cid": "c2016c15c04faa73"
+    },
+    {
+      "id": "mawile_mega",
+      "species": "Mawile-Mega",
+      "is_mega": true,
+      "mega_stone": "Mawilite",
+      "item": "Mawilite",
+      "ability": "Huge Power",
+      "nature": "Brave",
+      "sps": {
+        "hp": 32,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 2,
+        "spe": 0
+      },
+      "weight": 0.05634452861378048,
+      "moves": [
+        {
+          "name": "Play Rough",
+          "usage": 0.972
+        },
+        {
+          "name": "Sucker Punch",
+          "usage": 0.929
+        },
+        {
+          "name": "Protect",
+          "usage": 0.89
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.8079999999999999
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.17
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.124
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Thunder Punch",
+          "usage": 0.022000000000000002
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.019
+        },
+        {
+          "name": "Stone Edge",
+          "usage": 0.01
+        }
+      ],
+      "cid": "b79a3be4192062a6"
+    },
+    {
       "id": "maushold_no_item",
       "species": "Maushold",
       "is_mega": false,
@@ -2491,7 +2551,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.05640469182261054,
+      "weight": 0.05417102570683797,
       "moves": [
         {
           "name": "Follow Me",
@@ -2552,7 +2612,7 @@
         "spd": 25,
         "spe": 0
       },
-      "weight": 0.00010786441498924151,
+      "weight": 0.00010836573080935213,
       "moves": [
         {
           "name": "Rain Dance",
@@ -2612,7 +2672,7 @@
         "spd": 25,
         "spe": 0
       },
-      "weight": 0.053824343079631506,
+      "weight": 0.05407449967386672,
       "moves": [
         {
           "name": "Rain Dance",
@@ -2658,69 +2718,69 @@
       "cid": "ef9b2f51b638e6f0"
     },
     {
-      "id": "scovillain_mega",
-      "species": "Scovillain-Mega",
+      "id": "dragonite_mega",
+      "species": "Dragonite-Mega",
       "is_mega": true,
-      "mega_stone": "Scovillainite",
-      "item": "Scovillainite",
-      "ability": "Spicy Spray",
-      "nature": "Bold",
+      "mega_stone": "Dragoninite",
+      "item": "Dragoninite",
+      "ability": "Multiscale",
+      "nature": "Modest",
       "sps": {
-        "hp": 32,
+        "hp": 2,
         "atk": 0,
-        "def": 19,
-        "spa": 0,
-        "spd": 15,
-        "spe": 0
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
       },
-      "weight": 0.04908716711532551,
+      "weight": 0.03619398454811114,
       "moves": [
         {
           "name": "Protect",
-          "usage": 0.9890000000000001
+          "usage": 0.6759999999999999
         },
         {
-          "name": "Rage Powder",
-          "usage": 0.965
+          "name": "Dragon Pulse",
+          "usage": 0.466
         },
         {
-          "name": "Overheat",
-          "usage": 0.777
+          "name": "Hurricane",
+          "usage": 0.455
         },
         {
-          "name": "Leech Seed",
-          "usage": 0.536
+          "name": "Extreme Speed",
+          "usage": 0.391
         },
         {
-          "name": "Giga Drain",
-          "usage": 0.36
+          "name": "Tailwind",
+          "usage": 0.365
         },
         {
-          "name": "Flamethrower",
+          "name": "Draco Meteor",
+          "usage": 0.273
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.207
+        },
+        {
+          "name": "Dragon Claw",
+          "usage": 0.179
+        },
+        {
+          "name": "Thunder",
           "usage": 0.14400000000000002
         },
         {
-          "name": "Leaf Storm",
-          "usage": 0.095
-        },
-        {
-          "name": "Temper Flare",
-          "usage": 0.034
-        },
-        {
-          "name": "Super Fang",
-          "usage": 0.03
-        },
-        {
-          "name": "Fire Blast",
-          "usage": 0.027999999999999997
+          "name": "Heat Wave",
+          "usage": 0.138
         }
       ],
-      "cid": "a3e874aa17d64a43"
+      "cid": "9755a0045e004927"
     },
     {
-      "id": "hydreigon_no_item",
-      "species": "Hydreigon",
+      "id": "rotom_wash_no_item",
+      "species": "Rotom-Wash",
       "is_mega": false,
       "item": null,
       "ability": "Levitate",
@@ -2733,50 +2793,50 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.03913012192963663,
+      "weight": 0.04726596699107313,
       "moves": [
         {
-          "name": "Dark Pulse",
-          "usage": 0.9690000000000001
+          "name": "Hydro Pump",
+          "usage": 0.9640000000000001
         },
         {
-          "name": "Draco Meteor",
-          "usage": 0.919
+          "name": "Will-O-Wisp",
+          "usage": 0.779
         },
         {
-          "name": "Snarl",
-          "usage": 0.611
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.564
+          "name": "Thunderbolt",
+          "usage": 0.715
         },
         {
           "name": "Protect",
-          "usage": 0.235
+          "usage": 0.542
         },
         {
-          "name": "Heat Wave",
-          "usage": 0.2
+          "name": "Volt Switch",
+          "usage": 0.41200000000000003
         },
         {
-          "name": "U-turn",
-          "usage": 0.12300000000000001
+          "name": "Electroweb",
+          "usage": 0.228
         },
         {
-          "name": "Tailwind",
-          "usage": 0.091
+          "name": "Light Screen",
+          "usage": 0.11
         },
         {
-          "name": "Flamethrower",
-          "usage": 0.079
+          "name": "Discharge",
+          "usage": 0.08900000000000001
         },
         {
-          "name": "Dragon Pulse",
-          "usage": 0.073
+          "name": "Eerie Impulse",
+          "usage": 0.054000000000000006
+        },
+        {
+          "name": "Trick",
+          "usage": 0.053
         }
       ],
-      "cid": "3b385347b2418c33"
+      "cid": "ee1c1380d017b503"
     },
     {
       "id": "milotic_no_item",
@@ -2793,7 +2853,7 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.04436149016831692,
+      "weight": 0.045565698784712,
       "moves": [
         {
           "name": "Scald",
@@ -2839,73 +2899,12 @@
       "cid": "14a6dece6b118f48"
     },
     {
-      "id": "glimmora_mega",
-      "species": "Glimmora-Mega",
-      "is_mega": true,
-      "mega_stone": "Glimmoranite",
-      "item": "Glimmoranite",
-      "ability": "Adaptability",
-      "nature": "Modest",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.008465819648462606,
-      "moves": [
-        {
-          "name": "Power Gem",
-          "usage": 0.997
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.943
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9420000000000001
-        },
-        {
-          "name": "Spiky Shield",
-          "usage": 0.845
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.153
-        },
-        {
-          "name": "Sludge Wave",
-          "usage": 0.044000000000000004
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.013999999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Stealth Rock",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Mortal Spin",
-          "usage": 0.013000000000000001
-        }
-      ],
-      "cid": "a381ab2df3e99b88"
-    },
-    {
-      "id": "glimmora_no_item",
-      "species": "Glimmora",
+      "id": "ninetales_alola_no_item",
+      "species": "Ninetales-Alola",
       "is_mega": false,
       "item": null,
-      "ability": "Toxic Debris",
-      "nature": "Modest",
+      "ability": "Snow Warning",
+      "nature": "Timid",
       "sps": {
         "hp": 2,
         "atk": 0,
@@ -2914,50 +2913,172 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.03573467030561584,
+      "weight": 0.0361416101329729,
       "moves": [
         {
-          "name": "Power Gem",
-          "usage": 0.997
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.943
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9420000000000001
-        },
-        {
-          "name": "Spiky Shield",
-          "usage": 0.845
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.153
-        },
-        {
-          "name": "Sludge Wave",
-          "usage": 0.044000000000000004
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.013999999999999999
+          "name": "Blizzard",
+          "usage": 0.9520000000000001
         },
         {
           "name": "Protect",
-          "usage": 0.013000000000000001
+          "usage": 0.674
         },
         {
-          "name": "Stealth Rock",
-          "usage": 0.013000000000000001
+          "name": "Freeze-Dry",
+          "usage": 0.633
         },
         {
-          "name": "Mortal Spin",
-          "usage": 0.013000000000000001
+          "name": "Aurora Veil",
+          "usage": 0.631
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.43700000000000006
+        },
+        {
+          "name": "Encore",
+          "usage": 0.263
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.20600000000000002
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.059000000000000004
+        },
+        {
+          "name": "Disable",
+          "usage": 0.044000000000000004
+        },
+        {
+          "name": "Icicle Spear",
+          "usage": 0.02
         }
       ],
-      "cid": "89f6a0fb54f76dec"
+      "cid": "380e5c54f238637e"
+    },
+    {
+      "id": "scovillain_mega",
+      "species": "Scovillain-Mega",
+      "is_mega": true,
+      "mega_stone": "Scovillainite",
+      "item": "Scovillainite",
+      "ability": "Spicy Spray",
+      "nature": "Bold",
+      "sps": {
+        "hp": 32,
+        "atk": 0,
+        "def": 19,
+        "spa": 0,
+        "spd": 15,
+        "spe": 0
+      },
+      "weight": 0.044249415432579896,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.9890000000000001
+        },
+        {
+          "name": "Rage Powder",
+          "usage": 0.965
+        },
+        {
+          "name": "Overheat",
+          "usage": 0.777
+        },
+        {
+          "name": "Leech Seed",
+          "usage": 0.536
+        },
+        {
+          "name": "Giga Drain",
+          "usage": 0.36
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.14400000000000002
+        },
+        {
+          "name": "Leaf Storm",
+          "usage": 0.095
+        },
+        {
+          "name": "Temper Flare",
+          "usage": 0.034
+        },
+        {
+          "name": "Super Fang",
+          "usage": 0.03
+        },
+        {
+          "name": "Fire Blast",
+          "usage": 0.027999999999999997
+        }
+      ],
+      "cid": "a3e874aa17d64a43"
+    },
+    {
+      "id": "gengar_mega",
+      "species": "Gengar-Mega",
+      "is_mega": true,
+      "mega_stone": "Gengarite",
+      "item": "Gengarite",
+      "ability": "Shadow Tag",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.03294730769321337,
+      "moves": [
+        {
+          "name": "Shadow Ball",
+          "usage": 0.9440000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.871
+        },
+        {
+          "name": "Perish Song",
+          "usage": 0.66
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.5539999999999999
+        },
+        {
+          "name": "Disable",
+          "usage": 0.469
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.12
+        },
+        {
+          "name": "Psychic",
+          "usage": 0.109
+        },
+        {
+          "name": "Trick Room",
+          "usage": 0.063
+        },
+        {
+          "name": "Sludge Wave",
+          "usage": 0.045
+        },
+        {
+          "name": "Destiny Bond",
+          "usage": 0.023
+        }
+      ],
+      "cid": "ae0193d508ee34cd"
     },
     {
       "id": "talonflame_sharp_beak",
@@ -2974,7 +3095,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.013694700857885373,
+      "weight": 0.011844176578214297,
       "moves": [
         {
           "name": "Tailwind",
@@ -3034,7 +3155,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.02331201505258157,
+      "weight": 0.02016193165094084,
       "moves": [
         {
           "name": "Tailwind",
@@ -3080,246 +3201,65 @@
       "cid": "524e3ac34b82a95f"
     },
     {
-      "id": "mawile_mega",
-      "species": "Mawile-Mega",
+      "id": "blastoise_mega",
+      "species": "Blastoise-Mega",
       "is_mega": true,
-      "mega_stone": "Mawilite",
-      "item": "Mawilite",
-      "ability": "Huge Power",
-      "nature": "Brave",
-      "sps": {
-        "hp": 32,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 2,
-        "spe": 0
-      },
-      "weight": 0.04247510642063396,
-      "moves": [
-        {
-          "name": "Play Rough",
-          "usage": 0.972
-        },
-        {
-          "name": "Sucker Punch",
-          "usage": 0.929
-        },
-        {
-          "name": "Protect",
-          "usage": 0.89
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.8079999999999999
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.17
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.124
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Thunder Punch",
-          "usage": 0.022000000000000002
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.019
-        },
-        {
-          "name": "Stone Edge",
-          "usage": 0.01
-        }
-      ],
-      "cid": "b79a3be4192062a6"
-    },
-    {
-      "id": "ninetales_alola_no_item",
-      "species": "Ninetales-Alola",
-      "is_mega": false,
-      "item": null,
-      "ability": "Snow Warning",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.03276570228303697,
-      "moves": [
-        {
-          "name": "Blizzard",
-          "usage": 0.9520000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.674
-        },
-        {
-          "name": "Freeze-Dry",
-          "usage": 0.633
-        },
-        {
-          "name": "Aurora Veil",
-          "usage": 0.631
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.43700000000000006
-        },
-        {
-          "name": "Encore",
-          "usage": 0.263
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.20600000000000002
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.059000000000000004
-        },
-        {
-          "name": "Disable",
-          "usage": 0.044000000000000004
-        },
-        {
-          "name": "Icicle Spear",
-          "usage": 0.02
-        }
-      ],
-      "cid": "380e5c54f238637e"
-    },
-    {
-      "id": "gengar_mega",
-      "species": "Gengar-Mega",
-      "is_mega": true,
-      "mega_stone": "Gengarite",
-      "item": "Gengarite",
-      "ability": "Shadow Tag",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.03449286026994048,
-      "moves": [
-        {
-          "name": "Shadow Ball",
-          "usage": 0.9440000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.871
-        },
-        {
-          "name": "Perish Song",
-          "usage": 0.66
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.5539999999999999
-        },
-        {
-          "name": "Disable",
-          "usage": 0.469
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.12
-        },
-        {
-          "name": "Psychic",
-          "usage": 0.109
-        },
-        {
-          "name": "Trick Room",
-          "usage": 0.063
-        },
-        {
-          "name": "Sludge Wave",
-          "usage": 0.045
-        },
-        {
-          "name": "Destiny Bond",
-          "usage": 0.023
-        }
-      ],
-      "cid": "ae0193d508ee34cd"
-    },
-    {
-      "id": "corviknight_no_item",
-      "species": "Corviknight",
-      "is_mega": false,
-      "item": null,
-      "ability": "Mirror Armor",
-      "nature": "Careful",
+      "mega_stone": "Blastoisinite",
+      "item": "Blastoisinite",
+      "ability": "Mega Launcher",
+      "nature": "Modest",
       "sps": {
         "hp": 32,
         "atk": 0,
-        "def": 32,
-        "spa": 0,
-        "spd": 2,
+        "def": 2,
+        "spa": 32,
+        "spd": 0,
         "spe": 0
       },
-      "weight": 0.036946063135147214,
+      "weight": 0.030893784158635,
       "moves": [
         {
-          "name": "Brave Bird",
-          "usage": 0.8540000000000001
+          "name": "Water Spout",
+          "usage": 0.934
         },
         {
-          "name": "Tailwind",
-          "usage": 0.61
+          "name": "Dark Pulse",
+          "usage": 0.8340000000000001
         },
         {
-          "name": "Iron Head",
-          "usage": 0.569
+          "name": "Aura Sphere",
+          "usage": 0.6
         },
         {
-          "name": "Bulk Up",
-          "usage": 0.562
+          "name": "Fake Out",
+          "usage": 0.5760000000000001
         },
         {
-          "name": "Roost",
-          "usage": 0.515
-        },
-        {
-          "name": "Body Press",
-          "usage": 0.449
+          "name": "Shell Smash",
+          "usage": 0.46799999999999997
         },
         {
           "name": "Protect",
-          "usage": 0.20800000000000002
+          "usage": 0.336
         },
         {
-          "name": "Iron Defense",
-          "usage": 0.17
+          "name": "Ice Beam",
+          "usage": 0.094
         },
         {
-          "name": "Fly",
-          "usage": 0.016
+          "name": "Water Pulse",
+          "usage": 0.05
         },
         {
-          "name": "Agility",
-          "usage": 0.016
+          "name": "Dragon Pulse",
+          "usage": 0.034
+        },
+        {
+          "name": "Muddy Water",
+          "usage": 0.031
         }
       ],
-      "cid": "42f922e8deb10c3c"
+      "cid": "551065ab4f44372b"
     },
     {
       "id": "kangaskhan_mega",
@@ -3337,7 +3277,7 @@
         "spd": 1,
         "spe": 0
       },
-      "weight": 0.01804744916493568,
+      "weight": 0.016295267182043598,
       "moves": [
         {
           "name": "Fake Out",
@@ -3397,7 +3337,7 @@
         "spd": 1,
         "spe": 0
       },
-      "weight": 0.013049694011568877,
+      "weight": 0.011782731654708447,
       "moves": [
         {
           "name": "Fake Out",
@@ -3443,6 +3383,249 @@
       "cid": "960822de4ba27d98"
     },
     {
+      "id": "glimmora_mega",
+      "species": "Glimmora-Mega",
+      "is_mega": true,
+      "mega_stone": "Glimmoranite",
+      "item": "Glimmoranite",
+      "ability": "Adaptability",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.005704389024025544,
+      "moves": [
+        {
+          "name": "Power Gem",
+          "usage": 0.997
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.943
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.9420000000000001
+        },
+        {
+          "name": "Spiky Shield",
+          "usage": 0.845
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.153
+        },
+        {
+          "name": "Sludge Wave",
+          "usage": 0.044000000000000004
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Protect",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Stealth Rock",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Mortal Spin",
+          "usage": 0.013000000000000001
+        }
+      ],
+      "cid": "a381ab2df3e99b88"
+    },
+    {
+      "id": "glimmora_no_item",
+      "species": "Glimmora",
+      "is_mega": false,
+      "item": null,
+      "ability": "Toxic Debris",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.02407852630141309,
+      "moves": [
+        {
+          "name": "Power Gem",
+          "usage": 0.997
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.943
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.9420000000000001
+        },
+        {
+          "name": "Spiky Shield",
+          "usage": 0.845
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.153
+        },
+        {
+          "name": "Sludge Wave",
+          "usage": 0.044000000000000004
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Protect",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Stealth Rock",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Mortal Spin",
+          "usage": 0.013000000000000001
+        }
+      ],
+      "cid": "89f6a0fb54f76dec"
+    },
+    {
+      "id": "pyroar_mega",
+      "species": "Pyroar-Mega",
+      "is_mega": true,
+      "mega_stone": "Pyroarite",
+      "item": "Pyroarite",
+      "ability": "Fire Mane",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.02964021729660233,
+      "moves": [
+        {
+          "name": "Heat Wave",
+          "usage": 0.996
+        },
+        {
+          "name": "Protect",
+          "usage": 0.992
+        },
+        {
+          "name": "Overheat",
+          "usage": 0.7290000000000001
+        },
+        {
+          "name": "Hyper Voice",
+          "usage": 0.309
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.278
+        },
+        {
+          "name": "Solar Beam",
+          "usage": 0.258
+        },
+        {
+          "name": "Scorching Sands",
+          "usage": 0.12300000000000001
+        },
+        {
+          "name": "Dark Pulse",
+          "usage": 0.06
+        },
+        {
+          "name": "Round",
+          "usage": 0.048
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.039
+        }
+      ],
+      "cid": "22243f764c7c0131"
+    },
+    {
+      "id": "blaziken_mega",
+      "species": "Blaziken-Mega",
+      "is_mega": true,
+      "mega_stone": "Blazikenite",
+      "item": "Blazikenite",
+      "ability": "Speed Boost",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.017803458190183977,
+      "moves": [
+        {
+          "name": "Close Combat",
+          "usage": 0.725
+        },
+        {
+          "name": "Flare Blitz",
+          "usage": 0.698
+        },
+        {
+          "name": "Protect",
+          "usage": 0.507
+        },
+        {
+          "name": "Detect",
+          "usage": 0.486
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.27
+        },
+        {
+          "name": "Coaching",
+          "usage": 0.247
+        },
+        {
+          "name": "Aura Sphere",
+          "usage": 0.162
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.155
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.139
+        },
+        {
+          "name": "Blaze Kick",
+          "usage": 0.077
+        }
+      ],
+      "cid": "bb25298dfb948cda"
+    },
+    {
       "id": "politoed_no_item",
       "species": "Politoed",
       "is_mega": false,
@@ -3457,7 +3640,7 @@
         "spd": 12,
         "spe": 0
       },
-      "weight": 0.029144769321050323,
+      "weight": 0.025620540980942984,
       "moves": [
         {
           "name": "Weather Ball",
@@ -3503,188 +3686,6 @@
       "cid": "681710c491ab285d"
     },
     {
-      "id": "scizor_mega",
-      "species": "Scizor-Mega",
-      "is_mega": true,
-      "mega_stone": "Scizorite",
-      "item": "Scizorite",
-      "ability": "Technician",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 32,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 2,
-        "spe": 0
-      },
-      "weight": 0.015772376277280474,
-      "moves": [
-        {
-          "name": "Bullet Punch",
-          "usage": 1
-        },
-        {
-          "name": "Protect",
-          "usage": 0.887
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.8059999999999999
-        },
-        {
-          "name": "Bug Bite",
-          "usage": 0.7340000000000001
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.259
-        },
-        {
-          "name": "Dual Wingbeat",
-          "usage": 0.094
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.079
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.059000000000000004
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.034
-        },
-        {
-          "name": "Pounce",
-          "usage": 0.015
-        }
-      ],
-      "cid": "8361a3ddd4607fb6"
-    },
-    {
-      "id": "blastoise_mega",
-      "species": "Blastoise-Mega",
-      "is_mega": true,
-      "mega_stone": "Blastoisinite",
-      "item": "Blastoisinite",
-      "ability": "Mega Launcher",
-      "nature": "Modest",
-      "sps": {
-        "hp": 32,
-        "atk": 0,
-        "def": 2,
-        "spa": 32,
-        "spd": 0,
-        "spe": 0
-      },
-      "weight": 0.028011326695045503,
-      "moves": [
-        {
-          "name": "Water Spout",
-          "usage": 0.934
-        },
-        {
-          "name": "Dark Pulse",
-          "usage": 0.8340000000000001
-        },
-        {
-          "name": "Aura Sphere",
-          "usage": 0.6
-        },
-        {
-          "name": "Fake Out",
-          "usage": 0.5760000000000001
-        },
-        {
-          "name": "Shell Smash",
-          "usage": 0.46799999999999997
-        },
-        {
-          "name": "Protect",
-          "usage": 0.336
-        },
-        {
-          "name": "Ice Beam",
-          "usage": 0.094
-        },
-        {
-          "name": "Water Pulse",
-          "usage": 0.05
-        },
-        {
-          "name": "Dragon Pulse",
-          "usage": 0.034
-        },
-        {
-          "name": "Muddy Water",
-          "usage": 0.031
-        }
-      ],
-      "cid": "551065ab4f44372b"
-    },
-    {
-      "id": "vivillon_no_item",
-      "species": "Vivillon",
-      "is_mega": false,
-      "item": null,
-      "ability": "Compound Eyes",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.029019998695939714,
-      "moves": [
-        {
-          "name": "Sleep Powder",
-          "usage": 0.9229999999999999
-        },
-        {
-          "name": "Hurricane",
-          "usage": 0.812
-        },
-        {
-          "name": "Rage Powder",
-          "usage": 0.7559999999999999
-        },
-        {
-          "name": "Tailwind",
-          "usage": 0.40299999999999997
-        },
-        {
-          "name": "Rain Dance",
-          "usage": 0.34700000000000003
-        },
-        {
-          "name": "Pollen Puff",
-          "usage": 0.313
-        },
-        {
-          "name": "Protect",
-          "usage": 0.237
-        },
-        {
-          "name": "Air Slash",
-          "usage": 0.048
-        },
-        {
-          "name": "Bug Buzz",
-          "usage": 0.036000000000000004
-        },
-        {
-          "name": "Struggle Bug",
-          "usage": 0.028999999999999998
-        }
-      ],
-      "cid": "f3fd77eb4c04d5e0"
-    },
-    {
       "id": "lycanroc_dusk_no_item",
       "species": "Lycanroc-Dusk",
       "is_mega": false,
@@ -3699,7 +3700,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.024061449183565113,
+      "weight": 0.024533817784507136,
       "moves": [
         {
           "name": "Accelerock",
@@ -3745,64 +3746,185 @@
       "cid": "d91720b005f7fca1"
     },
     {
-      "id": "kommo_o_no_item",
-      "species": "Kommo-o",
+      "id": "ceruledge_no_item",
+      "species": "Ceruledge",
       "is_mega": false,
       "item": null,
-      "ability": "Soundproof",
-      "nature": "Modest",
+      "ability": "Flash Fire",
+      "nature": "Adamant",
       "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
+        "hp": 31,
+        "atk": 1,
+        "def": 26,
+        "spa": 0,
         "spd": 0,
-        "spe": 32
+        "spe": 8
       },
-      "weight": 0.02093451288691003,
+      "weight": 0.02381829313377587,
       "moves": [
         {
-          "name": "Clanging Scales",
-          "usage": 0.9570000000000001
+          "name": "Bitter Blade",
+          "usage": 1
         },
         {
           "name": "Protect",
-          "usage": 0.9490000000000001
+          "usage": 0.92
         },
         {
-          "name": "Clangorous Soul",
-          "usage": 0.8320000000000001
+          "name": "Shadow Sneak",
+          "usage": 0.894
         },
         {
-          "name": "Aura Sphere",
-          "usage": 0.792
+          "name": "Bulk Up",
+          "usage": 0.62
         },
         {
-          "name": "Drain Punch",
-          "usage": 0.098
+          "name": "Swords Dance",
+          "usage": 0.319
         },
         {
-          "name": "Flash Cannon",
-          "usage": 0.07400000000000001
+          "name": "Poltergeist",
+          "usage": 0.2
         },
         {
-          "name": "Vacuum Wave",
-          "usage": 0.048
+          "name": "Psych Up",
+          "usage": 0.016
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.008
+        },
+        {
+          "name": "Ally Switch",
+          "usage": 0.003
+        }
+      ],
+      "cid": "4b420d2b794a92ad"
+    },
+    {
+      "id": "corviknight_no_item",
+      "species": "Corviknight",
+      "is_mega": false,
+      "item": null,
+      "ability": "Mirror Armor",
+      "nature": "Careful",
+      "sps": {
+        "hp": 32,
+        "atk": 0,
+        "def": 32,
+        "spa": 0,
+        "spd": 2,
+        "spe": 0
+      },
+      "weight": 0.02716569219140374,
+      "moves": [
+        {
+          "name": "Brave Bird",
+          "usage": 0.8540000000000001
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.61
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.569
+        },
+        {
+          "name": "Bulk Up",
+          "usage": 0.562
+        },
+        {
+          "name": "Roost",
+          "usage": 0.515
         },
         {
           "name": "Body Press",
-          "usage": 0.040999999999999995
+          "usage": 0.449
+        },
+        {
+          "name": "Protect",
+          "usage": 0.20800000000000002
         },
         {
           "name": "Iron Defense",
-          "usage": 0.039
+          "usage": 0.17
         },
         {
-          "name": "Helping Hand",
-          "usage": 0.034
+          "name": "Fly",
+          "usage": 0.016
+        },
+        {
+          "name": "Agility",
+          "usage": 0.016
         }
       ],
-      "cid": "c18f9984845495b5"
+      "cid": "42f922e8deb10c3c"
+    },
+    {
+      "id": "scrafty_mega",
+      "species": "Scrafty-Mega",
+      "is_mega": true,
+      "mega_stone": "Scraftinite",
+      "item": "Scraftinite",
+      "ability": "Intimidate",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 32,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 2,
+        "spe": 0
+      },
+      "weight": 0.021550510628177443,
+      "moves": [
+        {
+          "name": "Fake Out",
+          "usage": 0.9109999999999999
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.873
+        },
+        {
+          "name": "Drain Punch",
+          "usage": 0.51
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.442
+        },
+        {
+          "name": "Detect",
+          "usage": 0.23800000000000002
+        },
+        {
+          "name": "Protect",
+          "usage": 0.17800000000000002
+        },
+        {
+          "name": "Poison Jab",
+          "usage": 0.127
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.11699999999999999
+        },
+        {
+          "name": "Throat Chop",
+          "usage": 0.086
+        },
+        {
+          "name": "Coaching",
+          "usage": 0.079
+        }
+      ],
+      "cid": "693ad237a0b4ac3f"
     },
     {
       "id": "excadrill_mega",
@@ -3820,7 +3942,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.000992184953007256,
+      "weight": 0.001020093106931686,
       "moves": [
         {
           "name": "Iron Head",
@@ -3880,7 +4002,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.020013096491146364,
+      "weight": 0.020576024376402553,
       "moves": [
         {
           "name": "Iron Head",
@@ -3926,6 +4048,182 @@
       "cid": "6a6ce89e4def7507"
     },
     {
+      "id": "annihilape_no_item",
+      "species": "Annihilape",
+      "is_mega": false,
+      "item": null,
+      "ability": "Defiant",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.022128084432021813,
+      "moves": [
+        {
+          "name": "Rage Fist",
+          "usage": 0.932
+        },
+        {
+          "name": "Protect",
+          "usage": 0.785
+        },
+        {
+          "name": "Drain Punch",
+          "usage": 0.777
+        },
+        {
+          "name": "Bulk Up",
+          "usage": 0.696
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.239
+        },
+        {
+          "name": "Coaching",
+          "usage": 0.13
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.079
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.07
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.059000000000000004
+        },
+        {
+          "name": "Shadow Claw",
+          "usage": 0.044000000000000004
+        }
+      ],
+      "cid": "e790d0912282271b"
+    },
+    {
+      "id": "toxapex_no_item",
+      "species": "Toxapex",
+      "is_mega": false,
+      "item": null,
+      "ability": "Regenerator",
+      "nature": "Bold",
+      "sps": {
+        "hp": 32,
+        "atk": 0,
+        "def": 16,
+        "spa": 0,
+        "spd": 18,
+        "spe": 0
+      },
+      "weight": 0.022981800114440995,
+      "moves": [
+        {
+          "name": "Infestation",
+          "usage": 0.953
+        },
+        {
+          "name": "Toxic",
+          "usage": 0.922
+        },
+        {
+          "name": "Baneful Bunker",
+          "usage": 0.875
+        },
+        {
+          "name": "Wide Guard",
+          "usage": 0.68
+        },
+        {
+          "name": "Recover",
+          "usage": 0.289
+        },
+        {
+          "name": "Haze",
+          "usage": 0.184
+        },
+        {
+          "name": "Protect",
+          "usage": 0.047
+        },
+        {
+          "name": "Stockpile",
+          "usage": 0.043
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.008
+        }
+      ],
+      "cid": "cd46ff2ba67018e9"
+    },
+    {
+      "id": "vivillon_no_item",
+      "species": "Vivillon",
+      "is_mega": false,
+      "item": null,
+      "ability": "Compound Eyes",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.021376447290032567,
+      "moves": [
+        {
+          "name": "Sleep Powder",
+          "usage": 0.9229999999999999
+        },
+        {
+          "name": "Hurricane",
+          "usage": 0.812
+        },
+        {
+          "name": "Rage Powder",
+          "usage": 0.7559999999999999
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.40299999999999997
+        },
+        {
+          "name": "Rain Dance",
+          "usage": 0.34700000000000003
+        },
+        {
+          "name": "Pollen Puff",
+          "usage": 0.313
+        },
+        {
+          "name": "Protect",
+          "usage": 0.237
+        },
+        {
+          "name": "Air Slash",
+          "usage": 0.048
+        },
+        {
+          "name": "Bug Buzz",
+          "usage": 0.036000000000000004
+        },
+        {
+          "name": "Struggle Bug",
+          "usage": 0.028999999999999998
+        }
+      ],
+      "cid": "f3fd77eb4c04d5e0"
+    },
+    {
       "id": "gardevoir_mega",
       "species": "Gardevoir-Mega",
       "is_mega": true,
@@ -3941,7 +4239,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.021579617537747887,
+      "weight": 0.018696663079593008,
       "moves": [
         {
           "name": "Hyper Voice",
@@ -4001,7 +4299,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.021251665005542257,
+      "weight": 0.016208376798148225,
       "moves": [
         {
           "name": "Flare Blitz",
@@ -4047,374 +4345,12 @@
       "cid": "0fea55eedbba5a3c"
     },
     {
-      "id": "pyroar_mega",
-      "species": "Pyroar-Mega",
+      "id": "scizor_mega",
+      "species": "Scizor-Mega",
       "is_mega": true,
-      "mega_stone": "Pyroarite",
-      "item": "Pyroarite",
-      "ability": "Fire Mane",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.022291089542367987,
-      "moves": [
-        {
-          "name": "Heat Wave",
-          "usage": 0.996
-        },
-        {
-          "name": "Protect",
-          "usage": 0.992
-        },
-        {
-          "name": "Overheat",
-          "usage": 0.7290000000000001
-        },
-        {
-          "name": "Hyper Voice",
-          "usage": 0.309
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.278
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.258
-        },
-        {
-          "name": "Scorching Sands",
-          "usage": 0.12300000000000001
-        },
-        {
-          "name": "Dark Pulse",
-          "usage": 0.06
-        },
-        {
-          "name": "Round",
-          "usage": 0.048
-        },
-        {
-          "name": "Snarl",
-          "usage": 0.039
-        }
-      ],
-      "cid": "22243f764c7c0131"
-    },
-    {
-      "id": "ceruledge_no_item",
-      "species": "Ceruledge",
-      "is_mega": false,
-      "item": null,
-      "ability": "Flash Fire",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 31,
-        "atk": 1,
-        "def": 26,
-        "spa": 0,
-        "spd": 0,
-        "spe": 8
-      },
-      "weight": 0.018620108609592297,
-      "moves": [
-        {
-          "name": "Bitter Blade",
-          "usage": 1
-        },
-        {
-          "name": "Protect",
-          "usage": 0.92
-        },
-        {
-          "name": "Shadow Sneak",
-          "usage": 0.894
-        },
-        {
-          "name": "Bulk Up",
-          "usage": 0.62
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.319
-        },
-        {
-          "name": "Poltergeist",
-          "usage": 0.2
-        },
-        {
-          "name": "Psych Up",
-          "usage": 0.016
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.008
-        },
-        {
-          "name": "Ally Switch",
-          "usage": 0.003
-        }
-      ],
-      "cid": "4b420d2b794a92ad"
-    },
-    {
-      "id": "blaziken_mega",
-      "species": "Blaziken-Mega",
-      "is_mega": true,
-      "mega_stone": "Blazikenite",
-      "item": "Blazikenite",
-      "ability": "Speed Boost",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.011723297036988739,
-      "moves": [
-        {
-          "name": "Close Combat",
-          "usage": 0.725
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.698
-        },
-        {
-          "name": "Protect",
-          "usage": 0.507
-        },
-        {
-          "name": "Detect",
-          "usage": 0.486
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.27
-        },
-        {
-          "name": "Coaching",
-          "usage": 0.247
-        },
-        {
-          "name": "Aura Sphere",
-          "usage": 0.162
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.155
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.139
-        },
-        {
-          "name": "Blaze Kick",
-          "usage": 0.077
-        }
-      ],
-      "cid": "bb25298dfb948cda"
-    },
-    {
-      "id": "annihilape_no_item",
-      "species": "Annihilape",
-      "is_mega": false,
-      "item": null,
-      "ability": "Defiant",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.01627886397719757,
-      "moves": [
-        {
-          "name": "Rage Fist",
-          "usage": 0.932
-        },
-        {
-          "name": "Protect",
-          "usage": 0.785
-        },
-        {
-          "name": "Drain Punch",
-          "usage": 0.777
-        },
-        {
-          "name": "Bulk Up",
-          "usage": 0.696
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.239
-        },
-        {
-          "name": "Coaching",
-          "usage": 0.13
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.079
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.07
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.059000000000000004
-        },
-        {
-          "name": "Shadow Claw",
-          "usage": 0.044000000000000004
-        }
-      ],
-      "cid": "e790d0912282271b"
-    },
-    {
-      "id": "aegislash_both_no_item",
-      "species": "Aegislash-Both",
-      "is_mega": false,
-      "item": null,
-      "ability": "Stance Change",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 32,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 2
-      },
-      "weight": 0.008121240347625212,
-      "moves": [
-        {
-          "name": "Poltergeist",
-          "usage": 0.82
-        },
-        {
-          "name": "King's Shield",
-          "usage": 0.8059999999999999
-        },
-        {
-          "name": "Shadow Sneak",
-          "usage": 0.721
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.56
-        },
-        {
-          "name": "Wide Guard",
-          "usage": 0.368
-        },
-        {
-          "name": "Sacred Sword",
-          "usage": 0.285
-        },
-        {
-          "name": "Shadow Ball",
-          "usage": 0.145
-        },
-        {
-          "name": "Flash Cannon",
-          "usage": 0.124
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.095
-        },
-        {
-          "name": "Protect",
-          "usage": 0.045
-        }
-      ],
-      "cid": "e684b4e5bf6b7e2f"
-    },
-    {
-      "id": "rotom_heat_no_item",
-      "species": "Rotom-Heat",
-      "is_mega": false,
-      "item": null,
-      "ability": "Levitate",
-      "nature": "Timid",
-      "sps": {
-        "hp": 2,
-        "atk": 0,
-        "def": 0,
-        "spa": 32,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.015648290283819408,
-      "moves": [
-        {
-          "name": "Overheat",
-          "usage": 0.978
-        },
-        {
-          "name": "Volt Switch",
-          "usage": 0.691
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.486
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.486
-        },
-        {
-          "name": "Discharge",
-          "usage": 0.451
-        },
-        {
-          "name": "Electroweb",
-          "usage": 0.38299999999999995
-        },
-        {
-          "name": "Trick",
-          "usage": 0.183
-        },
-        {
-          "name": "Protect",
-          "usage": 0.18100000000000002
-        },
-        {
-          "name": "Eerie Impulse",
-          "usage": 0.061
-        },
-        {
-          "name": "Nasty Plot",
-          "usage": 0.037000000000000005
-        }
-      ],
-      "cid": "412d4a651a9b25ba"
-    },
-    {
-      "id": "scrafty_mega",
-      "species": "Scrafty-Mega",
-      "is_mega": true,
-      "mega_stone": "Scraftinite",
-      "item": "Scraftinite",
-      "ability": "Intimidate",
+      "mega_stone": "Scizorite",
+      "item": "Scizorite",
+      "ability": "Technician",
       "nature": "Adamant",
       "sps": {
         "hp": 32,
@@ -4424,174 +4360,57 @@
         "spd": 2,
         "spe": 0
       },
-      "weight": 0.013630527119796565,
+      "weight": 0.009251918534966904,
       "moves": [
         {
-          "name": "Fake Out",
-          "usage": 0.9109999999999999
+          "name": "Bullet Punch",
+          "usage": 1
         },
         {
-          "name": "Knock Off",
-          "usage": 0.873
+          "name": "Protect",
+          "usage": 0.887
         },
         {
-          "name": "Drain Punch",
-          "usage": 0.51
+          "name": "Swords Dance",
+          "usage": 0.8059999999999999
+        },
+        {
+          "name": "Bug Bite",
+          "usage": 0.7340000000000001
         },
         {
           "name": "Close Combat",
-          "usage": 0.442
+          "usage": 0.259
         },
         {
-          "name": "Detect",
-          "usage": 0.23800000000000002
+          "name": "Dual Wingbeat",
+          "usage": 0.094
         },
         {
-          "name": "Protect",
-          "usage": 0.17800000000000002
-        },
-        {
-          "name": "Poison Jab",
-          "usage": 0.127
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.11699999999999999
-        },
-        {
-          "name": "Throat Chop",
-          "usage": 0.086
-        },
-        {
-          "name": "Coaching",
+          "name": "Knock Off",
           "usage": 0.079
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.059000000000000004
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.034
+        },
+        {
+          "name": "Pounce",
+          "usage": 0.015
         }
       ],
-      "cid": "693ad237a0b4ac3f"
+      "cid": "8361a3ddd4607fb6"
     },
     {
-      "id": "gyarados_mega",
-      "species": "Gyarados-Mega",
-      "is_mega": true,
-      "mega_stone": "Gyaradosite",
-      "item": "Gyaradosite",
-      "ability": "Mold Breaker",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 32
-      },
-      "weight": 0.009605382043089878,
-      "moves": [
-        {
-          "name": "Waterfall",
-          "usage": 0.986
-        },
-        {
-          "name": "Protect",
-          "usage": 0.797
-        },
-        {
-          "name": "Dragon Dance",
-          "usage": 0.688
-        },
-        {
-          "name": "Crunch",
-          "usage": 0.33299999999999996
-        },
-        {
-          "name": "Lash Out",
-          "usage": 0.267
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.207
-        },
-        {
-          "name": "Ice Fang",
-          "usage": 0.175
-        },
-        {
-          "name": "Thunder Wave",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.10099999999999999
-        },
-        {
-          "name": "Earthquake",
-          "usage": 0.07400000000000001
-        }
-      ],
-      "cid": "e2ec53914f84be5b"
-    },
-    {
-      "id": "toxapex_no_item",
-      "species": "Toxapex",
+      "id": "kommo_o_no_item",
+      "species": "Kommo-o",
       "is_mega": false,
       "item": null,
-      "ability": "Regenerator",
-      "nature": "Bold",
-      "sps": {
-        "hp": 32,
-        "atk": 0,
-        "def": 16,
-        "spa": 0,
-        "spd": 18,
-        "spe": 0
-      },
-      "weight": 0.015314720977672627,
-      "moves": [
-        {
-          "name": "Infestation",
-          "usage": 0.953
-        },
-        {
-          "name": "Toxic",
-          "usage": 0.922
-        },
-        {
-          "name": "Baneful Bunker",
-          "usage": 0.875
-        },
-        {
-          "name": "Wide Guard",
-          "usage": 0.68
-        },
-        {
-          "name": "Recover",
-          "usage": 0.289
-        },
-        {
-          "name": "Haze",
-          "usage": 0.184
-        },
-        {
-          "name": "Protect",
-          "usage": 0.047
-        },
-        {
-          "name": "Stockpile",
-          "usage": 0.043
-        },
-        {
-          "name": "Ice Beam",
-          "usage": 0.008
-        }
-      ],
-      "cid": "cd46ff2ba67018e9"
-    },
-    {
-      "id": "primarina_no_item",
-      "species": "Primarina",
-      "is_mega": false,
-      "item": null,
-      "ability": "Liquid Voice",
+      "ability": "Soundproof",
       "nature": "Modest",
       "sps": {
         "hp": 2,
@@ -4601,50 +4420,50 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.008944922082397978,
+      "weight": 0.013577533773044203,
       "moves": [
         {
-          "name": "Hyper Voice",
-          "usage": 0.971
+          "name": "Clanging Scales",
+          "usage": 0.9570000000000001
         },
         {
           "name": "Protect",
-          "usage": 0.895
+          "usage": 0.9490000000000001
         },
         {
-          "name": "Moonblast",
-          "usage": 0.8390000000000001
+          "name": "Clangorous Soul",
+          "usage": 0.8320000000000001
         },
         {
-          "name": "Calm Mind",
-          "usage": 0.371
+          "name": "Aura Sphere",
+          "usage": 0.792
         },
         {
-          "name": "Ice Beam",
-          "usage": 0.14
+          "name": "Drain Punch",
+          "usage": 0.098
         },
         {
-          "name": "Dazzling Gleam",
-          "usage": 0.10099999999999999
+          "name": "Flash Cannon",
+          "usage": 0.07400000000000001
         },
         {
-          "name": "Hydro Cannon",
-          "usage": 0.092
+          "name": "Vacuum Wave",
+          "usage": 0.048
         },
         {
-          "name": "Energy Ball",
-          "usage": 0.069
+          "name": "Body Press",
+          "usage": 0.040999999999999995
         },
         {
-          "name": "Draining Kiss",
-          "usage": 0.062
+          "name": "Iron Defense",
+          "usage": 0.039
         },
         {
-          "name": "Aqua Jet",
-          "usage": 0.055999999999999994
+          "name": "Helping Hand",
+          "usage": 0.034
         }
       ],
-      "cid": "b3d4f447754011e0"
+      "cid": "c18f9984845495b5"
     },
     {
       "id": "mamoswine_no_item",
@@ -4661,7 +4480,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.010377031772497368,
+      "weight": 0.012370308449089065,
       "moves": [
         {
           "name": "Ice Shard",
@@ -4707,6 +4526,126 @@
       "cid": "afae6046cba631b0"
     },
     {
+      "id": "rotom_heat_no_item",
+      "species": "Rotom-Heat",
+      "is_mega": false,
+      "item": null,
+      "ability": "Levitate",
+      "nature": "Timid",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.015442540495863879,
+      "moves": [
+        {
+          "name": "Overheat",
+          "usage": 0.978
+        },
+        {
+          "name": "Volt Switch",
+          "usage": 0.691
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.486
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.486
+        },
+        {
+          "name": "Discharge",
+          "usage": 0.451
+        },
+        {
+          "name": "Electroweb",
+          "usage": 0.38299999999999995
+        },
+        {
+          "name": "Trick",
+          "usage": 0.183
+        },
+        {
+          "name": "Protect",
+          "usage": 0.18100000000000002
+        },
+        {
+          "name": "Eerie Impulse",
+          "usage": 0.061
+        },
+        {
+          "name": "Nasty Plot",
+          "usage": 0.037000000000000005
+        }
+      ],
+      "cid": "412d4a651a9b25ba"
+    },
+    {
+      "id": "primarina_no_item",
+      "species": "Primarina",
+      "is_mega": false,
+      "item": null,
+      "ability": "Liquid Voice",
+      "nature": "Modest",
+      "sps": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.009477409677563676,
+      "moves": [
+        {
+          "name": "Hyper Voice",
+          "usage": 0.971
+        },
+        {
+          "name": "Protect",
+          "usage": 0.895
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.8390000000000001
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.371
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.14
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.10099999999999999
+        },
+        {
+          "name": "Hydro Cannon",
+          "usage": 0.092
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.069
+        },
+        {
+          "name": "Draining Kiss",
+          "usage": 0.062
+        },
+        {
+          "name": "Aqua Jet",
+          "usage": 0.055999999999999994
+        }
+      ],
+      "cid": "b3d4f447754011e0"
+    },
+    {
       "id": "tsareena_no_item",
       "species": "Tsareena",
       "is_mega": false,
@@ -4721,7 +4660,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.011812438872174147,
+      "weight": 0.01309747499841054,
       "moves": [
         {
           "name": "Triple Axel",
@@ -4767,254 +4706,72 @@
       "cid": "95e7bedd4584dd84"
     },
     {
-      "id": "clefable_mega",
-      "species": "Clefable-Mega",
-      "is_mega": true,
-      "mega_stone": "Clefablite",
-      "item": "Clefablite",
-      "ability": "Magic Bounce",
-      "nature": "Bold",
-      "sps": {
-        "hp": 32,
-        "atk": 0,
-        "def": 32,
-        "spa": 0,
-        "spd": 2,
-        "spe": 0
-      },
-      "weight": 0.0025933008560224302,
-      "moves": [
-        {
-          "name": "Moonblast",
-          "usage": 0.943
-        },
-        {
-          "name": "Follow Me",
-          "usage": 0.9209999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.742
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.295
-        },
-        {
-          "name": "Life Dew",
-          "usage": 0.22399999999999998
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.096
-        },
-        {
-          "name": "Calm Mind",
-          "usage": 0.09300000000000001
-        },
-        {
-          "name": "Ice Beam",
-          "usage": 0.09300000000000001
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.079
-        },
-        {
-          "name": "Moonlight",
-          "usage": 0.071
-        }
-      ],
-      "cid": "ae213ef7fe5b3c8e"
-    },
-    {
-      "id": "camerupt_mega",
-      "species": "Camerupt-Mega",
-      "is_mega": true,
-      "mega_stone": "Cameruptite",
-      "item": "Cameruptite",
-      "ability": "Sheer Force",
-      "nature": "Quiet",
-      "sps": {
-        "hp": 32,
-        "atk": 0,
-        "def": 2,
-        "spa": 32,
-        "spd": 0,
-        "spe": 0
-      },
-      "weight": 0.012260495356613915,
-      "moves": [
-        {
-          "name": "Earth Power",
-          "usage": 0.991
-        },
-        {
-          "name": "Protect",
-          "usage": 0.868
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.68
-        },
-        {
-          "name": "Ancient Power",
-          "usage": 0.66
-        },
-        {
-          "name": "Eruption",
-          "usage": 0.6509999999999999
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.054000000000000006
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.028999999999999998
-        },
-        {
-          "name": "Flash Cannon",
-          "usage": 0.025
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.009000000000000001
-        },
-        {
-          "name": "Stomping Tantrum",
-          "usage": 0.009000000000000001
-        }
-      ],
-      "cid": "fb8e8113d72598cd"
-    },
-    {
-      "id": "palafin_mystic_water",
-      "species": "Palafin",
-      "is_mega": false,
-      "item": "Mystic Water",
-      "ability": "Zero to Hero",
-      "nature": "Adamant",
-      "sps": {
-        "hp": 32,
-        "atk": 32,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 2
-      },
-      "weight": 0.00810100878377749,
-      "moves": [
-        {
-          "name": "Jet Punch",
-          "usage": 1
-        },
-        {
-          "name": "Wave Crash",
-          "usage": 0.9179999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.747
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.56
-        },
-        {
-          "name": "Flip Turn",
-          "usage": 0.377
-        },
-        {
-          "name": "Bulk Up",
-          "usage": 0.14
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.057999999999999996
-        },
-        {
-          "name": "Liquidation",
-          "usage": 0.054000000000000006
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.054000000000000006
-        },
-        {
-          "name": "Drain Punch",
-          "usage": 0.043
-        }
-      ],
-      "cid": "09fce692c5269a0d"
-    },
-    {
-      "id": "espathra_no_item",
-      "species": "Espathra",
+      "id": "vileplume_no_item",
+      "species": "Vileplume",
       "is_mega": false,
       "item": null,
-      "ability": "Speed Boost",
+      "ability": "Chlorophyll",
       "nature": "Timid",
       "sps": {
-        "hp": 32,
+        "hp": 2,
         "atk": 0,
-        "def": 9,
-        "spa": 0,
-        "spd": 6,
-        "spe": 19
+        "def": 0,
+        "spa": 32,
+        "spd": 0,
+        "spe": 32
       },
-      "weight": 0.011391711765418186,
+      "weight": 0.010967219484167819,
       "moves": [
         {
+          "name": "Sleep Powder",
+          "usage": 0.78
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.738
+        },
+        {
+          "name": "After You",
+          "usage": 0.607
+        },
+        {
           "name": "Protect",
-          "usage": 1
+          "usage": 0.39299999999999996
         },
         {
-          "name": "Calm Mind",
-          "usage": 0.831
+          "name": "Leaf Storm",
+          "usage": 0.361
         },
         {
-          "name": "Lumina Crash",
-          "usage": 0.804
+          "name": "Solar Beam",
+          "usage": 0.251
         },
         {
-          "name": "Baton Pass",
-          "usage": 0.773
+          "name": "Strength Sap",
+          "usage": 0.23
         },
         {
-          "name": "Feather Dance",
-          "usage": 0.127
+          "name": "Giga Drain",
+          "usage": 0.17300000000000001
         },
         {
-          "name": "Psychic Terrain",
-          "usage": 0.10800000000000001
+          "name": "Moonblast",
+          "usage": 0.168
         },
         {
-          "name": "Expanding Force",
-          "usage": 0.10800000000000001
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.096
-        },
-        {
-          "name": "Stored Power",
-          "usage": 0.069
-        },
-        {
-          "name": "Skill Swap",
-          "usage": 0.019
+          "name": "Weather Ball",
+          "usage": 0.105
         }
       ],
-      "cid": "a07fb3239ae4dba1"
+      "cid": "3fff761612823110"
     },
     {
-      "id": "gallade_mega",
-      "species": "Gallade-Mega",
+      "id": "gyarados_mega",
+      "species": "Gyarados-Mega",
       "is_mega": true,
-      "mega_stone": "Galladite",
-      "item": "Galladite",
-      "ability": "Inner Focus",
+      "mega_stone": "Gyaradosite",
+      "item": "Gyaradosite",
+      "ability": "Mold Breaker",
       "nature": "Adamant",
       "sps": {
         "hp": 2,
@@ -5024,50 +4781,50 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.0011736542563596227,
+      "weight": 0.00847188307238746,
       "moves": [
         {
-          "name": "Sacred Sword",
-          "usage": 0.9470000000000001
-        },
-        {
-          "name": "Psycho Cut",
-          "usage": 0.873
+          "name": "Waterfall",
+          "usage": 0.986
         },
         {
           "name": "Protect",
-          "usage": 0.655
+          "usage": 0.797
         },
         {
-          "name": "Leaf Blade",
-          "usage": 0.54
+          "name": "Dragon Dance",
+          "usage": 0.688
         },
         {
-          "name": "Trick Room",
-          "usage": 0.271
+          "name": "Crunch",
+          "usage": 0.33299999999999996
         },
         {
-          "name": "Night Slash",
-          "usage": 0.16
+          "name": "Lash Out",
+          "usage": 0.267
         },
         {
-          "name": "Wide Guard",
-          "usage": 0.133
+          "name": "Taunt",
+          "usage": 0.207
         },
         {
-          "name": "Zen Headbutt",
-          "usage": 0.053
+          "name": "Ice Fang",
+          "usage": 0.175
         },
         {
-          "name": "Shadow Sneak",
-          "usage": 0.045
+          "name": "Thunder Wave",
+          "usage": 0.14400000000000002
         },
         {
-          "name": "Close Combat",
-          "usage": 0.043
+          "name": "Helping Hand",
+          "usage": 0.10099999999999999
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.07400000000000001
         }
       ],
-      "cid": "2b7d76f07bd92dd5"
+      "cid": "e2ec53914f84be5b"
     },
     {
       "id": "sceptile_mega",
@@ -5085,7 +4842,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.01048252093482493,
+      "weight": 0.013388607234272015,
       "moves": [
         {
           "name": "Dragon Pulse",
@@ -5131,125 +4888,125 @@
       "cid": "f629f663b038b16b"
     },
     {
-      "id": "meowscarada_no_item",
-      "species": "Meowscarada",
-      "is_mega": false,
-      "item": null,
-      "ability": "Protean",
-      "nature": "Adamant",
+      "id": "clefable_mega",
+      "species": "Clefable-Mega",
+      "is_mega": true,
+      "mega_stone": "Clefablite",
+      "item": "Clefablite",
+      "ability": "Magic Bounce",
+      "nature": "Bold",
       "sps": {
-        "hp": 2,
-        "atk": 32,
-        "def": 0,
+        "hp": 32,
+        "atk": 0,
+        "def": 32,
         "spa": 0,
-        "spd": 0,
-        "spe": 32
+        "spd": 2,
+        "spe": 0
       },
-      "weight": 0.008536574233631715,
+      "weight": 0.0028056975602404675,
       "moves": [
         {
-          "name": "Flower Trick",
-          "usage": 0.9740000000000001
+          "name": "Moonblast",
+          "usage": 0.943
         },
         {
-          "name": "Triple Axel",
-          "usage": 0.852
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.63
-        },
-        {
-          "name": "Sucker Punch",
-          "usage": 0.373
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.301
-        },
-        {
-          "name": "Play Rough",
-          "usage": 0.24100000000000002
+          "name": "Follow Me",
+          "usage": 0.9209999999999999
         },
         {
           "name": "Protect",
-          "usage": 0.185
+          "usage": 0.742
         },
         {
-          "name": "Throat Chop",
-          "usage": 0.092
+          "name": "Helping Hand",
+          "usage": 0.295
         },
         {
-          "name": "Low Kick",
-          "usage": 0.09
+          "name": "Life Dew",
+          "usage": 0.22399999999999998
         },
         {
-          "name": "Brick Break",
-          "usage": 0.077
+          "name": "Icy Wind",
+          "usage": 0.096
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.09300000000000001
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.09300000000000001
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.079
+        },
+        {
+          "name": "Moonlight",
+          "usage": 0.071
         }
       ],
-      "cid": "6c90a2a68428d877"
+      "cid": "ae213ef7fe5b3c8e"
     },
     {
-      "id": "lopunny_mega",
-      "species": "Lopunny-Mega",
-      "is_mega": true,
-      "mega_stone": "Lopunnite",
-      "item": "Lopunnite",
-      "ability": "Scrappy",
-      "nature": "Jolly",
+      "id": "clefable_no_item",
+      "species": "Clefable",
+      "is_mega": false,
+      "item": null,
+      "ability": "Unaware",
+      "nature": "Bold",
       "sps": {
-        "hp": 5,
-        "atk": 29,
-        "def": 0,
+        "hp": 32,
+        "atk": 0,
+        "def": 32,
         "spa": 0,
-        "spd": 0,
-        "spe": 32
+        "spd": 2,
+        "spe": 0
       },
-      "weight": 0.010144899727078813,
+      "weight": 0.010718854271404114,
       "moves": [
         {
-          "name": "Fake Out",
-          "usage": 1
+          "name": "Moonblast",
+          "usage": 0.943
         },
         {
-          "name": "Close Combat",
-          "usage": 0.968
-        },
-        {
-          "name": "Encore",
-          "usage": 0.53
-        },
-        {
-          "name": "Triple Axel",
-          "usage": 0.428
-        },
-        {
-          "name": "Giga Impact",
-          "usage": 0.37200000000000005
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.281
-        },
-        {
-          "name": "After You",
-          "usage": 0.095
-        },
-        {
-          "name": "Facade",
-          "usage": 0.07400000000000001
+          "name": "Follow Me",
+          "usage": 0.9209999999999999
         },
         {
           "name": "Protect",
-          "usage": 0.049
+          "usage": 0.742
         },
         {
-          "name": "Iron Tail",
-          "usage": 0.049
+          "name": "Helping Hand",
+          "usage": 0.295
+        },
+        {
+          "name": "Life Dew",
+          "usage": 0.22399999999999998
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.096
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.09300000000000001
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.09300000000000001
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.079
+        },
+        {
+          "name": "Moonlight",
+          "usage": 0.071
         }
       ],
-      "cid": "9ec5a3e2c211e0b6"
+      "cid": "b53880c531c47af5"
     },
     {
       "id": "eelektross_mega",
@@ -5267,7 +5024,7 @@
         "spd": 0,
         "spe": 32
       },
-      "weight": 0.01015132688133983,
+      "weight": 0.013254245030882586,
       "moves": [
         {
           "name": "Protect",
@@ -5313,64 +5070,245 @@
       "cid": "cbe6fc2342ed83c4"
     },
     {
-      "id": "vileplume_no_item",
-      "species": "Vileplume",
+      "id": "ninetales_no_item",
+      "species": "Ninetales",
       "is_mega": false,
       "item": null,
-      "ability": "Chlorophyll",
+      "ability": "Drought",
       "nature": "Timid",
       "sps": {
         "hp": 2,
         "atk": 0,
-        "def": 0,
+        "def": 2,
         "spa": 32,
         "spd": 0,
-        "spe": 32
+        "spe": 30
       },
-      "weight": 0.007384143558407928,
+      "weight": 0.006073920404640747,
       "moves": [
         {
-          "name": "Sleep Powder",
-          "usage": 0.78
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.738
-        },
-        {
-          "name": "After You",
-          "usage": 0.607
-        },
-        {
           "name": "Protect",
-          "usage": 0.39299999999999996
+          "usage": 0.845
         },
         {
-          "name": "Leaf Storm",
-          "usage": 0.361
+          "name": "Heat Wave",
+          "usage": 0.736
+        },
+        {
+          "name": "Overheat",
+          "usage": 0.41100000000000003
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.302
+        },
+        {
+          "name": "Encore",
+          "usage": 0.295
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.287
+        },
+        {
+          "name": "Disable",
+          "usage": 0.264
         },
         {
           "name": "Solar Beam",
-          "usage": 0.251
+          "usage": 0.217
         },
         {
-          "name": "Strength Sap",
-          "usage": 0.23
+          "name": "Pain Split",
+          "usage": 0.14
         },
         {
-          "name": "Giga Drain",
-          "usage": 0.17300000000000001
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.168
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.105
+          "name": "Mystical Fire",
+          "usage": 0.14
         }
       ],
-      "cid": "3fff761612823110"
+      "cid": "a3d7d654d3bfb82f"
+    },
+    {
+      "id": "meowscarada_no_item",
+      "species": "Meowscarada",
+      "is_mega": false,
+      "item": null,
+      "ability": "Protean",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.009488429921374797,
+      "moves": [
+        {
+          "name": "Flower Trick",
+          "usage": 0.9740000000000001
+        },
+        {
+          "name": "Triple Axel",
+          "usage": 0.852
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.63
+        },
+        {
+          "name": "Sucker Punch",
+          "usage": 0.373
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.301
+        },
+        {
+          "name": "Play Rough",
+          "usage": 0.24100000000000002
+        },
+        {
+          "name": "Protect",
+          "usage": 0.185
+        },
+        {
+          "name": "Throat Chop",
+          "usage": 0.092
+        },
+        {
+          "name": "Low Kick",
+          "usage": 0.09
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.077
+        }
+      ],
+      "cid": "6c90a2a68428d877"
+    },
+    {
+      "id": "aegislash_both_no_item",
+      "species": "Aegislash-Both",
+      "is_mega": false,
+      "item": null,
+      "ability": "Stance Change",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 32,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 2
+      },
+      "weight": 0.005274429973179363,
+      "moves": [
+        {
+          "name": "Poltergeist",
+          "usage": 0.82
+        },
+        {
+          "name": "King's Shield",
+          "usage": 0.8059999999999999
+        },
+        {
+          "name": "Shadow Sneak",
+          "usage": 0.721
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.56
+        },
+        {
+          "name": "Wide Guard",
+          "usage": 0.368
+        },
+        {
+          "name": "Sacred Sword",
+          "usage": 0.285
+        },
+        {
+          "name": "Shadow Ball",
+          "usage": 0.145
+        },
+        {
+          "name": "Flash Cannon",
+          "usage": 0.124
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.095
+        },
+        {
+          "name": "Protect",
+          "usage": 0.045
+        }
+      ],
+      "cid": "e684b4e5bf6b7e2f"
+    },
+    {
+      "id": "gallade_mega",
+      "species": "Gallade-Mega",
+      "is_mega": true,
+      "mega_stone": "Galladite",
+      "item": "Galladite",
+      "ability": "Inner Focus",
+      "nature": "Adamant",
+      "sps": {
+        "hp": 2,
+        "atk": 32,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 32
+      },
+      "weight": 0.001078500399130625,
+      "moves": [
+        {
+          "name": "Sacred Sword",
+          "usage": 0.9470000000000001
+        },
+        {
+          "name": "Psycho Cut",
+          "usage": 0.873
+        },
+        {
+          "name": "Protect",
+          "usage": 0.655
+        },
+        {
+          "name": "Leaf Blade",
+          "usage": 0.54
+        },
+        {
+          "name": "Trick Room",
+          "usage": 0.271
+        },
+        {
+          "name": "Night Slash",
+          "usage": 0.16
+        },
+        {
+          "name": "Wide Guard",
+          "usage": 0.133
+        },
+        {
+          "name": "Zen Headbutt",
+          "usage": 0.053
+        },
+        {
+          "name": "Shadow Sneak",
+          "usage": 0.045
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.043
+        }
+      ],
+      "cid": "2b7d76f07bd92dd5"
     }
   ]
 }
