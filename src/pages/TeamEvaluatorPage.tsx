@@ -5,6 +5,7 @@ import TeamInput from '../components/evaluator/TeamInput';
 import EvalSection from '../components/evaluator/EvalSection';
 import TypeMatrix from '../components/evaluator/TypeMatrix';
 import BoardControlTable from '../components/evaluator/BoardControlTable';
+import RngExposure from '../components/evaluator/RngExposure';
 import {
   decodeTeam, encodeTeam, exportTeam, parseTeam,
 } from '../../lib/evaluator/parse';
@@ -146,6 +147,12 @@ export default function TeamEvaluatorPage() {
           subtitle="What the team can do to the flow of the game: 10 categories of tempo, field, and option control. Cells show what each member contributes."
         >
           <BoardControlTable dex={dex} sets={sets} />
+        </EvalSection>
+        <EvalSection
+          title="RNG exposure"
+          subtitle="Variance the team can exploit vs. variance it has to survive, itemized with per-use probabilities."
+        >
+          <RngExposure dex={dex} sets={sets} />
         </EvalSection>
       </>
     );

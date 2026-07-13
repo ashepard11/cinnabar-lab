@@ -46,6 +46,8 @@ export interface DexMove {
   weather?: string;
   terrain?: string;
   volatileStatus?: string;
+  /** Volatile applied to the user (Outrage-class 'lockedmove', charge states). */
+  selfVolatile?: string;
   status?: string;
   /** Stat changes from status moves (target-relative; see `target`). */
   boosts?: Partial<StatsTable>;

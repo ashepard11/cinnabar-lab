@@ -421,6 +421,87 @@ Adamant Nature
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 5: RNG exposure');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {rngExposure, noFavorableRng, validateRngCurated, RNG_EXPECTED_DROPS} =
+    require('../lib/evaluator/rng') as typeof import('../lib/evaluator/rng');
+
+  const team = parseTeam(`
+Garchomp
+Ability: Rough Skin
+- Rock Slide
+- Stone Edge
+- Outrage
+
+Pelipper
+Ability: Drizzle
+- Hurricane
+- Hydro Pump
+
+Machamp
+Ability: No Guard
+- Dynamic Punch
+- High Jump Kick
+
+Venusaur
+Ability: Chlorophyll
+- Sleep Powder
+- Giga Drain
+`, dex);
+  check('rng fixture parses 4 sets', team.sets.length === 4 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  const rng = rngExposure(dex, team.sets);
+  const has = (arr: Array<{source: string; memberIndex: number}>, source: string, member: number) =>
+    arr.some((e) => e.source === source && e.memberIndex === member);
+
+  check('Rock Slide: favorable 30% flinch AND unfavorable 90–99 acc bucket',
+    has(rng.favorable.secondaries, 'Rock Slide', 0) &&
+    has(rng.unfavorable.acc90to99, 'Rock Slide', 0));
+  check('Stone Edge: high crit + 80–89 acc bucket',
+    has(rng.favorable.crits, 'Stone Edge', 0) && has(rng.unfavorable.acc80to89, 'Stone Edge', 0));
+  check('Outrage: self-lock entry', has(rng.unfavorable.selfLock, 'Outrage', 0));
+  check('Hurricane: <80 bucket with its 30% confusion favorable',
+    has(rng.unfavorable.accUnder80, 'Hurricane', 1) && has(rng.favorable.secondaries, 'Hurricane', 1));
+  check('No Guard exempts Dynamic Punch + HJK from accuracy buckets, with a note',
+    !has(rng.unfavorable.accUnder80, 'Dynamic Punch', 2) &&
+    !has(rng.unfavorable.acc90to99, 'High Jump Kick', 2) &&
+    rng.notes.some((n) => n.includes('No Guard')));
+  check('HJK still listed under crash risk', has(rng.unfavorable.crash, 'High Jump Kick', 2));
+  check('Sleep Powder: favorable sleep with acc annotation + unfavorable <80',
+    has(rng.favorable.sleep, 'Sleep Powder', 3) && has(rng.unfavorable.accUnder80, 'Sleep Powder', 3));
+
+  // Sheer Force strikes wanted secondaries.
+  const sheer = parseTeam('Nidoking\nAbility: Sheer Force\n- Sludge Bomb', dex);
+  if (sheer.sets.length === 1) {
+    const sheerRng = rngExposure(dex, sheer.sets);
+    check('Sheer Force: Sludge Bomb secondary struck through + note',
+      sheerRng.favorable.secondaries.some((e) => e.source === 'Sludge Bomb' && e.struck) &&
+      sheerRng.notes.some((n) => n.includes('Sheer Force')));
+  } else {
+    const alt = parseTeam('Tauros\nAbility: Sheer Force\n- Rock Slide', dex);
+    check('Sheer Force strikes secondaries [fallback species]',
+      alt.sets.length === 1 &&
+      rngExposure(dex, alt.sets).favorable.secondaries.some((e) => e.source === 'Rock Slide' && e.struck));
+  }
+
+  // No proactive upside → explicit callout state.
+  const flat = parseTeam('Snorlax\nAbility: Thick Fat\n- Body Slam\n- Protect', dex);
+  // Body Slam has a 30% paralysis secondary, so this team DOES have upside…
+  check('Body Slam team has favorable RNG', !noFavorableRng(rngExposure(dex, flat.sets)));
+  const none = parseTeam('Snorlax\nAbility: Thick Fat\n- Facade\n- Protect', dex);
+  check('Facade-only team triggers the no-proactive-RNG callout',
+    noFavorableRng(rngExposure(dex, none.sets)));
+
+  check('RNG curated drops match expected list',
+    JSON.stringify(validateRngCurated(dex)) === JSON.stringify([...RNG_EXPECTED_DROPS].sort()),
+    validateRngCurated(dex).join(', '));
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

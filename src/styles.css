@@ -302,3 +302,17 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .bc-typing { background: none; font-style: italic; }
 .bc-dimmed { opacity: 0.45; }
 .bc-annotation { color: var(--ink-muted); font-size: 10px; }
+
+/* --- team evaluator: RNG exposure ----------------------------------------- */
+.rng-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.rng-columns h3 { font-size: 14.5px; margin: 0 0 10px; }
+.rng-bucket { margin-bottom: 12px; }
+.rng-bucket h4 { font-size: 12.5px; margin: 0 0 4px; color: var(--ink-secondary); }
+.rng-count { display: inline-block; min-width: 18px; text-align: center; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 9px; font-size: 11px; padding: 0 5px; margin-left: 4px; }
+.rng-bucket ul { margin: 0; padding: 0; list-style: none; font-size: 12.5px; }
+.rng-bucket li { padding: 1.5px 0; }
+.rng-member { color: var(--ink-muted); font-size: 11.5px; margin-right: 4px; }
+.rng-struck { color: var(--ink-muted); }
+.rng-note { color: #b3752a; font-size: 11px; }
+.rng-callout { border: 1px solid #b3423a55; background: #b3423a0d; border-radius: 8px; padding: 10px 14px; font-size: 13px; max-width: 460px; }
+.rng-callout.rng-good { border-color: #2e7d5b55; background: #2e7d5b0d; }

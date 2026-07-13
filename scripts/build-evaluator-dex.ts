@@ -115,6 +115,8 @@ for (const m of GEN.moves) {
   if (mmd.weather) entry.weather = toID(String(mmd.weather));
   if ((mmd as {terrain?: string}).terrain) entry.terrain = toID(String((mmd as {terrain?: string}).terrain));
   if (mmd.volatileStatus) entry.volatileStatus = toID(String(mmd.volatileStatus));
+  const selfVolatile = (mmd.self as {volatileStatus?: string} | null | undefined)?.volatileStatus;
+  if (selfVolatile) entry.selfVolatile = toID(String(selfVolatile));
   if (mmd.status) entry.status = String(mmd.status);
   const boosts = trimBoosts(mmd.boosts);
   if (boosts) entry.boosts = boosts;
