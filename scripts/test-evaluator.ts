@@ -280,6 +280,147 @@ Timid Nature
 }
 
 // ---------------------------------------------------------------------------
+console.log('\nPhase 4: board control inventory');
+// ---------------------------------------------------------------------------
+
+{
+  const {parseTeam} = require('../lib/evaluator/parse') as typeof import('../lib/evaluator/parse');
+  const {boardControl, validateCurated, EXPECTED_CURATED_DROPS} =
+    require('../lib/evaluator/tags') as typeof import('../lib/evaluator/tags');
+
+  // Spec fixture: Tailwind + Fake Out + Icy Wind + Follow Me + U-turn +
+  // Will-O-Wisp + Encore + Aqua Jet + Protect + Recover + Leftovers holder.
+  // (Moves are not learnset-checked in v1; rule coverage is what matters.)
+  const team = parseTeam(`
+Whimsicott @ Focus Sash
+Ability: Prankster
+Timid Nature
+- Tailwind
+- Encore
+- Moonblast
+- Icy Wind
+
+Incineroar
+Ability: Intimidate
+Careful Nature
+- Fake Out
+- U-turn
+- Flare Blitz
+- Will-O-Wisp
+
+Sylveon
+Ability: Pixilate
+Modest Nature
+- Follow Me
+- Hyper Voice
+- Recover
+- Protect
+
+Azumarill @ Leftovers
+Ability: Huge Power
+Adamant Nature
+- Aqua Jet
+- Play Rough
+- Belly Drum
+- Protect
+`, dex);
+  check('board fixture parses 4 sets', team.sets.length === 4 && team.failures.length === 0,
+    team.failures.map((f) => f.message).join('; '));
+
+  const inv = boardControl(dex, team.sets);
+  const cat = (id: string) => inv.find((c) => c.id === id)!;
+  const names = (id: string, member: number) => cat(id).perMember[member].map((t) => t.name);
+
+  // Whimsicott (member 0)
+  check('Tailwind + Icy Wind + paralysis-free speed control on Whimsicott',
+    names('speed', 0).includes('Tailwind') && names('speed', 0).includes('Icy Wind'));
+  check('Prankster produces no speed-control entry (D36)',
+    !names('speed', 0).includes('Prankster'));
+  check('Encore lands in option control', names('option', 0).includes('Encore'));
+  check('Grass typing gets ignores-redirection note',
+    cat('targeting').perMember[0].some((t) => t.kind === 'typing' && t.subGroup === 'ignores redirection'));
+
+  // Incineroar (member 1)
+  check('Fake Out is targeting control only (D36)',
+    names('targeting', 1).includes('Fake Out') &&
+    !names('priority', 1).includes('Fake Out') && !names('speed', 1).includes('Fake Out'));
+  check('U-turn under pivoting; Will-O-Wisp under mitigation burn',
+    names('pivoting', 1).includes('U-turn') && names('mitigation', 1).includes('Will-O-Wisp'));
+  check('Intimidate under mitigation abilities', names('mitigation', 1).includes('Intimidate'));
+
+  // Sylveon (member 2)
+  check('Follow Me under targeting; Recover under healing recovery',
+    names('targeting', 2).includes('Follow Me') && names('healing', 2).includes('Recover'));
+  check('Protect in Protect-moves category, absent from mitigation',
+    names('protect', 2).includes('Protect') && !names('mitigation', 2).includes('Protect'));
+
+  // Azumarill (member 3)
+  check('Aqua Jet lands in priority', names('priority', 3).includes('Aqua Jet'));
+  check('Leftovers under healing items',
+    cat('healing').perMember[3].some((t) => t.kind === 'item' && t.name === 'Leftovers'));
+  check('members without a Protect-class move have empty protect cells (→ "no Protect" marker)',
+    cat('protect').perMember[0].length === 0 && cat('protect').perMember[1].length === 0);
+
+  // Regenerator: healing, not pivoting.
+  const regen = parseTeam('Amoonguss\nAbility: Regenerator\n- Pollen Puff', dex);
+  if (regen.sets.length) {
+    const rInv = boardControl(dex, regen.sets);
+    check('Regenerator under healing, not pivoting (D36)',
+      rInv.find((c) => c.id === 'healing')!.perMember[0].some((t) => t.name === 'Regenerator') &&
+      rInv.find((c) => c.id === 'pivoting')!.perMember[0].length === 0);
+  } else {
+    // Amoonguss is off-dex in Champions; use any Regenerator holder instead.
+    const alt = parseTeam('Slowking\nAbility: Regenerator\n- Scald', dex);
+    check('Regenerator under healing, not pivoting (D36) [Slowking]',
+      alt.sets.length === 1 &&
+      boardControl(dex, alt.sets).find((c) => c.id === 'healing')!.perMember[0].some((t) => t.name === 'Regenerator') &&
+      boardControl(dex, alt.sets).find((c) => c.id === 'pivoting')!.perMember[0].length === 0);
+  }
+
+  // Wide Guard: option control only.
+  const wg = parseTeam('Pelipper\nAbility: Drizzle\n- Wide Guard\n- Protect', dex);
+  const wgInv = boardControl(dex, wg.sets);
+  check('Wide Guard in option control only, not mitigation or protect',
+    wgInv.find((c) => c.id === 'option')!.perMember[0].some((t) => t.name === 'Wide Guard') &&
+    !wgInv.find((c) => c.id === 'mitigation')!.perMember[0].some((t) => t.name === 'Wide Guard') &&
+    !wgInv.find((c) => c.id === 'protect')!.perMember[0].some((t) => t.name === 'Wide Guard'));
+
+  // Conditional dimming: Grassy Glide dims without a Grassy Terrain provider,
+  // un-dims with one; Chlorophyll likewise with Drought.
+  const glide = parseTeam('Venusaur\nAbility: Overgrow\n- Grassy Glide', dex);
+  const glideInv = boardControl(dex, glide.sets);
+  const glideTag = glideInv.find((c) => c.id === 'priority')!.perMember[0].find((t) => t.name === 'Grassy Glide');
+  check('Grassy Glide is a curated conditional entry (priority 0 in Champions data)',
+    !!glideTag && glideTag.dimmed === true && (glideTag.annotation ?? '').includes('Grassy Terrain'));
+
+  const glideWithTerrain = parseTeam(
+    'Venusaur\nAbility: Overgrow\n- Grassy Glide\n\nSylveon\nAbility: Cute Charm\n- Grassy Terrain', dex);
+  const gwtInv = boardControl(dex, glideWithTerrain.sets);
+  check('Grassy Glide un-dims when a member provides Grassy Terrain',
+    gwtInv.find((c) => c.id === 'priority')!.perMember[0].find((t) => t.name === 'Grassy Glide')!.dimmed === false);
+  check('Grassy Terrain provider double-lists: terrain control + healing field',
+    gwtInv.find((c) => c.id === 'terrain')!.perMember[1].some((t) => t.name === 'Grassy Terrain') &&
+    gwtInv.find((c) => c.id === 'healing')!.perMember[1].some((t) => t.name === 'Grassy Terrain' && t.subGroup === 'field'));
+
+  const chloro = parseTeam('Venusaur\nAbility: Chlorophyll\n- Giga Drain', dex);
+  const chloroInv = boardControl(dex, chloro.sets);
+  check('Chlorophyll dimmed without sun',
+    chloroInv.find((c) => c.id === 'speed')!.perMember[0].find((t) => t.name === 'Chlorophyll')?.dimmed === true);
+  const chloroSun = parseTeam('Venusaur\nAbility: Chlorophyll\n- Giga Drain\n\nCharizard\nAbility: Drought\n- Heat Wave', dex);
+  const chloroSunInv = boardControl(dex, chloroSun.sets);
+  check('Chlorophyll un-dims with a Drought member',
+    chloroSunInv.find((c) => c.id === 'speed')!.perMember[0].find((t) => t.name === 'Chlorophyll')?.dimmed === false);
+  check('Giga Drain under healing drain sub-group',
+    chloroInv.find((c) => c.id === 'healing')!.perMember[0].some((t) => t.name === 'Giga Drain' && t.subGroup === 'drain'));
+
+  // Taxonomy-rot gate: curated drops match the expected list in both directions.
+  const drops = validateCurated(dex);
+  check('taxonomy-rot gate: curated drops match EXPECTED_CURATED_DROPS exactly',
+    JSON.stringify(drops) === JSON.stringify([...EXPECTED_CURATED_DROPS].sort()),
+    `actual: ${drops.join(', ')}`);
+}
+
+// ---------------------------------------------------------------------------
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);
