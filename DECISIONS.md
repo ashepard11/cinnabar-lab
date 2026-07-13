@@ -493,3 +493,48 @@ Decisions:
    (the browser's actual path): grid-paint query returns 7,832 rows in ~115 ms.
 4. **Seed derivation is unchanged and slug-based**; if it ever moves to cids,
    that is a results-changing edit and must bump `SIM_ENGINE_VERSION`.
+
+### D35: Team evaluator spec — data sourcing, taxonomy, and scoring decisions (BACKLOG item 08 prework, 2026-07-12)
+`SPEC-team-evaluator.md` written per the backlog's prework instruction (full
+spec before implementation, mirroring the structure of the prior two specs).
+Decisions locked at spec stage:
+
+1. **Data source: vendored dexes only, exported at build time.** The backlog
+   offered "PokéAPI or Showdown data"; PokéAPI is rejected because it has no
+   Champions balance changes and would disagree with the rest of the pipeline.
+   A new `data/evaluator-dex.json` is built from the Showdown Champions mod's
+   rich move metadata (accuracy, priority, secondaries, selfSwitch,
+   sideCondition, …) **filtered by existence in the calc dex** — verified
+   during spec work that the Showdown mod inherits the full gen-9 dex (Teleport
+   and Serene Grace report `exists: true` there) while `@smogon/calc` gen 0 is
+   the trimmed Champions roster (both are absent, along with Heal Block,
+   Splintered Stormshards, Dazzling, Air Lock, Storm Drain, Well-Baked Body,
+   Wonder Guard). The frontend keeps its fetch-prebuilt-JSON architecture;
+   `pokemon-showdown` is never bundled into the browser.
+2. **Curated tables are validated, drop-with-warning.** Every curated
+   move/ability/item name must resolve in the calc dex or sit on an asserted
+   expected-drop list; CI fails on unexpected drops *and* on expected drops
+   that reappear (so the list gets pruned if dex gaps close). Category tags are
+   derived from structured move fields wherever they exist; curation is
+   reserved for semantics the data lacks (mostly abilities).
+3. **Type chart: ability-modified is the primary view**, using only the pasted
+   set's actual ability, with modified cells marked and a free toggle to the
+   raw chart (both computed in one pass). Attacker-side abilities are out of
+   scope except Scrappy. Type-changing mechanics (Terapagos-style) are v1
+   limitations pending the Phase 0 metagame verification.
+4. **RNG exposure: tallies + per-interaction probabilities, no team-level
+   scalar.** Summing flinch chances, miss chances, and crit rates into one
+   number has no defensible semantics; the backlog's stated user need is
+   served by bucketed counts and itemized lists.
+5. **Matchup section reuses the team-builder machinery** (`weakestMatchups`,
+   `WeakMatchupCard`, `ConditionSensitivity`) with the team's members mapped
+   to nearest known variants (species + mega, then exact item, then aggregate
+   variant). Exactness is checked via item 02's `canonicalSpec`; inexact
+   matches get an "approximated as …" badge, unmatched members are excluded
+   with an explicit pointer to item 05. Deferred elements blocked on items
+   04/05 (exact-set matchups, custom-set matchup evaluation, defensive-item
+   fidelity) and the unblocked-but-unanswerable metagame baseline column are
+   tabled in the spec's "Deferred elements" section.
+6. **Showdown paste parsing is hand-rolled for the browser** but tested for
+   field-level parity against the vendored `Teams.import()` in Node, keeping
+   the vendored parser as the semantics oracle without shipping it.
