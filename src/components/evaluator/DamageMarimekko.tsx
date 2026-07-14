@@ -29,7 +29,7 @@ export default function DamageMarimekko({ sets }: { dex: EvaluatorDex; sets: Par
   }
   return (
     <div>
-      <Marimekko data={ds.viz} />
+      <Marimekko data={ds.viz} segmentLabels="name" />
       {ds.flagged.length > 0 && (
         <p className="footer-note">
           Undercounted (base power depends on battle state): {ds.flagged.join(', ')}.
