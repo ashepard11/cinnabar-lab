@@ -29,7 +29,7 @@ export default function DamageMarimekko({ sets }: { dex: EvaluatorDex; sets: Par
   }
   return (
     <div title="Average roll of one clean hit into a neutral 100 HP / 80 / 80 target, ×1.5 for spread moves, under the attacker's auto-set weather, unweighted. Shares sum to 100%.">
-      <Marimekko data={ds.viz} />
+      <Marimekko data={ds.viz} segmentLabels="name" />
       {ds.flagged.length > 0 && (
         <p className="footer-note">
           Undercounted (base power depends on battle state): {ds.flagged.join(', ')}.
