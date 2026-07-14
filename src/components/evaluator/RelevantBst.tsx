@@ -15,7 +15,6 @@ export default function RelevantBst({ dex, sets }: { dex: EvaluatorDex; sets: Pa
         <div className="condition-card">
           <div className="condition-name">team average{report.hasTrickRoomSetter ? ' (with Speed)' : ''}</div>
           <div className="condition-value">{Math.round(report.averageWithSpeed)}</div>
-          <div className="condition-ci">mean of member sums over HP + used offenses + Def + SpD + Spe</div>
         </div>
         {report.hasTrickRoomSetter && (
           <div className="condition-card">

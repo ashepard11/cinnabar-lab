@@ -617,3 +617,36 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    example team through all six sections, URL round-trip, zero console
    errors. `evaluator-dex.json` regenerates in the weekly refresh-data
    workflow; `npm run test-evaluator` (158 checks) runs in `npm test` and CI.
+
+### D38: Team evaluator presentation pass (user feedback, 2026-07-13)
+
+Feedback pass on `/team-evaluator`: aggregate-first visuals, consolidated
+board control, copy stripped of metacommentary. Underlying evaluation logic
+(`lib/evaluator/*`) unchanged — all regrouping happens in the view layer.
+
+1. **Team-level type relationship (defensive summary):** for each attacking
+   type, compare members taking super-effective damage (`weak`) against
+   members resisting or immune (`resist + immune`), using ability-modified
+   multipliers. Net weak → team weakness; net resist → resistance, shown as
+   an immunity when at least one member is outright immune (an immune
+   switch-in is the tactically relevant fact in VGC); balanced → neutral.
+   The rule is deliberately count-based and symmetric; the per-Pokémon grid
+   remains available behind a disclosure for anyone who wants the exact
+   distribution.
+2. **Offensive coverage buckets:** the offensive grid is replaced by one row
+   per defending type with categorical member counts — super-effective
+   (best ≥ ×2), neutral at best (×1), resisted or immune (< ×1, including
+   members with no damaging moves). Still measured against a single-typed
+   defender via each member's best damaging move; rows sort hardest-to-hit
+   first. Per-member detail (who, with which move) lives in the row hover.
+3. **Board control consolidates to 5 display rows** (speed control = speed +
+   priority; field effects = weather + terrain; option control = targeting +
+   option denial; defensive tools = mitigation + healing + pivoting;
+   protects = Protect-class). The 10-category lib inventory and its D36
+   single-listing rules are unchanged — regrouping is view-layer only, with
+   one exception applied at display time: Wide/Quick Guard (option control,
+   `guards` sub-group) render under Protects per the user's bucket list.
+   Each row shows the count of members with at least one *usable* tool
+   (members whose only tools are dimmed field-dependent ones are listed but
+   not counted) and a compact per-member tool list; annotations move to
+   hover, members with > 4 tools in a row collapse to "+N more".

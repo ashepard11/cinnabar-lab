@@ -66,7 +66,16 @@ function CellTooltip({cell}: {cell: Viz1Cell}) {
   );
 }
 
-export default function Marimekko({data}: {data: Viz1Data}) {
+/** Estimated render width of an 11px label, for fit checks before placing it. */
+function fits(text: string, w: number, h: number): boolean {
+  return text.length * 6.3 + 12 <= w && h >= 16;
+}
+
+export default function Marimekko({data, segmentLabels = 'share'}: {
+  data: Viz1Data;
+  /** In-box label: the column's share % (default) or each cell's "Type — Category". */
+  segmentLabels?: 'share' | 'name';
+}) {
   const cols = useMemo(() => layout(data), [data]);
   const {tip, show, hide} = useTooltip();
 
@@ -101,7 +110,18 @@ export default function Marimekko({data}: {data: Viz1Data}) {
                   />
                 );
               })}
-              {showLabel && (() => {
+              {showLabel && (
+                <text
+                  x={col.x + col.width / 2}
+                  y={HEIGHT + 16}
+                  textAnchor="middle"
+                  fontSize={11.5}
+                  fill="#5a6172"
+                >
+                  {col.type}
+                </text>
+              )}
+              {segmentLabels === 'share' && showLabel && (() => {
                 // Put the % label in the taller of the two cells so it never
                 // straddles the boundary or sits on the wrong background.
                 const physTaller = col.physHeight >= HEIGHT - col.physHeight;
@@ -110,30 +130,42 @@ export default function Marimekko({data}: {data: Viz1Data}) {
                   ? col.physHeight / 2 + 4
                   : col.physHeight + (HEIGHT - col.physHeight) / 2 + 4;
                 return (
-                  <>
-                    <text
-                      x={col.x + col.width / 2}
-                      y={HEIGHT + 16}
-                      textAnchor="middle"
-                      fontSize={11.5}
-                      fill="#5a6172"
-                    >
-                      {col.type}
-                    </text>
-                    <text
-                      x={col.x + col.width / 2}
-                      y={labelY}
-                      textAnchor="middle"
-                      fontSize={11}
-                      fontWeight={600}
-                      fill={textOn(cellColor(col.type, labelCat))}
-                      pointerEvents="none"
-                    >
-                      {pct(col.totalShare, 0)}
-                    </text>
-                  </>
+                  <text
+                    x={col.x + col.width / 2}
+                    y={labelY}
+                    textAnchor="middle"
+                    fontSize={11}
+                    fontWeight={600}
+                    fill={textOn(cellColor(col.type, labelCat))}
+                    pointerEvents="none"
+                  >
+                    {pct(col.totalShare, 0)}
+                  </text>
                 );
               })()}
+              {segmentLabels === 'name' && cells.map(({cell, y, h}) => {
+                // Label each box with its identity; the share lives in the
+                // tooltip. Fall back to the category alone in narrow columns,
+                // and to nothing when even that would clip.
+                const full = `${cell.type} — ${cell.category}`;
+                const label = fits(full, col.width, h) ? full
+                  : fits(cell.category, col.width, h) ? cell.category : null;
+                if (!label) return null;
+                return (
+                  <text
+                    key={`label-${cell.category}`}
+                    x={col.x + col.width / 2}
+                    y={y + h / 2 + 4}
+                    textAnchor="middle"
+                    fontSize={11}
+                    fontWeight={600}
+                    fill={textOn(cellColor(cell.type, cell.category))}
+                    pointerEvents="none"
+                  >
+                    {label}
+                  </text>
+                );
+              })}
             </g>
           );
         })}
