@@ -290,6 +290,22 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .tm-reveal:hover { color: var(--accent); }
 
 .tm-toggle select { font-size: 12px; padding: 1px 4px; }
+
+/* Offensive coverage rows (damage sources section) */
+.cov-subhead { font-size: 14.5px; margin: 22px 0 4px; }
+.cov { max-width: 720px; }
+.cov-legend { display: flex; gap: 16px; margin-bottom: 8px; font-size: 12px; color: var(--ink-secondary); }
+.cov-key { display: inline-flex; align-items: center; gap: 5px; }
+.cov-swatch { width: 10px; height: 10px; border-radius: 3px; }
+.cov-row {
+  display: grid; grid-template-columns: 84px 200px 1fr; gap: 12px; align-items: center;
+  padding: 2px 4px; border-radius: 4px; cursor: default;
+}
+.cov-row:hover, .cov-row:focus-visible { background: var(--surface-raised); outline: none; }
+.cov-type { text-align: center; }
+.cov-bar { display: flex; gap: 2px; height: 16px; }
+.cov-seg { border-radius: 4px; min-width: 14px; flex-basis: 0; }
+.cov-counts { font-size: 12px; color: var(--ink-secondary); white-space: nowrap; }
 .tm-table { border-collapse: collapse; font-size: 11.5px; }
 .tm-table th { font-weight: 550; }
 .tm-member { padding: 3px 6px; font-size: 11px; color: var(--ink-secondary); max-width: 86px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
