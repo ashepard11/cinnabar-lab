@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TYPE_COLORS } from '../../lib';
-import { defensiveMatrix, offensiveMatrix, bucketOf } from '../../../lib/evaluator/typechart';
+import { defensiveMatrix, bucketOf } from '../../../lib/evaluator/typechart';
 import type { DefensiveCell, DefensiveMatrix } from '../../../lib/evaluator/typechart';
 import type { EvaluatorDex } from '../../../lib/evaluator/dex';
 import type { ParsedSet } from '../../../lib/evaluator/parse';
@@ -149,50 +149,14 @@ function DefenseGrid({ def, sets }: { def: DefensiveMatrix; sets: ParsedSet[] })
 export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: ParsedSet[] }) {
   const [showGrid, setShowGrid] = useState(false);
   const def = defensiveMatrix(dex, sets);
-  const off = offensiveMatrix(dex, sets);
 
   return (
     <div className="typematrix">
-      <h3>Defensive — damage taken from each attacking type</h3>
       <DefenseSummary def={def} sets={sets} />
       <button className="tm-reveal" onClick={() => setShowGrid(!showGrid)} aria-expanded={showGrid}>
         {showGrid ? '▾' : '▸'} Per-Pokémon breakdown
       </button>
       {showGrid && <DefenseGrid def={def} sets={sets} />}
-
-      <h3>Offensive — best hit into each defending type</h3>
-      <p className="footer-note" style={{ marginTop: 0 }}>
-        Best effectiveness of each Pokémon's damaging moves against a single-typed defender.
-      </p>
-      <table className="tm-table">
-        <thead>
-          <tr>
-            <th />
-            {sets.map((s, i) => <th key={i} className="tm-member">{setLabel(s)}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {off.types.map((t, ti) => (
-            <tr key={t}>
-              <th className="tm-type" style={{ background: TYPE_COLORS[t] }}>{t}</th>
-              {off.cells[ti].map((cell, si) => (
-                cell.best === null
-                  ? <td key={si} className="tm-cell tm-none" title="no damaging moves">—</td>
-                  : (
-                    <td
-                      key={si}
-                      className={`tm-cell ${bucketClass(cell.best)}`}
-                      title={`${cell.bestMove} ×${cell.best}${cell.scrappy ? ' (Scrappy)' : ''}`}
-                    >
-                      {BUCKET_LABEL[bucketOf(cell.best)] ?? `×${cell.best}`}
-                      {cell.scrappy && <span className="tm-dot" aria-label="Scrappy" />}
-                    </td>
-                  )
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 }

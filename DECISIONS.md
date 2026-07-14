@@ -633,6 +633,12 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    The rule is deliberately count-based and symmetric; the per-Pokémon grid
    remains available behind a disclosure for anyone who wants the exact
    distribution.
+2. **Offensive coverage buckets:** the offensive grid is replaced by one row
+   per defending type with categorical member counts — super-effective
+   (best ≥ ×2), neutral at best (×1), resisted or immune (< ×1, including
+   members with no damaging moves). Still measured against a single-typed
+   defender via each member's best damaging move; rows sort hardest-to-hit
+   first. Per-member detail (who, with which move) lives in the row hover.
 
 ### D39: Regulation-driven format rules and SP budget validation (BACKLOG items 09 + 10, SPEC-teambuilder.md Phase 0, 2026-09-13)
 1. **Two halves, split on browser-safety.** `lib/format-rules.ts` is

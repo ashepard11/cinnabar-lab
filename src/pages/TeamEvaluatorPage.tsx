@@ -7,6 +7,7 @@ import TypeMatrix from '../components/evaluator/TypeMatrix';
 import WorstMatchups from '../components/evaluator/WorstMatchups';
 import BoardControlTable from '../components/evaluator/BoardControlTable';
 import DamageMarimekko from '../components/evaluator/DamageMarimekko';
+import OffensiveCoverage from '../components/evaluator/OffensiveCoverage';
 import RngExposure from '../components/evaluator/RngExposure';
 import RelevantBst from '../components/evaluator/RelevantBst';
 import {
@@ -143,7 +144,7 @@ export default function TeamEvaluatorPage() {
           <WorstMatchups sets={sets} />
         </EvalSection>
         <EvalSection
-          title="Type matchups"
+          title="Defensive type matchups"
           subtitle="Multipliers account for each Pokémon's ability (dot-marked cells; hover for the unmodified value); items are not."
         >
           <TypeMatrix dex={dex} sets={sets} />
@@ -153,6 +154,11 @@ export default function TeamEvaluatorPage() {
           subtitle="Average damage of one clean hit from each move into a neutral bulky target, spread moves ×1.5."
         >
           <DamageMarimekko dex={dex} sets={sets} />
+          <h3 className="cov-subhead">Coverage — best hit into each defending type</h3>
+          <p className="footer-note" style={{ margin: '0 0 10px' }}>
+            Each Pokémon's best damaging move against a single-typed defender, hardest-to-hit types first. Hover a row for the Pokémon in each category.
+          </p>
+          <OffensiveCoverage dex={dex} sets={sets} />
         </EvalSection>
         <EvalSection
           title="Board control"
