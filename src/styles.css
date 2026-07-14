@@ -327,21 +327,23 @@ h1 { font-size: 22px; font-weight: 650; margin: 0 0 6px; }
 .tm-summary-head { font-size: 10.5px; color: var(--ink-muted); }
 
 /* --- team evaluator: board control ---------------------------------------- */
-.bc-scroll { overflow-x: auto; }
-.bc-table { border-collapse: collapse; font-size: 12px; width: 100%; }
-.bc-table th, .bc-table td { border: 1px solid var(--border); vertical-align: top; }
-.bc-category { padding: 6px 10px; text-align: left; font-weight: 600; white-space: nowrap; background: var(--surface-raised); cursor: help; }
-.bc-cell { padding: 5px 8px; min-width: 110px; }
-.bc-empty { color: var(--ink-muted); text-align: center; }
-.bc-noprotect { color: #b3423a; font-weight: 600; font-size: 11px; }
-.bc-group { margin-bottom: 3px; }
-.bc-subgroup { color: var(--ink-muted); font-size: 10.5px; }
-.bc-tag { display: inline-block; margin: 1px 4px 1px 0; padding: 1px 6px; border-radius: 4px; background: var(--surface-raised); border: 1px solid var(--border); font-size: 11.5px; }
-.bc-ability { border-style: dashed; }
-.bc-item { background: #f4ecd9; }
-.bc-typing { background: none; font-style: italic; }
 .bc-dimmed { opacity: 0.45; }
-.bc-annotation { color: var(--ink-muted); font-size: 10px; }
+.bcx { border-top: 1px solid var(--border); }
+.bcx-row {
+  display: grid; grid-template-columns: 130px 52px 1fr; gap: 14px;
+  padding: 9px 4px; border-bottom: 1px solid var(--border); align-items: baseline;
+}
+.bcx-label { font-weight: 600; font-size: 13px; cursor: help; }
+.bcx-count { font-size: 17px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.bcx-of { font-size: 12px; font-weight: 400; color: var(--ink-muted); }
+.bcx-detail { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 12.5px; }
+.bcx-member { white-space: nowrap; }
+.bcx-name { color: var(--ink-secondary); font-weight: 600; }
+.bcx-tool[title] { text-decoration: underline dotted var(--ink-muted); text-underline-offset: 2px; cursor: help; }
+.bcx-typing { font-style: italic; }
+.bcx-more { color: var(--ink-muted); cursor: help; }
+.bcx-none { color: var(--ink-muted); }
+.bcx-missing { color: #b3423a; font-size: 12px; }
 
 /* --- team evaluator: RNG exposure ----------------------------------------- */
 .rng-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
