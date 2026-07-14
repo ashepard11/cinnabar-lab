@@ -63,12 +63,6 @@ export default function BoardControlTable({ dex, sets }: { dex: EvaluatorDex; se
           ))}
         </tbody>
       </table>
-      <p className="footer-note">
-        Rules run over move metadata; abilities and items come from curated,
-        dex-validated tables. Dimmed entries need a field state (sun, terrain,
-        …) no team member provides. Empty rows are findings too — an empty
-        Speed control row means the team has none.
-      </p>
     </div>
   );
 }

@@ -99,9 +99,8 @@ export default function WorstMatchups({ sets }: { sets: ParsedSet[] }) {
     <div>
       {unmatched.length > 0 && (
         <p className="match-note error-note" style={{ padding: '8px 0' }}>
-          Not in the metagame variant set: {unmatched.map((m) => setLabel(m.set)).join(', ')} —
-          matchup analysis for custom sets needs on-demand simulation (backlog
-          item 05); excluded here.
+          No matchup data for {unmatched.map((m) => setLabel(m.set)).join(', ')} — excluded
+          from this section.
         </p>
       )}
       {approximated.length > 0 && (
@@ -127,6 +126,9 @@ export default function WorstMatchups({ sets }: { sets: ParsedSet[] }) {
           </div>
 
           <h3 className="wm-subhead">Condition sensitivity</h3>
+          <p className="footer-note" style={{ margin: '0 0 6px' }}>
+            The team's average win rate when each condition is up at the start of a 1v1.
+          </p>
           <ConditionSensitivity db={db} core={core} weights={weights} />
 
           <h3 className="wm-subhead">Weakest matchups</h3>

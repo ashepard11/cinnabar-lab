@@ -70,13 +70,10 @@ export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: Par
           ))}
         </tbody>
       </table>
-      <p className="footer-note">
-        Effective multipliers fold in each set's pasted ability (dot-marked
-        cells; hover for the raw value). Item effects (Air Balloon), ability
-        suppression, and type-changing mechanics are out of scope.
-      </p>
-
       <h3>Offensive — best hit into each defending type</h3>
+      <p className="footer-note" style={{ marginTop: 0 }}>
+        Best effectiveness of each Pokémon's damaging moves against a single-typed defender.
+      </p>
       <table className="tm-table">
         <thead>
           <tr>
@@ -106,12 +103,6 @@ export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: Par
           ))}
         </tbody>
       </table>
-      <p className="footer-note">
-        Per-type reach of each set's damaging moves against a single-typed
-        defender — real defenders are dual-typed; field coverage is what the
-        matchup section measures. Scrappy is the only attacker-side ability
-        modeled.
-      </p>
     </div>
   );
 }
