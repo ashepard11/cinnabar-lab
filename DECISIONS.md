@@ -617,3 +617,19 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    example team through all six sections, URL round-trip, zero console
    errors. `evaluator-dex.json` regenerates in the weekly refresh-data
    workflow; `npm run test-evaluator` (158 checks) runs in `npm test` and CI.
+
+### D38: Team evaluator presentation pass (user feedback, 2026-07-13)
+
+Feedback pass on `/team-evaluator`: aggregate-first visuals, consolidated
+board control, copy stripped of metacommentary. Underlying evaluation logic
+(`lib/evaluator/*`) unchanged — all regrouping happens in the view layer.
+
+1. **Team-level type relationship (defensive summary):** for each attacking
+   type, compare members taking super-effective damage (`weak`) against
+   members resisting or immune (`resist + immune`), using ability-modified
+   multipliers. Net weak → team weakness; net resist → resistance, shown as
+   an immunity when at least one member is outright immune (an immune
+   switch-in is the tactically relevant fact in VGC); balanced → neutral.
+   The rule is deliberately count-based and symmetric; the per-Pokémon grid
+   remains available behind a disclosure for anyone who wants the exact
+   distribution.
