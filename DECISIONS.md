@@ -639,3 +639,14 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    members with no damaging moves). Still measured against a single-typed
    defender via each member's best damaging move; rows sort hardest-to-hit
    first. Per-member detail (who, with which move) lives in the row hover.
+3. **Board control consolidates to 5 display rows** (speed control = speed +
+   priority; field effects = weather + terrain; option control = targeting +
+   option denial; defensive tools = mitigation + healing + pivoting;
+   protects = Protect-class). The 10-category lib inventory and its D36
+   single-listing rules are unchanged — regrouping is view-layer only, with
+   one exception applied at display time: Wide/Quick Guard (option control,
+   `guards` sub-group) render under Protects per the user's bucket list.
+   Each row shows the count of members with at least one *usable* tool
+   (members whose only tools are dimmed field-dependent ones are listed but
+   not counted) and a compact per-member tool list; annotations move to
+   hover, members with > 4 tools in a row collapse to "+N more".
