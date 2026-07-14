@@ -32,8 +32,7 @@ export default function DamageMarimekko({ sets }: { dex: EvaluatorDex; sets: Par
       <Marimekko data={ds.viz} />
       {ds.flagged.length > 0 && (
         <p className="footer-note">
-          Undercounted (base power depends on battle state the model fixes at
-          zero): {ds.flagged.join(', ')}.
+          Undercounted (base power depends on battle state): {ds.flagged.join(', ')}.
         </p>
       )}
       {ds.skipped.length > 0 && (

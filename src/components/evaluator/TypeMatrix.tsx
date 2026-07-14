@@ -30,12 +30,9 @@ export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: Par
   const off = offensiveMatrix(dex, sets);
 
   return (
-    <div className="typematrix side-by-side">
-      <div className="tm-half">
-      <h3
-        title="Effective multipliers fold in each set's ability (dot-marked cells; hover for the raw value). Item effects, ability suppression and type-changing mechanics are out of scope."
-      >
-        Defensive
+    <div className="typematrix">
+      <h3>
+        Defensive — damage taken from each attacking type
         <label className="tm-toggle">
           <select value={view} onChange={(e) => setView(e.target.value as 'effective' | 'raw')}>
             <option value="effective">ability-modified</option>
@@ -73,12 +70,10 @@ export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: Par
           ))}
         </tbody>
       </table>
-      </div>
-
-      <div className="tm-half">
-      <h3 title="Per-type reach of each set's damaging moves against a single-typed defender. Real defenders are dual-typed; field coverage is what the matchup section measures. Scrappy is the only attacker-side ability modelled.">
-        Offensive
-      </h3>
+      <h3>Offensive — best hit into each defending type</h3>
+      <p className="footer-note" style={{ marginTop: 0 }}>
+        Best effectiveness of each Pokémon's damaging moves against a single-typed defender.
+      </p>
       <table className="tm-table">
         <thead>
           <tr>
@@ -108,7 +103,6 @@ export default function TypeMatrix({ dex, sets }: { dex: EvaluatorDex; sets: Par
           ))}
         </tbody>
       </table>
-      </div>
     </div>
   );
 }

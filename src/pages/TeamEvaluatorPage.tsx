@@ -136,42 +136,36 @@ export default function TeamEvaluatorPage() {
     if (!hasTeam || !dex) return null;
     return (
       <>
-        {/* Section order per spec Phase 8: worst matchups · type matchups ·
-            damage sources · board control · RNG exposure · relevant BST.
-            Earlier sections land as their phases complete. */}
         <EvalSection
           title="Worst matchups"
-          subtitle="The team's hardest 1v1 opponents from the simulated matchup matrix, ranked by usage-weighted best answer then backup answer — same logic as the team builder. Pasted sets map to their nearest known variant until custom-set simulation lands (backlog item 05)."
+          subtitle="The opponents this team has the fewest good answers to, weighted by how common each opponent is."
         >
           <WorstMatchups sets={sets} />
         </EvalSection>
         <EvalSection
           title="Type matchups"
-          subtitle="Two views: what each attacking type does to the team, and the best hit the team has into each defending type."
+          subtitle="Multipliers account for each Pokémon's ability (dot-marked cells; hover for the unmodified value); items are not."
         >
           <TypeMatrix dex={dex} sets={sets} />
         </EvalSection>
         <EvalSection
           title="Damage sources"
-          subtitle="Where this team's damage output comes from, by attack type and physical/special split — the metagame damage-sources view, computed live for your six."
+          subtitle="Average damage of one clean hit from each move into a neutral bulky target, spread moves ×1.5."
         >
           <DamageMarimekko dex={dex} sets={sets} />
         </EvalSection>
         <EvalSection
           title="Board control"
-          subtitle="What the team can do to the flow of the game: 10 categories of tempo, field, and option control. Cells show what each member contributes."
+          subtitle="Dimmed tools need a field state (sun, terrain, …) that no team member provides."
         >
           <BoardControlTable dex={dex} sets={sets} />
         </EvalSection>
-        <EvalSection
-          title="RNG exposure"
-          subtitle="Variance the team can exploit vs. variance it has to survive, itemized with per-use probabilities."
-        >
+        <EvalSection title="RNG exposure">
           <RngExposure dex={dex} sets={sets} />
         </EvalSection>
         <EvalSection
           title="Relevant BST"
-          subtitle="Base-stat totals excluding stats each set demonstrably doesn't use (unused attack stats, utility-attack-only categories), averaged across the team."
+          subtitle="Base-stat totals excluding stats each set demonstrably doesn't use (struck through)."
         >
           <RelevantBst dex={dex} sets={sets} />
         </EvalSection>
@@ -186,9 +180,7 @@ export default function TeamEvaluatorPage() {
     <div>
       <h1>Team evaluator</h1>
       <p className="subtitle">
-        Paste a team (Showdown export format) or build one manually. Every
-        section below is a static read of the team sheet — matchup analysis
-        uses the simulated 1v1 matrix.
+        Paste a team (Showdown export format) or build one manually.
       </p>
 
       <div className="team-roster-sticky">
