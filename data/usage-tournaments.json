@@ -1,10 +1,121 @@
 {
-  "scraped_at": "2026-07-27T09:54:08.158Z",
+  "scraped_at": "2026-08-03T09:47:37.984Z",
   "format": "battledataregmbs3",
   "pokemon": [
     {
+      "name": "Kingambit",
+      "usage": 0.3381402417492159,
+      "moves": [
+        {
+          "name": "Sucker Punch",
+          "usage": 0.995
+        },
+        {
+          "name": "Kowtow Cleave",
+          "usage": 0.9790000000000001
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.735
+        },
+        {
+          "name": "Protect",
+          "usage": 0.6859999999999999
+        },
+        {
+          "name": "Low Kick",
+          "usage": 0.43700000000000006
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.15
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.011000000000000001
+        },
+        {
+          "name": "Quick Guard",
+          "usage": 0.002
+        },
+        {
+          "name": "Low Sweep",
+          "usage": 0.001
+        },
+        {
+          "name": "Assurance",
+          "usage": 0.001
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Defiant",
+          "usage": 0.961
+        },
+        {
+          "name": "Supreme Overlord",
+          "usage": 0.039
+        }
+      ],
+      "items": [
+        {
+          "name": "Chople Berry",
+          "usage": 0.429
+        },
+        {
+          "name": "Black Glasses",
+          "usage": 0.318
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.128
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.057
+        },
+        {
+          "name": "Occa Berry",
+          "usage": 0.048
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.004
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "Muscle Band",
+          "usage": 0.003
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.003
+        },
+        {
+          "name": "Shuca Berry",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Defiant",
+        "item": "Chople Berry",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 32,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 2,
+          "spe": 0
+        }
+      }
+    },
+    {
       "name": "Garchomp",
-      "usage": 0.3874322125494204,
+      "usage": 0.3354093806647711,
       "moves": [
         {
           "name": "Dragon Claw",
@@ -114,8 +225,214 @@
       }
     },
     {
+      "name": "Incineroar",
+      "usage": 0.3233402302398397,
+      "moves": [
+        {
+          "name": "Fake Out",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Parting Shot",
+          "usage": 0.968
+        },
+        {
+          "name": "Flare Blitz",
+          "usage": 0.9259999999999999
+        },
+        {
+          "name": "Throat Chop",
+          "usage": 0.537
+        },
+        {
+          "name": "Darkest Lariat",
+          "usage": 0.294
+        },
+        {
+          "name": "Protect",
+          "usage": 0.095
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.035
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.034
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.032
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.024
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Intimidate",
+          "usage": 0.998
+        },
+        {
+          "name": "Blaze",
+          "usage": 0.002
+        }
+      ],
+      "items": [
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.598
+        },
+        {
+          "name": "Chople Berry",
+          "usage": 0.15
+        },
+        {
+          "name": "Passho Berry",
+          "usage": 0.12
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.04
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Shuca Berry",
+          "usage": 0.026000000000000002
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.01
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.005
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Intimidate",
+        "item": "Sitrus Berry",
+        "nature": "Careful",
+        "sps": {
+          "hp": 32,
+          "atk": 0,
+          "def": 14,
+          "spa": 0,
+          "spd": 20,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Charizard",
+      "usage": 0.29879386968770355,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.9840000000000001
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.9540000000000001
+        },
+        {
+          "name": "Solar Beam",
+          "usage": 0.922
+        },
+        {
+          "name": "Weather Ball",
+          "usage": 0.8390000000000001
+        },
+        {
+          "name": "Air Slash",
+          "usage": 0.06
+        },
+        {
+          "name": "Dragon Dance",
+          "usage": 0.042
+        },
+        {
+          "name": "Flare Blitz",
+          "usage": 0.034
+        },
+        {
+          "name": "Dragon Claw",
+          "usage": 0.032
+        },
+        {
+          "name": "Ancient Power",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Overheat",
+          "usage": 0.022000000000000002
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Blaze",
+          "usage": 0.805
+        },
+        {
+          "name": "Solar Power",
+          "usage": 0.195
+        }
+      ],
+      "items": [
+        {
+          "name": "Charizardite Y",
+          "usage": 0.9540000000000001
+        },
+        {
+          "name": "Charizardite X",
+          "usage": 0.039
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.002
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.001
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0
+        }
+      ],
+      "modal_set": {
+        "ability": "Blaze",
+        "item": "Charizardite Y",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Basculegion",
-      "usage": 0.3519555045882361,
+      "usage": 0.2702924689443025,
       "moves": [
         {
           "name": "Last Respects",
@@ -229,230 +546,8 @@
       }
     },
     {
-      "name": "Kingambit",
-      "usage": 0.3362869784516557,
-      "moves": [
-        {
-          "name": "Sucker Punch",
-          "usage": 0.995
-        },
-        {
-          "name": "Kowtow Cleave",
-          "usage": 0.9790000000000001
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.735
-        },
-        {
-          "name": "Protect",
-          "usage": 0.6859999999999999
-        },
-        {
-          "name": "Low Kick",
-          "usage": 0.43700000000000006
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.15
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.011000000000000001
-        },
-        {
-          "name": "Quick Guard",
-          "usage": 0.002
-        },
-        {
-          "name": "Low Sweep",
-          "usage": 0.001
-        },
-        {
-          "name": "Assurance",
-          "usage": 0.001
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Defiant",
-          "usage": 0.961
-        },
-        {
-          "name": "Supreme Overlord",
-          "usage": 0.039
-        }
-      ],
-      "items": [
-        {
-          "name": "Chople Berry",
-          "usage": 0.429
-        },
-        {
-          "name": "Black Glasses",
-          "usage": 0.318
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.128
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.057
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.048
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.004
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.003
-        },
-        {
-          "name": "Muscle Band",
-          "usage": 0.003
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.003
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Defiant",
-        "item": "Chople Berry",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 32,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 2,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Incineroar",
-      "usage": 0.3305790572982036,
-      "moves": [
-        {
-          "name": "Fake Out",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Parting Shot",
-          "usage": 0.968
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.9259999999999999
-        },
-        {
-          "name": "Throat Chop",
-          "usage": 0.537
-        },
-        {
-          "name": "Darkest Lariat",
-          "usage": 0.294
-        },
-        {
-          "name": "Protect",
-          "usage": 0.095
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.035
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.034
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.032
-        },
-        {
-          "name": "Snarl",
-          "usage": 0.024
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "usage": 0.998
-        },
-        {
-          "name": "Blaze",
-          "usage": 0.002
-        }
-      ],
-      "items": [
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.598
-        },
-        {
-          "name": "Chople Berry",
-          "usage": 0.15
-        },
-        {
-          "name": "Passho Berry",
-          "usage": 0.12
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.04
-        },
-        {
-          "name": "Charcoal",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.01
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.005
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Intimidate",
-        "item": "Sitrus Berry",
-        "nature": "Careful",
-        "sps": {
-          "hp": 32,
-          "atk": 0,
-          "def": 14,
-          "spa": 0,
-          "spd": 20,
-          "spe": 0
-        }
-      }
-    },
-    {
       "name": "Sinistcha",
-      "usage": 0.31006444958827145,
+      "usage": 0.2678754999385295,
       "moves": [
         {
           "name": "Rage Powder",
@@ -562,103 +657,8 @@
       }
     },
     {
-      "name": "Charizard",
-      "usage": 0.26965688894749607,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.9840000000000001
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.922
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.8390000000000001
-        },
-        {
-          "name": "Air Slash",
-          "usage": 0.06
-        },
-        {
-          "name": "Dragon Dance",
-          "usage": 0.042
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.034
-        },
-        {
-          "name": "Dragon Claw",
-          "usage": 0.032
-        },
-        {
-          "name": "Ancient Power",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Overheat",
-          "usage": 0.022000000000000002
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Blaze",
-          "usage": 0.805
-        },
-        {
-          "name": "Solar Power",
-          "usage": 0.195
-        }
-      ],
-      "items": [
-        {
-          "name": "Charizardite Y",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Charizardite X",
-          "usage": 0.039
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.002
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.001
-        },
-        {
-          "name": "Charcoal",
-          "usage": 0
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0
-        }
-      ],
-      "modal_set": {
-        "ability": "Blaze",
-        "item": "Charizardite Y",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Sneasler",
-      "usage": 0.25557075679405095,
+      "usage": 0.2098996330078447,
       "moves": [
         {
           "name": "Close Combat",
@@ -773,7 +773,7 @@
     },
     {
       "name": "Whimsicott",
-      "usage": 0.2529852380537496,
+      "usage": 0.2038729050973458,
       "moves": [
         {
           "name": "Tailwind",
@@ -887,95 +887,8 @@
       }
     },
     {
-      "name": "Floette-Eternal",
-      "usage": 0.23108603560857413,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.998
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.971
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.79
-        },
-        {
-          "name": "Light of Ruin",
-          "usage": 0.58
-        },
-        {
-          "name": "Calm Mind",
-          "usage": 0.42700000000000005
-        },
-        {
-          "name": "Draining Kiss",
-          "usage": 0.193
-        },
-        {
-          "name": "Psychic",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "Grass Knot",
-          "usage": 0.003
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.003
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.002
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Flower Veil",
-          "usage": 0.9890000000000001
-        },
-        {
-          "name": "Symbiosis",
-          "usage": 0.011000000000000001
-        }
-      ],
-      "items": [
-        {
-          "name": "Floettite",
-          "usage": 0.9940000000000001
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.004
-        },
-        {
-          "name": "Fairy Feather",
-          "usage": 0.001
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Flower Veil",
-        "item": "Floettite",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Farigiraf",
-      "usage": 0.1791354760015353,
+      "usage": 0.19701436317836657,
       "moves": [
         {
           "name": "Trick Room",
@@ -1089,8 +1002,119 @@
       }
     },
     {
+      "name": "Sylveon",
+      "usage": 0.18048794523629533,
+      "moves": [
+        {
+          "name": "Hyper Voice",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Quick Attack",
+          "usage": 0.816
+        },
+        {
+          "name": "Hyper Beam",
+          "usage": 0.7120000000000001
+        },
+        {
+          "name": "Detect",
+          "usage": 0.611
+        },
+        {
+          "name": "Protect",
+          "usage": 0.35
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.131
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.105
+        },
+        {
+          "name": "Yawn",
+          "usage": 0.08900000000000001
+        },
+        {
+          "name": "Mystical Fire",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Shadow Ball",
+          "usage": 0.036000000000000004
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Pixilate",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Cute Charm",
+          "usage": 0.001
+        }
+      ],
+      "items": [
+        {
+          "name": "Fairy Feather",
+          "usage": 0.8959999999999999
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.051
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.015
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.015
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.012
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.006
+        },
+        {
+          "name": "Babiri Berry",
+          "usage": 0.005
+        },
+        {
+          "name": "Metronome",
+          "usage": 0.001
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0
+        },
+        {
+          "name": "Wise Glasses",
+          "usage": 0
+        }
+      ],
+      "modal_set": {
+        "ability": "Pixilate",
+        "item": "Fairy Feather",
+        "nature": "Modest",
+        "sps": {
+          "hp": 9,
+          "atk": 0,
+          "def": 22,
+          "spa": 30,
+          "spd": 0,
+          "spe": 5
+        }
+      }
+    },
+    {
       "name": "Archaludon",
-      "usage": 0.16472438794083918,
+      "usage": 0.16187414497105654,
       "moves": [
         {
           "name": "Electro Shot",
@@ -1204,8 +1228,119 @@
       }
     },
     {
+      "name": "Venusaur",
+      "usage": 0.14947540786351973,
+      "moves": [
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.9540000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.83
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.735
+        },
+        {
+          "name": "Giga Drain",
+          "usage": 0.573
+        },
+        {
+          "name": "Sleep Powder",
+          "usage": 0.46299999999999997
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.225
+        },
+        {
+          "name": "Leaf Storm",
+          "usage": 0.061
+        },
+        {
+          "name": "Leech Seed",
+          "usage": 0.039
+        },
+        {
+          "name": "Weather Ball",
+          "usage": 0.03
+        },
+        {
+          "name": "Solar Beam",
+          "usage": 0.027000000000000003
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Chlorophyll",
+          "usage": 0.986
+        },
+        {
+          "name": "Overgrow",
+          "usage": 0.013999999999999999
+        }
+      ],
+      "items": [
+        {
+          "name": "Venusaurite",
+          "usage": 0.473
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.187
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.1
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.096
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.024
+        },
+        {
+          "name": "Miracle Seed",
+          "usage": 0.024
+        },
+        {
+          "name": "Occa Berry",
+          "usage": 0.02
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.017
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.008
+        }
+      ],
+      "modal_set": {
+        "ability": "Chlorophyll",
+        "item": "Venusaurite",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Pelipper",
-      "usage": 0.1633539217233024,
+      "usage": 0.14807858811343014,
       "moves": [
         {
           "name": "Hurricane",
@@ -1315,119 +1450,8 @@
       }
     },
     {
-      "name": "Sylveon",
-      "usage": 0.16093794519547983,
-      "moves": [
-        {
-          "name": "Hyper Voice",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Quick Attack",
-          "usage": 0.816
-        },
-        {
-          "name": "Hyper Beam",
-          "usage": 0.7120000000000001
-        },
-        {
-          "name": "Detect",
-          "usage": 0.611
-        },
-        {
-          "name": "Protect",
-          "usage": 0.35
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.131
-        },
-        {
-          "name": "Calm Mind",
-          "usage": 0.105
-        },
-        {
-          "name": "Yawn",
-          "usage": 0.08900000000000001
-        },
-        {
-          "name": "Mystical Fire",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Shadow Ball",
-          "usage": 0.036000000000000004
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Pixilate",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Cute Charm",
-          "usage": 0.001
-        }
-      ],
-      "items": [
-        {
-          "name": "Fairy Feather",
-          "usage": 0.8959999999999999
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.051
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.015
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.015
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.012
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.006
-        },
-        {
-          "name": "Babiri Berry",
-          "usage": 0.005
-        },
-        {
-          "name": "Metronome",
-          "usage": 0.001
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0
-        },
-        {
-          "name": "Wise Glasses",
-          "usage": 0
-        }
-      ],
-      "modal_set": {
-        "ability": "Pixilate",
-        "item": "Fairy Feather",
-        "nature": "Modest",
-        "sps": {
-          "hp": 9,
-          "atk": 0,
-          "def": 22,
-          "spa": 30,
-          "spd": 0,
-          "spe": 5
-        }
-      }
-    },
-    {
       "name": "Aerodactyl",
-      "usage": 0.13453174560191017,
+      "usage": 0.14528494861325095,
       "moves": [
         {
           "name": "Rock Slide",
@@ -1541,107 +1565,87 @@
       }
     },
     {
-      "name": "Swampert",
-      "usage": 0.12331370254289771,
+      "name": "Floette-Eternal",
+      "usage": 0.13652735961830723,
       "moves": [
         {
           "name": "Protect",
-          "usage": 0.9420000000000001
+          "usage": 0.998
         },
         {
-          "name": "Wave Crash",
-          "usage": 0.882
+          "name": "Dazzling Gleam",
+          "usage": 0.971
         },
         {
-          "name": "Earthquake",
-          "usage": 0.662
+          "name": "Moonblast",
+          "usage": 0.79
         },
         {
-          "name": "Ice Punch",
-          "usage": 0.57
+          "name": "Light of Ruin",
+          "usage": 0.58
         },
         {
-          "name": "High Horsepower",
-          "usage": 0.37200000000000005
+          "name": "Calm Mind",
+          "usage": 0.42700000000000005
         },
         {
-          "name": "Rock Slide",
-          "usage": 0.122
+          "name": "Draining Kiss",
+          "usage": 0.193
         },
         {
-          "name": "Flip Turn",
-          "usage": 0.087
+          "name": "Psychic",
+          "usage": 0.026000000000000002
         },
         {
-          "name": "Liquidation",
-          "usage": 0.077
+          "name": "Grass Knot",
+          "usage": 0.003
         },
         {
-          "name": "Knock Off",
-          "usage": 0.07200000000000001
+          "name": "Giga Drain",
+          "usage": 0.003
         },
         {
-          "name": "Bulk Up",
-          "usage": 0.049
+          "name": "Energy Ball",
+          "usage": 0.002
         }
       ],
       "abilities": [
         {
-          "name": "Torrent",
-          "usage": 0.536
+          "name": "Flower Veil",
+          "usage": 0.9890000000000001
         },
         {
-          "name": "Damp",
-          "usage": 0.46399999999999997
+          "name": "Symbiosis",
+          "usage": 0.011000000000000001
         }
       ],
       "items": [
         {
-          "name": "Swampertite",
-          "usage": 0.985
+          "name": "Floettite",
+          "usage": 0.9940000000000001
         },
         {
           "name": "Life Orb",
-          "usage": 0.006999999999999999
+          "usage": 0.004
         },
         {
-          "name": "Rindo Berry",
-          "usage": 0.003
+          "name": "Fairy Feather",
+          "usage": 0.001
         },
         {
-          "name": "Sitrus Berry",
-          "usage": 0.002
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.002
-        },
-        {
-          "name": "Mystic Water",
-          "usage": 0
-        },
-        {
-          "name": "White Herb",
-          "usage": 0
-        },
-        {
-          "name": "Black Belt",
-          "usage": 0
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0
+          "name": "Choice Scarf",
+          "usage": 0.001
         }
       ],
       "modal_set": {
-        "ability": "Torrent",
-        "item": "Swampertite",
-        "nature": "Adamant",
+        "ability": "Flower Veil",
+        "item": "Floettite",
+        "nature": "Modest",
         "sps": {
           "hp": 2,
-          "atk": 32,
+          "atk": 0,
           "def": 0,
-          "spa": 0,
+          "spa": 32,
           "spd": 0,
           "spe": 32
         }
@@ -1649,7 +1653,7 @@
     },
     {
       "name": "Grimmsnarl",
-      "usage": 0.12262140517527603,
+      "usage": 0.12990423675833188,
       "moves": [
         {
           "name": "Light Screen",
@@ -1763,119 +1767,8 @@
       }
     },
     {
-      "name": "Metagross",
-      "usage": 0.10973619702688893,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.898
-        },
-        {
-          "name": "Psychic Fangs",
-          "usage": 0.867
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.5870000000000001
-        },
-        {
-          "name": "Bullet Punch",
-          "usage": 0.385
-        },
-        {
-          "name": "Stomping Tantrum",
-          "usage": 0.318
-        },
-        {
-          "name": "Meteor Mash",
-          "usage": 0.28800000000000003
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.23199999999999998
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.09
-        },
-        {
-          "name": "Body Press",
-          "usage": 0.08800000000000001
-        },
-        {
-          "name": "Thunder Punch",
-          "usage": 0.059000000000000004
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Clear Body",
-          "usage": 0.995
-        },
-        {
-          "name": "Light Metal",
-          "usage": 0.005
-        }
-      ],
-      "items": [
-        {
-          "name": "Metagrossite",
-          "usage": 0.945
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.023
-        },
-        {
-          "name": "Metal Coat",
-          "usage": 0.008
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.005
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.004
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.004
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.004
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.002
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.001
-        },
-        {
-          "name": "Shell Bell",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Clear Body",
-        "item": "Metagrossite",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Staraptor",
-      "usage": 0.09596089226298823,
+      "usage": 0.11202808287797184,
       "moves": [
         {
           "name": "Close Combat",
@@ -1973,8 +1866,115 @@
       }
     },
     {
+      "name": "Swampert",
+      "usage": 0.09961365116650144,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.9420000000000001
+        },
+        {
+          "name": "Wave Crash",
+          "usage": 0.882
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.662
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.57
+        },
+        {
+          "name": "High Horsepower",
+          "usage": 0.37200000000000005
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.122
+        },
+        {
+          "name": "Flip Turn",
+          "usage": 0.087
+        },
+        {
+          "name": "Liquidation",
+          "usage": 0.077
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.07200000000000001
+        },
+        {
+          "name": "Bulk Up",
+          "usage": 0.049
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Torrent",
+          "usage": 0.536
+        },
+        {
+          "name": "Damp",
+          "usage": 0.46399999999999997
+        }
+      ],
+      "items": [
+        {
+          "name": "Swampertite",
+          "usage": 0.985
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Rindo Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.002
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.002
+        },
+        {
+          "name": "Mystic Water",
+          "usage": 0
+        },
+        {
+          "name": "White Herb",
+          "usage": 0
+        },
+        {
+          "name": "Black Belt",
+          "usage": 0
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0
+        }
+      ],
+      "modal_set": {
+        "ability": "Torrent",
+        "item": "Swampertite",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Gholdengo",
-      "usage": 0.08787938013483315,
+      "usage": 0.09474832394708826,
       "moves": [
         {
           "name": "Make It Rain",
@@ -2080,230 +2080,8 @@
       }
     },
     {
-      "name": "Venusaur",
-      "usage": 0.0826800856188173,
-      "moves": [
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.83
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.735
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.573
-        },
-        {
-          "name": "Sleep Powder",
-          "usage": 0.46299999999999997
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.225
-        },
-        {
-          "name": "Leaf Storm",
-          "usage": 0.061
-        },
-        {
-          "name": "Leech Seed",
-          "usage": 0.039
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.03
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.027000000000000003
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Chlorophyll",
-          "usage": 0.986
-        },
-        {
-          "name": "Overgrow",
-          "usage": 0.013999999999999999
-        }
-      ],
-      "items": [
-        {
-          "name": "Venusaurite",
-          "usage": 0.473
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.187
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.1
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.096
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.024
-        },
-        {
-          "name": "Miracle Seed",
-          "usage": 0.024
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.02
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.017
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.008
-        }
-      ],
-      "modal_set": {
-        "ability": "Chlorophyll",
-        "item": "Venusaurite",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Raichu",
-      "usage": 0.07952942617025335,
-      "moves": [
-        {
-          "name": "Fake Out",
-          "usage": 0.716
-        },
-        {
-          "name": "Protect",
-          "usage": 0.664
-        },
-        {
-          "name": "Zap Cannon",
-          "usage": 0.604
-        },
-        {
-          "name": "Focus Blast",
-          "usage": 0.563
-        },
-        {
-          "name": "Volt Switch",
-          "usage": 0.303
-        },
-        {
-          "name": "Charm",
-          "usage": 0.14800000000000002
-        },
-        {
-          "name": "Encore",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Grass Knot",
-          "usage": 0.121
-        },
-        {
-          "name": "Volt Tackle",
-          "usage": 0.106
-        },
-        {
-          "name": "Nuzzle",
-          "usage": 0.10400000000000001
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Lightning Rod",
-          "usage": 0.983
-        },
-        {
-          "name": "Static",
-          "usage": 0.017
-        }
-      ],
-      "items": [
-        {
-          "name": "Raichunite Y",
-          "usage": 0.605
-        },
-        {
-          "name": "Raichunite X",
-          "usage": 0.182
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.147
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.038
-        },
-        {
-          "name": "Magnet",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.005
-        },
-        {
-          "name": "Light Clay",
-          "usage": 0.004
-        },
-        {
-          "name": "Focus Band",
-          "usage": 0.003
-        },
-        {
-          "name": "King's Rock",
-          "usage": 0.003
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Lightning Rod",
-        "item": "Raichunite Y",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Delphox",
-      "usage": 0.07498004346873947,
+      "usage": 0.08853326078938627,
       "moves": [
         {
           "name": "Protect",
@@ -2385,313 +2163,8 @@
       }
     },
     {
-      "name": "Froslass",
-      "usage": 0.07345416355643047,
-      "moves": [
-        {
-          "name": "Blizzard",
-          "usage": 0.9890000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.963
-        },
-        {
-          "name": "Shadow Ball",
-          "usage": 0.86
-        },
-        {
-          "name": "Aurora Veil",
-          "usage": 0.802
-        },
-        {
-          "name": "Rain Dance",
-          "usage": 0.106
-        },
-        {
-          "name": "Nasty Plot",
-          "usage": 0.040999999999999995
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.037000000000000005
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Substitute",
-          "usage": 0.026000000000000002
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Cursed Body",
-          "usage": 0.79
-        },
-        {
-          "name": "Snow Cloak",
-          "usage": 0.21
-        }
-      ],
-      "items": [
-        {
-          "name": "Froslassite",
-          "usage": 0.996
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.002
-        },
-        {
-          "name": "Never-Melt Ice",
-          "usage": 0.001
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Cursed Body",
-        "item": "Froslassite",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Torkoal",
-      "usage": 0.06828312607582776,
-      "moves": [
-        {
-          "name": "Eruption",
-          "usage": 0.972
-        },
-        {
-          "name": "Protect",
-          "usage": 0.862
-        },
-        {
-          "name": "Weather Ball",
-          "usage": 0.628
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.527
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.34
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.32899999999999996
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.087
-        },
-        {
-          "name": "Sunny Day",
-          "usage": 0.057999999999999996
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.042
-        },
-        {
-          "name": "Ancient Power",
-          "usage": 0.036000000000000004
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Drought",
-          "usage": 0.998
-        },
-        {
-          "name": "White Smoke",
-          "usage": 0.001
-        },
-        {
-          "name": "Shell Armor",
-          "usage": 0
-        }
-      ],
-      "items": [
-        {
-          "name": "Charcoal",
-          "usage": 0.888
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.046
-        },
-        {
-          "name": "Heat Rock",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.022000000000000002
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Wise Glasses",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.003
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.001
-        },
-        {
-          "name": "Metronome",
-          "usage": 0
-        }
-      ],
-      "modal_set": {
-        "ability": "Drought",
-        "item": "Charcoal",
-        "nature": "Quiet",
-        "sps": {
-          "hp": 32,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 2,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Hydreigon",
-      "usage": 0.057347653370946584,
-      "moves": [
-        {
-          "name": "Dark Pulse",
-          "usage": 0.9690000000000001
-        },
-        {
-          "name": "Draco Meteor",
-          "usage": 0.919
-        },
-        {
-          "name": "Snarl",
-          "usage": 0.611
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.564
-        },
-        {
-          "name": "Protect",
-          "usage": 0.235
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.2
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.12300000000000001
-        },
-        {
-          "name": "Tailwind",
-          "usage": 0.091
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.079
-        },
-        {
-          "name": "Dragon Pulse",
-          "usage": 0.073
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Levitate",
-          "usage": 1
-        }
-      ],
-      "items": [
-        {
-          "name": "Choice Scarf",
-          "usage": 0.733
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.182
-        },
-        {
-          "name": "Chople Berry",
-          "usage": 0.017
-        },
-        {
-          "name": "Haban Berry",
-          "usage": 0.017
-        },
-        {
-          "name": "Black Glasses",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Scope Lens",
-          "usage": 0.012
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.011000000000000001
-        },
-        {
-          "name": "Roseli Berry",
-          "usage": 0.006
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.003
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Levitate",
-        "item": "Choice Scarf",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Tyranitar",
-      "usage": 0.05655645637937896,
+      "usage": 0.08837631475005035,
       "moves": [
         {
           "name": "Rock Slide",
@@ -2801,518 +2274,217 @@
       }
     },
     {
-      "name": "Mawile",
-      "usage": 0.05634452861378048,
+      "name": "Metagross",
+      "usage": 0.07889677397416145,
       "moves": [
         {
-          "name": "Play Rough",
-          "usage": 0.972
-        },
-        {
-          "name": "Sucker Punch",
-          "usage": 0.929
-        },
-        {
           "name": "Protect",
-          "usage": 0.89
+          "usage": 0.898
+        },
+        {
+          "name": "Psychic Fangs",
+          "usage": 0.867
         },
         {
           "name": "Iron Head",
-          "usage": 0.8079999999999999
+          "usage": 0.5870000000000001
         },
         {
-          "name": "Swords Dance",
-          "usage": 0.17
+          "name": "Bullet Punch",
+          "usage": 0.385
+        },
+        {
+          "name": "Stomping Tantrum",
+          "usage": 0.318
+        },
+        {
+          "name": "Meteor Mash",
+          "usage": 0.28800000000000003
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.23199999999999998
         },
         {
           "name": "Rock Slide",
-          "usage": 0.124
+          "usage": 0.09
         },
         {
-          "name": "Knock Off",
-          "usage": 0.037000000000000005
+          "name": "Body Press",
+          "usage": 0.08800000000000001
         },
         {
           "name": "Thunder Punch",
-          "usage": 0.022000000000000002
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.019
-        },
-        {
-          "name": "Stone Edge",
-          "usage": 0.01
+          "usage": 0.059000000000000004
         }
       ],
       "abilities": [
         {
-          "name": "Intimidate",
-          "usage": 0.7170000000000001
+          "name": "Clear Body",
+          "usage": 0.995
         },
         {
-          "name": "Hyper Cutter",
-          "usage": 0.27899999999999997
-        },
-        {
-          "name": "Sheer Force",
-          "usage": 0.004
-        }
-      ],
-      "items": [
-        {
-          "name": "Mawilite",
-          "usage": 1
-        }
-      ],
-      "modal_set": {
-        "ability": "Intimidate",
-        "item": "Mawilite",
-        "nature": "Brave",
-        "sps": {
-          "hp": 32,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 2,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Maushold",
-      "usage": 0.05422525095779576,
-      "moves": [
-        {
-          "name": "Follow Me",
-          "usage": 0.9540000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.894
-        },
-        {
-          "name": "Super Fang",
-          "usage": 0.402
-        },
-        {
-          "name": "Population Bomb",
-          "usage": 0.315
-        },
-        {
-          "name": "Beat Up",
-          "usage": 0.31
-        },
-        {
-          "name": "Encore",
-          "usage": 0.242
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.218
-        },
-        {
-          "name": "Feint",
-          "usage": 0.20800000000000002
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.115
-        },
-        {
-          "name": "Charm",
-          "usage": 0.105
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Friend Guard",
-          "usage": 0.732
-        },
-        {
-          "name": "Technician",
-          "usage": 0.263
-        },
-        {
-          "name": "Cheek Pouch",
+          "name": "Light Metal",
           "usage": 0.005
         }
       ],
       "items": [
         {
-          "name": "Chople Berry",
-          "usage": 0.387
+          "name": "Metagrossite",
+          "usage": 0.945
         },
         {
-          "name": "Wide Lens",
-          "usage": 0.294
+          "name": "Life Orb",
+          "usage": 0.023
         },
         {
-          "name": "Focus Sash",
-          "usage": 0.242
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.06
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.006
+          "name": "Metal Coat",
+          "usage": 0.008
         },
         {
           "name": "Leftovers",
+          "usage": 0.005
+        },
+        {
+          "name": "Sitrus Berry",
           "usage": 0.004
         },
         {
           "name": "Choice Scarf",
-          "usage": 0.003
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.001
-        },
-        {
-          "name": "Silk Scarf",
-          "usage": 0.001
-        },
-        {
-          "name": "Zoom Lens",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Friend Guard",
-        "item": "Chople Berry",
-        "nature": "Jolly",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Sableye",
-      "usage": 0.05418286540467607,
-      "moves": [
-        {
-          "name": "Rain Dance",
-          "usage": 0.7879999999999999
-        },
-        {
-          "name": "Light Screen",
-          "usage": 0.67
-        },
-        {
-          "name": "Encore",
-          "usage": 0.562
-        },
-        {
-          "name": "Reflect",
-          "usage": 0.524
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.389
-        },
-        {
-          "name": "Disable",
-          "usage": 0.304
-        },
-        {
-          "name": "Fake Out",
-          "usage": 0.205
-        },
-        {
-          "name": "Foul Play",
-          "usage": 0.17800000000000002
-        },
-        {
-          "name": "Quash",
-          "usage": 0.151
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.048
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Prankster",
-          "usage": 1
-        },
-        {
-          "name": "Stall",
-          "usage": 0
-        }
-      ],
-      "items": [
-        {
-          "name": "Roseli Berry",
-          "usage": 0.48
-        },
-        {
-          "name": "Light Clay",
-          "usage": 0.415
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.027000000000000003
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.016
-        },
-        {
-          "name": "Damp Rock",
-          "usage": 0.01
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.008
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.008
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.006
-        },
-        {
-          "name": "Sablenite",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Prankster",
-        "item": "Roseli Berry",
-        "nature": "Careful",
-        "sps": {
-          "hp": 32,
-          "atk": 0,
-          "def": 9,
-          "spa": 0,
-          "spd": 25,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Dragonite",
-      "usage": 0.05346231100164126,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.6759999999999999
-        },
-        {
-          "name": "Dragon Pulse",
-          "usage": 0.466
-        },
-        {
-          "name": "Hurricane",
-          "usage": 0.455
-        },
-        {
-          "name": "Extreme Speed",
-          "usage": 0.391
-        },
-        {
-          "name": "Tailwind",
-          "usage": 0.365
-        },
-        {
-          "name": "Draco Meteor",
-          "usage": 0.273
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.207
-        },
-        {
-          "name": "Dragon Claw",
-          "usage": 0.179
-        },
-        {
-          "name": "Thunder",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.138
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Multiscale",
-          "usage": 0.728
-        },
-        {
-          "name": "Inner Focus",
-          "usage": 0.272
-        }
-      ],
-      "items": [
-        {
-          "name": "Dragoninite",
-          "usage": 0.677
-        },
-        {
-          "name": "Dragon Fang",
-          "usage": 0.136
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.047
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.023
+          "usage": 0.004
         },
         {
           "name": "Expert Belt",
-          "usage": 0.019
+          "usage": 0.004
         },
         {
-          "name": "Muscle Band",
-          "usage": 0.018000000000000002
+          "name": "Occa Berry",
+          "usage": 0.002
         },
         {
-          "name": "Sharp Beak",
-          "usage": 0.013999999999999999
+          "name": "Shuca Berry",
+          "usage": 0.001
         },
         {
-          "name": "Yache Berry",
-          "usage": 0.013999999999999999
-        },
-        {
-          "name": "Roseli Berry",
-          "usage": 0.012
-        },
-        {
-          "name": "Silk Scarf",
-          "usage": 0.01
+          "name": "Shell Bell",
+          "usage": 0.001
         }
       ],
       "modal_set": {
-        "ability": "Multiscale",
-        "item": "Dragoninite",
-        "nature": "Modest",
+        "ability": "Clear Body",
+        "item": "Metagrossite",
+        "nature": "Adamant",
         "sps": {
           "hp": 2,
-          "atk": 0,
+          "atk": 32,
           "def": 0,
-          "spa": 32,
+          "spa": 0,
           "spd": 0,
           "spe": 32
         }
       }
     },
     {
-      "name": "Rotom-Wash",
-      "usage": 0.050551836354088914,
+      "name": "Raichu",
+      "usage": 0.07825329521288422,
       "moves": [
         {
-          "name": "Hydro Pump",
-          "usage": 0.9640000000000001
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.779
-        },
-        {
-          "name": "Thunderbolt",
-          "usage": 0.715
+          "name": "Fake Out",
+          "usage": 0.716
         },
         {
           "name": "Protect",
-          "usage": 0.542
+          "usage": 0.664
+        },
+        {
+          "name": "Zap Cannon",
+          "usage": 0.604
+        },
+        {
+          "name": "Focus Blast",
+          "usage": 0.563
         },
         {
           "name": "Volt Switch",
-          "usage": 0.41200000000000003
+          "usage": 0.303
         },
         {
-          "name": "Electroweb",
-          "usage": 0.228
+          "name": "Charm",
+          "usage": 0.14800000000000002
         },
         {
-          "name": "Light Screen",
-          "usage": 0.11
+          "name": "Encore",
+          "usage": 0.14400000000000002
         },
         {
-          "name": "Discharge",
-          "usage": 0.08900000000000001
+          "name": "Grass Knot",
+          "usage": 0.121
         },
         {
-          "name": "Eerie Impulse",
-          "usage": 0.054000000000000006
+          "name": "Volt Tackle",
+          "usage": 0.106
         },
         {
-          "name": "Trick",
-          "usage": 0.053
+          "name": "Nuzzle",
+          "usage": 0.10400000000000001
         }
       ],
       "abilities": [
         {
-          "name": "Levitate",
-          "usage": 1
+          "name": "Lightning Rod",
+          "usage": 0.983
+        },
+        {
+          "name": "Static",
+          "usage": 0.017
         }
       ],
       "items": [
         {
-          "name": "Sitrus Berry",
-          "usage": 0.391
+          "name": "Raichunite Y",
+          "usage": 0.605
         },
         {
-          "name": "Leftovers",
-          "usage": 0.297
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.21600000000000003
-        },
-        {
-          "name": "Magnet",
-          "usage": 0.04
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.023
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.012
-        },
-        {
-          "name": "Rindo Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.005
+          "name": "Raichunite X",
+          "usage": 0.182
         },
         {
           "name": "Focus Sash",
+          "usage": 0.147
+        },
+        {
+          "name": "Shuca Berry",
+          "usage": 0.038
+        },
+        {
+          "name": "Magnet",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.005
+        },
+        {
+          "name": "Light Clay",
           "usage": 0.004
         },
         {
-          "name": "Mystic Water",
+          "name": "Focus Band",
+          "usage": 0.003
+        },
+        {
+          "name": "King's Rock",
+          "usage": 0.003
+        },
+        {
+          "name": "Choice Scarf",
           "usage": 0.002
         }
       ],
       "modal_set": {
-        "ability": "Levitate",
-        "item": "Sitrus Berry",
-        "nature": "Modest",
+        "ability": "Lightning Rod",
+        "item": "Raichunite Y",
+        "nature": "Timid",
         "sps": {
           "hp": 2,
           "atk": 0,
@@ -3325,7 +2497,7 @@
     },
     {
       "name": "Milotic",
-      "usage": 0.04731640579928557,
+      "usage": 0.07701342150213054,
       "moves": [
         {
           "name": "Scald",
@@ -3439,412 +2611,8 @@
       }
     },
     {
-      "name": "Ninetales-Alola",
-      "usage": 0.04615786734734725,
-      "moves": [
-        {
-          "name": "Blizzard",
-          "usage": 0.9520000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.674
-        },
-        {
-          "name": "Freeze-Dry",
-          "usage": 0.633
-        },
-        {
-          "name": "Aurora Veil",
-          "usage": 0.631
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.43700000000000006
-        },
-        {
-          "name": "Encore",
-          "usage": 0.263
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.20600000000000002
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.059000000000000004
-        },
-        {
-          "name": "Disable",
-          "usage": 0.044000000000000004
-        },
-        {
-          "name": "Icicle Spear",
-          "usage": 0.02
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Snow Warning",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Snow Cloak",
-          "usage": 0.001
-        }
-      ],
-      "items": [
-        {
-          "name": "Light Clay",
-          "usage": 0.366
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.198
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.184
-        },
-        {
-          "name": "Never-Melt Ice",
-          "usage": 0.16399999999999998
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.053
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Icy Rock",
-          "usage": 0.011000000000000001
-        },
-        {
-          "name": "Kebia Berry",
-          "usage": 0.004
-        },
-        {
-          "name": "Babiri Berry",
-          "usage": 0.003
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Snow Warning",
-        "item": "Light Clay",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Scovillain",
-      "usage": 0.04456134484650543,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.9890000000000001
-        },
-        {
-          "name": "Rage Powder",
-          "usage": 0.965
-        },
-        {
-          "name": "Overheat",
-          "usage": 0.777
-        },
-        {
-          "name": "Leech Seed",
-          "usage": 0.536
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.36
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Leaf Storm",
-          "usage": 0.095
-        },
-        {
-          "name": "Temper Flare",
-          "usage": 0.034
-        },
-        {
-          "name": "Super Fang",
-          "usage": 0.03
-        },
-        {
-          "name": "Fire Blast",
-          "usage": 0.027999999999999997
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Moody",
-          "usage": 0.882
-        },
-        {
-          "name": "Chlorophyll",
-          "usage": 0.096
-        },
-        {
-          "name": "Insomnia",
-          "usage": 0.022000000000000002
-        }
-      ],
-      "items": [
-        {
-          "name": "Scovillainite",
-          "usage": 0.993
-        },
-        {
-          "name": "Kebia Berry",
-          "usage": 0.003
-        },
-        {
-          "name": "Sceptilite",
-          "usage": 0.003
-        },
-        {
-          "name": "Focus Band",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Moody",
-        "item": "Scovillainite",
-        "nature": "Bold",
-        "sps": {
-          "hp": 32,
-          "atk": 0,
-          "def": 19,
-          "spa": 0,
-          "spd": 15,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Gengar",
-      "usage": 0.039037094423238584,
-      "moves": [
-        {
-          "name": "Shadow Ball",
-          "usage": 0.9440000000000001
-        },
-        {
-          "name": "Protect",
-          "usage": 0.871
-        },
-        {
-          "name": "Perish Song",
-          "usage": 0.66
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.5539999999999999
-        },
-        {
-          "name": "Disable",
-          "usage": 0.469
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.12
-        },
-        {
-          "name": "Psychic",
-          "usage": 0.109
-        },
-        {
-          "name": "Trick Room",
-          "usage": 0.063
-        },
-        {
-          "name": "Sludge Wave",
-          "usage": 0.045
-        },
-        {
-          "name": "Destiny Bond",
-          "usage": 0.023
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Cursed Body",
-          "usage": 1
-        }
-      ],
-      "items": [
-        {
-          "name": "Gengarite",
-          "usage": 0.8440000000000001
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.105
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.021
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.019
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.008
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.003
-        }
-      ],
-      "modal_set": {
-        "ability": "Cursed Body",
-        "item": "Gengarite",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Talonflame",
-      "usage": 0.038330668537910347,
-      "moves": [
-        {
-          "name": "Tailwind",
-          "usage": 0.978
-        },
-        {
-          "name": "Protect",
-          "usage": 0.633
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.61
-        },
-        {
-          "name": "Brave Bird",
-          "usage": 0.46399999999999997
-        },
-        {
-          "name": "Acrobatics",
-          "usage": 0.276
-        },
-        {
-          "name": "Quick Guard",
-          "usage": 0.255
-        },
-        {
-          "name": "Dual Wingbeat",
-          "usage": 0.239
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.152
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.127
-        },
-        {
-          "name": "Rain Dance",
-          "usage": 0.07400000000000001
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Gale Wings",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Flame Body",
-          "usage": 0.001
-        }
-      ],
-      "items": [
-        {
-          "name": "Sharp Beak",
-          "usage": 0.309
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.175
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.131
-        },
-        {
-          "name": "Charti Berry",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.024
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.024
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.018000000000000002
-        },
-        {
-          "name": "Charcoal",
-          "usage": 0.01
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.003
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Gale Wings",
-        "item": "Sharp Beak",
-        "nature": "Jolly",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Blastoise",
-      "usage": 0.03211412074702183,
+      "usage": 0.06395551102938292,
       "moves": [
         {
           "name": "Water Spout",
@@ -3934,939 +2702,111 @@
       }
     },
     {
-      "name": "Kangaskhan",
-      "usage": 0.03133705227316076,
+      "name": "Torkoal",
+      "usage": 0.06254299667535973,
       "moves": [
         {
-          "name": "Fake Out",
-          "usage": 0.998
-        },
-        {
-          "name": "Last Resort",
-          "usage": 0.496
-        },
-        {
-          "name": "Double-Edge",
-          "usage": 0.45299999999999996
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.324
-        },
-        {
-          "name": "Low Kick",
-          "usage": 0.24
-        },
-        {
-          "name": "Sucker Punch",
-          "usage": 0.153
-        },
-        {
-          "name": "Drain Punch",
-          "usage": 0.13699999999999998
-        },
-        {
-          "name": "Hammer Arm",
-          "usage": 0.08199999999999999
+          "name": "Eruption",
+          "usage": 0.972
         },
         {
           "name": "Protect",
-          "usage": 0.027000000000000003
+          "usage": 0.862
         },
         {
-          "name": "Facade",
-          "usage": 0.026000000000000002
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Scrappy",
-          "usage": 0.9890000000000001
+          "name": "Weather Ball",
+          "usage": 0.628
         },
         {
-          "name": "Inner Focus",
-          "usage": 0.011000000000000001
-        }
-      ],
-      "items": [
-        {
-          "name": "Kangaskhanite",
-          "usage": 0.52
-        },
-        {
-          "name": "Silk Scarf",
-          "usage": 0.376
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Metronome",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Iron Ball",
-          "usage": 0.013999999999999999
-        },
-        {
-          "name": "Chople Berry",
-          "usage": 0.011000000000000001
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.009000000000000001
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.006
-        },
-        {
-          "name": "King's Rock",
-          "usage": 0.004
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.003
-        }
-      ],
-      "modal_set": {
-        "ability": "Scrappy",
-        "item": "Kangaskhanite",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 32,
-          "atk": 32,
-          "def": 1,
-          "spa": 0,
-          "spd": 1,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Glimmora",
-      "usage": 0.030023100126450233,
-      "moves": [
-        {
-          "name": "Power Gem",
-          "usage": 0.997
+          "name": "Heat Wave",
+          "usage": 0.527
         },
         {
           "name": "Earth Power",
-          "usage": 0.943
-        },
-        {
-          "name": "Sludge Bomb",
-          "usage": 0.9420000000000001
-        },
-        {
-          "name": "Spiky Shield",
-          "usage": 0.845
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.153
-        },
-        {
-          "name": "Sludge Wave",
-          "usage": 0.044000000000000004
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.013999999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Stealth Rock",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Mortal Spin",
-          "usage": 0.013000000000000001
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Toxic Debris",
-          "usage": 0.9990000000000001
-        },
-        {
-          "name": "Corrosion",
-          "usage": 0.001
-        }
-      ],
-      "items": [
-        {
-          "name": "Focus Sash",
-          "usage": 0.765
-        },
-        {
-          "name": "Glimmoranite",
-          "usage": 0.19
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.025
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.002
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.002
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.001
-        },
-        {
-          "name": "Babiri Berry",
-          "usage": 0.001
-        },
-        {
-          "name": "Poison Barb",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Toxic Debris",
-        "item": "Focus Sash",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Pyroar",
-      "usage": 0.029669887183786114,
-      "moves": [
-        {
-          "name": "Heat Wave",
-          "usage": 0.996
-        },
-        {
-          "name": "Protect",
-          "usage": 0.992
-        },
-        {
-          "name": "Overheat",
-          "usage": 0.7290000000000001
-        },
-        {
-          "name": "Hyper Voice",
-          "usage": 0.309
-        },
-        {
-          "name": "Flamethrower",
-          "usage": 0.278
+          "usage": 0.34
         },
         {
           "name": "Solar Beam",
-          "usage": 0.258
-        },
-        {
-          "name": "Scorching Sands",
-          "usage": 0.12300000000000001
-        },
-        {
-          "name": "Dark Pulse",
-          "usage": 0.06
-        },
-        {
-          "name": "Round",
-          "usage": 0.048
-        },
-        {
-          "name": "Snarl",
-          "usage": 0.039
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Unnerve",
-          "usage": 0.885
-        },
-        {
-          "name": "Moxie",
-          "usage": 0.064
-        },
-        {
-          "name": "Rivalry",
-          "usage": 0.051
-        }
-      ],
-      "items": [
-        {
-          "name": "Pyroarite",
-          "usage": 0.9990000000000001
-        }
-      ],
-      "modal_set": {
-        "ability": "Unnerve",
-        "item": "Pyroarite",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Blaziken",
-      "usage": 0.029090617957816957,
-      "moves": [
-        {
-          "name": "Close Combat",
-          "usage": 0.725
-        },
-        {
-          "name": "Flare Blitz",
-          "usage": 0.698
-        },
-        {
-          "name": "Protect",
-          "usage": 0.507
-        },
-        {
-          "name": "Detect",
-          "usage": 0.486
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.27
-        },
-        {
-          "name": "Coaching",
-          "usage": 0.247
-        },
-        {
-          "name": "Aura Sphere",
-          "usage": 0.162
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.155
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.139
-        },
-        {
-          "name": "Blaze Kick",
-          "usage": 0.077
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Speed Boost",
-          "usage": 0.9690000000000001
-        },
-        {
-          "name": "Blaze",
-          "usage": 0.031
-        }
-      ],
-      "items": [
-        {
-          "name": "Blazikenite",
-          "usage": 0.612
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.22899999999999998
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.076
-        },
-        {
-          "name": "Muscle Band",
-          "usage": 0.045
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.012
-        },
-        {
-          "name": "Scope Lens",
-          "usage": 0.01
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.005
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.003
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Speed Boost",
-        "item": "Blazikenite",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Politoed",
-      "usage": 0.029048232404697262,
-      "moves": [
-        {
-          "name": "Weather Ball",
-          "usage": 0.899
-        },
-        {
-          "name": "Protect",
-          "usage": 0.868
-        },
-        {
-          "name": "Perish Song",
-          "usage": 0.519
-        },
-        {
-          "name": "Ice Beam",
-          "usage": 0.324
-        },
-        {
-          "name": "Muddy Water",
-          "usage": 0.319
-        },
-        {
-          "name": "Hypnosis",
-          "usage": 0.268
-        },
-        {
-          "name": "Encore",
-          "usage": 0.21600000000000003
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.187
-        },
-        {
-          "name": "Rain Dance",
-          "usage": 0.168
+          "usage": 0.32899999999999996
         },
         {
           "name": "Helping Hand",
-          "usage": 0.11
+          "usage": 0.087
+        },
+        {
+          "name": "Sunny Day",
+          "usage": 0.057999999999999996
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.042
+        },
+        {
+          "name": "Ancient Power",
+          "usage": 0.036000000000000004
         }
       ],
       "abilities": [
         {
-          "name": "Drizzle",
-          "usage": 0.9990000000000001
+          "name": "Drought",
+          "usage": 0.998
         },
         {
-          "name": "Damp",
+          "name": "White Smoke",
           "usage": 0.001
+        },
+        {
+          "name": "Shell Armor",
+          "usage": 0
         }
       ],
       "items": [
         {
-          "name": "Sitrus Berry",
-          "usage": 0.583
-        },
-        {
-          "name": "Damp Rock",
-          "usage": 0.1
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.094
-        },
-        {
-          "name": "Mystic Water",
-          "usage": 0.086
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.069
+          "name": "Charcoal",
+          "usage": 0.888
         },
         {
           "name": "Life Orb",
-          "usage": 0.032
+          "usage": 0.046
         },
         {
-          "name": "Wacan Berry",
-          "usage": 0.012
+          "name": "Heat Rock",
+          "usage": 0.026000000000000002
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.022000000000000002
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Wise Glasses",
+          "usage": 0.006999999999999999
         },
         {
           "name": "Quick Claw",
-          "usage": 0.01
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.005
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.004
-        }
-      ],
-      "modal_set": {
-        "ability": "Drizzle",
-        "item": "Sitrus Berry",
-        "nature": "Calm",
-        "sps": {
-          "hp": 31,
-          "atk": 0,
-          "def": 23,
-          "spa": 0,
-          "spd": 12,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Lycanroc-Dusk",
-      "usage": 0.029034103886990695,
-      "moves": [
-        {
-          "name": "Accelerock",
-          "usage": 1
-        },
-        {
-          "name": "Protect",
-          "usage": 0.946
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.946
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.937
-        },
-        {
-          "name": "Drill Run",
-          "usage": 0.048
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.039
-        },
-        {
-          "name": "Sucker Punch",
-          "usage": 0.03
-        },
-        {
-          "name": "Roar",
-          "usage": 0.015
-        },
-        {
-          "name": "Throat Chop",
-          "usage": 0.015
-        },
-        {
-          "name": "Psychic Fangs",
-          "usage": 0.015
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Tough Claws",
-          "usage": 1
-        }
-      ],
-      "items": [
-        {
-          "name": "Focus Sash",
-          "usage": 0.845
-        },
-        {
-          "name": "Hard Stone",
-          "usage": 0.075
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.051
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.03
-        }
-      ],
-      "modal_set": {
-        "ability": "Tough Claws",
-        "item": "Focus Sash",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Ceruledge",
-      "usage": 0.0279885935767049,
-      "moves": [
-        {
-          "name": "Bitter Blade",
-          "usage": 1
-        },
-        {
-          "name": "Protect",
-          "usage": 0.92
-        },
-        {
-          "name": "Shadow Sneak",
-          "usage": 0.894
-        },
-        {
-          "name": "Bulk Up",
-          "usage": 0.62
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.319
-        },
-        {
-          "name": "Poltergeist",
-          "usage": 0.2
-        },
-        {
-          "name": "Psych Up",
-          "usage": 0.016
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.008
-        },
-        {
-          "name": "Ally Switch",
           "usage": 0.003
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Flash Fire",
-          "usage": 0.895
-        },
-        {
-          "name": "Weak Armor",
-          "usage": 0.105
-        }
-      ],
-      "items": [
-        {
-          "name": "Colbur Berry",
-          "usage": 0.324
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.226
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.16399999999999998
-        },
-        {
-          "name": "Charcoal",
-          "usage": 0.111
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.07200000000000001
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.038
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.023
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.016
-        },
-        {
-          "name": "Big Root",
-          "usage": 0.015
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.005
-        }
-      ],
-      "modal_set": {
-        "ability": "Flash Fire",
-        "item": "Colbur Berry",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 31,
-          "atk": 1,
-          "def": 26,
-          "spa": 0,
-          "spd": 0,
-          "spe": 8
-        }
-      }
-    },
-    {
-      "name": "Corviknight",
-      "usage": 0.027748408775693297,
-      "moves": [
-        {
-          "name": "Brave Bird",
-          "usage": 0.8540000000000001
-        },
-        {
-          "name": "Tailwind",
-          "usage": 0.61
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.569
-        },
-        {
-          "name": "Bulk Up",
-          "usage": 0.562
-        },
-        {
-          "name": "Roost",
-          "usage": 0.515
-        },
-        {
-          "name": "Body Press",
-          "usage": 0.449
-        },
-        {
-          "name": "Protect",
-          "usage": 0.20800000000000002
-        },
-        {
-          "name": "Iron Defense",
-          "usage": 0.17
-        },
-        {
-          "name": "Fly",
-          "usage": 0.016
-        },
-        {
-          "name": "Agility",
-          "usage": 0.016
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Mirror Armor",
-          "usage": 0.9790000000000001
-        },
-        {
-          "name": "Unnerve",
-          "usage": 0.021
-        }
-      ],
-      "items": [
-        {
-          "name": "Leftovers",
-          "usage": 0.713
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.132
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.113
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.01
-        },
-        {
-          "name": "Muscle Band",
-          "usage": 0.009000000000000001
-        },
-        {
-          "name": "Roseli Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.006
-        },
-        {
-          "name": "Metal Coat",
-          "usage": 0.002
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.002
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.001
-        }
-      ],
-      "modal_set": {
-        "ability": "Mirror Armor",
-        "item": "Leftovers",
-        "nature": "Careful",
-        "sps": {
-          "hp": 32,
-          "atk": 0,
-          "def": 32,
-          "spa": 0,
-          "spd": 2,
-          "spe": 0
-        }
-      }
-    },
-    {
-      "name": "Scrafty",
-      "usage": 0.02520527558851163,
-      "moves": [
-        {
-          "name": "Fake Out",
-          "usage": 0.9109999999999999
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.873
-        },
-        {
-          "name": "Drain Punch",
-          "usage": 0.51
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.442
-        },
-        {
-          "name": "Detect",
-          "usage": 0.23800000000000002
-        },
-        {
-          "name": "Protect",
-          "usage": 0.17800000000000002
-        },
-        {
-          "name": "Poison Jab",
-          "usage": 0.127
-        },
-        {
-          "name": "Ice Punch",
-          "usage": 0.11699999999999999
-        },
-        {
-          "name": "Throat Chop",
-          "usage": 0.086
-        },
-        {
-          "name": "Coaching",
-          "usage": 0.079
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "usage": 0.988
-        },
-        {
-          "name": "Moxie",
-          "usage": 0.008
-        },
-        {
-          "name": "Shed Skin",
-          "usage": 0.004
-        }
-      ],
-      "items": [
-        {
-          "name": "Scraftinite",
-          "usage": 0.855
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.064
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.019
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.018000000000000002
         },
         {
           "name": "Expert Belt",
-          "usage": 0.013000000000000001
-        },
-        {
-          "name": "Roseli Berry",
-          "usage": 0.012
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.01
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "White Herb",
           "usage": 0.001
+        },
+        {
+          "name": "Metronome",
+          "usage": 0
         }
       ],
       "modal_set": {
-        "ability": "Intimidate",
-        "item": "Scraftinite",
-        "nature": "Adamant",
+        "ability": "Drought",
+        "item": "Charcoal",
+        "nature": "Quiet",
         "sps": {
           "hp": 32,
-          "atk": 32,
+          "atk": 0,
           "def": 0,
-          "spa": 0,
+          "spa": 32,
           "spd": 2,
           "spe": 0
         }
@@ -4874,7 +2814,7 @@
     },
     {
       "name": "Excadrill",
-      "usage": 0.02488031968126064,
+      "usage": 0.05916865682963769,
       "moves": [
         {
           "name": "Iron Head",
@@ -4988,8 +2928,1022 @@
       }
     },
     {
+      "name": "Ninetales-Alola",
+      "usage": 0.056312238913724146,
+      "moves": [
+        {
+          "name": "Blizzard",
+          "usage": 0.9520000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.674
+        },
+        {
+          "name": "Freeze-Dry",
+          "usage": 0.633
+        },
+        {
+          "name": "Aurora Veil",
+          "usage": 0.631
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.43700000000000006
+        },
+        {
+          "name": "Encore",
+          "usage": 0.263
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.20600000000000002
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.059000000000000004
+        },
+        {
+          "name": "Disable",
+          "usage": 0.044000000000000004
+        },
+        {
+          "name": "Icicle Spear",
+          "usage": 0.02
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Snow Warning",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Snow Cloak",
+          "usage": 0.001
+        }
+      ],
+      "items": [
+        {
+          "name": "Light Clay",
+          "usage": 0.366
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.198
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.184
+        },
+        {
+          "name": "Never-Melt Ice",
+          "usage": 0.16399999999999998
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.053
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Icy Rock",
+          "usage": 0.011000000000000001
+        },
+        {
+          "name": "Kebia Berry",
+          "usage": 0.004
+        },
+        {
+          "name": "Babiri Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Snow Warning",
+        "item": "Light Clay",
+        "nature": "Timid",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Toxapex",
+      "usage": 0.0550095867872361,
+      "moves": [
+        {
+          "name": "Infestation",
+          "usage": 0.953
+        },
+        {
+          "name": "Toxic",
+          "usage": 0.922
+        },
+        {
+          "name": "Baneful Bunker",
+          "usage": 0.875
+        },
+        {
+          "name": "Wide Guard",
+          "usage": 0.68
+        },
+        {
+          "name": "Recover",
+          "usage": 0.289
+        },
+        {
+          "name": "Haze",
+          "usage": 0.184
+        },
+        {
+          "name": "Protect",
+          "usage": 0.047
+        },
+        {
+          "name": "Stockpile",
+          "usage": 0.043
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.008
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Regenerator",
+          "usage": 1
+        }
+      ],
+      "items": [
+        {
+          "name": "Leftovers",
+          "usage": 0.922
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.031
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0.02
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.008
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.008
+        },
+        {
+          "name": "Mental Herb",
+          "usage": 0.008
+        },
+        {
+          "name": "Payapa Berry",
+          "usage": 0.004
+        }
+      ],
+      "modal_set": {
+        "ability": "Regenerator",
+        "item": "Leftovers",
+        "nature": "Bold",
+        "sps": {
+          "hp": 32,
+          "atk": 0,
+          "def": 16,
+          "spa": 0,
+          "spd": 18,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Froslass",
+      "usage": 0.05458583248102915,
+      "moves": [
+        {
+          "name": "Blizzard",
+          "usage": 0.9890000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.963
+        },
+        {
+          "name": "Shadow Ball",
+          "usage": 0.86
+        },
+        {
+          "name": "Aurora Veil",
+          "usage": 0.802
+        },
+        {
+          "name": "Rain Dance",
+          "usage": 0.106
+        },
+        {
+          "name": "Nasty Plot",
+          "usage": 0.040999999999999995
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Weather Ball",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Substitute",
+          "usage": 0.026000000000000002
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Cursed Body",
+          "usage": 0.79
+        },
+        {
+          "name": "Snow Cloak",
+          "usage": 0.21
+        }
+      ],
+      "items": [
+        {
+          "name": "Froslassite",
+          "usage": 0.996
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.002
+        },
+        {
+          "name": "Never-Melt Ice",
+          "usage": 0.001
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Cursed Body",
+        "item": "Froslassite",
+        "nature": "Timid",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Hydreigon",
+      "usage": 0.0538011022843496,
+      "moves": [
+        {
+          "name": "Dark Pulse",
+          "usage": 0.9690000000000001
+        },
+        {
+          "name": "Draco Meteor",
+          "usage": 0.919
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.611
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.564
+        },
+        {
+          "name": "Protect",
+          "usage": 0.235
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.2
+        },
+        {
+          "name": "U-turn",
+          "usage": 0.12300000000000001
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.091
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.079
+        },
+        {
+          "name": "Dragon Pulse",
+          "usage": 0.073
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Levitate",
+          "usage": 1
+        }
+      ],
+      "items": [
+        {
+          "name": "Choice Scarf",
+          "usage": 0.733
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.182
+        },
+        {
+          "name": "Chople Berry",
+          "usage": 0.017
+        },
+        {
+          "name": "Haban Berry",
+          "usage": 0.017
+        },
+        {
+          "name": "Black Glasses",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Scope Lens",
+          "usage": 0.012
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.011000000000000001
+        },
+        {
+          "name": "Roseli Berry",
+          "usage": 0.006
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Levitate",
+        "item": "Choice Scarf",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Maushold",
+      "usage": 0.05329887495847469,
+      "moves": [
+        {
+          "name": "Follow Me",
+          "usage": 0.9540000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.894
+        },
+        {
+          "name": "Super Fang",
+          "usage": 0.402
+        },
+        {
+          "name": "Population Bomb",
+          "usage": 0.315
+        },
+        {
+          "name": "Beat Up",
+          "usage": 0.31
+        },
+        {
+          "name": "Encore",
+          "usage": 0.242
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.218
+        },
+        {
+          "name": "Feint",
+          "usage": 0.20800000000000002
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.115
+        },
+        {
+          "name": "Charm",
+          "usage": 0.105
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Friend Guard",
+          "usage": 0.732
+        },
+        {
+          "name": "Technician",
+          "usage": 0.263
+        },
+        {
+          "name": "Cheek Pouch",
+          "usage": 0.005
+        }
+      ],
+      "items": [
+        {
+          "name": "Chople Berry",
+          "usage": 0.387
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.294
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.242
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.06
+        },
+        {
+          "name": "Mental Herb",
+          "usage": 0.006
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.004
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.003
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0.001
+        },
+        {
+          "name": "Silk Scarf",
+          "usage": 0.001
+        },
+        {
+          "name": "Zoom Lens",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Friend Guard",
+        "item": "Chople Berry",
+        "nature": "Jolly",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Gengar",
+      "usage": 0.050316900211092426,
+      "moves": [
+        {
+          "name": "Shadow Ball",
+          "usage": 0.9440000000000001
+        },
+        {
+          "name": "Protect",
+          "usage": 0.871
+        },
+        {
+          "name": "Perish Song",
+          "usage": 0.66
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.5539999999999999
+        },
+        {
+          "name": "Disable",
+          "usage": 0.469
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.12
+        },
+        {
+          "name": "Psychic",
+          "usage": 0.109
+        },
+        {
+          "name": "Trick Room",
+          "usage": 0.063
+        },
+        {
+          "name": "Sludge Wave",
+          "usage": 0.045
+        },
+        {
+          "name": "Destiny Bond",
+          "usage": 0.023
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Cursed Body",
+          "usage": 1
+        }
+      ],
+      "items": [
+        {
+          "name": "Gengarite",
+          "usage": 0.8440000000000001
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.105
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.021
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.019
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.008
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.003
+        }
+      ],
+      "modal_set": {
+        "ability": "Cursed Body",
+        "item": "Gengarite",
+        "nature": "Timid",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Mawile",
+      "usage": 0.047225063236175015,
+      "moves": [
+        {
+          "name": "Play Rough",
+          "usage": 0.972
+        },
+        {
+          "name": "Sucker Punch",
+          "usage": 0.929
+        },
+        {
+          "name": "Protect",
+          "usage": 0.89
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.8079999999999999
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.17
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.124
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.037000000000000005
+        },
+        {
+          "name": "Thunder Punch",
+          "usage": 0.022000000000000002
+        },
+        {
+          "name": "Brick Break",
+          "usage": 0.019
+        },
+        {
+          "name": "Stone Edge",
+          "usage": 0.01
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Intimidate",
+          "usage": 0.7170000000000001
+        },
+        {
+          "name": "Hyper Cutter",
+          "usage": 0.27899999999999997
+        },
+        {
+          "name": "Sheer Force",
+          "usage": 0.004
+        }
+      ],
+      "items": [
+        {
+          "name": "Mawilite",
+          "usage": 1
+        }
+      ],
+      "modal_set": {
+        "ability": "Intimidate",
+        "item": "Mawilite",
+        "nature": "Brave",
+        "sps": {
+          "hp": 32,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 2,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Dragonite",
+      "usage": 0.044917956457937155,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.6759999999999999
+        },
+        {
+          "name": "Dragon Pulse",
+          "usage": 0.466
+        },
+        {
+          "name": "Hurricane",
+          "usage": 0.455
+        },
+        {
+          "name": "Extreme Speed",
+          "usage": 0.391
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.365
+        },
+        {
+          "name": "Draco Meteor",
+          "usage": 0.273
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.207
+        },
+        {
+          "name": "Dragon Claw",
+          "usage": 0.179
+        },
+        {
+          "name": "Thunder",
+          "usage": 0.14400000000000002
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.138
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Multiscale",
+          "usage": 0.728
+        },
+        {
+          "name": "Inner Focus",
+          "usage": 0.272
+        }
+      ],
+      "items": [
+        {
+          "name": "Dragoninite",
+          "usage": 0.677
+        },
+        {
+          "name": "Dragon Fang",
+          "usage": 0.136
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.047
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.023
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.019
+        },
+        {
+          "name": "Muscle Band",
+          "usage": 0.018000000000000002
+        },
+        {
+          "name": "Sharp Beak",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Yache Berry",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Roseli Berry",
+          "usage": 0.012
+        },
+        {
+          "name": "Silk Scarf",
+          "usage": 0.01
+        }
+      ],
+      "modal_set": {
+        "ability": "Multiscale",
+        "item": "Dragoninite",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Sableye",
+      "usage": 0.04460406437926533,
+      "moves": [
+        {
+          "name": "Rain Dance",
+          "usage": 0.7879999999999999
+        },
+        {
+          "name": "Light Screen",
+          "usage": 0.67
+        },
+        {
+          "name": "Encore",
+          "usage": 0.562
+        },
+        {
+          "name": "Reflect",
+          "usage": 0.524
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.389
+        },
+        {
+          "name": "Disable",
+          "usage": 0.304
+        },
+        {
+          "name": "Fake Out",
+          "usage": 0.205
+        },
+        {
+          "name": "Foul Play",
+          "usage": 0.17800000000000002
+        },
+        {
+          "name": "Quash",
+          "usage": 0.151
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.048
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Prankster",
+          "usage": 1
+        },
+        {
+          "name": "Stall",
+          "usage": 0
+        }
+      ],
+      "items": [
+        {
+          "name": "Roseli Berry",
+          "usage": 0.48
+        },
+        {
+          "name": "Light Clay",
+          "usage": 0.415
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.027000000000000003
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.026000000000000002
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.016
+        },
+        {
+          "name": "Damp Rock",
+          "usage": 0.01
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.008
+        },
+        {
+          "name": "Mental Herb",
+          "usage": 0.008
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0.006
+        },
+        {
+          "name": "Sablenite",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Prankster",
+        "item": "Roseli Berry",
+        "nature": "Careful",
+        "sps": {
+          "hp": 32,
+          "atk": 0,
+          "def": 9,
+          "spa": 0,
+          "spd": 25,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Blaziken",
+      "usage": 0.04292474175837111,
+      "moves": [
+        {
+          "name": "Close Combat",
+          "usage": 0.725
+        },
+        {
+          "name": "Flare Blitz",
+          "usage": 0.698
+        },
+        {
+          "name": "Protect",
+          "usage": 0.507
+        },
+        {
+          "name": "Detect",
+          "usage": 0.486
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.27
+        },
+        {
+          "name": "Coaching",
+          "usage": 0.247
+        },
+        {
+          "name": "Aura Sphere",
+          "usage": 0.162
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.155
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.139
+        },
+        {
+          "name": "Blaze Kick",
+          "usage": 0.077
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Speed Boost",
+          "usage": 0.9690000000000001
+        },
+        {
+          "name": "Blaze",
+          "usage": 0.031
+        }
+      ],
+      "items": [
+        {
+          "name": "Blazikenite",
+          "usage": 0.612
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.22899999999999998
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.076
+        },
+        {
+          "name": "Muscle Band",
+          "usage": 0.045
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.012
+        },
+        {
+          "name": "Scope Lens",
+          "usage": 0.01
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.005
+        },
+        {
+          "name": "Mental Herb",
+          "usage": 0.003
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Speed Boost",
+        "item": "Blazikenite",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Annihilape",
-      "usage": 0.023170769038766297,
+      "usage": 0.04143375438467997,
       "moves": [
         {
           "name": "Rage Fist",
@@ -5103,99 +4057,539 @@
       }
     },
     {
-      "name": "Toxapex",
-      "usage": 0.022958841273167826,
+      "name": "Rotom-Wash",
+      "usage": 0.039958461614922426,
       "moves": [
         {
-          "name": "Infestation",
-          "usage": 0.953
+          "name": "Hydro Pump",
+          "usage": 0.9640000000000001
         },
         {
-          "name": "Toxic",
-          "usage": 0.922
+          "name": "Will-O-Wisp",
+          "usage": 0.779
         },
         {
-          "name": "Baneful Bunker",
-          "usage": 0.875
-        },
-        {
-          "name": "Wide Guard",
-          "usage": 0.68
-        },
-        {
-          "name": "Recover",
-          "usage": 0.289
-        },
-        {
-          "name": "Haze",
-          "usage": 0.184
+          "name": "Thunderbolt",
+          "usage": 0.715
         },
         {
           "name": "Protect",
-          "usage": 0.047
+          "usage": 0.542
         },
         {
-          "name": "Stockpile",
-          "usage": 0.043
+          "name": "Volt Switch",
+          "usage": 0.41200000000000003
         },
         {
-          "name": "Ice Beam",
-          "usage": 0.008
+          "name": "Electroweb",
+          "usage": 0.228
+        },
+        {
+          "name": "Light Screen",
+          "usage": 0.11
+        },
+        {
+          "name": "Discharge",
+          "usage": 0.08900000000000001
+        },
+        {
+          "name": "Eerie Impulse",
+          "usage": 0.054000000000000006
+        },
+        {
+          "name": "Trick",
+          "usage": 0.053
         }
       ],
       "abilities": [
         {
-          "name": "Regenerator",
+          "name": "Levitate",
           "usage": 1
         }
       ],
       "items": [
         {
-          "name": "Leftovers",
-          "usage": 0.922
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.031
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.02
-        },
-        {
           "name": "Sitrus Berry",
-          "usage": 0.008
+          "usage": 0.391
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.297
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.21600000000000003
+        },
+        {
+          "name": "Magnet",
+          "usage": 0.04
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.023
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.012
+        },
+        {
+          "name": "Rindo Berry",
+          "usage": 0.006999999999999999
         },
         {
           "name": "Quick Claw",
+          "usage": 0.005
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.004
+        },
+        {
+          "name": "Mystic Water",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Levitate",
+        "item": "Sitrus Berry",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Ceruledge",
+      "usage": 0.03977012636771934,
+      "moves": [
+        {
+          "name": "Bitter Blade",
+          "usage": 1
+        },
+        {
+          "name": "Protect",
+          "usage": 0.92
+        },
+        {
+          "name": "Shadow Sneak",
+          "usage": 0.894
+        },
+        {
+          "name": "Bulk Up",
+          "usage": 0.62
+        },
+        {
+          "name": "Swords Dance",
+          "usage": 0.319
+        },
+        {
+          "name": "Poltergeist",
+          "usage": 0.2
+        },
+        {
+          "name": "Psych Up",
+          "usage": 0.016
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Taunt",
           "usage": 0.008
+        },
+        {
+          "name": "Ally Switch",
+          "usage": 0.003
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Flash Fire",
+          "usage": 0.895
+        },
+        {
+          "name": "Weak Armor",
+          "usage": 0.105
+        }
+      ],
+      "items": [
+        {
+          "name": "Colbur Berry",
+          "usage": 0.324
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.226
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.16399999999999998
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0.111
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.07200000000000001
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.038
         },
         {
           "name": "Mental Herb",
-          "usage": 0.008
+          "usage": 0.023
         },
         {
-          "name": "Payapa Berry",
+          "name": "Shuca Berry",
+          "usage": 0.016
+        },
+        {
+          "name": "Big Root",
+          "usage": 0.015
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.005
+        }
+      ],
+      "modal_set": {
+        "ability": "Flash Fire",
+        "item": "Colbur Berry",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 31,
+          "atk": 1,
+          "def": 26,
+          "spa": 0,
+          "spd": 0,
+          "spe": 8
+        }
+      }
+    },
+    {
+      "name": "Talonflame",
+      "usage": 0.03884414473563748,
+      "moves": [
+        {
+          "name": "Tailwind",
+          "usage": 0.978
+        },
+        {
+          "name": "Protect",
+          "usage": 0.633
+        },
+        {
+          "name": "Flare Blitz",
+          "usage": 0.61
+        },
+        {
+          "name": "Brave Bird",
+          "usage": 0.46399999999999997
+        },
+        {
+          "name": "Acrobatics",
+          "usage": 0.276
+        },
+        {
+          "name": "Quick Guard",
+          "usage": 0.255
+        },
+        {
+          "name": "Dual Wingbeat",
+          "usage": 0.239
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.152
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.127
+        },
+        {
+          "name": "Rain Dance",
+          "usage": 0.07400000000000001
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Gale Wings",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Flame Body",
+          "usage": 0.001
+        }
+      ],
+      "items": [
+        {
+          "name": "Sharp Beak",
+          "usage": 0.309
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.175
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.131
+        },
+        {
+          "name": "Charti Berry",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Mental Herb",
+          "usage": 0.024
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.024
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.018000000000000002
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0.01
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Gale Wings",
+        "item": "Sharp Beak",
+        "nature": "Jolly",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Politoed",
+      "usage": 0.0344967394460328,
+      "moves": [
+        {
+          "name": "Weather Ball",
+          "usage": 0.899
+        },
+        {
+          "name": "Protect",
+          "usage": 0.868
+        },
+        {
+          "name": "Perish Song",
+          "usage": 0.519
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.324
+        },
+        {
+          "name": "Muddy Water",
+          "usage": 0.319
+        },
+        {
+          "name": "Hypnosis",
+          "usage": 0.268
+        },
+        {
+          "name": "Encore",
+          "usage": 0.21600000000000003
+        },
+        {
+          "name": "Icy Wind",
+          "usage": 0.187
+        },
+        {
+          "name": "Rain Dance",
+          "usage": 0.168
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.11
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Drizzle",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Damp",
+          "usage": 0.001
+        }
+      ],
+      "items": [
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.583
+        },
+        {
+          "name": "Damp Rock",
+          "usage": 0.1
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.094
+        },
+        {
+          "name": "Mystic Water",
+          "usage": 0.086
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.069
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.032
+        },
+        {
+          "name": "Wacan Berry",
+          "usage": 0.012
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.01
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.005
+        },
+        {
+          "name": "Focus Sash",
           "usage": 0.004
         }
       ],
       "modal_set": {
-        "ability": "Regenerator",
-        "item": "Leftovers",
+        "ability": "Drizzle",
+        "item": "Sitrus Berry",
+        "nature": "Calm",
+        "sps": {
+          "hp": 31,
+          "atk": 0,
+          "def": 23,
+          "spa": 0,
+          "spd": 12,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Scovillain",
+      "usage": 0.031530459302584114,
+      "moves": [
+        {
+          "name": "Protect",
+          "usage": 0.9890000000000001
+        },
+        {
+          "name": "Rage Powder",
+          "usage": 0.965
+        },
+        {
+          "name": "Overheat",
+          "usage": 0.777
+        },
+        {
+          "name": "Leech Seed",
+          "usage": 0.536
+        },
+        {
+          "name": "Giga Drain",
+          "usage": 0.36
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.14400000000000002
+        },
+        {
+          "name": "Leaf Storm",
+          "usage": 0.095
+        },
+        {
+          "name": "Temper Flare",
+          "usage": 0.034
+        },
+        {
+          "name": "Super Fang",
+          "usage": 0.03
+        },
+        {
+          "name": "Fire Blast",
+          "usage": 0.027999999999999997
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Moody",
+          "usage": 0.882
+        },
+        {
+          "name": "Chlorophyll",
+          "usage": 0.096
+        },
+        {
+          "name": "Insomnia",
+          "usage": 0.022000000000000002
+        }
+      ],
+      "items": [
+        {
+          "name": "Scovillainite",
+          "usage": 0.993
+        },
+        {
+          "name": "Kebia Berry",
+          "usage": 0.003
+        },
+        {
+          "name": "Sceptilite",
+          "usage": 0.003
+        },
+        {
+          "name": "Focus Band",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Moody",
+        "item": "Scovillainite",
         "nature": "Bold",
         "sps": {
           "hp": 32,
           "atk": 0,
-          "def": 16,
+          "def": 19,
           "spa": 0,
-          "spd": 18,
+          "spd": 15,
           "spe": 0
         }
       }
     },
     {
       "name": "Vivillon",
-      "usage": 0.021376447290032567,
+      "usage": 0.028391538515865938,
       "moves": [
         {
           "name": "Sleep Powder",
@@ -5285,8 +4679,230 @@
       }
     },
     {
+      "name": "Scrafty",
+      "usage": 0.027873616586057436,
+      "moves": [
+        {
+          "name": "Fake Out",
+          "usage": 0.9109999999999999
+        },
+        {
+          "name": "Knock Off",
+          "usage": 0.873
+        },
+        {
+          "name": "Drain Punch",
+          "usage": 0.51
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.442
+        },
+        {
+          "name": "Detect",
+          "usage": 0.23800000000000002
+        },
+        {
+          "name": "Protect",
+          "usage": 0.17800000000000002
+        },
+        {
+          "name": "Poison Jab",
+          "usage": 0.127
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.11699999999999999
+        },
+        {
+          "name": "Throat Chop",
+          "usage": 0.086
+        },
+        {
+          "name": "Coaching",
+          "usage": 0.079
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Intimidate",
+          "usage": 0.988
+        },
+        {
+          "name": "Moxie",
+          "usage": 0.008
+        },
+        {
+          "name": "Shed Skin",
+          "usage": 0.004
+        }
+      ],
+      "items": [
+        {
+          "name": "Scraftinite",
+          "usage": 0.855
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.064
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.019
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.018000000000000002
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Roseli Berry",
+          "usage": 0.012
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.01
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Intimidate",
+        "item": "Scraftinite",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 32,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 2,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Glimmora",
+      "usage": 0.026696521291038118,
+      "moves": [
+        {
+          "name": "Power Gem",
+          "usage": 0.997
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.943
+        },
+        {
+          "name": "Sludge Bomb",
+          "usage": 0.9420000000000001
+        },
+        {
+          "name": "Spiky Shield",
+          "usage": 0.845
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.153
+        },
+        {
+          "name": "Sludge Wave",
+          "usage": 0.044000000000000004
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Protect",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Stealth Rock",
+          "usage": 0.013000000000000001
+        },
+        {
+          "name": "Mortal Spin",
+          "usage": 0.013000000000000001
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Toxic Debris",
+          "usage": 0.9990000000000001
+        },
+        {
+          "name": "Corrosion",
+          "usage": 0.001
+        }
+      ],
+      "items": [
+        {
+          "name": "Focus Sash",
+          "usage": 0.765
+        },
+        {
+          "name": "Glimmoranite",
+          "usage": 0.19
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.025
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.002
+        },
+        {
+          "name": "Shuca Berry",
+          "usage": 0.002
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.001
+        },
+        {
+          "name": "Babiri Berry",
+          "usage": 0.001
+        },
+        {
+          "name": "Poison Barb",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Toxic Debris",
+        "item": "Focus Sash",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Gardevoir",
-      "usage": 0.02079717806406341,
+      "usage": 0.026257072380897573,
       "moves": [
         {
           "name": "Hyper Voice",
@@ -5384,100 +5000,187 @@
       }
     },
     {
-      "name": "Arcanine-Hisui",
-      "usage": 0.018211659323762047,
+      "name": "Kangaskhan",
+      "usage": 0.025456647580284437,
       "moves": [
         {
-          "name": "Flare Blitz",
-          "usage": 0.992
+          "name": "Fake Out",
+          "usage": 0.998
         },
         {
-          "name": "Extreme Speed",
-          "usage": 0.813
+          "name": "Last Resort",
+          "usage": 0.496
+        },
+        {
+          "name": "Double-Edge",
+          "usage": 0.45299999999999996
+        },
+        {
+          "name": "Ice Punch",
+          "usage": 0.324
+        },
+        {
+          "name": "Low Kick",
+          "usage": 0.24
+        },
+        {
+          "name": "Sucker Punch",
+          "usage": 0.153
+        },
+        {
+          "name": "Drain Punch",
+          "usage": 0.13699999999999998
+        },
+        {
+          "name": "Hammer Arm",
+          "usage": 0.08199999999999999
         },
         {
           "name": "Protect",
-          "usage": 0.7929999999999999
-        },
-        {
-          "name": "Head Smash",
-          "usage": 0.625
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.45899999999999996
-        },
-        {
-          "name": "Wild Charge",
-          "usage": 0.067
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.065
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.054000000000000006
-        },
-        {
-          "name": "Psychic Fangs",
-          "usage": 0.033
-        },
-        {
-          "name": "Snarl",
           "usage": 0.027000000000000003
+        },
+        {
+          "name": "Facade",
+          "usage": 0.026000000000000002
         }
       ],
       "abilities": [
         {
-          "name": "Rock Head",
-          "usage": 0.725
+          "name": "Scrappy",
+          "usage": 0.9890000000000001
         },
         {
-          "name": "Intimidate",
-          "usage": 0.275
+          "name": "Inner Focus",
+          "usage": 0.011000000000000001
+        }
+      ],
+      "items": [
+        {
+          "name": "Kangaskhanite",
+          "usage": 0.52
+        },
+        {
+          "name": "Silk Scarf",
+          "usage": 0.376
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Metronome",
+          "usage": 0.027999999999999997
+        },
+        {
+          "name": "Iron Ball",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Chople Berry",
+          "usage": 0.011000000000000001
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.009000000000000001
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.006
+        },
+        {
+          "name": "King's Rock",
+          "usage": 0.004
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.003
+        }
+      ],
+      "modal_set": {
+        "ability": "Scrappy",
+        "item": "Kangaskhanite",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 32,
+          "atk": 32,
+          "def": 1,
+          "spa": 0,
+          "spd": 1,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Lycanroc-Dusk",
+      "usage": 0.025425258372417256,
+      "moves": [
+        {
+          "name": "Accelerock",
+          "usage": 1
+        },
+        {
+          "name": "Protect",
+          "usage": 0.946
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.946
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.937
+        },
+        {
+          "name": "Drill Run",
+          "usage": 0.048
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.039
+        },
+        {
+          "name": "Sucker Punch",
+          "usage": 0.03
+        },
+        {
+          "name": "Roar",
+          "usage": 0.015
+        },
+        {
+          "name": "Throat Chop",
+          "usage": 0.015
+        },
+        {
+          "name": "Psychic Fangs",
+          "usage": 0.015
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Tough Claws",
+          "usage": 1
         }
       ],
       "items": [
         {
           "name": "Focus Sash",
-          "usage": 0.56
+          "usage": 0.845
         },
         {
-          "name": "Choice Scarf",
-          "usage": 0.161
+          "name": "Hard Stone",
+          "usage": 0.075
         },
         {
           "name": "Life Orb",
-          "usage": 0.078
+          "usage": 0.051
         },
         {
-          "name": "Sitrus Berry",
-          "usage": 0.071
-        },
-        {
-          "name": "Chople Berry",
-          "usage": 0.052000000000000005
-        },
-        {
-          "name": "Charcoal",
-          "usage": 0.033
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.023
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.019
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.004
+          "name": "Expert Belt",
+          "usage": 0.03
         }
       ],
       "modal_set": {
-        "ability": "Rock Head",
+        "ability": "Tough Claws",
         "item": "Focus Sash",
         "nature": "Adamant",
         "sps": {
@@ -5491,111 +5194,8 @@
       }
     },
     {
-      "name": "Scizor",
-      "usage": 0.017293305672835334,
-      "moves": [
-        {
-          "name": "Bullet Punch",
-          "usage": 1
-        },
-        {
-          "name": "Protect",
-          "usage": 0.887
-        },
-        {
-          "name": "Swords Dance",
-          "usage": 0.8059999999999999
-        },
-        {
-          "name": "Bug Bite",
-          "usage": 0.7340000000000001
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.259
-        },
-        {
-          "name": "Dual Wingbeat",
-          "usage": 0.094
-        },
-        {
-          "name": "Knock Off",
-          "usage": 0.079
-        },
-        {
-          "name": "Brick Break",
-          "usage": 0.059000000000000004
-        },
-        {
-          "name": "U-turn",
-          "usage": 0.034
-        },
-        {
-          "name": "Pounce",
-          "usage": 0.015
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Technician",
-          "usage": 1
-        }
-      ],
-      "items": [
-        {
-          "name": "Scizorite",
-          "usage": 0.535
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.25
-        },
-        {
-          "name": "Metal Coat",
-          "usage": 0.14
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.027999999999999997
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.023
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.01
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.008
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.005
-        },
-        {
-          "name": "King's Rock",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Technician",
-        "item": "Scizorite",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 32,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 2,
-          "spe": 0
-        }
-      }
-    },
-    {
       "name": "Kommo-o",
-      "usage": 0.017208534566595945,
+      "usage": 0.023322181445316077,
       "moves": [
         {
           "name": "Clanging Scales",
@@ -5705,208 +5305,73 @@
       }
     },
     {
-      "name": "Mamoswine",
-      "usage": 0.01703899235411717,
+      "name": "Pyroar",
+      "usage": 0.020873823231675897,
       "moves": [
         {
-          "name": "Ice Shard",
-          "usage": 0.855
-        },
-        {
-          "name": "Icicle Crash",
-          "usage": 0.758
+          "name": "Heat Wave",
+          "usage": 0.996
         },
         {
           "name": "Protect",
-          "usage": 0.6659999999999999
+          "usage": 0.992
         },
-        {
-          "name": "High Horsepower",
-          "usage": 0.637
-        },
-        {
-          "name": "Earthquake",
-          "usage": 0.39799999999999996
-        },
-        {
-          "name": "Rock Slide",
-          "usage": 0.185
-        },
-        {
-          "name": "Icicle Spear",
-          "usage": 0.114
-        },
-        {
-          "name": "Iron Head",
-          "usage": 0.09
-        },
-        {
-          "name": "Rock Tomb",
-          "usage": 0.055
-        },
-        {
-          "name": "Freeze-Dry",
-          "usage": 0.052000000000000005
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Oblivious",
-          "usage": 0.775
-        },
-        {
-          "name": "Thick Fat",
-          "usage": 0.225
-        }
-      ],
-      "items": [
-        {
-          "name": "Focus Sash",
-          "usage": 0.39299999999999996
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.273
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.156
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.071
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.047
-        },
-        {
-          "name": "Never-Melt Ice",
-          "usage": 0.026000000000000002
-        },
-        {
-          "name": "Soft Sand",
-          "usage": 0.021
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.005
-        }
-      ],
-      "modal_set": {
-        "ability": "Oblivious",
-        "item": "Focus Sash",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Rotom-Heat",
-      "usage": 0.016035867596951067,
-      "moves": [
         {
           "name": "Overheat",
-          "usage": 0.978
+          "usage": 0.7290000000000001
         },
         {
-          "name": "Volt Switch",
-          "usage": 0.691
+          "name": "Hyper Voice",
+          "usage": 0.309
         },
         {
-          "name": "Will-O-Wisp",
-          "usage": 0.486
+          "name": "Flamethrower",
+          "usage": 0.278
         },
         {
-          "name": "Thunderbolt",
-          "usage": 0.486
+          "name": "Solar Beam",
+          "usage": 0.258
         },
         {
-          "name": "Discharge",
-          "usage": 0.451
+          "name": "Scorching Sands",
+          "usage": 0.12300000000000001
         },
         {
-          "name": "Electroweb",
-          "usage": 0.38299999999999995
+          "name": "Dark Pulse",
+          "usage": 0.06
         },
         {
-          "name": "Trick",
-          "usage": 0.183
+          "name": "Round",
+          "usage": 0.048
         },
         {
-          "name": "Protect",
-          "usage": 0.18100000000000002
-        },
-        {
-          "name": "Eerie Impulse",
-          "usage": 0.061
-        },
-        {
-          "name": "Nasty Plot",
-          "usage": 0.037000000000000005
+          "name": "Snarl",
+          "usage": 0.039
         }
       ],
       "abilities": [
         {
-          "name": "Levitate",
-          "usage": 1
+          "name": "Unnerve",
+          "usage": 0.885
+        },
+        {
+          "name": "Moxie",
+          "usage": 0.064
+        },
+        {
+          "name": "Rivalry",
+          "usage": 0.051
         }
       ],
       "items": [
         {
-          "name": "Choice Scarf",
-          "usage": 0.695
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.2
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.035
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.024
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.024
-        },
-        {
-          "name": "Passho Berry",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "Shell Bell",
-          "usage": 0.004
-        },
-        {
-          "name": "Magnet",
-          "usage": 0.002
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.002
+          "name": "Pyroarite",
+          "usage": 0.9990000000000001
         }
       ],
       "modal_set": {
-        "ability": "Levitate",
-        "item": "Choice Scarf",
+        "ability": "Unnerve",
+        "item": "Pyroarite",
         "nature": "Timid",
         "sps": {
           "hp": 2,
@@ -5919,119 +5384,8 @@
       }
     },
     {
-      "name": "Primarina",
-      "usage": 0.015795682795939466,
-      "moves": [
-        {
-          "name": "Hyper Voice",
-          "usage": 0.971
-        },
-        {
-          "name": "Protect",
-          "usage": 0.895
-        },
-        {
-          "name": "Moonblast",
-          "usage": 0.8390000000000001
-        },
-        {
-          "name": "Calm Mind",
-          "usage": 0.371
-        },
-        {
-          "name": "Ice Beam",
-          "usage": 0.14
-        },
-        {
-          "name": "Dazzling Gleam",
-          "usage": 0.10099999999999999
-        },
-        {
-          "name": "Hydro Cannon",
-          "usage": 0.092
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.069
-        },
-        {
-          "name": "Draining Kiss",
-          "usage": 0.062
-        },
-        {
-          "name": "Aqua Jet",
-          "usage": 0.055999999999999994
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Liquid Voice",
-          "usage": 0.971
-        },
-        {
-          "name": "Torrent",
-          "usage": 0.028999999999999998
-        }
-      ],
-      "items": [
-        {
-          "name": "Leftovers",
-          "usage": 0.327
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.18899999999999997
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.158
-        },
-        {
-          "name": "Mystic Water",
-          "usage": 0.14800000000000002
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.066
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.038
-        },
-        {
-          "name": "Never-Melt Ice",
-          "usage": 0.024
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.022000000000000002
-        },
-        {
-          "name": "Wise Glasses",
-          "usage": 0.017
-        },
-        {
-          "name": "Fairy Feather",
-          "usage": 0.004
-        }
-      ],
-      "modal_set": {
-        "ability": "Liquid Voice",
-        "item": "Leftovers",
-        "nature": "Modest",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
       "name": "Tsareena",
-      "usage": 0.015089256910611222,
+      "usage": 0.020340206697933804,
       "moves": [
         {
           "name": "Triple Axel",
@@ -6141,8 +5495,444 @@
       }
     },
     {
+      "name": "Mamoswine",
+      "usage": 0.01938283585798476,
+      "moves": [
+        {
+          "name": "Ice Shard",
+          "usage": 0.855
+        },
+        {
+          "name": "Icicle Crash",
+          "usage": 0.758
+        },
+        {
+          "name": "Protect",
+          "usage": 0.6659999999999999
+        },
+        {
+          "name": "High Horsepower",
+          "usage": 0.637
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.39799999999999996
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.185
+        },
+        {
+          "name": "Icicle Spear",
+          "usage": 0.114
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.09
+        },
+        {
+          "name": "Rock Tomb",
+          "usage": 0.055
+        },
+        {
+          "name": "Freeze-Dry",
+          "usage": 0.052000000000000005
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Oblivious",
+          "usage": 0.775
+        },
+        {
+          "name": "Thick Fat",
+          "usage": 0.225
+        }
+      ],
+      "items": [
+        {
+          "name": "Focus Sash",
+          "usage": 0.39299999999999996
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.273
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.156
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.071
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.047
+        },
+        {
+          "name": "Never-Melt Ice",
+          "usage": 0.026000000000000002
+        },
+        {
+          "name": "Soft Sand",
+          "usage": 0.021
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Occa Berry",
+          "usage": 0.005
+        }
+      ],
+      "modal_set": {
+        "ability": "Oblivious",
+        "item": "Focus Sash",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Corviknight",
+      "usage": 0.01745239957415308,
+      "moves": [
+        {
+          "name": "Brave Bird",
+          "usage": 0.8540000000000001
+        },
+        {
+          "name": "Tailwind",
+          "usage": 0.61
+        },
+        {
+          "name": "Iron Head",
+          "usage": 0.569
+        },
+        {
+          "name": "Bulk Up",
+          "usage": 0.562
+        },
+        {
+          "name": "Roost",
+          "usage": 0.515
+        },
+        {
+          "name": "Body Press",
+          "usage": 0.449
+        },
+        {
+          "name": "Protect",
+          "usage": 0.20800000000000002
+        },
+        {
+          "name": "Iron Defense",
+          "usage": 0.17
+        },
+        {
+          "name": "Fly",
+          "usage": 0.016
+        },
+        {
+          "name": "Agility",
+          "usage": 0.016
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Mirror Armor",
+          "usage": 0.9790000000000001
+        },
+        {
+          "name": "Unnerve",
+          "usage": 0.021
+        }
+      ],
+      "items": [
+        {
+          "name": "Leftovers",
+          "usage": 0.713
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.132
+        },
+        {
+          "name": "Occa Berry",
+          "usage": 0.113
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.01
+        },
+        {
+          "name": "Muscle Band",
+          "usage": 0.009000000000000001
+        },
+        {
+          "name": "Roseli Berry",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0.006
+        },
+        {
+          "name": "Metal Coat",
+          "usage": 0.002
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.002
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.001
+        }
+      ],
+      "modal_set": {
+        "ability": "Mirror Armor",
+        "item": "Leftovers",
+        "nature": "Careful",
+        "sps": {
+          "hp": 32,
+          "atk": 0,
+          "def": 32,
+          "spa": 0,
+          "spd": 2,
+          "spe": 0
+        }
+      }
+    },
+    {
+      "name": "Primarina",
+      "usage": 0.016824615416809446,
+      "moves": [
+        {
+          "name": "Hyper Voice",
+          "usage": 0.971
+        },
+        {
+          "name": "Protect",
+          "usage": 0.895
+        },
+        {
+          "name": "Moonblast",
+          "usage": 0.8390000000000001
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.371
+        },
+        {
+          "name": "Ice Beam",
+          "usage": 0.14
+        },
+        {
+          "name": "Dazzling Gleam",
+          "usage": 0.10099999999999999
+        },
+        {
+          "name": "Hydro Cannon",
+          "usage": 0.092
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.069
+        },
+        {
+          "name": "Draining Kiss",
+          "usage": 0.062
+        },
+        {
+          "name": "Aqua Jet",
+          "usage": 0.055999999999999994
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Liquid Voice",
+          "usage": 0.971
+        },
+        {
+          "name": "Torrent",
+          "usage": 0.028999999999999998
+        }
+      ],
+      "items": [
+        {
+          "name": "Leftovers",
+          "usage": 0.327
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.18899999999999997
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.158
+        },
+        {
+          "name": "Mystic Water",
+          "usage": 0.14800000000000002
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.066
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.038
+        },
+        {
+          "name": "Never-Melt Ice",
+          "usage": 0.024
+        },
+        {
+          "name": "Expert Belt",
+          "usage": 0.022000000000000002
+        },
+        {
+          "name": "Wise Glasses",
+          "usage": 0.017
+        },
+        {
+          "name": "Fairy Feather",
+          "usage": 0.004
+        }
+      ],
+      "modal_set": {
+        "ability": "Liquid Voice",
+        "item": "Leftovers",
+        "nature": "Modest",
+        "sps": {
+          "hp": 2,
+          "atk": 0,
+          "def": 0,
+          "spa": 32,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Arcanine-Hisui",
+      "usage": 0.016353777298801716,
+      "moves": [
+        {
+          "name": "Flare Blitz",
+          "usage": 0.992
+        },
+        {
+          "name": "Extreme Speed",
+          "usage": 0.813
+        },
+        {
+          "name": "Protect",
+          "usage": 0.7929999999999999
+        },
+        {
+          "name": "Head Smash",
+          "usage": 0.625
+        },
+        {
+          "name": "Rock Slide",
+          "usage": 0.45899999999999996
+        },
+        {
+          "name": "Wild Charge",
+          "usage": 0.067
+        },
+        {
+          "name": "Close Combat",
+          "usage": 0.065
+        },
+        {
+          "name": "Will-O-Wisp",
+          "usage": 0.054000000000000006
+        },
+        {
+          "name": "Psychic Fangs",
+          "usage": 0.033
+        },
+        {
+          "name": "Snarl",
+          "usage": 0.027000000000000003
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Rock Head",
+          "usage": 0.725
+        },
+        {
+          "name": "Intimidate",
+          "usage": 0.275
+        }
+      ],
+      "items": [
+        {
+          "name": "Focus Sash",
+          "usage": 0.56
+        },
+        {
+          "name": "Choice Scarf",
+          "usage": 0.161
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.078
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.071
+        },
+        {
+          "name": "Chople Berry",
+          "usage": 0.052000000000000005
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0.033
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.023
+        },
+        {
+          "name": "Shuca Berry",
+          "usage": 0.019
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.004
+        }
+      ],
+      "modal_set": {
+        "ability": "Rock Head",
+        "item": "Focus Sash",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
       "name": "Vileplume",
-      "usage": 0.01496210025125214,
+      "usage": 0.01588293918079399,
       "moves": [
         {
           "name": "Sleep Powder",
@@ -6240,503 +6030,202 @@
       }
     },
     {
-      "name": "Gyarados",
-      "usage": 0.013888332905553214,
+      "name": "Chandelure",
+      "usage": 0.014439035618903627,
       "moves": [
         {
-          "name": "Waterfall",
-          "usage": 0.986
+          "name": "Shadow Ball",
+          "usage": 0.9520000000000001
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.9179999999999999
         },
         {
           "name": "Protect",
-          "usage": 0.797
+          "usage": 0.897
         },
         {
-          "name": "Dragon Dance",
-          "usage": 0.688
-        },
-        {
-          "name": "Crunch",
-          "usage": 0.33299999999999996
-        },
-        {
-          "name": "Lash Out",
-          "usage": 0.267
-        },
-        {
-          "name": "Taunt",
-          "usage": 0.207
-        },
-        {
-          "name": "Ice Fang",
-          "usage": 0.175
-        },
-        {
-          "name": "Thunder Wave",
-          "usage": 0.14400000000000002
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.10099999999999999
-        },
-        {
-          "name": "Earthquake",
-          "usage": 0.07400000000000001
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "usage": 0.9940000000000001
-        },
-        {
-          "name": "Moxie",
-          "usage": 0.006
-        }
-      ],
-      "items": [
-        {
-          "name": "Gyaradosite",
-          "usage": 0.61
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.28800000000000003
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.045
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.019
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.013999999999999999
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.01
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.01
-        },
-        {
-          "name": "Mystic Water",
-          "usage": 0.002
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Intimidate",
-        "item": "Gyaradosite",
-        "nature": "Adamant",
-        "sps": {
-          "hp": 2,
-          "atk": 32,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Sceptile",
-      "usage": 0.013634019586835047,
-      "moves": [
-        {
-          "name": "Dragon Pulse",
-          "usage": 0.991
-        },
-        {
-          "name": "Earth Power",
-          "usage": 0.953
-        },
-        {
-          "name": "Detect",
-          "usage": 0.573
-        },
-        {
-          "name": "Energy Ball",
-          "usage": 0.46299999999999997
-        },
-        {
-          "name": "Protect",
-          "usage": 0.38
-        },
-        {
-          "name": "Leaf Storm",
-          "usage": 0.36200000000000004
-        },
-        {
-          "name": "Grass Knot",
-          "usage": 0.151
-        },
-        {
-          "name": "Giga Drain",
-          "usage": 0.061
-        },
-        {
-          "name": "Shed Tail",
-          "usage": 0.022000000000000002
-        },
-        {
-          "name": "Vacuum Wave",
-          "usage": 0.018000000000000002
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Overgrow",
-          "usage": 0.836
-        },
-        {
-          "name": "Unburden",
-          "usage": 0.16399999999999998
-        }
-      ],
-      "items": [
-        {
-          "name": "Sceptilite",
-          "usage": 0.982
-        },
-        {
-          "name": "Scovillainite",
-          "usage": 0.006999999999999999
-        },
-        {
-          "name": "White Herb",
-          "usage": 0.004
-        },
-        {
-          "name": "Miracle Seed",
-          "usage": 0.002
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.002
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.002
-        }
-      ],
-      "modal_set": {
-        "ability": "Overgrow",
-        "item": "Sceptilite",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Clefable",
-      "usage": 0.013619891069128483,
-      "moves": [
-        {
-          "name": "Moonblast",
-          "usage": 0.943
-        },
-        {
-          "name": "Follow Me",
-          "usage": 0.9209999999999999
-        },
-        {
-          "name": "Protect",
-          "usage": 0.742
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.295
-        },
-        {
-          "name": "Life Dew",
-          "usage": 0.22399999999999998
-        },
-        {
-          "name": "Icy Wind",
-          "usage": 0.096
+          "name": "Trick Room",
+          "usage": 0.644
         },
         {
           "name": "Calm Mind",
-          "usage": 0.09300000000000001
+          "usage": 0.14400000000000002
         },
         {
-          "name": "Ice Beam",
-          "usage": 0.09300000000000001
+          "name": "Energy Ball",
+          "usage": 0.14400000000000002
         },
         {
-          "name": "Dazzling Gleam",
-          "usage": 0.079
+          "name": "Imprison",
+          "usage": 0.075
         },
         {
-          "name": "Moonlight",
-          "usage": 0.071
+          "name": "Overheat",
+          "usage": 0.055
+        },
+        {
+          "name": "Fire Blast",
+          "usage": 0.040999999999999995
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.040999999999999995
         }
       ],
       "abilities": [
         {
-          "name": "Unaware",
-          "usage": 0.929
+          "name": "Flash Fire",
+          "usage": 0.966
         },
         {
-          "name": "Magic Guard",
-          "usage": 0.071
+          "name": "Flame Body",
+          "usage": 0.021
+        },
+        {
+          "name": "Infiltrator",
+          "usage": 0.013999999999999999
         }
       ],
       "items": [
         {
-          "name": "Sitrus Berry",
-          "usage": 0.337
+          "name": "Chandelurite",
+          "usage": 0.43799999999999994
         },
         {
-          "name": "Leftovers",
-          "usage": 0.21600000000000003
+          "name": "Focus Sash",
+          "usage": 0.192
         },
         {
-          "name": "Clefablite",
-          "usage": 0.20600000000000002
-        },
-        {
-          "name": "Fairy Feather",
-          "usage": 0.08800000000000001
-        },
-        {
-          "name": "Babiri Berry",
-          "usage": 0.047
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.039
-        },
-        {
-          "name": "Kebia Berry",
-          "usage": 0.027000000000000003
-        },
-        {
-          "name": "Mental Herb",
-          "usage": 0.012
-        },
-        {
-          "name": "Shell Bell",
-          "usage": 0.012
+          "name": "Charcoal",
+          "usage": 0.185
         },
         {
           "name": "Life Orb",
+          "usage": 0.11
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.040999999999999995
+        },
+        {
+          "name": "Colbur Berry",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Bright Powder",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "Choice Scarf",
           "usage": 0.006999999999999999
         }
       ],
       "modal_set": {
-        "ability": "Unaware",
-        "item": "Sitrus Berry",
-        "nature": "Bold",
+        "ability": "Flash Fire",
+        "item": "Chandelurite",
+        "nature": "Modest",
         "sps": {
           "hp": 32,
           "atk": 0,
-          "def": 32,
-          "spa": 0,
-          "spd": 2,
+          "def": 2,
+          "spa": 32,
+          "spd": 0,
           "spe": 0
         }
       }
     },
     {
-      "name": "Eelektross",
-      "usage": 0.013280806644170928,
+      "name": "Camerupt",
+      "usage": 0.014172227352032583,
       "moves": [
         {
-          "name": "Protect",
-          "usage": 0.9179999999999999
+          "name": "Earth Power",
+          "usage": 0.991
         },
         {
-          "name": "Thunderbolt",
-          "usage": 0.677
+          "name": "Protect",
+          "usage": 0.868
+        },
+        {
+          "name": "Heat Wave",
+          "usage": 0.68
+        },
+        {
+          "name": "Ancient Power",
+          "usage": 0.66
+        },
+        {
+          "name": "Eruption",
+          "usage": 0.6509999999999999
         },
         {
           "name": "Flamethrower",
-          "usage": 0.474
+          "usage": 0.054000000000000006
         },
         {
-          "name": "Giga Drain",
-          "usage": 0.39
+          "name": "Rock Slide",
+          "usage": 0.028999999999999998
         },
         {
-          "name": "Dragon Pulse",
-          "usage": 0.25
+          "name": "Flash Cannon",
+          "usage": 0.025
         },
         {
-          "name": "Discharge",
-          "usage": 0.20199999999999999
+          "name": "Flare Blitz",
+          "usage": 0.009000000000000001
         },
         {
-          "name": "Supercell Slam",
-          "usage": 0.11599999999999999
-        },
-        {
-          "name": "Coil",
-          "usage": 0.113
-        },
-        {
-          "name": "Drain Punch",
-          "usage": 0.10400000000000001
-        },
-        {
-          "name": "Muddy Water",
-          "usage": 0.08800000000000001
+          "name": "Stomping Tantrum",
+          "usage": 0.009000000000000001
         }
       ],
       "abilities": [
         {
-          "name": "Levitate",
-          "usage": 1
+          "name": "Solid Rock",
+          "usage": 0.966
+        },
+        {
+          "name": "Magma Armor",
+          "usage": 0.023
+        },
+        {
+          "name": "Anger Point",
+          "usage": 0.011000000000000001
         }
       ],
       "items": [
         {
-          "name": "Eelektrossite",
-          "usage": 0.998
+          "name": "Cameruptite",
+          "usage": 0.975
         },
         {
-          "name": "Magnet",
+          "name": "Choice Scarf",
+          "usage": 0.023
+        },
+        {
+          "name": "Wise Glasses",
           "usage": 0.002
         }
       ],
       "modal_set": {
-        "ability": "Levitate",
-        "item": "Eelektrossite",
-        "nature": "Modest",
+        "ability": "Solid Rock",
+        "item": "Cameruptite",
+        "nature": "Quiet",
         "sps": {
-          "hp": 2,
-          "atk": 0,
-          "def": 0,
-          "spa": 32,
-          "spd": 0,
-          "spe": 32
-        }
-      }
-    },
-    {
-      "name": "Ninetales",
-      "usage": 0.012221167816178565,
-      "moves": [
-        {
-          "name": "Protect",
-          "usage": 0.845
-        },
-        {
-          "name": "Heat Wave",
-          "usage": 0.736
-        },
-        {
-          "name": "Overheat",
-          "usage": 0.41100000000000003
-        },
-        {
-          "name": "Will-O-Wisp",
-          "usage": 0.302
-        },
-        {
-          "name": "Encore",
-          "usage": 0.295
-        },
-        {
-          "name": "Helping Hand",
-          "usage": 0.287
-        },
-        {
-          "name": "Disable",
-          "usage": 0.264
-        },
-        {
-          "name": "Solar Beam",
-          "usage": 0.217
-        },
-        {
-          "name": "Pain Split",
-          "usage": 0.14
-        },
-        {
-          "name": "Mystical Fire",
-          "usage": 0.14
-        }
-      ],
-      "abilities": [
-        {
-          "name": "Drought",
-          "usage": 1
-        }
-      ],
-      "items": [
-        {
-          "name": "Charcoal",
-          "usage": 0.302
-        },
-        {
-          "name": "Life Orb",
-          "usage": 0.20199999999999999
-        },
-        {
-          "name": "Shuca Berry",
-          "usage": 0.19399999999999998
-        },
-        {
-          "name": "Choice Scarf",
-          "usage": 0.09300000000000001
-        },
-        {
-          "name": "Passho Berry",
-          "usage": 0.078
-        },
-        {
-          "name": "Bright Powder",
-          "usage": 0.054000000000000006
-        },
-        {
-          "name": "Heat Rock",
-          "usage": 0.031
-        },
-        {
-          "name": "Focus Sash",
-          "usage": 0.023
-        },
-        {
-          "name": "Wide Lens",
-          "usage": 0.016
-        },
-        {
-          "name": "Quick Claw",
-          "usage": 0.008
-        }
-      ],
-      "modal_set": {
-        "ability": "Drought",
-        "item": "Charcoal",
-        "nature": "Timid",
-        "sps": {
-          "hp": 2,
+          "hp": 32,
           "atk": 0,
           "def": 2,
           "spa": 32,
           "spd": 0,
-          "spe": 30
+          "spe": 0
         }
       }
     },
     {
       "name": "Meowscarada",
-      "usage": 0.011585384519383148,
+      "usage": 0.014156532748098992,
       "moves": [
         {
           "name": "Flower Trick",
@@ -6846,115 +6335,103 @@
       }
     },
     {
-      "name": "Aegislash",
-      "usage": 0.01103437232882712,
+      "name": "Sceptile",
+      "usage": 0.01203776121706422,
       "moves": [
         {
-          "name": "Poltergeist",
-          "usage": 0.82
+          "name": "Dragon Pulse",
+          "usage": 0.991
         },
         {
-          "name": "King's Shield",
-          "usage": 0.8059999999999999
+          "name": "Earth Power",
+          "usage": 0.953
         },
         {
-          "name": "Shadow Sneak",
-          "usage": 0.721
+          "name": "Detect",
+          "usage": 0.573
         },
         {
-          "name": "Iron Head",
-          "usage": 0.56
-        },
-        {
-          "name": "Wide Guard",
-          "usage": 0.368
-        },
-        {
-          "name": "Sacred Sword",
-          "usage": 0.285
-        },
-        {
-          "name": "Shadow Ball",
-          "usage": 0.145
-        },
-        {
-          "name": "Flash Cannon",
-          "usage": 0.124
-        },
-        {
-          "name": "Close Combat",
-          "usage": 0.095
+          "name": "Energy Ball",
+          "usage": 0.46299999999999997
         },
         {
           "name": "Protect",
-          "usage": 0.045
+          "usage": 0.38
+        },
+        {
+          "name": "Leaf Storm",
+          "usage": 0.36200000000000004
+        },
+        {
+          "name": "Grass Knot",
+          "usage": 0.151
+        },
+        {
+          "name": "Giga Drain",
+          "usage": 0.061
+        },
+        {
+          "name": "Shed Tail",
+          "usage": 0.022000000000000002
+        },
+        {
+          "name": "Vacuum Wave",
+          "usage": 0.018000000000000002
         }
       ],
       "abilities": [
         {
-          "name": "Stance Change",
-          "usage": 1
+          "name": "Overgrow",
+          "usage": 0.836
+        },
+        {
+          "name": "Unburden",
+          "usage": 0.16399999999999998
         }
       ],
       "items": [
         {
-          "name": "Spell Tag",
-          "usage": 0.254
+          "name": "Sceptilite",
+          "usage": 0.982
+        },
+        {
+          "name": "Scovillainite",
+          "usage": 0.006999999999999999
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.004
+        },
+        {
+          "name": "Miracle Seed",
+          "usage": 0.002
         },
         {
           "name": "Focus Sash",
-          "usage": 0.182
+          "usage": 0.002
         },
         {
-          "name": "Life Orb",
-          "usage": 0.159
-        },
-        {
-          "name": "Leftovers",
-          "usage": 0.12
-        },
-        {
-          "name": "Expert Belt",
-          "usage": 0.066
-        },
-        {
-          "name": "Lum Berry",
-          "usage": 0.055999999999999994
-        },
-        {
-          "name": "Kasib Berry",
-          "usage": 0.048
-        },
-        {
-          "name": "Metal Coat",
-          "usage": 0.043
-        },
-        {
-          "name": "Occa Berry",
-          "usage": 0.021
-        },
-        {
-          "name": "Sitrus Berry",
-          "usage": 0.017
+          "name": "Choice Scarf",
+          "usage": 0.002
         }
       ],
       "modal_set": {
-        "ability": "Stance Change",
-        "item": "Spell Tag",
-        "nature": "Adamant",
+        "ability": "Overgrow",
+        "item": "Sceptilite",
+        "nature": "Timid",
         "sps": {
-          "hp": 32,
-          "atk": 32,
+          "hp": 2,
+          "atk": 0,
           "def": 0,
-          "spa": 0,
+          "spa": 32,
           "spd": 0,
-          "spe": 2
+          "spe": 32
         }
       }
     },
     {
       "name": "Gallade",
-      "usage": 0.01027143237267262,
+      "usage": 0.011990677405263448,
       "moves": [
         {
           "name": "Sacred Sword",
@@ -7060,6 +6537,220 @@
           "spa": 0,
           "spd": 0,
           "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Gyarados",
+      "usage": 0.01031135478436922,
+      "moves": [
+        {
+          "name": "Waterfall",
+          "usage": 0.986
+        },
+        {
+          "name": "Protect",
+          "usage": 0.797
+        },
+        {
+          "name": "Dragon Dance",
+          "usage": 0.688
+        },
+        {
+          "name": "Crunch",
+          "usage": 0.33299999999999996
+        },
+        {
+          "name": "Lash Out",
+          "usage": 0.267
+        },
+        {
+          "name": "Taunt",
+          "usage": 0.207
+        },
+        {
+          "name": "Ice Fang",
+          "usage": 0.175
+        },
+        {
+          "name": "Thunder Wave",
+          "usage": 0.14400000000000002
+        },
+        {
+          "name": "Helping Hand",
+          "usage": 0.10099999999999999
+        },
+        {
+          "name": "Earthquake",
+          "usage": 0.07400000000000001
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Intimidate",
+          "usage": 0.9940000000000001
+        },
+        {
+          "name": "Moxie",
+          "usage": 0.006
+        }
+      ],
+      "items": [
+        {
+          "name": "Gyaradosite",
+          "usage": 0.61
+        },
+        {
+          "name": "Sitrus Berry",
+          "usage": 0.28800000000000003
+        },
+        {
+          "name": "Leftovers",
+          "usage": 0.045
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.019
+        },
+        {
+          "name": "Lum Berry",
+          "usage": 0.013999999999999999
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.01
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.01
+        },
+        {
+          "name": "Mystic Water",
+          "usage": 0.002
+        },
+        {
+          "name": "Wide Lens",
+          "usage": 0.002
+        }
+      ],
+      "modal_set": {
+        "ability": "Intimidate",
+        "item": "Gyaradosite",
+        "nature": "Adamant",
+        "sps": {
+          "hp": 2,
+          "atk": 32,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 32
+        }
+      }
+    },
+    {
+      "name": "Drampa",
+      "usage": 0.01012301953716613,
+      "moves": [
+        {
+          "name": "Hyper Voice",
+          "usage": 0.932
+        },
+        {
+          "name": "Protect",
+          "usage": 0.847
+        },
+        {
+          "name": "Earth Power",
+          "usage": 0.602
+        },
+        {
+          "name": "Calm Mind",
+          "usage": 0.475
+        },
+        {
+          "name": "Draco Meteor",
+          "usage": 0.28800000000000003
+        },
+        {
+          "name": "Dragon Pulse",
+          "usage": 0.254
+        },
+        {
+          "name": "Energy Ball",
+          "usage": 0.212
+        },
+        {
+          "name": "Thunderbolt",
+          "usage": 0.153
+        },
+        {
+          "name": "Flamethrower",
+          "usage": 0.102
+        },
+        {
+          "name": "Round",
+          "usage": 0.051
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Cloud Nine",
+          "usage": 0.8140000000000001
+        },
+        {
+          "name": "Berserk",
+          "usage": 0.18600000000000003
+        }
+      ],
+      "items": [
+        {
+          "name": "Drampanite",
+          "usage": 0.805
+        },
+        {
+          "name": "Silk Scarf",
+          "usage": 0.051
+        },
+        {
+          "name": "Focus Sash",
+          "usage": 0.051
+        },
+        {
+          "name": "Life Orb",
+          "usage": 0.042
+        },
+        {
+          "name": "Wise Glasses",
+          "usage": 0.017
+        },
+        {
+          "name": "White Herb",
+          "usage": 0.008
+        },
+        {
+          "name": "Quick Claw",
+          "usage": 0.008
+        },
+        {
+          "name": "Charcoal",
+          "usage": 0.008
+        },
+        {
+          "name": "Roseli Berry",
+          "usage": 0.008
+        }
+      ],
+      "modal_set": {
+        "ability": "Cloud Nine",
+        "item": "Drampanite",
+        "nature": "Quiet",
+        "sps": {
+          "hp": 32,
+          "atk": 0,
+          "def": 2,
+          "spa": 32,
+          "spd": 0,
+          "spe": 0
         }
       }
     }
