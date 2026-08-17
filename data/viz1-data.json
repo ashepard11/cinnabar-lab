@@ -1,2343 +1,2327 @@
 {
-  "generated_at": "2026-08-10T07:42:47.869Z",
+  "generated_at": "2026-08-17T06:57:01.556Z",
   "cells": [
     {
       "type": "Fire",
       "category": "Special",
-      "share": 0.128692615056573,
+      "share": 0.11645016082858639,
       "contributors": [
         {
           "variant_id": "charizard_mega_y",
           "species": "Charizard-Mega-Y",
           "item": null,
           "move": "Heat Wave",
-          "expected_damage": 0.35007043224416773,
-          "share": 0.04634228417828316
+          "expected_damage": 0.3209855751790214,
+          "share": 0.04297598152271841
         },
         {
           "variant_id": "charizard_mega_y",
           "species": "Charizard-Mega-Y",
           "item": null,
           "move": "Weather Ball",
-          "expected_damage": 0.29450403146400395,
-          "share": 0.038986410335379855
-        },
-        {
-          "variant_id": "torkoal_charcoal",
-          "species": "Torkoal",
-          "item": "Charcoal",
-          "move": "Eruption",
-          "expected_damage": 0.08623802138546731,
-          "share": 0.011416179505359435
+          "expected_damage": 0.2700357905865065,
+          "share": 0.03615443821812224
         },
         {
           "variant_id": "delphox_mega",
           "species": "Delphox-Mega",
           "item": null,
           "move": "Heat Wave",
-          "expected_damage": 0.06867511980776728,
-          "share": 0.009091204583337719
+          "expected_damage": 0.07558464479439,
+          "share": 0.010119845093578644
+        },
+        {
+          "variant_id": "torkoal_charcoal",
+          "species": "Torkoal",
+          "item": "Charcoal",
+          "move": "Eruption",
+          "expected_damage": 0.06592996437696673,
+          "share": 0.008827203307431327
         },
         {
           "variant_id": "torkoal_charcoal",
           "species": "Torkoal",
           "item": "Charcoal",
           "move": "Weather Ball",
-          "expected_damage": 0.03327109943974001,
-          "share": 0.004404424376192191
+          "expected_damage": 0.02543614018044055,
+          "share": 0.003405583225334086
         },
         {
           "variant_id": "torkoal_charcoal",
           "species": "Torkoal",
           "item": "Charcoal",
           "move": "Heat Wave",
-          "expected_damage": 0.030042149263754918,
-          "share": 0.0039769763175436686
-        },
-        {
-          "variant_id": "pyroar_mega",
-          "species": "Pyroar-Mega",
-          "item": null,
-          "move": "Heat Wave",
-          "expected_damage": 0.021062536444962948,
-          "share": 0.0027882561894490895
-        },
-        {
-          "variant_id": "pyroar_mega",
-          "species": "Pyroar-Mega",
-          "item": null,
-          "move": "Overheat",
-          "expected_damage": 0.018844802932929113,
-          "share": 0.0024946728782636127
+          "expected_damage": 0.022967570439883258,
+          "share": 0.0030750723994237205
         },
         {
           "variant_id": "scovillain_mega",
           "species": "Scovillain-Mega",
           "item": null,
           "move": "Overheat",
-          "expected_damage": 0.01762887426018253,
-          "share": 0.002333708378257961
+          "expected_damage": 0.019549872931683573,
+          "share": 0.0026174851546364353
         },
         {
           "variant_id": "camerupt_mega",
           "species": "Camerupt-Mega",
           "item": null,
           "move": "Eruption",
-          "expected_damage": 0.011474039432855868,
-          "share": 0.0015189320407938919
+          "expected_damage": 0.012722984908127904,
+          "share": 0.0017034496457374324
+        },
+        {
+          "variant_id": "camerupt_mega",
+          "species": "Camerupt-Mega",
+          "item": null,
+          "move": "Heat Wave",
+          "expected_damage": 0.010945488132360194,
+          "share": 0.0014654649059263666
+        },
+        {
+          "variant_id": "pyroar_mega",
+          "species": "Pyroar-Mega",
+          "item": null,
+          "move": "Heat Wave",
+          "expected_damage": 0.010576091452246951,
+          "share": 0.0014160072787721052
         }
       ]
     },
     {
       "type": "Fairy",
       "category": "Special",
-      "share": 0.10060097707536925,
+      "share": 0.0955422298401724,
       "contributors": [
         {
           "variant_id": "sylveon_no_item",
           "species": "Sylveon",
           "item": null,
           "move": "Hyper Beam",
-          "expected_damage": 0.1357726756198154,
-          "share": 0.01797357142356649
+          "expected_damage": 0.12187368023615087,
+          "share": 0.01631737197851758
         },
         {
           "variant_id": "sylveon_no_item",
           "species": "Sylveon",
           "item": null,
           "move": "Hyper Voice",
-          "expected_damage": 0.12911140863647894,
-          "share": 0.017091753654638546
+          "expected_damage": 0.11589432453303403,
+          "share": 0.015516810520042092
         },
         {
           "variant_id": "floette_mega",
           "species": "Floette-Mega",
           "item": null,
           "move": "Dazzling Gleam",
-          "expected_damage": 0.12452516161366686,
-          "share": 0.01648462679310823
+          "expected_damage": 0.11557740036763098,
+          "share": 0.0154743783108412
         },
         {
           "variant_id": "floette_mega",
           "species": "Floette-Mega",
           "item": null,
           "move": "Light of Ruin",
-          "expected_damage": 0.11626702711661352,
-          "share": 0.015391415883544745
+          "expected_damage": 0.10791265450673561,
+          "share": 0.014448164044637939
         },
         {
           "variant_id": "floette_mega",
           "species": "Floette-Mega",
           "item": null,
           "move": "Moonblast",
-          "expected_damage": 0.10732434170788682,
-          "share": 0.014207584201812923
+          "expected_damage": 0.09961254617158015,
+          "share": 0.013336882635031732
         },
         {
           "variant_id": "whimsicott_no_item",
           "species": "Whimsicott",
           "item": null,
           "move": "Moonblast",
-          "expected_damage": 0.08071910806818484,
-          "share": 0.010685586385382858
+          "expected_damage": 0.09003218553623547,
+          "share": 0.012054191344571334
         },
         {
           "variant_id": "gardevoir_mega",
           "species": "Gardevoir-Mega",
           "item": null,
           "move": "Hyper Voice",
-          "expected_damage": 0.02144854539711271,
-          "share": 0.0028393560108227744
+          "expected_damage": 0.020536812852538812,
+          "share": 0.0027496241511600398
         },
         {
           "variant_id": "floette_mega",
           "species": "Floette-Mega",
           "item": null,
           "move": "Draining Kiss",
-          "expected_damage": 0.013956424690018494,
-          "share": 0.0018475499200301853
+          "expected_damage": 0.012953585148544973,
+          "share": 0.0017343241536207576
         },
         {
           "variant_id": "sylveon_no_item",
           "species": "Sylveon",
           "item": null,
           "move": "Moonblast",
-          "expected_damage": 0.013252417622947602,
-          "share": 0.0017543535442135513
+          "expected_damage": 0.01189577284502838,
+          "share": 0.001592696225371711
         },
         {
           "variant_id": "ninetales_alola_no_item",
           "species": "Ninetales-Alola",
           "item": null,
           "move": "Moonblast",
-          "expected_damage": 0.008608852604209368,
-          "share": 0.0011396389328732584
+          "expected_damage": 0.009230442498567179,
+          "share": 0.0012358415983138673
         }
       ]
     },
     {
       "type": "Dark",
       "category": "Physical",
-      "share": 0.07939037152358631,
+      "share": 0.08317276585559501,
       "contributors": [
         {
           "variant_id": "kingambit_no_item",
           "species": "Kingambit",
           "item": null,
           "move": "Kowtow Cleave",
-          "expected_damage": 0.12626477208017775,
-          "share": 0.016714916229670338
+          "expected_damage": 0.13622255605207187,
+          "share": 0.01823850822145584
         },
         {
           "variant_id": "kingambit_no_item",
           "species": "Kingambit",
           "item": null,
           "move": "Sucker Punch",
-          "expected_damage": 0.10665378338802776,
-          "share": 0.014118815767364434
+          "expected_damage": 0.11506496029245193,
+          "share": 0.015405768949843865
         },
         {
           "variant_id": "kingambit_black_glasses",
           "species": "Kingambit",
           "item": "Black Glasses",
           "move": "Kowtow Cleave",
-          "expected_damage": 0.07790016729296856,
-          "share": 0.010312415324778383
+          "expected_damage": 0.08404371013946592,
+          "share": 0.011252408872392372
         },
         {
           "variant_id": "kingambit_black_glasses",
           "species": "Kingambit",
           "item": "Black Glasses",
           "move": "Sucker Punch",
-          "expected_damage": 0.06472952710458099,
-          "share": 0.00856888746809136
+          "expected_damage": 0.06983437651658475,
+          "share": 0.009349955595834685
         },
         {
           "variant_id": "incineroar_no_item",
           "species": "Incineroar",
           "item": null,
           "move": "Throat Chop",
-          "expected_damage": 0.0636556040428702,
-          "share": 0.00842672165479382
-        },
-        {
-          "variant_id": "incineroar_no_item",
-          "species": "Incineroar",
-          "item": null,
-          "move": "Darkest Lariat",
-          "expected_damage": 0.03685867160223595,
-          "share": 0.0048793467728044364
+          "expected_damage": 0.054570466739290155,
+          "share": 0.007306307671196339
         },
         {
           "variant_id": "tyranitar_mega",
           "species": "Tyranitar-Mega",
           "item": null,
           "move": "Knock Off",
-          "expected_damage": 0.031113045040811582,
-          "share": 0.004118741379241507
+          "expected_damage": 0.04151846892096254,
+          "share": 0.005558807283485244
+        },
+        {
+          "variant_id": "incineroar_no_item",
+          "species": "Incineroar",
+          "item": null,
+          "move": "Darkest Lariat",
+          "expected_damage": 0.03159808068696702,
+          "share": 0.0042305905210821195
         },
         {
           "variant_id": "mawile_mega",
           "species": "Mawile-Mega",
           "item": null,
           "move": "Sucker Punch",
-          "expected_damage": 0.024693715708691708,
-          "share": 0.0032689512891844394
+          "expected_damage": 0.02158696831085862,
+          "share": 0.0028902269229436725
         },
         {
           "variant_id": "kingambit_life_orb",
           "species": "Kingambit",
           "item": "Life Orb",
           "move": "Kowtow Cleave",
-          "expected_damage": 0.01503474079998199,
-          "share": 0.0019902972845579465
+          "expected_damage": 0.0162204452406836,
+          "share": 0.0021717161419640136
         },
         {
-          "variant_id": "kingambit_life_orb",
-          "species": "Kingambit",
-          "item": "Life Orb",
-          "move": "Sucker Punch",
-          "expected_damage": 0.012691477471937487,
-          "share": 0.001680096350544054
+          "variant_id": "tyranitar_no_item",
+          "species": "Tyranitar",
+          "item": null,
+          "move": "Knock Off",
+          "expected_damage": 0.013728364909399434,
+          "share": 0.0018380575399827054
         }
       ]
     },
     {
       "type": "Water",
       "category": "Physical",
-      "share": 0.06919731664792424,
+      "share": 0.06768011209584418,
       "contributors": [
         {
           "variant_id": "basculegion_no_item",
           "species": "Basculegion",
           "item": null,
           "move": "Wave Crash",
-          "expected_damage": 0.1549515320910033,
-          "share": 0.020512466271396364
+          "expected_damage": 0.15450051968043307,
+          "share": 0.020685700518889363
         },
         {
           "variant_id": "swampert_mega",
           "species": "Swampert-Mega",
           "item": null,
           "move": "Wave Crash",
-          "expected_damage": 0.08116342486679205,
-          "share": 0.010744404992867761
+          "expected_damage": 0.06916821668480896,
+          "share": 0.00926076506879743
         },
         {
           "variant_id": "basculegion_no_item",
           "species": "Basculegion",
           "item": null,
           "move": "Aqua Jet",
-          "expected_damage": 0.06026516704619707,
-          "share": 0.007977895989109486
+          "expected_damage": 0.06008975517452251,
+          "share": 0.008045271837043382
         },
         {
           "variant_id": "basculegion_mystic_water",
           "species": "Basculegion",
           "item": "Mystic Water",
           "move": "Wave Crash",
-          "expected_damage": 0.05322355494644217,
-          "share": 0.007045728176740593
+          "expected_damage": 0.053068638867255456,
+          "share": 0.007105231573484253
         },
         {
           "variant_id": "basculegion_no_item",
           "species": "Basculegion",
           "item": null,
           "move": "Flip Turn",
-          "expected_damage": 0.04080024660976002,
-          "share": 0.005401132025953996
+          "expected_damage": 0.04068149065215826,
+          "share": 0.0054467462894826684
         },
         {
           "variant_id": "basculegion_life_orb",
           "species": "Basculegion",
           "item": "Life Orb",
           "move": "Wave Crash",
-          "expected_damage": 0.03490203845449256,
-          "share": 0.004620327898276555
+          "expected_damage": 0.034800450220515436,
+          "share": 0.004659348024673788
         },
         {
           "variant_id": "basculegion_no_item",
           "species": "Basculegion",
           "item": null,
           "move": "Liquidation",
-          "expected_damage": 0.022664174112498176,
-          "share": 0.0030002808025069287
+          "expected_damage": 0.02259820623427121,
+          "share": 0.0030256191202017997
         },
         {
           "variant_id": "basculegion_mystic_water",
           "species": "Basculegion",
           "item": "Mystic Water",
           "move": "Aqua Jet",
-          "expected_damage": 0.021043879650428858,
-          "share": 0.002785786405101374
+          "expected_damage": 0.020982627910863513,
+          "share": 0.0028093132499565398
         },
         {
           "variant_id": "basculegion_mystic_water",
           "species": "Basculegion",
           "item": "Mystic Water",
           "move": "Flip Turn",
-          "expected_damage": 0.014123981600901917,
-          "share": 0.001869731084918681
+          "expected_damage": 0.014082871384676813,
+          "share": 0.00188552155366216
         },
         {
           "variant_id": "basculegion_life_orb",
           "species": "Basculegion",
           "item": "Life Orb",
           "move": "Aqua Jet",
-          "expected_damage": 0.013577311221141081,
-          "share": 0.0017973629219512452
+          "expected_damage": 0.01353779218070131,
+          "share": 0.001812542218732843
         }
       ]
     },
     {
       "type": "Ground",
       "category": "Physical",
-      "share": 0.0596166748021752,
+      "share": 0.05834198547106526,
       "contributors": [
         {
           "variant_id": "garchomp_life_orb",
           "species": "Garchomp",
           "item": "Life Orb",
           "move": "Earthquake",
-          "expected_damage": 0.12971464595684112,
-          "share": 0.01717161014279711
+          "expected_damage": 0.12457209810471895,
+          "share": 0.01667865661380213
         },
         {
           "variant_id": "garchomp_no_item",
           "species": "Garchomp",
           "item": null,
           "move": "Earthquake",
-          "expected_damage": 0.08536714496896392,
-          "share": 0.011300892983961319
+          "expected_damage": 0.08198275745617668,
+          "share": 0.010976472907398192
         },
         {
           "variant_id": "swampert_mega",
           "species": "Swampert-Mega",
           "item": null,
           "move": "Earthquake",
-          "expected_damage": 0.05665010340229118,
-          "share": 0.007499334273301345
+          "expected_damage": 0.048277738818654936,
+          "share": 0.0064637895652226215
         },
         {
           "variant_id": "garchomp_life_orb",
           "species": "Garchomp",
           "item": "Life Orb",
           "move": "Stomping Tantrum",
-          "expected_damage": 0.04395534662892986,
-          "share": 0.005818803809206154
-        },
-        {
-          "variant_id": "garchomp_no_item",
-          "species": "Garchomp",
-          "item": null,
-          "move": "Stomping Tantrum",
-          "expected_damage": 0.02890899680981017,
-          "share": 0.003826969724009372
-        },
-        {
-          "variant_id": "swampert_mega",
-          "species": "Swampert-Mega",
-          "item": null,
-          "move": "High Horsepower",
-          "expected_damage": 0.0270103212047178,
-          "share": 0.0035756232624144842
+          "expected_damage": 0.04221273328154348,
+          "share": 0.005651760657840362
         },
         {
           "variant_id": "excadrill_no_item",
           "species": "Excadrill",
           "item": null,
           "move": "Earthquake",
-          "expected_damage": 0.025347880543007142,
-          "share": 0.003355549555873072
+          "expected_damage": 0.03379568882851494,
+          "share": 0.004524822954526099
+        },
+        {
+          "variant_id": "garchomp_no_item",
+          "species": "Garchomp",
+          "item": null,
+          "move": "Stomping Tantrum",
+          "expected_damage": 0.027762897243684376,
+          "share": 0.0037171070952215462
         },
         {
           "variant_id": "excadrill_no_item",
           "species": "Excadrill",
           "item": null,
           "move": "High Horsepower",
-          "expected_damage": 0.017478541762481606,
-          "share": 0.0023138073792360607
+          "expected_damage": 0.023303698215667613,
+          "share": 0.0031200757335247136
+        },
+        {
+          "variant_id": "swampert_mega",
+          "species": "Swampert-Mega",
+          "item": null,
+          "move": "High Horsepower",
+          "expected_damage": 0.02301844399593106,
+          "share": 0.0030818837366730217
         },
         {
           "variant_id": "metagross_mega",
           "species": "Metagross-Mega",
           "item": null,
           "move": "Stomping Tantrum",
-          "expected_damage": 0.011854634773487627,
-          "share": 0.0015693152088878642
+          "expected_damage": 0.008637159130881193,
+          "share": 0.0011564083246124281
         },
         {
           "variant_id": "garchomp_soft_sand",
           "species": "Garchomp",
           "item": "Soft Sand",
           "move": "Earthquake",
-          "expected_damage": 0.008383589573185246,
-          "share": 0.0011098186383352148
-        }
-      ]
-    },
-    {
-      "type": "Grass",
-      "category": "Special",
-      "share": 0.05117568245866727,
-      "contributors": [
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "move": "Solar Beam",
-          "expected_damage": 0.17158097789806653,
-          "share": 0.02271387042420631
-        },
-        {
-          "variant_id": "sinistcha_no_item",
-          "species": "Sinistcha",
-          "item": null,
-          "move": "Matcha Gotcha",
-          "expected_damage": 0.11753783784409953,
-          "share": 0.015559645663741923
-        },
-        {
-          "variant_id": "venusaur_mega",
-          "species": "Venusaur-Mega",
-          "item": null,
-          "move": "Giga Drain",
-          "expected_damage": 0.02064673822984299,
-          "share": 0.0027332128688167655
-        },
-        {
-          "variant_id": "venusaur_no_item",
-          "species": "Venusaur",
-          "item": null,
-          "move": "Giga Drain",
-          "expected_damage": 0.015115438237473562,
-          "share": 0.0020009800021948514
-        },
-        {
-          "variant_id": "venusaur_mega",
-          "species": "Venusaur-Mega",
-          "item": null,
-          "move": "Energy Ball",
-          "expected_damage": 0.009624291770534428,
-          "share": 0.0012740626547223886
-        },
-        {
-          "variant_id": "torkoal_charcoal",
-          "species": "Torkoal",
-          "item": "Charcoal",
-          "move": "Solar Beam",
-          "expected_damage": 0.007772151901270476,
-          "share": 0.0010288765885667307
-        },
-        {
-          "variant_id": "venusaur_no_item",
-          "species": "Venusaur",
-          "item": null,
-          "move": "Energy Ball",
-          "expected_damage": 0.007078808319933757,
-          "share": 0.0009370918437840467
-        },
-        {
-          "variant_id": "charizard_mega_x",
-          "species": "Charizard-Mega-X",
-          "item": null,
-          "move": "Solar Beam",
-          "expected_damage": 0.006047354009563993,
-          "share": 0.0008005480389798435
-        },
-        {
-          "variant_id": "venusaur_life_orb",
-          "species": "Venusaur",
-          "item": "Life Orb",
-          "move": "Giga Drain",
-          "expected_damage": 0.004973783519843771,
-          "share": 0.0006584288991224898
-        },
-        {
-          "variant_id": "scovillain_mega",
-          "species": "Scovillain-Mega",
-          "item": null,
-          "move": "Giga Drain",
-          "expected_damage": 0.004762212379903583,
-          "share": 0.0006304211355756589
+          "expected_damage": 0.008051221472153676,
+          "share": 0.0010779585500987465
         }
       ]
     },
     {
       "type": "Fighting",
       "category": "Physical",
-      "share": 0.04319522558331203,
+      "share": 0.049511861660355753,
       "contributors": [
         {
           "variant_id": "sneasler_no_item",
           "species": "Sneasler",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.15977078494827693,
-          "share": 0.02115043841890697
+          "expected_damage": 0.1534735624783888,
+          "share": 0.020548203705473177
         },
         {
           "variant_id": "staraptor_mega",
           "species": "Staraptor-Mega",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.08409697518813905,
-          "share": 0.011132748052210562
-        },
-        {
-          "variant_id": "blaziken_mega",
-          "species": "Blaziken-Mega",
-          "item": null,
-          "move": "Close Combat",
-          "expected_damage": 0.018787230453585265,
-          "share": 0.0024870514399676184
-        },
-        {
-          "variant_id": "annihilape_no_item",
-          "species": "Annihilape",
-          "item": null,
-          "move": "Drain Punch",
-          "expected_damage": 0.014944409916897073,
-          "share": 0.001978339292484292
+          "expected_damage": 0.13985953355393252,
+          "share": 0.01872545433369572
         },
         {
           "variant_id": "lycanroc_dusk_no_item",
           "species": "Lycanroc-Dusk",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.013697051513426919,
-          "share": 0.001813214128284577
+          "expected_damage": 0.01634792090847728,
+          "share": 0.0021887835504936395
         },
         {
-          "variant_id": "scrafty_mega",
-          "species": "Scrafty-Mega",
+          "variant_id": "blaziken_mega",
+          "species": "Blaziken-Mega",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.008878419831402586,
-          "share": 0.001175324211883131
+          "expected_damage": 0.015385130534531019,
+          "share": 0.002059877878337223
+        },
+        {
+          "variant_id": "annihilape_no_item",
+          "species": "Annihilape",
+          "item": null,
+          "move": "Drain Punch",
+          "expected_damage": 0.014525074438381169,
+          "share": 0.0019447270499050645
         },
         {
           "variant_id": "annihilape_no_item",
           "species": "Annihilape",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.00732245660012279,
-          "share": 0.0009693459755245837
+          "expected_damage": 0.007116990753066986,
+          "share": 0.0009528766609857132
         },
         {
-          "variant_id": "blaziken_no_item",
-          "species": "Blaziken",
+          "variant_id": "scrafty_mega",
+          "species": "Scrafty-Mega",
           "item": null,
           "move": "Close Combat",
-          "expected_damage": 0.006603712438048356,
-          "share": 0.000874198704740219
+          "expected_damage": 0.005759579793266143,
+          "share": 0.0007711361940049118
+        },
+        {
+          "variant_id": "staraptor_no_item",
+          "species": "Staraptor",
+          "item": null,
+          "move": "Close Combat",
+          "expected_damage": 0.0047810701473498226,
+          "share": 0.0006401259065823451
         },
         {
           "variant_id": "scrafty_mega",
           "species": "Scrafty-Mega",
           "item": null,
           "move": "Drain Punch",
-          "expected_damage": 0.006476500515866684,
-          "share": 0.0008573584048873688
+          "expected_damage": 0.004201414464579409,
+          "share": 0.0005625172106202714
         },
         {
           "variant_id": "corviknight_no_item",
           "species": "Corviknight",
           "item": null,
           "move": "Body Press",
-          "expected_damage": 0.002293251082034573,
-          "share": 0.00030358031855051677
+          "expected_damage": 0.0033091492010249774,
+          "share": 0.00044305397474591083
+        }
+      ]
+    },
+    {
+      "type": "Grass",
+      "category": "Special",
+      "share": 0.046776643082091944,
+      "contributors": [
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "move": "Solar Beam",
+          "expected_damage": 0.1573255373992169,
+          "share": 0.021063935301608473
+        },
+        {
+          "variant_id": "sinistcha_no_item",
+          "species": "Sinistcha",
+          "item": null,
+          "move": "Matcha Gotcha",
+          "expected_damage": 0.10471276069218224,
+          "share": 0.014019738009068555
+        },
+        {
+          "variant_id": "venusaur_mega",
+          "species": "Venusaur-Mega",
+          "item": null,
+          "move": "Giga Drain",
+          "expected_damage": 0.01994567864642086,
+          "share": 0.0026704786234976107
+        },
+        {
+          "variant_id": "venusaur_no_item",
+          "species": "Venusaur",
+          "item": null,
+          "move": "Giga Drain",
+          "expected_damage": 0.01460219383460273,
+          "share": 0.0019550523791514412
+        },
+        {
+          "variant_id": "venusaur_mega",
+          "species": "Venusaur-Mega",
+          "item": null,
+          "move": "Energy Ball",
+          "expected_damage": 0.00929749913606244,
+          "share": 0.0012448196491573194
+        },
+        {
+          "variant_id": "venusaur_no_item",
+          "species": "Venusaur",
+          "item": null,
+          "move": "Energy Ball",
+          "expected_damage": 0.006838447525087973,
+          "share": 0.0009155831825724604
+        },
+        {
+          "variant_id": "torkoal_charcoal",
+          "species": "Torkoal",
+          "item": "Charcoal",
+          "move": "Solar Beam",
+          "expected_damage": 0.0059418999850742015,
+          "share": 0.000795546603070776
+        },
+        {
+          "variant_id": "charizard_mega_x",
+          "species": "Charizard-Mega-X",
+          "item": null,
+          "move": "Solar Beam",
+          "expected_damage": 0.005544922467822612,
+          "share": 0.0007423962444080109
+        },
+        {
+          "variant_id": "scovillain_mega",
+          "species": "Scovillain-Mega",
+          "item": null,
+          "move": "Giga Drain",
+          "expected_damage": 0.005281145325943319,
+          "share": 0.0007070797615124865
+        },
+        {
+          "variant_id": "venusaur_life_orb",
+          "species": "Venusaur",
+          "item": "Life Orb",
+          "move": "Giga Drain",
+          "expected_damage": 0.004804898799960342,
+          "share": 0.0006433162671888297
         }
       ]
     },
     {
       "type": "Rock",
       "category": "Physical",
-      "share": 0.040866802710343327,
+      "share": 0.04390577671420355,
       "contributors": [
         {
           "variant_id": "garchomp_life_orb",
           "species": "Garchomp",
           "item": "Life Orb",
           "move": "Rock Slide",
-          "expected_damage": 0.06647121543982819,
-          "share": 0.008799451972681482
-        },
-        {
-          "variant_id": "aerodactyl_mega",
-          "species": "Aerodactyl-Mega",
-          "item": null,
-          "move": "Rock Slide",
-          "expected_damage": 0.04891745755677618,
-          "share": 0.006475687491921833
-        },
-        {
-          "variant_id": "garchomp_no_item",
-          "species": "Garchomp",
-          "item": null,
-          "move": "Rock Slide",
-          "expected_damage": 0.04369531331922562,
-          "share": 0.005784380629113845
+          "expected_damage": 0.06383595861384282,
+          "share": 0.008546841945602878
         },
         {
           "variant_id": "tyranitar_mega",
           "species": "Tyranitar-Mega",
           "item": null,
           "move": "Rock Slide",
-          "expected_damage": 0.0431268790998061,
-          "share": 0.005709131371516944
+          "expected_damage": 0.057550200798883365,
+          "share": 0.007705257050202769
         },
         {
-          "variant_id": "aerodactyl_no_item",
-          "species": "Aerodactyl",
+          "variant_id": "garchomp_no_item",
+          "species": "Garchomp",
           "item": null,
           "move": "Rock Slide",
-          "expected_damage": 0.02588254887893817,
-          "share": 0.003426328889637437
+          "expected_damage": 0.04196300901387868,
+          "share": 0.0056183256802500095
+        },
+        {
+          "variant_id": "aerodactyl_mega",
+          "species": "Aerodactyl-Mega",
+          "item": null,
+          "move": "Rock Slide",
+          "expected_damage": 0.03582842255468832,
+          "share": 0.004796980751672939
         },
         {
           "variant_id": "excadrill_no_item",
           "species": "Excadrill",
           "item": null,
           "move": "Rock Slide",
-          "expected_damage": 0.0164377479299378,
-          "share": 0.0021760272095440714
-        },
-        {
-          "variant_id": "tyranitar_no_item",
-          "species": "Tyranitar",
-          "item": null,
-          "move": "Rock Slide",
-          "expected_damage": 0.014159566540464592,
-          "share": 0.0018744418151883265
-        },
-        {
-          "variant_id": "lycanroc_dusk_no_item",
-          "species": "Lycanroc-Dusk",
-          "item": null,
-          "move": "Rock Slide",
-          "expected_damage": 0.01108633549644835,
-          "share": 0.0014676078375961065
+          "expected_damage": 0.02191603408968246,
+          "share": 0.002934284743369419
         },
         {
           "variant_id": "arcanine_hisui_no_item",
           "species": "Arcanine-Hisui",
           "item": null,
           "move": "Head Smash",
-          "expected_damage": 0.008749161342957364,
-          "share": 0.0011582129878200665
+          "expected_damage": 0.021216733682377236,
+          "share": 0.0028406571049111565
+        },
+        {
+          "variant_id": "aerodactyl_no_item",
+          "species": "Aerodactyl",
+          "item": null,
+          "move": "Rock Slide",
+          "expected_damage": 0.018957054277619855,
+          "share": 0.0025381141003167637
+        },
+        {
+          "variant_id": "tyranitar_no_item",
+          "species": "Tyranitar",
+          "item": null,
+          "move": "Rock Slide",
+          "expected_damage": 0.01889508155095209,
+          "share": 0.0025298167219853515
+        },
+        {
+          "variant_id": "lycanroc_dusk_no_item",
+          "species": "Lycanroc-Dusk",
+          "item": null,
+          "move": "Rock Slide",
+          "expected_damage": 0.013231937960014071,
+          "share": 0.0017715921376285151
         },
         {
           "variant_id": "lycanroc_dusk_no_item",
           "species": "Lycanroc-Dusk",
           "item": null,
           "move": "Accelerock",
-          "expected_damage": 0.0073814065279836655,
-          "share": 0.000977149760299279
+          "expected_damage": 0.00880997271525949,
+          "share": 0.0011795459170259636
         }
       ]
     },
     {
       "type": "Steel",
       "category": "Physical",
-      "share": 0.037168464054888446,
+      "share": 0.03822527535910066,
       "contributors": [
         {
           "variant_id": "kingambit_no_item",
           "species": "Kingambit",
           "item": null,
           "move": "Iron Head",
-          "expected_damage": 0.08988163249777004,
-          "share": 0.011898520331801216
+          "expected_damage": 0.09697008531567587,
+          "share": 0.012983089948695242
         },
         {
           "variant_id": "kingambit_black_glasses",
           "species": "Kingambit",
           "item": "Black Glasses",
           "move": "Iron Head",
-          "expected_damage": 0.04595234587506572,
-          "share": 0.006083166343268147
-        },
-        {
-          "variant_id": "mawile_mega",
-          "species": "Mawile-Mega",
-          "item": null,
-          "move": "Iron Head",
-          "expected_damage": 0.03699948775802209,
-          "share": 0.0048979879995612935
-        },
-        {
-          "variant_id": "metagross_mega",
-          "species": "Metagross-Mega",
-          "item": null,
-          "move": "Iron Head",
-          "expected_damage": 0.03463704868884663,
-          "share": 0.004585248583107958
+          "expected_damage": 0.04957634586878607,
+          "share": 0.006637656919107859
         },
         {
           "variant_id": "excadrill_no_item",
           "species": "Excadrill",
           "item": null,
           "move": "Iron Head",
-          "expected_damage": 0.027540317749363906,
-          "share": 0.003645784144977588
+          "expected_damage": 0.036718809973747435,
+          "share": 0.004916192567494269
+        },
+        {
+          "variant_id": "mawile_mega",
+          "species": "Mawile-Mega",
+          "item": null,
+          "move": "Iron Head",
+          "expected_damage": 0.03234453571802056,
+          "share": 0.00433053157794801
+        },
+        {
+          "variant_id": "metagross_mega",
+          "species": "Metagross-Mega",
+          "item": null,
+          "move": "Iron Head",
+          "expected_damage": 0.02523618036877181,
+          "share": 0.003378811090272349
         },
         {
           "variant_id": "metagross_mega",
           "species": "Metagross-Mega",
           "item": null,
           "move": "Meteor Mash",
-          "expected_damage": 0.019118234710709215,
-          "share": 0.002530869746042553
-        },
-        {
-          "variant_id": "metagross_mega",
-          "species": "Metagross-Mega",
-          "item": null,
-          "move": "Bullet Punch",
-          "expected_damage": 0.011410085969481842,
-          "share": 0.0015104658885545694
+          "expected_damage": 0.013929339760616808,
+          "share": 0.001864965576232097
         },
         {
           "variant_id": "kingambit_life_orb",
           "species": "Kingambit",
           "item": "Life Orb",
           "move": "Iron Head",
-          "expected_damage": 0.010710799268304486,
-          "share": 0.0014178943942403845
+          "expected_damage": 0.01155549904895567,
+          "share": 0.001547137790652238
+        },
+        {
+          "variant_id": "metagross_mega",
+          "species": "Metagross-Mega",
+          "item": null,
+          "move": "Bullet Punch",
+          "expected_damage": 0.008313265663473148,
+          "share": 0.001113043012439462
+        },
+        {
+          "variant_id": "scizor_mega",
+          "species": "Scizor-Mega",
+          "item": null,
+          "move": "Bullet Punch",
+          "expected_damage": 0.004506789489874496,
+          "share": 0.0006034031334137236
         },
         {
           "variant_id": "corviknight_no_item",
           "species": "Corviknight",
           "item": null,
           "move": "Iron Head",
-          "expected_damage": 0.0029512839785372546,
-          "share": 0.0003906906388734754
-        },
-        {
-          "variant_id": "excadrill_mega",
-          "species": "Excadrill-Mega",
-          "item": null,
-          "move": "Iron Head",
-          "expected_damage": 0.0015699966932216872,
-          "share": 0.00020783598446125673
+          "expected_damage": 0.004258687195695013,
+          "share": 0.0005701853179263615
         }
       ]
     },
     {
       "type": "Water",
       "category": "Special",
-      "share": 0.03436622620658984,
+      "share": 0.03378604588970124,
       "contributors": [
         {
           "variant_id": "pelipper_no_item",
           "species": "Pelipper",
           "item": null,
           "move": "Weather Ball",
-          "expected_damage": 0.1061247328486659,
-          "share": 0.014048780116873731
+          "expected_damage": 0.0982965573948539,
+          "share": 0.013160688083855563
         },
         {
           "variant_id": "blastoise_mega",
           "species": "Blastoise-Mega",
           "item": null,
           "move": "Water Spout",
-          "expected_damage": 0.06972706031707213,
-          "share": 0.009230460348837077
-        },
-        {
-          "variant_id": "rotom_wash_no_item",
-          "species": "Rotom-Wash",
-          "item": null,
-          "move": "Hydro Pump",
-          "expected_damage": 0.024079375403790397,
-          "share": 0.0031876249891898928
+          "expected_damage": 0.059887867775417665,
+          "share": 0.008018241621966706
         },
         {
           "variant_id": "milotic_no_item",
           "species": "Milotic",
           "item": null,
           "move": "Scald",
-          "expected_damage": 0.01632856539821134,
-          "share": 0.0021615736383580222
+          "expected_damage": 0.02162411326701154,
+          "share": 0.002895200171191354
         },
         {
-          "variant_id": "politoed_no_item",
-          "species": "Politoed",
+          "variant_id": "rotom_wash_no_item",
+          "species": "Rotom-Wash",
           "item": null,
-          "move": "Weather Ball",
-          "expected_damage": 0.016138320532360965,
-          "share": 0.0021363890445602
+          "move": "Hydro Pump",
+          "expected_damage": 0.020409354157018316,
+          "share": 0.0027325590150069786
         },
         {
           "variant_id": "milotic_no_item",
           "species": "Milotic",
           "item": null,
           "move": "Muddy Water",
-          "expected_damage": 0.014617709599081341,
-          "share": 0.0019350907414075987
+          "expected_damage": 0.019358406593970735,
+          "share": 0.0025918501902391093
+        },
+        {
+          "variant_id": "politoed_no_item",
+          "species": "Politoed",
+          "item": null,
+          "move": "Weather Ball",
+          "expected_damage": 0.018145894545903957,
+          "share": 0.0024295098877357055
         },
         {
           "variant_id": "primarina_no_item",
           "species": "Primarina",
           "item": null,
           "move": "Hyper Voice",
-          "expected_damage": 0.006800152028396768,
-          "share": 0.0009002033554655969
+          "expected_damage": 0.0067147305810128614,
+          "share": 0.0008990190204612694
         },
         {
           "variant_id": "politoed_no_item",
           "species": "Politoed",
           "item": null,
           "move": "Muddy Water",
-          "expected_damage": 0.005787162919170174,
-          "share": 0.0007661039718977154
-        }
-      ]
-    },
-    {
-      "type": "Fire",
-      "category": "Physical",
-      "share": 0.031172125222400305,
-      "contributors": [
+          "expected_damage": 0.006507074130833658,
+          "share": 0.000871216401103694
+        },
         {
-          "variant_id": "incineroar_no_item",
-          "species": "Incineroar",
+          "variant_id": "greninja_mega",
+          "species": "Greninja-Mega",
           "item": null,
-          "move": "Flare Blitz",
-          "expected_damage": 0.16383497311578618,
-          "share": 0.021688455188290576
+          "move": "Hydro Pump",
+          "expected_damage": 0.0009010630104005249,
+          "share": 0.00012064114489936388
         },
         {
-          "variant_id": "blaziken_mega",
-          "species": "Blaziken-Mega",
+          "variant_id": "greninja_mega",
+          "species": "Greninja-Mega",
           "item": null,
-          "move": "Flare Blitz",
-          "expected_damage": 0.018087568078072432,
-          "share": 0.0023944302139274447
-        },
-        {
-          "variant_id": "ceruledge_no_item",
-          "species": "Ceruledge",
-          "item": null,
-          "move": "Bitter Blade",
-          "expected_damage": 0.017248545267161394,
-          "share": 0.0022833604692305215
-        },
-        {
-          "variant_id": "arcanine_hisui_no_item",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "move": "Flare Blitz",
-          "expected_damage": 0.011179464589498292,
-          "share": 0.0014799362563880597
-        },
-        {
-          "variant_id": "incineroar_charcoal",
-          "species": "Incineroar",
-          "item": "Charcoal",
-          "move": "Flare Blitz",
-          "expected_damage": 0.007580710774143813,
-          "share": 0.0010035336338366189
-        },
-        {
-          "variant_id": "talonflame_no_item",
-          "species": "Talonflame",
-          "item": null,
-          "move": "Flare Blitz",
-          "expected_damage": 0.007046346999658829,
-          "share": 0.0009327946178819923
-        },
-        {
-          "variant_id": "blaziken_no_item",
-          "species": "Blaziken",
-          "item": null,
-          "move": "Flare Blitz",
-          "expected_damage": 0.006357781078286553,
-          "share": 0.0008416423391843761
-        },
-        {
-          "variant_id": "talonflame_sharp_beak",
-          "species": "Talonflame",
-          "item": "Sharp Beak",
-          "move": "Flare Blitz",
-          "expected_damage": 0.004139393959875624,
-          "share": 0.0005479725036607142
-        }
-      ]
-    },
-    {
-      "type": "Electric",
-      "category": "Special",
-      "share": 0.02848545528381448,
-      "contributors": [
-        {
-          "variant_id": "archaludon_no_item",
-          "species": "Archaludon",
-          "item": null,
-          "move": "Electro Shot",
-          "expected_damage": 0.11501814376726549,
-          "share": 0.015226088847182403
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "move": "Zap Cannon",
-          "expected_damage": 0.025460046645633404,
-          "share": 0.0033703980918369752
-        },
-        {
-          "variant_id": "farigiraf_no_item",
-          "species": "Farigiraf",
-          "item": null,
-          "move": "Thunderbolt",
-          "expected_damage": 0.01754128731993151,
-          "share": 0.0023221136290259323
-        },
-        {
-          "variant_id": "rotom_wash_no_item",
-          "species": "Rotom-Wash",
-          "item": null,
-          "move": "Thunderbolt",
-          "expected_damage": 0.014682736363631264,
-          "share": 0.001943698977135045
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "move": "Volt Switch",
-          "expected_damage": 0.007531126476273682,
-          "share": 0.0009969696700995285
-        },
-        {
-          "variant_id": "rotom_wash_no_item",
-          "species": "Rotom-Wash",
-          "item": null,
-          "move": "Volt Switch",
-          "expected_damage": 0.006503457401444426,
-          "share": 0.0008609269543475353
-        },
-        {
-          "variant_id": "raichu_no_item",
-          "species": "Raichu",
-          "item": null,
-          "move": "Zap Cannon",
-          "expected_damage": 0.005814133979273409,
-          "share": 0.0007696743977799615
-        },
-        {
-          "variant_id": "raichu_mega_x",
-          "species": "Raichu-Mega-X",
-          "item": null,
-          "move": "Zap Cannon",
-          "expected_damage": 0.0051367591467367,
-          "share": 0.0006800035941551115
-        },
-        {
-          "variant_id": "rotom_wash_no_item",
-          "species": "Rotom-Wash",
-          "item": null,
-          "move": "Electroweb",
-          "expected_damage": 0.0031761257215500737,
-          "share": 0.00042045516335228957
-        },
-        {
-          "variant_id": "dragonite_mega",
-          "species": "Dragonite-Mega",
-          "item": null,
-          "move": "Thunderbolt",
-          "expected_damage": 0.0028776034285983338,
-          "share": 0.0003809368160161937
-        }
-      ]
-    },
-    {
-      "type": "Dragon",
-      "category": "Physical",
-      "share": 0.023867981575697254,
-      "contributors": [
-        {
-          "variant_id": "garchomp_life_orb",
-          "species": "Garchomp",
-          "item": "Life Orb",
-          "move": "Dragon Claw",
-          "expected_damage": 0.1041822851593133,
-          "share": 0.013791639111721253
-        },
-        {
-          "variant_id": "garchomp_no_item",
-          "species": "Garchomp",
-          "item": null,
-          "move": "Dragon Claw",
-          "expected_damage": 0.06851280921587143,
-          "share": 0.0090697179255627
-        },
-        {
-          "variant_id": "garchomp_soft_sand",
-          "species": "Garchomp",
-          "item": "Soft Sand",
-          "move": "Dragon Claw",
-          "expected_damage": 0.005605593481298572,
-          "share": 0.0007420678302733119
-        },
-        {
-          "variant_id": "dragonite_mega",
-          "species": "Dragonite-Mega",
-          "item": null,
-          "move": "Dragon Claw",
-          "expected_damage": 0.001998466040546636,
-          "share": 0.0002645567081399904
+          "move": "Water Shuriken",
+          "expected_damage": 0.0005013187466131747,
+          "share": 0.00006712035324149432
         }
       ]
     },
     {
       "type": "Flying",
       "category": "Physical",
-      "share": 0.023597935719892008,
+      "share": 0.029884833577419983,
       "contributors": [
         {
           "variant_id": "staraptor_mega",
           "species": "Staraptor-Mega",
           "item": null,
           "move": "Brave Bird",
-          "expected_damage": 0.06953843569528403,
-          "share": 0.009205490242764743
+          "expected_damage": 0.11564759800997272,
+          "share": 0.015483776903218864
         },
         {
           "variant_id": "aerodactyl_mega",
           "species": "Aerodactyl-Mega",
           "item": null,
           "move": "Dual Wingbeat",
-          "expected_damage": 0.05309319479453335,
-          "share": 0.007028471114592971
-        },
-        {
-          "variant_id": "aerodactyl_no_item",
-          "species": "Aerodactyl",
-          "item": null,
-          "move": "Dual Wingbeat",
-          "expected_damage": 0.021520660942221808,
-          "share": 0.002848902658517906
+          "expected_damage": 0.03888684148535465,
+          "share": 0.005206465057563451
         },
         {
           "variant_id": "staraptor_mega",
           "species": "Staraptor-Mega",
           "item": null,
           "move": "Dual Wingbeat",
-          "expected_damage": 0.01116392894163438,
-          "share": 0.0014778796490831018
+          "expected_damage": 0.018566445355652314,
+          "share": 0.0024858164174575773
+        },
+        {
+          "variant_id": "aerodactyl_no_item",
+          "species": "Aerodactyl",
+          "item": null,
+          "move": "Dual Wingbeat",
+          "expected_damage": 0.01576229371690418,
+          "share": 0.0021103753436755904
         },
         {
           "variant_id": "corviknight_no_item",
           "species": "Corviknight",
           "item": null,
           "move": "Brave Bird",
-          "expected_damage": 0.006628645447073872,
-          "share": 0.0008774993336515868
+          "expected_damage": 0.009565100375141416,
+          "share": 0.0012806481311683896
+        },
+        {
+          "variant_id": "staraptor_no_item",
+          "species": "Staraptor",
+          "item": null,
+          "move": "Brave Bird",
+          "expected_damage": 0.005919873260478958,
+          "share": 0.0007925974982436097
         },
         {
           "variant_id": "talonflame_no_item",
           "species": "Talonflame",
           "item": null,
           "move": "Brave Bird",
-          "expected_damage": 0.005359844275150322,
-          "share": 0.0007095355781922039
+          "expected_damage": 0.005877478118615959,
+          "share": 0.0007869213153424276
         },
         {
           "variant_id": "talonflame_sharp_beak",
           "species": "Talonflame",
           "item": "Sharp Beak",
           "move": "Brave Bird",
-          "expected_damage": 0.00376525684107233,
-          "share": 0.0004984442742410609
+          "expected_damage": 0.004128891355477116,
+          "share": 0.0005528072671282251
         },
         {
           "variant_id": "talonflame_no_item",
           "species": "Talonflame",
           "item": null,
           "move": "Acrobatics",
-          "expected_damage": 0.0029283755023674558,
-          "share": 0.00038765801739228795
+          "expected_damage": 0.0032111871268448427,
+          "share": 0.0004299380698098569
         },
         {
           "variant_id": "talonflame_no_item",
           "species": "Talonflame",
           "item": null,
           "move": "Dual Wingbeat",
-          "expected_damage": 0.001890516445515995,
-          "share": 0.00025026635297411534
+          "expected_damage": 0.002073095498859853,
+          "share": 0.00027756173717196557
+        }
+      ]
+    },
+    {
+      "type": "Electric",
+      "category": "Special",
+      "share": 0.02942076232271334,
+      "contributors": [
+        {
+          "variant_id": "archaludon_no_item",
+          "species": "Archaludon",
+          "item": null,
+          "move": "Electro Shot",
+          "expected_damage": 0.10708061619738454,
+          "share": 0.01433676444984642
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "move": "Zap Cannon",
+          "expected_damage": 0.03386948637392725,
+          "share": 0.004534703529210156
+        },
+        {
+          "variant_id": "farigiraf_no_item",
+          "species": "Farigiraf",
+          "item": null,
+          "move": "Thunderbolt",
+          "expected_damage": 0.01689049409829467,
+          "share": 0.0022614273612546363
+        },
+        {
+          "variant_id": "rotom_wash_no_item",
+          "species": "Rotom-Wash",
+          "item": null,
+          "move": "Thunderbolt",
+          "expected_damage": 0.01244488951288623,
+          "share": 0.0016662161265651341
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "move": "Volt Switch",
+          "expected_damage": 0.010018653505186,
+          "share": 0.0013413732616528234
+        },
+        {
+          "variant_id": "raichu_no_item",
+          "species": "Raichu",
+          "item": null,
+          "move": "Zap Cannon",
+          "expected_damage": 0.007734539308904278,
+          "share": 0.001035558741980297
+        },
+        {
+          "variant_id": "raichu_mega_x",
+          "species": "Raichu-Mega-X",
+          "item": null,
+          "move": "Zap Cannon",
+          "expected_damage": 0.006833427933109605,
+          "share": 0.000914911121555408
+        },
+        {
+          "variant_id": "rotom_wash_no_item",
+          "species": "Rotom-Wash",
+          "item": null,
+          "move": "Volt Switch",
+          "expected_damage": 0.0055122428686529695,
+          "share": 0.0007380208519957471
+        },
+        {
+          "variant_id": "dragonite_mega",
+          "species": "Dragonite-Mega",
+          "item": null,
+          "move": "Thunderbolt",
+          "expected_damage": 0.003612241747418543,
+          "share": 0.00048363430196534675
+        },
+        {
+          "variant_id": "dragonite_mega",
+          "species": "Dragonite-Mega",
+          "item": null,
+          "move": "Thunder",
+          "expected_damage": 0.0030645159607175796,
+          "share": 0.00041030062248255785
+        }
+      ]
+    },
+    {
+      "type": "Fire",
+      "category": "Physical",
+      "share": 0.02895713047961573,
+      "contributors": [
+        {
+          "variant_id": "incineroar_no_item",
+          "species": "Incineroar",
+          "item": null,
+          "move": "Flare Blitz",
+          "expected_damage": 0.1404519065615387,
+          "share": 0.018804765721490143
+        },
+        {
+          "variant_id": "arcanine_hisui_no_item",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "move": "Flare Blitz",
+          "expected_damage": 0.027110223895674232,
+          "share": 0.0036297222408435545
+        },
+        {
+          "variant_id": "ceruledge_no_item",
+          "species": "Ceruledge",
+          "item": null,
+          "move": "Bitter Blade",
+          "expected_damage": 0.015140356643746036,
+          "share": 0.0020271056947219553
+        },
+        {
+          "variant_id": "blaziken_mega",
+          "species": "Blaziken-Mega",
+          "item": null,
+          "move": "Flare Blitz",
+          "expected_damage": 0.01481216705255538,
+          "share": 0.001983165184937078
+        },
+        {
+          "variant_id": "talonflame_no_item",
+          "species": "Talonflame",
+          "item": null,
+          "move": "Flare Blitz",
+          "expected_damage": 0.007726857009387361,
+          "share": 0.0010345301774975881
+        },
+        {
+          "variant_id": "incineroar_charcoal",
+          "species": "Incineroar",
+          "item": "Charcoal",
+          "move": "Flare Blitz",
+          "expected_damage": 0.00649876678386384,
+          "share": 0.0008701041505308182
         },
         {
           "variant_id": "talonflame_sharp_beak",
           "species": "Talonflame",
           "item": "Sharp Beak",
-          "move": "Dual Wingbeat",
-          "expected_damage": 0.001333935703785277,
-          "share": 0.00017658625741136225
+          "move": "Flare Blitz",
+          "expected_damage": 0.004539161246959496,
+          "share": 0.0006077373095945909
         }
       ]
     },
     {
       "type": "Steel",
       "category": "Special",
-      "share": 0.022904159355719645,
+      "share": 0.02394492521554526,
       "contributors": [
         {
           "variant_id": "archaludon_no_item",
           "species": "Archaludon",
           "item": null,
           "move": "Flash Cannon",
-          "expected_damage": 0.07085182115643075,
-          "share": 0.009379356061382736
+          "expected_damage": 0.0659622596891251,
+          "share": 0.00883152724858605
         },
         {
           "variant_id": "gholdengo_no_item",
           "species": "Gholdengo",
           "item": null,
           "move": "Make It Rain",
-          "expected_damage": 0.04535103146712037,
-          "share": 0.00600356441003757
+          "expected_damage": 0.05010718986101623,
+          "share": 0.0067087303360014545
         },
         {
           "variant_id": "gholdengo_life_orb",
           "species": "Gholdengo",
           "item": "Life Orb",
           "move": "Make It Rain",
-          "expected_damage": 0.04464129410596623,
-          "share": 0.005909609458539097
+          "expected_damage": 0.049323019279745334,
+          "share": 0.006603739635430061
         },
         {
           "variant_id": "gholdengo_metal_coat",
           "species": "Gholdengo",
           "item": "Metal Coat",
           "move": "Make It Rain",
-          "expected_damage": 0.012174277114240649,
-          "share": 0.001611629425760246
+          "expected_damage": 0.013451046096407895,
+          "share": 0.001800927995527695
+        }
+      ]
+    },
+    {
+      "type": "Dragon",
+      "category": "Physical",
+      "share": 0.023261709250957545,
+      "contributors": [
+        {
+          "variant_id": "garchomp_life_orb",
+          "species": "Garchomp",
+          "item": "Life Orb",
+          "move": "Dragon Claw",
+          "expected_damage": 0.10005196985973279,
+          "share": 0.013395716008750036
+        },
+        {
+          "variant_id": "garchomp_no_item",
+          "species": "Garchomp",
+          "item": null,
+          "move": "Dragon Claw",
+          "expected_damage": 0.0657966132360191,
+          "share": 0.008809349246026225
+        },
+        {
+          "variant_id": "garchomp_soft_sand",
+          "species": "Garchomp",
+          "item": "Soft Sand",
+          "move": "Dragon Claw",
+          "expected_damage": 0.005383359264765201,
+          "share": 0.0007207649383112368
+        },
+        {
+          "variant_id": "dragonite_mega",
+          "species": "Dragonite-Mega",
+          "item": null,
+          "move": "Dragon Claw",
+          "expected_damage": 0.0025086648113903267,
+          "share": 0.000335879057870046
         }
       ]
     },
     {
       "type": "Dragon",
       "category": "Special",
-      "share": 0.02100182362869028,
+      "share": 0.02032904335720854,
       "contributors": [
         {
           "variant_id": "archaludon_no_item",
           "species": "Archaludon",
           "item": null,
           "move": "Dragon Pulse",
-          "expected_damage": 0.05735599166721162,
-          "share": 0.007592779681876274
+          "expected_damage": 0.0533977921149952,
+          "share": 0.007149301104911379
         },
         {
           "variant_id": "hydreigon_no_item",
           "species": "Hydreigon",
           "item": null,
           "move": "Draco Meteor",
-          "expected_damage": 0.03512507655487749,
-          "share": 0.0046498536567485356
+          "expected_damage": 0.02692486810703794,
+          "share": 0.00360490540306784
         },
         {
           "variant_id": "archaludon_no_item",
           "species": "Archaludon",
           "item": null,
           "move": "Draco Meteor",
-          "expected_damage": 0.02535951804950452,
-          "share": 0.0033570901276653562
+          "expected_damage": 0.023609430045266323,
+          "share": 0.003161009427982519
         },
         {
           "variant_id": "kommo_o_no_item",
           "species": "Kommo-o",
           "item": null,
           "move": "Clanging Scales",
-          "expected_damage": 0.012622560238389827,
-          "share": 0.0016709730949712462
+          "expected_damage": 0.019681022266382055,
+          "share": 0.0026350444215336322
         },
         {
           "variant_id": "dragonite_mega",
           "species": "Dragonite-Mega",
           "item": null,
           "move": "Dragon Pulse",
-          "expected_damage": 0.009135109344417712,
-          "share": 0.0012093047405483887
+          "expected_damage": 0.011467258835319143,
+          "share": 0.0015353235220867765
         },
         {
           "variant_id": "dragonite_mega",
           "species": "Dragonite-Mega",
           "item": null,
           "move": "Draco Meteor",
-          "expected_damage": 0.008189114594098308,
-          "share": 0.0010840740626261568
+          "expected_damage": 0.010279756173909324,
+          "share": 0.0013763316658126606
         },
         {
           "variant_id": "sceptile_mega",
           "species": "Sceptile-Mega",
           "item": null,
           "move": "Dragon Pulse",
-          "expected_damage": 0.006911668151097183,
-          "share": 0.0009149658471605207
-        },
-        {
-          "variant_id": "drampa_mega",
-          "species": "Drampa-Mega",
-          "item": null,
-          "move": "Draco Meteor",
-          "expected_damage": 0.0024994707047138742,
-          "share": 0.0003308796488483606
-        },
-        {
-          "variant_id": "drampa_mega",
-          "species": "Drampa-Mega",
-          "item": null,
-          "move": "Dragon Pulse",
-          "expected_damage": 0.0014496368968367525,
-          "share": 0.00019190276824543944
+          "expected_damage": 0.006476536650631731,
+          "share": 0.0008671278118137347
         }
       ]
     },
     {
       "type": "Psychic",
       "category": "Special",
-      "share": 0.019130984612625083,
+      "share": 0.019809231276092538,
       "contributors": [
         {
           "variant_id": "farigiraf_no_item",
           "species": "Farigiraf",
           "item": null,
           "move": "Psychic",
-          "expected_damage": 0.052521772775633684,
-          "share": 0.006952826332439228
+          "expected_damage": 0.05057318068616403,
+          "share": 0.006771120719370362
         },
         {
           "variant_id": "delphox_mega",
           "species": "Delphox-Mega",
           "item": null,
           "move": "Psychic",
-          "expected_damage": 0.03104409936253751,
-          "share": 0.004109614358159037
+          "expected_damage": 0.03416750097920847,
+          "share": 0.004574603983188261
         },
         {
           "variant_id": "delphox_mega",
           "species": "Delphox-Mega",
           "item": null,
           "move": "Psyshock",
-          "expected_damage": 0.024347317293293664,
-          "share": 0.0032230951061804243
+          "expected_damage": 0.02679694384896831,
+          "share": 0.0035877779338722485
         },
         {
           "variant_id": "farigiraf_no_item",
           "species": "Farigiraf",
           "item": null,
           "move": "Twin Beam",
-          "expected_damage": 0.01920244987819119,
-          "share": 0.0025420181403772372
+          "expected_damage": 0.0184900264401834,
+          "share": 0.002475584873883239
         },
         {
           "variant_id": "gardevoir_mega",
           "species": "Gardevoir-Mega",
           "item": null,
           "move": "Psychic",
-          "expected_damage": 0.008543025826517078,
-          "share": 0.0011309247914966193
+          "expected_damage": 0.00817987977017801,
+          "share": 0.0010951842981266893
         },
         {
           "variant_id": "gardevoir_mega",
           "species": "Gardevoir-Mega",
           "item": null,
           "move": "Psyshock",
-          "expected_damage": 0.006691441149472791,
-          "share": 0.0008858122216241303
+          "expected_damage": 0.0064070020626666255,
+          "share": 0.0008578179941812396
         },
         {
           "variant_id": "gengar_mega",
           "species": "Gengar-Mega",
           "item": null,
           "move": "Psychic",
-          "expected_damage": 0.002165688983172769,
-          "share": 0.00028669366234840483
+          "expected_damage": 0.002423195997604267,
+          "share": 0.00032443584532072887
+        },
+        {
+          "variant_id": "greninja_mega",
+          "species": "Greninja-Mega",
+          "item": null,
+          "move": "Extrasensory",
+          "expected_damage": 0.0009164825382414178,
+          "share": 0.00012270562814977061
         }
       ]
     },
     {
-      "type": "Normal",
-      "category": "Physical",
-      "share": 0.01844458386665228,
+      "type": "Poison",
+      "category": "Special",
+      "share": 0.018372093088257435,
       "contributors": [
         {
-          "variant_id": "incineroar_no_item",
-          "species": "Incineroar",
+          "variant_id": "venusaur_mega",
+          "species": "Venusaur-Mega",
           "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.04006055469899058,
-          "share": 0.005303211694569523
+          "move": "Sludge Bomb",
+          "expected_damage": 0.039421396336904745,
+          "share": 0.005278035312427034
         },
         {
-          "variant_id": "sneasler_no_item",
-          "species": "Sneasler",
+          "variant_id": "glimmora_no_item",
+          "species": "Glimmora",
           "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.03460889918062957,
-          "share": 0.004581522154397852
+          "move": "Sludge Bomb",
+          "expected_damage": 0.030288549863474446,
+          "share": 0.0040552606096290605
         },
         {
-          "variant_id": "maushold_no_item",
-          "species": "Maushold",
+          "variant_id": "venusaur_no_item",
+          "species": "Venusaur",
           "item": null,
-          "move": "Population Bomb",
-          "expected_damage": 0.01635304755464992,
-          "share": 0.0021648145834549863
+          "move": "Sludge Bomb",
+          "expected_damage": 0.02899501750637301,
+          "share": 0.0038820726941072325
         },
         {
-          "variant_id": "kangaskhan_mega",
-          "species": "Kangaskhan-Mega",
+          "variant_id": "gengar_mega",
+          "species": "Gengar-Mega",
           "item": null,
-          "move": "Last Resort",
-          "expected_damage": 0.007789827258163903,
-          "share": 0.0010312164503107138
+          "move": "Sludge Bomb",
+          "expected_damage": 0.018436484295968135,
+          "share": 0.002468416245825113
         },
         {
-          "variant_id": "kangaskhan_mega",
-          "species": "Kangaskhan-Mega",
+          "variant_id": "glimmora_mega",
+          "species": "Glimmora-Mega",
           "item": null,
-          "move": "Double-Edge",
-          "expected_damage": 0.006107932736514877,
-          "share": 0.0008085674439936276
+          "move": "Sludge Bomb",
+          "expected_damage": 0.010544054978955846,
+          "share": 0.001411717992926647
         },
         {
-          "variant_id": "grimmsnarl_no_item",
-          "species": "Grimmsnarl",
-          "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.004702053838440494,
-          "share": 0.0006224573546691671
-        },
-        {
-          "variant_id": "kangaskhan_mega",
-          "species": "Kangaskhan-Mega",
-          "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.004571943354138648,
-          "share": 0.0006052333434910831
-        },
-        {
-          "variant_id": "scrafty_mega",
-          "species": "Scrafty-Mega",
-          "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.004187102013057163,
-          "share": 0.0005542880903383958
-        },
-        {
-          "variant_id": "arcanine_hisui_no_item",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "move": "Extreme Speed",
-          "expected_damage": 0.004103550951261155,
-          "share": 0.000543227610239216
-        },
-        {
-          "variant_id": "blastoise_mega",
-          "species": "Blastoise-Mega",
-          "item": null,
-          "move": "Fake Out",
-          "expected_damage": 0.003834953709513061,
-          "share": 0.0005076707377927269
+          "variant_id": "venusaur_life_orb",
+          "species": "Venusaur",
+          "item": "Life Orb",
+          "move": "Sludge Bomb",
+          "expected_damage": 0.009534792128033204,
+          "share": 0.0012765902333423517
         }
       ]
     },
     {
       "type": "Ghost",
       "category": "Physical",
-      "share": 0.01830568856862159,
+      "share": 0.01830724166702084,
       "contributors": [
         {
           "variant_id": "basculegion_no_item",
           "species": "Basculegion",
           "item": null,
           "move": "Last Respects",
-          "expected_damage": 0.07875530974235066,
-          "share": 0.010425618985390708
+          "expected_damage": 0.07852607921063032,
+          "share": 0.010513666626063801
         },
         {
           "variant_id": "basculegion_mystic_water",
           "species": "Basculegion",
           "item": "Mystic Water",
           "move": "Last Respects",
-          "expected_damage": 0.022666726445669208,
-          "share": 0.003000618680083082
+          "expected_damage": 0.02260075113844867,
+          "share": 0.003025959851260654
         },
         {
           "variant_id": "basculegion_life_orb",
           "species": "Basculegion",
           "item": "Life Orb",
           "move": "Last Respects",
-          "expected_damage": 0.017747017378784407,
-          "share": 0.002349348150919875
+          "expected_damage": 0.017695361709554006,
+          "share": 0.0023691891370616145
         },
         {
           "variant_id": "annihilape_no_item",
           "species": "Annihilape",
           "item": null,
           "move": "Rage Fist",
-          "expected_damage": 0.012077717732548253,
-          "share": 0.0015988469057462529
+          "expected_damage": 0.011738820742106913,
+          "share": 0.0015716822883082068
         },
         {
           "variant_id": "ceruledge_no_item",
           "species": "Ceruledge",
           "item": null,
           "move": "Shadow Sneak",
-          "expected_damage": 0.007034723093354119,
-          "share": 0.0009312558464816735
+          "expected_damage": 0.006174910108283343,
+          "share": 0.0008267437643265659
         }
       ]
     },
     {
-      "type": "Poison",
+      "type": "Normal",
       "category": "Physical",
-      "share": 0.01674933839476241,
+      "share": 0.018060926178521616,
       "contributors": [
+        {
+          "variant_id": "incineroar_no_item",
+          "species": "Incineroar",
+          "item": null,
+          "move": "Fake Out",
+          "expected_damage": 0.03434298049055491,
+          "share": 0.004598098510109087
+        },
         {
           "variant_id": "sneasler_no_item",
           "species": "Sneasler",
           "item": null,
-          "move": "Dire Claw",
-          "expected_damage": 0.10100179631528067,
-          "share": 0.013370606358708806
+          "move": "Fake Out",
+          "expected_damage": 0.03324482039958768,
+          "share": 0.00445106851428428
         },
         {
-          "variant_id": "garchomp_life_orb",
-          "species": "Garchomp",
-          "item": "Life Orb",
-          "move": "Poison Jab",
-          "expected_damage": 0.014247374727110074,
-          "share": 0.0018860658529930002
-        },
-        {
-          "variant_id": "garchomp_no_item",
-          "species": "Garchomp",
+          "variant_id": "maushold_no_item",
+          "species": "Maushold",
           "item": null,
-          "move": "Poison Jab",
-          "expected_damage": 0.009365698426615955,
-          "share": 0.0012398300971377368
+          "move": "Population Bomb",
+          "expected_damage": 0.015278618358257197,
+          "share": 0.002045617220932493
         },
         {
-          "variant_id": "scrafty_mega",
-          "species": "Scrafty-Mega",
+          "variant_id": "arcanine_hisui_no_item",
+          "species": "Arcanine-Hisui",
           "item": null,
-          "move": "Poison Jab",
-          "expected_damage": 0.0011436438368224555,
-          "share": 0.00015139544161159673
+          "move": "Extreme Speed",
+          "expected_damage": 0.00995111922985119,
+          "share": 0.001332331261035443
         },
         {
-          "variant_id": "garchomp_soft_sand",
-          "species": "Garchomp",
-          "item": "Soft Sand",
-          "move": "Poison Jab",
-          "expected_damage": 0.0007662844167231238,
-          "share": 0.00010144064431126941
-        }
-      ]
-    },
-    {
-      "type": "Poison",
-      "category": "Special",
-      "share": 0.015745820170794195,
-      "contributors": [
-        {
-          "variant_id": "venusaur_mega",
-          "species": "Venusaur-Mega",
+          "variant_id": "kangaskhan_mega",
+          "species": "Kangaskhan-Mega",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.04080699710706597,
-          "share": 0.005402025656022927
+          "move": "Last Resort",
+          "expected_damage": 0.007043026742305201,
+          "share": 0.0009429737986590439
         },
         {
-          "variant_id": "venusaur_no_item",
-          "species": "Venusaur",
+          "variant_id": "kangaskhan_mega",
+          "species": "Kangaskhan-Mega",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.03001414727651913,
-          "share": 0.003973269417644358
+          "move": "Double-Edge",
+          "expected_damage": 0.005522373241125668,
+          "share": 0.0007393771830394775
         },
         {
-          "variant_id": "gengar_mega",
-          "species": "Gengar-Mega",
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.016477284944218764,
-          "share": 0.0021812611150173887
+          "move": "Fake Out",
+          "expected_damage": 0.004879833952185835,
+          "share": 0.0006533491532948447
         },
         {
-          "variant_id": "glimmora_no_item",
-          "species": "Glimmora",
+          "variant_id": "kangaskhan_mega",
+          "species": "Kangaskhan-Mega",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.012843200333614965,
-          "share": 0.0017001814057917245
+          "move": "Fake Out",
+          "expected_damage": 0.004133637145002982,
+          "share": 0.000553442669397815
         },
         {
-          "variant_id": "venusaur_life_orb",
-          "species": "Venusaur",
-          "item": "Life Orb",
-          "move": "Sludge Bomb",
-          "expected_damage": 0.009869925242117295,
-          "share": 0.0013065795858748371
-        },
-        {
-          "variant_id": "glimmora_mega",
-          "species": "Glimmora-Mega",
+          "variant_id": "grimmsnarl_no_item",
+          "species": "Grimmsnarl",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.004470977020484074,
-          "share": 0.0005918674316753828
+          "move": "Fake Out",
+          "expected_damage": 0.004045230925983521,
+          "share": 0.0005416061747735479
         },
         {
-          "variant_id": "vileplume_no_item",
-          "species": "Vileplume",
+          "variant_id": "dragonite_mega",
+          "species": "Dragonite-Mega",
           "item": null,
-          "move": "Sludge Bomb",
-          "expected_damage": 0.0044616714308060405,
-          "share": 0.0005906355587675757
+          "move": "Extreme Speed",
+          "expected_damage": 0.003667428774115216,
+          "share": 0.0004910231593564841
         }
       ]
     },
     {
       "type": "Ghost",
       "category": "Special",
-      "share": 0.015132636609609723,
+      "share": 0.016801397880720055,
       "contributors": [
         {
           "variant_id": "gholdengo_no_item",
           "species": "Gholdengo",
           "item": null,
           "move": "Shadow Ball",
-          "expected_damage": 0.02690074110293456,
-          "share": 0.0035611170609493397
+          "expected_damage": 0.02972193791940612,
+          "share": 0.0039793983082616205
         },
         {
           "variant_id": "gholdengo_life_orb",
           "species": "Gholdengo",
           "item": "Life Orb",
           "move": "Shadow Ball",
-          "expected_damage": 0.026510529605590864,
-          "share": 0.003509460907118781
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "move": "Shadow Ball",
-          "expected_damage": 0.025348453477494495,
-          "share": 0.0033556254008756284
+          "expected_damage": 0.029290803258278795,
+          "share": 0.0039216747323031756
         },
         {
           "variant_id": "gengar_mega",
           "species": "Gengar-Mega",
           "item": null,
           "move": "Shadow Ball",
-          "expected_damage": 0.02525625005814851,
-          "share": 0.003343419522663781
+          "expected_damage": 0.028259295093119877,
+          "share": 0.0037835686014539033
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "move": "Shadow Ball",
+          "expected_damage": 0.027389320001249478,
+          "share": 0.0036670897426995955
         },
         {
           "variant_id": "gholdengo_metal_coat",
           "species": "Gholdengo",
           "item": "Metal Coat",
           "move": "Shadow Ball",
-          "expected_damage": 0.006079567489263209,
-          "share": 0.0008048124557745506
+          "expected_damage": 0.006717157969785784,
+          "share": 0.0008993440176671264
         },
         {
           "variant_id": "chandelure_mega",
           "species": "Chandelure-Mega",
           "item": null,
           "move": "Shadow Ball",
-          "expected_damage": 0.004216662182543939,
-          "share": 0.0005582012622276427
+          "expected_damage": 0.004110332585395534,
+          "share": 0.0005503224783346303
         }
       ]
     },
     {
-      "type": "Flying",
-      "category": "Special",
-      "share": 0.014771337218347703,
-      "contributors": [
-        {
-          "variant_id": "pelipper_no_item",
-          "species": "Pelipper",
-          "item": null,
-          "move": "Hurricane",
-          "expected_damage": 0.08735820161626395,
-          "share": 0.011564468837462368
-        },
-        {
-          "variant_id": "vivillon_no_item",
-          "species": "Vivillon",
-          "item": null,
-          "move": "Hurricane",
-          "expected_damage": 0.012671427555016126,
-          "share": 0.0016774421448124697
-        },
-        {
-          "variant_id": "dragonite_mega",
-          "species": "Dragonite-Mega",
-          "item": null,
-          "move": "Hurricane",
-          "expected_damage": 0.011553312769129761,
-          "share": 0.0015294262360728665
-        }
-      ]
-    },
-    {
-      "type": "Fairy",
+      "type": "Poison",
       "category": "Physical",
-      "share": 0.013333640679141905,
+      "share": 0.01622391276432758,
       "contributors": [
         {
-          "variant_id": "mawile_mega",
-          "species": "Mawile-Mega",
+          "variant_id": "sneasler_no_item",
+          "species": "Sneasler",
           "item": null,
-          "move": "Play Rough",
-          "expected_damage": 0.04998482846732103,
-          "share": 0.006616985932189996
+          "move": "Dire Claw",
+          "expected_damage": 0.09702090092529085,
+          "share": 0.012989893527636947
         },
         {
-          "variant_id": "grimmsnarl_no_item",
-          "species": "Grimmsnarl",
-          "item": null,
-          "move": "Spirit Break",
-          "expected_damage": 0.029969765530419697,
-          "share": 0.003967394167121532
+          "variant_id": "garchomp_life_orb",
+          "species": "Garchomp",
+          "item": "Life Orb",
+          "move": "Poison Jab",
+          "expected_damage": 0.013682536379359752,
+          "share": 0.0018319216690511216
         },
         {
-          "variant_id": "sylveon_no_item",
-          "species": "Sylveon",
+          "variant_id": "garchomp_no_item",
+          "species": "Garchomp",
           "item": null,
-          "move": "Quick Attack",
-          "expected_damage": 0.01918824070589844,
-          "share": 0.0025401371317581786
+          "move": "Poison Jab",
+          "expected_damage": 0.008994394538977522,
+          "share": 0.001204237708499994
         },
         {
-          "variant_id": "meowscarada_no_item",
-          "species": "Meowscarada",
+          "variant_id": "scrafty_mega",
+          "species": "Scrafty-Mega",
           "item": null,
-          "move": "Play Rough",
-          "expected_damage": 0.0015797222160519179,
-          "share": 0.00020912344807219824
+          "move": "Poison Jab",
+          "expected_damage": 0.0007419009303838471,
+          "share": 0.0000993313193531559
+        },
+        {
+          "variant_id": "garchomp_soft_sand",
+          "species": "Garchomp",
+          "item": "Soft Sand",
+          "move": "Poison Jab",
+          "expected_damage": 0.0007359050077345246,
+          "share": 0.00009852853978636317
         }
       ]
     },
     {
       "type": "Ice",
       "category": "Special",
-      "share": 0.012996620065259444,
+      "share": 0.014988699090942534,
       "contributors": [
         {
           "variant_id": "froslass_mega",
           "species": "Froslass-Mega",
           "item": null,
           "move": "Blizzard",
-          "expected_damage": 0.04433098852484549,
-          "share": 0.005868531240849536
+          "expected_damage": 0.04790018577491244,
+          "share": 0.006413239902289406
         },
         {
           "variant_id": "ninetales_alola_no_item",
           "species": "Ninetales-Alola",
           "item": null,
           "move": "Blizzard",
-          "expected_damage": 0.02419619100918919,
-          "share": 0.003203089025804311
+          "expected_damage": 0.025943242388127813,
+          "share": 0.003473477912176455
         },
         {
           "variant_id": "ninetales_alola_no_item",
           "species": "Ninetales-Alola",
           "item": null,
           "move": "Freeze-Dry",
-          "expected_damage": 0.009140702433919179,
-          "share": 0.0012100451531032279
+          "expected_damage": 0.009800693784854594,
+          "share": 0.0013121911623998114
         },
         {
           "variant_id": "milotic_no_item",
           "species": "Milotic",
           "item": null,
           "move": "Ice Beam",
-          "expected_damage": 0.006809175355482779,
-          "share": 0.0009013978624834357
+          "expected_damage": 0.009017471869147328,
+          "share": 0.001207327476363918
         },
         {
           "variant_id": "milotic_no_item",
           "species": "Milotic",
           "item": null,
           "move": "Icy Wind",
-          "expected_damage": 0.005596780593072926,
-          "share": 0.000740901181127978
+          "expected_damage": 0.007411883072623043,
+          "share": 0.00099235907968744
+        },
+        {
+          "variant_id": "greninja_mega",
+          "species": "Greninja-Mega",
+          "item": null,
+          "move": "Ice Beam",
+          "expected_damage": 0.0029925371338663524,
+          "share": 0.0004006635516233454
         },
         {
           "variant_id": "ninetales_alola_no_item",
           "species": "Ninetales-Alola",
           "item": null,
           "move": "Icy Wind",
-          "expected_damage": 0.002637328885537385,
-          "share": 0.00034912929921462833
+          "expected_damage": 0.002827753447173673,
+          "share": 0.00037860106276975646
         },
         {
           "variant_id": "politoed_no_item",
           "species": "Politoed",
           "item": null,
           "move": "Ice Beam",
-          "expected_damage": 0.0023201658331611285,
-          "share": 0.0003071432902568065
+          "expected_damage": 0.0026087897097550076,
+          "share": 0.0003492845380997564
         },
         {
           "variant_id": "gengar_mega",
           "species": "Gengar-Mega",
           "item": null,
           "move": "Icy Wind",
-          "expected_damage": 0.0016353006944862243,
-          "share": 0.00021648092075358925
+          "expected_damage": 0.0018297429264072561,
+          "share": 0.0002449798504270677
         },
         {
           "variant_id": "politoed_no_item",
           "species": "Politoed",
           "item": null,
           "move": "Icy Wind",
-          "expected_damage": 0.0009235578336476613,
-          "share": 0.0001222604814339973
+          "expected_damage": 0.001038446536168918,
+          "share": 0.00013903509254531484
+        }
+      ]
+    },
+    {
+      "type": "Flying",
+      "category": "Special",
+      "share": 0.014863741231528572,
+      "contributors": [
+        {
+          "variant_id": "pelipper_no_item",
+          "species": "Pelipper",
+          "item": null,
+          "move": "Hurricane",
+          "expected_damage": 0.08091431892063658,
+          "share": 0.010833422258670683
         },
         {
-          "variant_id": "primarina_no_item",
-          "species": "Primarina",
+          "variant_id": "vivillon_no_item",
+          "species": "Vivillon",
           "item": null,
-          "move": "Ice Beam",
-          "expected_damage": 0.0005865060934299771,
-          "share": 0.00007764161023193502
+          "move": "Hurricane",
+          "expected_damage": 0.015599443990226931,
+          "share": 0.0020885717880461583
+        },
+        {
+          "variant_id": "dragonite_mega",
+          "species": "Dragonite-Mega",
+          "item": null,
+          "move": "Hurricane",
+          "expected_damage": 0.014502817966811488,
+          "share": 0.001941747184811731
         }
       ]
     },
     {
       "type": "Ground",
       "category": "Special",
-      "share": 0.011722660619116207,
+      "share": 0.012894969884637392,
       "contributors": [
         {
           "variant_id": "venusaur_mega",
           "species": "Venusaur-Mega",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.02100906005226303,
-          "share": 0.0027811769906391755
+          "expected_damage": 0.020295697838611234,
+          "share": 0.002717341845708705
+        },
+        {
+          "variant_id": "glimmora_no_item",
+          "species": "Glimmora",
+          "item": null,
+          "move": "Earth Power",
+          "expected_damage": 0.020253481573921414,
+          "share": 0.00271168961223916
         },
         {
           "variant_id": "venusaur_no_item",
           "species": "Venusaur",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.01546773389014301,
-          "share": 0.0020476168608010476
+          "expected_damage": 0.014942527295435753,
+          "share": 0.0020006188022412183
         },
         {
           "variant_id": "camerupt_mega",
           "species": "Camerupt-Mega",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.012192159289439885,
-          "share": 0.0016139966660881318
+          "expected_damage": 0.013519271878467465,
+          "share": 0.0018100625803062472
         },
         {
           "variant_id": "hydreigon_no_item",
           "species": "Hydreigon",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.010006254499512158,
-          "share": 0.0013246268375307567
+          "expected_damage": 0.007670220511089772,
+          "share": 0.0010269472538631192
         },
         {
-          "variant_id": "glimmora_no_item",
-          "species": "Glimmora",
+          "variant_id": "glimmora_mega",
+          "species": "Glimmora-Mega",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.008588048040581013,
-          "share": 0.0011368848270960586
-        },
-        {
-          "variant_id": "torkoal_charcoal",
-          "species": "Torkoal",
-          "item": "Charcoal",
-          "move": "Earth Power",
-          "expected_damage": 0.006035810176007509,
-          "share": 0.0007990198676008672
+          "expected_damage": 0.005277624121632358,
+          "share": 0.0007066083159924777
         },
         {
           "variant_id": "venusaur_life_orb",
           "species": "Venusaur",
           "item": "Life Orb",
           "move": "Earth Power",
-          "expected_damage": 0.005085153375516942,
-          "share": 0.0006731720280049103
+          "expected_damage": 0.0049124870944128075,
+          "share": 0.0006577210034511093
+        },
+        {
+          "variant_id": "torkoal_charcoal",
+          "species": "Torkoal",
+          "item": "Charcoal",
+          "move": "Earth Power",
+          "expected_damage": 0.004614446661659712,
+          "share": 0.0006178170914953263
         },
         {
           "variant_id": "sceptile_mega",
           "species": "Sceptile-Mega",
           "item": null,
           "move": "Earth Power",
-          "expected_damage": 0.004739552866316727,
-          "share": 0.0006274214717330087
+          "expected_damage": 0.004441169219247625,
+          "share": 0.0005946173942526933
         },
         {
-          "variant_id": "drampa_mega",
-          "species": "Drampa-Mega",
+          "variant_id": "pyroar_mega",
+          "species": "Pyroar-Mega",
           "item": null,
-          "move": "Earth Power",
-          "expected_damage": 0.0024248255832507184,
-          "share": 0.00032099813612192934
+          "move": "Scorching Sands",
+          "expected_damage": 0.0003849945268307871,
+          "share": 0.00005154598508733543
+        }
+      ]
+    },
+    {
+      "type": "Fairy",
+      "category": "Physical",
+      "share": 0.01185906939207102,
+      "contributors": [
+        {
+          "variant_id": "mawile_mega",
+          "species": "Mawile-Mega",
+          "item": null,
+          "move": "Play Rough",
+          "expected_damage": 0.04369617439824857,
+          "share": 0.005850374997397529
         },
         {
-          "variant_id": "glimmora_mega",
-          "species": "Glimmora-Mega",
+          "variant_id": "grimmsnarl_no_item",
+          "species": "Grimmsnarl",
           "item": null,
-          "move": "Earth Power",
-          "expected_damage": 0.0022378616402953726,
-          "share": 0.0002962478705254172
+          "move": "Spirit Break",
+          "expected_damage": 0.025783333524810916,
+          "share": 0.0034520681016222176
+        },
+        {
+          "variant_id": "sylveon_no_item",
+          "species": "Sylveon",
+          "item": null,
+          "move": "Quick Attack",
+          "expected_damage": 0.017223948054417373,
+          "share": 0.0023060727041147137
+        },
+        {
+          "variant_id": "meowscarada_no_item",
+          "species": "Meowscarada",
+          "item": null,
+          "move": "Play Rough",
+          "expected_damage": 0.0018713729159496898,
+          "share": 0.0002505535889365592
         }
       ]
     },
     {
       "type": "Ice",
       "category": "Physical",
-      "share": 0.010375057757079139,
+      "share": 0.009431593940247193,
       "contributors": [
         {
           "variant_id": "swampert_mega",
           "species": "Swampert-Mega",
           "item": null,
           "move": "Ice Punch",
-          "expected_damage": 0.022051644724987565,
-          "share": 0.0029191942315514936
+          "expected_damage": 0.01879261432224786,
+          "share": 0.0025160976328174934
         },
         {
-          "variant_id": "metagross_mega",
-          "species": "Metagross-Mega",
+          "variant_id": "tsareena_no_item",
+          "species": "Tsareena",
           "item": null,
-          "move": "Ice Punch",
-          "expected_damage": 0.008648664363047577,
-          "share": 0.0011449092089999512
+          "move": "Triple Axel",
+          "expected_damage": 0.009036094545333547,
+          "share": 0.0012098208213911397
+        },
+        {
+          "variant_id": "meowscarada_no_item",
+          "species": "Meowscarada",
+          "item": null,
+          "move": "Triple Axel",
+          "expected_damage": 0.008918593960850674,
+          "share": 0.0011940889526153287
         },
         {
           "variant_id": "aerodactyl_mega",
           "species": "Aerodactyl-Mega",
           "item": null,
           "move": "Ice Fang",
-          "expected_damage": 0.008619614867274096,
-          "share": 0.0011410636400390412
+          "expected_damage": 0.0063132308821432295,
+          "share": 0.0008452631978503161
         },
         {
-          "variant_id": "tsareena_no_item",
-          "species": "Tsareena",
+          "variant_id": "metagross_mega",
+          "species": "Metagross-Mega",
           "item": null,
-          "move": "Triple Axel",
-          "expected_damage": 0.008267245281652744,
-          "share": 0.001094416994197044
-        },
-        {
-          "variant_id": "meowscarada_no_item",
-          "species": "Meowscarada",
-          "item": null,
-          "move": "Triple Axel",
-          "expected_damage": 0.007528644288812101,
-          "share": 0.0009966410784044489
-        },
-        {
-          "variant_id": "mamoswine_no_item",
-          "species": "Mamoswine",
-          "item": null,
-          "move": "Icicle Crash",
-          "expected_damage": 0.0063694419822434255,
-          "share": 0.0008431860083296986
+          "move": "Ice Punch",
+          "expected_damage": 0.00630132364265546,
+          "share": 0.0008436689663839096
         },
         {
           "variant_id": "tyranitar_mega",
           "species": "Tyranitar-Mega",
           "item": null,
           "move": "Ice Punch",
-          "expected_damage": 0.00441823939767847,
-          "share": 0.0005848860311404191
+          "expected_damage": 0.0058958721294320735,
+          "share": 0.0007893840449168676
+        },
+        {
+          "variant_id": "mamoswine_no_item",
+          "species": "Mamoswine",
+          "item": null,
+          "move": "Icicle Crash",
+          "expected_damage": 0.005000088342964707,
+          "share": 0.000669449722528388
         },
         {
           "variant_id": "mamoswine_no_item",
           "species": "Mamoswine",
           "item": null,
           "move": "Ice Shard",
-          "expected_damage": 0.003463355431397952,
-          "share": 0.0004584785998158755
+          "expected_damage": 0.002718775548682686,
+          "share": 0.0003640102757871287
         },
         {
           "variant_id": "aerodactyl_no_item",
           "species": "Aerodactyl",
           "item": null,
           "move": "Ice Fang",
-          "expected_damage": 0.00345524966789097,
-          "share": 0.0004574055597607231
+          "expected_damage": 0.002530715031325163,
+          "share": 0.00033883130843134583
         },
         {
-          "variant_id": "kangaskhan_mega",
-          "species": "Kangaskhan-Mega",
+          "variant_id": "tyranitar_no_item",
+          "species": "Tyranitar",
           "item": null,
           "move": "Ice Punch",
-          "expected_damage": 0.0018381154218541382,
-          "share": 0.00024332951139568418
-        }
-      ]
-    },
-    {
-      "type": "Dark",
-      "category": "Special",
-      "share": 0.008454953390367231,
-      "contributors": [
-        {
-          "variant_id": "blastoise_mega",
-          "species": "Blastoise-Mega",
-          "item": null,
-          "move": "Dark Pulse",
-          "expected_damage": 0.02968766763985668,
-          "share": 0.003930050080313745
-        },
-        {
-          "variant_id": "hydreigon_no_item",
-          "species": "Hydreigon",
-          "item": null,
-          "move": "Dark Pulse",
-          "expected_damage": 0.023067016142684874,
-          "share": 0.0030536089848449545
-        },
-        {
-          "variant_id": "hydreigon_no_item",
-          "species": "Hydreigon",
-          "item": null,
-          "move": "Snarl",
-          "expected_damage": 0.011114183288908884,
-          "share": 0.0014712943252085302
+          "expected_damage": 0.001931279725631492,
+          "share": 0.00025857436664451143
         }
       ]
     },
     {
       "type": "Fighting",
       "category": "Special",
-      "share": 0.007994201243944492,
+      "share": 0.009011373382326413,
       "contributors": [
-        {
-          "variant_id": "blastoise_mega",
-          "species": "Blastoise-Mega",
-          "item": null,
-          "move": "Aura Sphere",
-          "expected_damage": 0.021358034273278183,
-          "share": 0.002827374158499097
-        },
         {
           "variant_id": "raichu_mega_y",
           "species": "Raichu-Mega-Y",
           "item": null,
           "move": "Focus Blast",
-          "expected_damage": 0.01584975708499263,
-          "share": 0.0020981890480746895
+          "expected_damage": 0.021084923334666557,
+          "share": 0.0028230093365821346
+        },
+        {
+          "variant_id": "blastoise_mega",
+          "species": "Blastoise-Mega",
+          "item": null,
+          "move": "Aura Sphere",
+          "expected_damage": 0.018344199894337842,
+          "share": 0.002456060510720548
         },
         {
           "variant_id": "kommo_o_no_item",
           "species": "Kommo-o",
           "item": null,
           "move": "Aura Sphere",
-          "expected_damage": 0.00686527785348639,
-          "share": 0.000908824704816071
+          "expected_damage": 0.010704301167716274,
+          "share": 0.0014331729671678206
         },
         {
           "variant_id": "archaludon_no_item",
           "species": "Archaludon",
           "item": null,
           "move": "Aura Sphere",
-          "expected_damage": 0.0063203565654975065,
-          "share": 0.0008366880864193379
+          "expected_damage": 0.0058841818642988205,
+          "share": 0.0007878188636214709
         },
         {
           "variant_id": "raichu_no_item",
           "species": "Raichu",
           "item": null,
           "move": "Focus Blast",
-          "expected_damage": 0.003620540346731169,
-          "share": 0.0004792867211079664
+          "expected_damage": 0.00481640287807157,
+          "share": 0.0006448565203546248
         },
         {
           "variant_id": "raichu_mega_x",
           "species": "Raichu-Mega-X",
           "item": null,
           "move": "Focus Blast",
-          "expected_damage": 0.003198729820898411,
-          "share": 0.00042344749146431973
+          "expected_damage": 0.004255268562179736,
+          "share": 0.0005697276053618529
         },
         {
           "variant_id": "blaziken_mega",
           "species": "Blaziken-Mega",
           "item": null,
           "move": "Aura Sphere",
-          "expected_damage": 0.0016354164722341906,
-          "share": 0.00021649624739875428
+          "expected_damage": 0.0013392658362182182,
+          "share": 0.00017931106031547256
         },
         {
           "variant_id": "gardevoir_mega",
           "species": "Gardevoir-Mega",
           "item": null,
           "move": "Vacuum Wave",
-          "expected_damage": 0.0009159119147155222,
-          "share": 0.0001212483155515895
-        },
-        {
-          "variant_id": "blaziken_no_item",
-          "species": "Blaziken",
-          "item": null,
-          "move": "Aura Sphere",
-          "expected_damage": 0.0006243128970407826,
-          "share": 0.00008264647061266682
-        }
-      ]
-    },
-    {
-      "type": "Psychic",
-      "category": "Physical",
-      "share": 0.00742414138604273,
-      "contributors": [
-        {
-          "variant_id": "metagross_mega",
-          "species": "Metagross-Mega",
-          "item": null,
-          "move": "Psychic Fangs",
-          "expected_damage": 0.054483390167853786,
-          "share": 0.007212505020686516
-        },
-        {
-          "variant_id": "tsareena_no_item",
-          "species": "Tsareena",
-          "item": null,
-          "move": "Zen Headbutt",
-          "expected_damage": 0.0009502208253792207,
-          "share": 0.0001257901252600869
-        },
-        {
-          "variant_id": "gallade_mega",
-          "species": "Gallade-Mega",
-          "item": null,
-          "move": "Psycho Cut",
-          "expected_damage": 0.0006484840121685495,
-          "share": 0.00008584624009612807
-        }
-      ]
-    },
-    {
-      "type": "Normal",
-      "category": "Special",
-      "share": 0.005612920205758393,
-      "contributors": [
-        {
-          "variant_id": "farigiraf_no_item",
-          "species": "Farigiraf",
-          "item": null,
-          "move": "Hyper Voice",
-          "expected_damage": 0.02938965013450276,
-          "share": 0.003890598556702687
-        },
-        {
-          "variant_id": "drampa_mega",
-          "species": "Drampa-Mega",
-          "item": null,
-          "move": "Hyper Voice",
-          "expected_damage": 0.006261721031684789,
-          "share": 0.0008289259210931357
-        },
-        {
-          "variant_id": "pyroar_mega",
-          "species": "Pyroar-Mega",
-          "item": null,
-          "move": "Hyper Voice",
-          "expected_damage": 0.004159548989725266,
-          "share": 0.0005506406242298413
-        },
-        {
-          "variant_id": "charizard_mega_x",
-          "species": "Charizard-Mega-X",
-          "item": null,
-          "move": "Weather Ball",
-          "expected_damage": 0.002353423663419503,
-          "share": 0.0003115459580602721
-        },
-        {
-          "variant_id": "vileplume_no_item",
-          "species": "Vileplume",
-          "item": null,
-          "move": "Weather Ball",
-          "expected_damage": 0.00023575443699532038,
-          "share": 0.0000312091456724572
+          "expected_damage": 0.0008769784259801254,
+          "share": 0.00011741651820249078
         }
       ]
     },
     {
       "type": "Rock",
       "category": "Special",
-      "share": 0.004082835955620518,
+      "share": 0.007303791890355519,
       "contributors": [
         {
           "variant_id": "glimmora_no_item",
           "species": "Glimmora",
           "item": null,
           "move": "Power Gem",
-          "expected_damage": 0.012068327415046418,
-          "share": 0.0015976038165787254
-        },
-        {
-          "variant_id": "gholdengo_no_item",
-          "species": "Gholdengo",
-          "item": null,
-          "move": "Power Gem",
-          "expected_damage": 0.004919857478983245,
-          "share": 0.0006512901759399927
-        },
-        {
-          "variant_id": "gholdengo_life_orb",
-          "species": "Gholdengo",
-          "item": "Life Orb",
-          "move": "Power Gem",
-          "expected_damage": 0.004848375113561671,
-          "share": 0.0006418273485001935
+          "expected_damage": 0.02846114108511169,
+          "share": 0.0038105932726324662
         },
         {
           "variant_id": "glimmora_mega",
           "species": "Glimmora-Mega",
           "item": null,
           "move": "Power Gem",
-          "expected_damage": 0.004255206963695766,
-          "share": 0.0005633038159916858
+          "expected_damage": 0.0100351972212074,
+          "share": 0.001343588259736947
+        },
+        {
+          "variant_id": "gholdengo_no_item",
+          "species": "Gholdengo",
+          "item": null,
+          "move": "Power Gem",
+          "expected_damage": 0.00543582416570353,
+          "share": 0.0007277893368751266
+        },
+        {
+          "variant_id": "gholdengo_life_orb",
+          "species": "Gholdengo",
+          "item": "Life Orb",
+          "move": "Power Gem",
+          "expected_damage": 0.005356845136119824,
+          "share": 0.0007172150258202496
         },
         {
           "variant_id": "camerupt_mega",
           "species": "Camerupt-Mega",
           "item": null,
           "move": "Ancient Power",
-          "expected_damage": 0.003638160075804937,
-          "share": 0.0004816192188474824
+          "expected_damage": 0.004034172621480927,
+          "share": 0.0005401256051569506
         },
         {
           "variant_id": "gholdengo_metal_coat",
           "species": "Gholdengo",
           "item": "Metal Coat",
           "move": "Power Gem",
-          "expected_damage": 0.0011118877902502131,
-          "share": 0.00014719157976243833
+          "expected_damage": 0.001228496261448998,
+          "share": 0.00016448039013377866
+        }
+      ]
+    },
+    {
+      "type": "Dark",
+      "category": "Special",
+      "share": 0.007201669759734888,
+      "contributors": [
+        {
+          "variant_id": "blastoise_mega",
+          "species": "Blastoise-Mega",
+          "item": null,
+          "move": "Dark Pulse",
+          "expected_damage": 0.025498437853129604,
+          "share": 0.003413924109901562
+        },
+        {
+          "variant_id": "hydreigon_no_item",
+          "species": "Hydreigon",
+          "item": null,
+          "move": "Dark Pulse",
+          "expected_damage": 0.017681850921929514,
+          "share": 0.002367380210417532
+        },
+        {
+          "variant_id": "hydreigon_no_item",
+          "species": "Hydreigon",
+          "item": null,
+          "move": "Snarl",
+          "expected_damage": 0.00851949514483729,
+          "share": 0.0011406545783972223
+        },
+        {
+          "variant_id": "greninja_mega",
+          "species": "Greninja-Mega",
+          "item": null,
+          "move": "Dark Pulse",
+          "expected_damage": 0.002089147203314098,
+          "share": 0.00027971086101857156
+        }
+      ]
+    },
+    {
+      "type": "Psychic",
+      "category": "Physical",
+      "share": 0.005538322502294365,
+      "contributors": [
+        {
+          "variant_id": "metagross_mega",
+          "species": "Metagross-Mega",
+          "item": null,
+          "move": "Psychic Fangs",
+          "expected_damage": 0.03969601087349197,
+          "share": 0.005314802787861593
+        },
+        {
+          "variant_id": "tsareena_no_item",
+          "species": "Tsareena",
+          "item": null,
+          "move": "Zen Headbutt",
+          "expected_damage": 0.0010385908394573472,
+          "share": 0.00013905441296323
+        },
+        {
+          "variant_id": "gallade_mega",
+          "species": "Gallade-Mega",
+          "item": null,
+          "move": "Psycho Cut",
+          "expected_damage": 0.0006308673452993239,
+          "share": 0.0000844653014695413
+        }
+      ]
+    },
+    {
+      "type": "Normal",
+      "category": "Special",
+      "share": 0.004357477805179395,
+      "contributors": [
+        {
+          "variant_id": "farigiraf_no_item",
+          "species": "Farigiraf",
+          "item": null,
+          "move": "Hyper Voice",
+          "expected_damage": 0.02829927491032637,
+          "share": 0.003788921402384567
+        },
+        {
+          "variant_id": "charizard_mega_x",
+          "species": "Charizard-Mega-X",
+          "item": null,
+          "move": "Weather Ball",
+          "expected_damage": 0.0021578944654078655,
+          "share": 0.0002889152654963474
+        },
+        {
+          "variant_id": "pyroar_mega",
+          "species": "Pyroar-Mega",
+          "item": null,
+          "move": "Hyper Voice",
+          "expected_damage": 0.0020886264401435064,
+          "share": 0.0002796411372984805
         }
       ]
     },
     {
       "type": "Grass",
       "category": "Physical",
-      "share": 0.002507580210285555,
+      "share": 0.002857995292548723,
       "contributors": [
         {
           "variant_id": "meowscarada_no_item",
           "species": "Meowscarada",
           "item": null,
           "move": "Flower Trick",
-          "expected_damage": 0.007461281984948875,
-          "share": 0.0009877236642471855
+          "expected_damage": 0.008838795126774223,
+          "share": 0.0011834048799217465
         },
         {
           "variant_id": "tsareena_no_item",
           "species": "Tsareena",
           "item": null,
           "move": "Trop Kick",
-          "expected_damage": 0.006188560772383774,
-          "share": 0.0008192409742515819
+          "expected_damage": 0.0067640935201118005,
+          "share": 0.0009056281048646415
         },
         {
           "variant_id": "tsareena_no_item",
           "species": "Tsareena",
           "item": null,
           "move": "Power Whip",
-          "expected_damage": 0.004948641705480293,
-          "share": 0.0006551006285841277
+          "expected_damage": 0.0054088626620209706,
+          "share": 0.0007241795264235506
         },
         {
           "variant_id": "gallade_mega",
           "species": "Gallade-Mega",
           "item": null,
           "move": "Leaf Blade",
-          "expected_damage": 0.0003438206839185241,
-          "share": 0.00004551494320265995
-        }
-      ]
-    },
-    {
-      "type": "Bug",
-      "category": "Special",
-      "share": 0.000807333642372262,
-      "contributors": [
-        {
-          "variant_id": "vivillon_no_item",
-          "species": "Vivillon",
-          "item": null,
-          "move": "Pollen Puff",
-          "expected_damage": 0.004037033420911715,
-          "share": 0.0005344220271040448
-        },
-        {
-          "variant_id": "toxapex_no_item",
-          "species": "Toxapex",
-          "item": null,
-          "move": "Infestation",
-          "expected_damage": 0.002061579156388881,
-          "share": 0.00027291161526821716
-        }
-      ]
-    },
-    {
-      "type": "Electric",
-      "category": "Physical",
-      "share": 0.000611020429929131,
-      "contributors": [
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "move": "Volt Tackle",
-          "expected_damage": 0.0023210025176760474,
-          "share": 0.0003072540504581448
-        },
-        {
-          "variant_id": "raichu_mega_x",
-          "species": "Raichu-Mega-X",
-          "item": null,
-          "move": "Volt Tackle",
-          "expected_damage": 0.0008907009170357078,
-          "share": 0.00011791088653364517
-        },
-        {
-          "variant_id": "raichu_no_item",
-          "species": "Raichu",
-          "item": null,
-          "move": "Volt Tackle",
-          "expected_damage": 0.0007219422081784582,
-          "share": 0.00009557062776546665
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "move": "Nuzzle",
-          "expected_damage": 0.00040268810345285024,
-          "share": 0.000053307805534429785
-        },
-        {
-          "variant_id": "raichu_mega_x",
-          "species": "Raichu-Mega-X",
-          "item": null,
-          "move": "Nuzzle",
-          "expected_damage": 0.00015658171358917284,
-          "share": 0.000020728269513521254
-        },
-        {
-          "variant_id": "raichu_no_item",
-          "species": "Raichu",
-          "item": null,
-          "move": "Nuzzle",
-          "expected_damage": 0.00012274364725406092,
-          "share": 0.000016248790123923423
+          "expected_damage": 0.00033448047762556205,
+          "share": 0.00004478278133878479
         }
       ]
     },
     {
       "type": "Bug",
       "category": "Physical",
-      "share": 0.0004968080680268957,
+      "share": 0.00118278379862206,
       "contributors": [
+        {
+          "variant_id": "scizor_mega",
+          "species": "Scizor-Mega",
+          "item": null,
+          "move": "Bug Bite",
+          "expected_damage": 0.004918086137375749,
+          "share": 0.0006584706457575777
+        },
         {
           "variant_id": "meowscarada_no_item",
           "species": "Meowscarada",
           "item": null,
           "move": "U-turn",
-          "expected_damage": 0.0015305503843346926,
-          "share": 0.00020261408655772165
+          "expected_damage": 0.0018131229064428111,
+          "share": 0.0002427546361927494
         },
         {
           "variant_id": "tsareena_no_item",
           "species": "Tsareena",
           "item": null,
           "move": "U-turn",
-          "expected_damage": 0.0012235122493767933,
-          "share": 0.0001619684130211898
+          "expected_damage": 0.0013372982155589568,
+          "share": 0.00017904762034920936
         },
         {
           "variant_id": "hydreigon_no_item",
           "species": "Hydreigon",
           "item": null,
           "move": "U-turn",
-          "expected_damage": 0.0009988342767534141,
-          "share": 0.00013222556844798427
+          "expected_damage": 0.000765649040518315,
+          "share": 0.00010251089632252334
+        }
+      ]
+    },
+    {
+      "type": "Bug",
+      "category": "Special",
+      "share": 0.0009203504801405843,
+      "contributors": [
+        {
+          "variant_id": "vivillon_no_item",
+          "species": "Vivillon",
+          "item": null,
+          "move": "Pollen Puff",
+          "expected_damage": 0.004969880186171839,
+          "share": 0.0006654052255523429
+        },
+        {
+          "variant_id": "toxapex_no_item",
+          "species": "Toxapex",
+          "item": null,
+          "move": "Infestation",
+          "expected_damage": 0.0019041740591755636,
+          "share": 0.00025494525458824146
+        }
+      ]
+    },
+    {
+      "type": "Electric",
+      "category": "Physical",
+      "share": 0.0008220976942545573,
+      "contributors": [
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "move": "Volt Tackle",
+          "expected_damage": 0.0030876284022740446,
+          "share": 0.0004133950913250333
+        },
+        {
+          "variant_id": "raichu_mega_x",
+          "species": "Raichu-Mega-X",
+          "item": null,
+          "move": "Volt Tackle",
+          "expected_damage": 0.0011848989513913314,
+          "share": 0.00015864325184358123
+        },
+        {
+          "variant_id": "raichu_no_item",
+          "species": "Raichu",
+          "item": null,
+          "move": "Volt Tackle",
+          "expected_damage": 0.0009603993316664606,
+          "share": 0.000128585541294525
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "move": "Nuzzle",
+          "expected_damage": 0.0005356957676736262,
+          "share": 0.00007172300936109125
+        },
+        {
+          "variant_id": "raichu_mega_x",
+          "species": "Raichu-Mega-X",
+          "item": null,
+          "move": "Nuzzle",
+          "expected_damage": 0.00020830056946200576,
+          "share": 0.000027888858928872984
+        },
+        {
+          "variant_id": "raichu_no_item",
+          "species": "Raichu",
+          "item": null,
+          "move": "Nuzzle",
+          "expected_damage": 0.0001632858079963711,
+          "share": 0.00002186194150145356
         }
       ]
     }
