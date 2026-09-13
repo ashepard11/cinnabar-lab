@@ -720,3 +720,34 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
     Showdown teams in the evaluator. What was actually missing was the budget
     validation, which is now item 09's remaining deliverable alongside the
     schema bump.
+
+14. **Variant schema bumps to 3, not the spec's 2.** `schema_version: 2`
+    already shipped with a different shape (D34's content ids), so the spec's
+    "version 2" number was unavailable. The spec's *shape* is not adopted
+    wholesale either: it makes `id` a sha256 and moves the slug to `human_id`,
+    while this repo already carries a content id in `cid` and uses the slug
+    `id` in matchup rows and URLs. Renaming both would churn every reader and
+    every permalink to express something the file already expresses. v3 adds
+    only what the teambuilder needs — `regulation`, `national_dex`,
+    `set_label`, `moves_source`, `tier`.
+
+15. **The migration derives rather than rebuilds, and proves it.** Every v3
+    field comes from what the v2 file already holds plus the resolved format
+    rules, so no re-scrape and no re-simulation. Nothing feeding `variantCid`
+    is touched, which means content ids are unchanged and `matchups.sqlite`
+    stays valid — and `scripts/migrate-variants-v3.ts` recomputes every cid
+    and fails if one moved, rather than assuming. 84 variants, 70 core / 14
+    extended.
+
+16. **Tiering is deterministic under rescrape.** Sorted by descending weight
+    with ties broken by id, so two variants on the same weight cannot swap
+    tiers just because the scrape reordered them. `CORE_TIER_SIZE` is 70 per
+    the spec's "top seventy or so", explicitly provisional until Phase 1 says
+    how many candidates a user actually scans.
+
+17. **Spec corrections are errata blocks, not silent rewrites.** The bodies of
+    `SPEC-damageviz.md` and `SPEC-sim.md` are corrected inline, but each spec
+    opens with a dated erratum recording what changed and why. These are
+    upstream specs whose original intent is still worth being able to read;
+    quietly editing them to match the code would erase the fact that the
+    pipeline diverged deliberately and was right to.
