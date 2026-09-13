@@ -245,15 +245,22 @@ export function regulationConfig(id: RegulationId): RegulationConfig {
 }
 
 /**
- * The config for the active regulation, reading process.env when it exists.
- * Guarded so the module stays importable in the browser.
+ * The configured override, read off globalThis rather than naming `process`.
+ *
+ * This module is browser-safe, and the web tsconfig has no Node types, so a
+ * bare `process` reference fails to compile there even behind a `typeof`
+ * guard. Reaching through globalThis keeps one implementation working in both
+ * places: Node callers get the environment variable, the browser gets
+ * undefined and falls through to the default.
  */
+function configuredRegulation(): string | undefined {
+  const g = globalThis as {process?: {env?: Record<string, string | undefined>}};
+  return g.process?.env?.CHAMPIONS_REGULATION;
+}
+
+/** The config for the active regulation, from CHAMPIONS_REGULATION or the default. */
 export function activeRegulationConfig(): RegulationConfig {
-  const env =
-    typeof process !== 'undefined' && process.env
-      ? process.env.CHAMPIONS_REGULATION
-      : undefined;
-  return regulationConfig(activeRegulationId(env));
+  return regulationConfig(activeRegulationId(configuredRegulation()));
 }
 
 // --- SP budget validation (BACKLOG item 09) ---------------------------------

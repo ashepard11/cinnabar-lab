@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T19:35:31.972Z",
+  "generated_at": "2026-09-13T19:41:34.041Z",
   "candidates": [
     {
       "variant_id": "6348f4da7d2dbe83",
@@ -12,25 +12,36 @@
       "entry_coverage": 0.799,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.485,
+          "variant_id": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "p_exposed": 0.25,
           "best_answer": {
             "member": "6348f4da7d2dbe83",
             "condition": "fresh",
-            "p": 0.824
+            "p": 0.823
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.358,
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.498,
           "best_answer": {
             "member": "6348f4da7d2dbe83",
             "condition": "fresh",
-            "p": 0.585
+            "p": 0.868
+          }
+        },
+        {
+          "variant_id": "ba332631bbf1f4b0",
+          "species": "Delphox-Mega",
+          "weight": 0.0973,
+          "p_exposed": 0.399,
+          "best_answer": {
+            "member": "6348f4da7d2dbe83",
+            "condition": "fresh",
+            "p": 0.793
           }
         }
       ]
@@ -46,25 +57,36 @@
       "entry_coverage": 0.449,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.219,
+          "variant_id": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "weight": 0.1539,
+          "p_exposed": 0.486,
           "best_answer": {
             "member": "b3e49ebad0d4367b",
             "condition": "fresh",
-            "p": 0.719
+            "p": 0.661
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.397,
+          "variant_id": "32bb8e94204339eb",
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "p_exposed": 0.297,
           "best_answer": {
             "member": "b3e49ebad0d4367b",
             "condition": "fresh",
-            "p": 0.744
+            "p": 0.559
+          }
+        },
+        {
+          "variant_id": "0bd04caa0f94951f",
+          "species": "Venusaur",
+          "weight": 0.057,
+          "p_exposed": 0.346,
+          "best_answer": {
+            "member": "b3e49ebad0d4367b",
+            "condition": "fresh",
+            "p": 0.536
           }
         }
       ]
@@ -80,17 +102,6 @@
       "entry_coverage": 0.832,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.296,
-          "best_answer": {
-            "member": "024cee1a8526e616",
-            "condition": "fresh",
-            "p": 0.893
-          }
-        },
-        {
           "variant_id": "244400d9167e7084",
           "species": "Sneasler",
           "weight": 0.1996,
@@ -99,6 +110,28 @@
             "member": "024cee1a8526e616",
             "condition": "fresh",
             "p": 0.831
+          }
+        },
+        {
+          "variant_id": "ecc6e7a87992c098",
+          "species": "Floette-Mega",
+          "weight": 0.126,
+          "p_exposed": 0.48,
+          "best_answer": {
+            "member": "024cee1a8526e616",
+            "condition": "fresh",
+            "p": 0.619
+          }
+        },
+        {
+          "variant_id": "65759830f2d594a9",
+          "species": "Froslass-Mega",
+          "weight": 0.0587,
+          "p_exposed": 0.397,
+          "best_answer": {
+            "member": "024cee1a8526e616",
+            "condition": "fresh",
+            "p": 0.525
           }
         }
       ]
@@ -114,25 +147,36 @@
       "entry_coverage": 0.391,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.423,
+          "variant_id": "ae0193d508ee34cd",
+          "species": "Gengar-Mega",
+          "weight": 0.0475,
+          "p_exposed": 0.419,
           "best_answer": {
             "member": "e44db8e5f05ae054",
             "condition": "fresh",
-            "p": 0.888
+            "p": 0.881
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.377,
+          "variant_id": "ef9b2f51b638e6f0",
+          "species": "Sableye",
+          "weight": 0.0367,
+          "p_exposed": 0.373,
           "best_answer": {
             "member": "e44db8e5f05ae054",
             "condition": "fresh",
-            "p": 0.569
+            "p": 0.828
+          }
+        },
+        {
+          "variant_id": "c18f9984845495b5",
+          "species": "Kommo-o",
+          "weight": 0.0287,
+          "p_exposed": 0.376,
+          "best_answer": {
+            "member": "e44db8e5f05ae054",
+            "condition": "fresh",
+            "p": 0.667
           }
         }
       ]
@@ -159,25 +203,36 @@
       "entry_coverage": 0.508,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.368,
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.489,
           "best_answer": {
             "member": "432a0774c3cb2f6b",
             "condition": "fresh",
-            "p": 0.672
+            "p": 0.521
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.244,
+          "variant_id": "14a6dece6b118f48",
+          "species": "Milotic",
+          "weight": 0.0982,
+          "p_exposed": 0.262,
           "best_answer": {
             "member": "432a0774c3cb2f6b",
             "condition": "fresh",
-            "p": 0.73
+            "p": 0.563
+          }
+        },
+        {
+          "variant_id": "bc17d25604f0165b",
+          "species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "p_exposed": 0.392,
+          "best_answer": {
+            "member": "432a0774c3cb2f6b",
+            "condition": "fresh",
+            "p": 0.604
           }
         }
       ]
@@ -204,25 +259,36 @@
       "entry_coverage": 0.437,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.226,
+          "variant_id": "32bb8e94204339eb",
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "p_exposed": 0.49,
           "best_answer": {
             "member": "244400d9167e7084",
             "condition": "fresh",
-            "p": 0.612
+            "p": 0.687
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.349,
+          "variant_id": "12e5002bf5dbd9fc",
+          "species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "p_exposed": 0.39,
           "best_answer": {
             "member": "244400d9167e7084",
             "condition": "fresh",
-            "p": 0.733
+            "p": 0.812
+          }
+        },
+        {
+          "variant_id": "04882156ee2a5a7f",
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "p_exposed": 0.377,
+          "best_answer": {
+            "member": "244400d9167e7084",
+            "condition": "fresh",
+            "p": 0.564
           }
         }
       ]
@@ -249,25 +315,36 @@
       "entry_coverage": 0.498,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.422,
+          "variant_id": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "weight": 0.2644,
+          "p_exposed": 0.223,
           "best_answer": {
             "member": "3cba8a8d93d115d7",
             "condition": "fresh",
-            "p": 0.831
+            "p": 0.601
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.423,
+          "variant_id": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "p_exposed": 0.318,
           "best_answer": {
             "member": "3cba8a8d93d115d7",
             "condition": "fresh",
-            "p": 0.784
+            "p": 0.798
+          }
+        },
+        {
+          "variant_id": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "p_exposed": 0.488,
+          "best_answer": {
+            "member": "3cba8a8d93d115d7",
+            "condition": "fresh",
+            "p": 0.657
           }
         }
       ]
@@ -294,25 +371,36 @@
       "entry_coverage": 0.826,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.48,
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.496,
           "best_answer": {
             "member": "7b89eac335d57676",
             "condition": "fresh",
-            "p": 0.607
+            "p": 0.636
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.4,
+          "variant_id": "ef9b2f51b638e6f0",
+          "species": "Sableye",
+          "weight": 0.0367,
+          "p_exposed": 0.246,
           "best_answer": {
             "member": "7b89eac335d57676",
             "condition": "fresh",
-            "p": 0.797
+            "p": 0.803
+          }
+        },
+        {
+          "variant_id": "c2016c15c04faa73",
+          "species": "Tyranitar",
+          "weight": 0.0314,
+          "p_exposed": 0.237,
+          "best_answer": {
+            "member": "7b89eac335d57676",
+            "condition": "fresh",
+            "p": 0.866
           }
         }
       ]
@@ -339,25 +427,36 @@
       "entry_coverage": 0.779,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.462,
+          "variant_id": "b81efa96488db225",
+          "species": "Garchomp",
+          "weight": 0.1659,
+          "p_exposed": 0.327,
           "best_answer": {
             "member": "0fb76124be7787ae",
             "condition": "fresh",
-            "p": 0.592
+            "p": 0.709
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.335,
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.464,
           "best_answer": {
             "member": "0fb76124be7787ae",
             "condition": "fresh",
-            "p": 0.784
+            "p": 0.8
+          }
+        },
+        {
+          "variant_id": "0d139b488c72ba6b",
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "p_exposed": 0.497,
+          "best_answer": {
+            "member": "0fb76124be7787ae",
+            "condition": "fresh",
+            "p": 0.556
           }
         }
       ]
@@ -384,25 +483,36 @@
       "entry_coverage": 0.842,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.243,
+          "variant_id": "14a6dece6b118f48",
+          "species": "Milotic",
+          "weight": 0.0982,
+          "p_exposed": 0.481,
           "best_answer": {
             "member": "b81efa96488db225",
             "condition": "fresh",
-            "p": 0.811
+            "p": 0.653
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.38,
+          "variant_id": "32bb8e94204339eb",
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "p_exposed": 0.344,
           "best_answer": {
             "member": "b81efa96488db225",
             "condition": "fresh",
-            "p": 0.697
+            "p": 0.543
+          }
+        },
+        {
+          "variant_id": "9914e3566af2aeed",
+          "species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "p_exposed": 0.482,
+          "best_answer": {
+            "member": "b81efa96488db225",
+            "condition": "fresh",
+            "p": 0.893
           }
         }
       ]
@@ -429,25 +539,36 @@
       "entry_coverage": 0.361,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.203,
+          "variant_id": "14a6dece6b118f48",
+          "species": "Milotic",
+          "weight": 0.0982,
+          "p_exposed": 0.274,
           "best_answer": {
             "member": "5f29a1803653b87e",
             "condition": "fresh",
-            "p": 0.76
+            "p": 0.542
           }
         },
         {
-          "variant_id": "244400d9167e7084",
-          "species": "Sneasler",
-          "weight": 0.1996,
-          "p_exposed": 0.31,
+          "variant_id": "89f6a0fb54f76dec",
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "p_exposed": 0.254,
           "best_answer": {
             "member": "5f29a1803653b87e",
             "condition": "fresh",
-            "p": 0.845
+            "p": 0.598
+          }
+        },
+        {
+          "variant_id": "d91720b005f7fca1",
+          "species": "Lycanroc-Dusk",
+          "weight": 0.0256,
+          "p_exposed": 0.49,
+          "best_answer": {
+            "member": "5f29a1803653b87e",
+            "condition": "fresh",
+            "p": 0.508
           }
         }
       ]
@@ -463,25 +584,1362 @@
       "entry_coverage": 0.706,
       "patches": [
         {
-          "variant_id": "432a0774c3cb2f6b",
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "p_exposed": 0.385,
+          "variant_id": "9914e3566af2aeed",
+          "species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "p_exposed": 0.42,
           "best_answer": {
             "member": "294a12dc9de3473f",
             "condition": "fresh",
-            "p": 0.736
+            "p": 0.833
+          }
+        },
+        {
+          "variant_id": "12e5002bf5dbd9fc",
+          "species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "p_exposed": 0.423,
+          "best_answer": {
+            "member": "294a12dc9de3473f",
+            "condition": "fresh",
+            "p": 0.863
+          }
+        },
+        {
+          "variant_id": "89f6a0fb54f76dec",
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "p_exposed": 0.24,
+          "best_answer": {
+            "member": "294a12dc9de3473f",
+            "condition": "fresh",
+            "p": 0.533
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "7ee9621dff483549",
+      "human_id": "garchomp_no_item",
+      "species": "Garchomp",
+      "set_label": "No item",
+      "marginal_score": 0.063,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "7ee9621dff483549",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.016,
+      "entry_coverage": 0.515,
+      "patches": [
+        {
+          "variant_id": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "p_exposed": 0.254,
+          "best_answer": {
+            "member": "7ee9621dff483549",
+            "condition": "fresh",
+            "p": 0.893
+          }
+        },
+        {
+          "variant_id": "0d139b488c72ba6b",
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "p_exposed": 0.405,
+          "best_answer": {
+            "member": "7ee9621dff483549",
+            "condition": "fresh",
+            "p": 0.744
+          }
+        },
+        {
+          "variant_id": "1c591cb55605955e",
+          "species": "Maushold",
+          "weight": 0.0497,
+          "p_exposed": 0.339,
+          "best_answer": {
+            "member": "7ee9621dff483549",
+            "condition": "fresh",
+            "p": 0.795
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "0d139b488c72ba6b",
+      "human_id": "pelipper_no_item",
+      "species": "Pelipper",
+      "set_label": "No item",
+      "marginal_score": 0.089,
+      "conditions_added": [],
+      "positioning_delta": 0.01,
+      "entry_coverage": 0.422,
+      "patches": [
+        {
+          "variant_id": "7b89eac335d57676",
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "p_exposed": 0.474,
+          "best_answer": {
+            "member": "0d139b488c72ba6b",
+            "condition": "fresh",
+            "p": 0.76
+          }
+        },
+        {
+          "variant_id": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "p_exposed": 0.454,
+          "best_answer": {
+            "member": "0d139b488c72ba6b",
+            "condition": "fresh",
+            "p": 0.668
+          }
+        },
+        {
+          "variant_id": "7ee9621dff483549",
+          "species": "Garchomp",
+          "weight": 0.1417,
+          "p_exposed": 0.373,
+          "best_answer": {
+            "member": "0d139b488c72ba6b",
+            "condition": "fresh",
+            "p": 0.649
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "ecc6e7a87992c098",
+      "human_id": "floette_mega",
+      "species": "Floette-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.009,
+      "conditions_added": [],
+      "positioning_delta": 0.015,
+      "entry_coverage": 0.428,
+      "patches": [
+        {
+          "variant_id": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "p_exposed": 0.453,
+          "best_answer": {
+            "member": "ecc6e7a87992c098",
+            "condition": "fresh",
+            "p": 0.67
+          }
+        },
+        {
+          "variant_id": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "p_exposed": 0.444,
+          "best_answer": {
+            "member": "ecc6e7a87992c098",
+            "condition": "fresh",
+            "p": 0.871
+          }
+        },
+        {
+          "variant_id": "b108eda46851045d",
+          "species": "Kingambit",
+          "weight": 0.116,
+          "p_exposed": 0.28,
+          "best_answer": {
+            "member": "ecc6e7a87992c098",
+            "condition": "fresh",
+            "p": 0.516
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "b108eda46851045d",
+      "human_id": "kingambit_black_glasses",
+      "species": "Kingambit",
+      "set_label": "Black Glasses",
+      "marginal_score": 0.025,
+      "conditions_added": [],
+      "positioning_delta": 0.003,
+      "entry_coverage": 0.461,
+      "patches": [
+        {
+          "variant_id": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "weight": 0.2644,
+          "p_exposed": 0.34,
+          "best_answer": {
+            "member": "b108eda46851045d",
+            "condition": "fresh",
+            "p": 0.607
+          }
+        },
+        {
+          "variant_id": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "p_exposed": 0.251,
+          "best_answer": {
+            "member": "b108eda46851045d",
+            "condition": "fresh",
+            "p": 0.508
           }
         },
         {
           "variant_id": "244400d9167e7084",
           "species": "Sneasler",
           "weight": 0.1996,
-          "p_exposed": 0.441,
+          "p_exposed": 0.341,
           "best_answer": {
-            "member": "294a12dc9de3473f",
+            "member": "b108eda46851045d",
             "condition": "fresh",
-            "p": 0.827
+            "p": 0.702
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "199ab4a670f9cf95",
+      "human_id": "grimmsnarl_no_item",
+      "species": "Grimmsnarl",
+      "set_label": "No item",
+      "marginal_score": 0.053,
+      "conditions_added": [],
+      "positioning_delta": 0.019,
+      "entry_coverage": 0.694,
+      "patches": [
+        {
+          "variant_id": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "p_exposed": 0.363,
+          "best_answer": {
+            "member": "199ab4a670f9cf95",
+            "condition": "fresh",
+            "p": 0.763
+          }
+        },
+        {
+          "variant_id": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "weight": 0.1539,
+          "p_exposed": 0.491,
+          "best_answer": {
+            "member": "199ab4a670f9cf95",
+            "condition": "fresh",
+            "p": 0.66
+          }
+        },
+        {
+          "variant_id": "04882156ee2a5a7f",
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "p_exposed": 0.436,
+          "best_answer": {
+            "member": "199ab4a670f9cf95",
+            "condition": "fresh",
+            "p": 0.738
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "14a6dece6b118f48",
+      "human_id": "milotic_no_item",
+      "species": "Milotic",
+      "set_label": "No item",
+      "marginal_score": 0.032,
+      "conditions_added": [],
+      "positioning_delta": 0.02,
+      "entry_coverage": 0.428,
+      "patches": [
+        {
+          "variant_id": "199ab4a670f9cf95",
+          "species": "Grimmsnarl",
+          "weight": 0.1109,
+          "p_exposed": 0.207,
+          "best_answer": {
+            "member": "14a6dece6b118f48",
+            "condition": "fresh",
+            "p": 0.864
+          }
+        },
+        {
+          "variant_id": "65759830f2d594a9",
+          "species": "Froslass-Mega",
+          "weight": 0.0587,
+          "p_exposed": 0.226,
+          "best_answer": {
+            "member": "14a6dece6b118f48",
+            "condition": "fresh",
+            "p": 0.581
+          }
+        },
+        {
+          "variant_id": "ae0193d508ee34cd",
+          "species": "Gengar-Mega",
+          "weight": 0.0475,
+          "p_exposed": 0.449,
+          "best_answer": {
+            "member": "14a6dece6b118f48",
+            "condition": "fresh",
+            "p": 0.66
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "ba332631bbf1f4b0",
+      "human_id": "delphox_mega",
+      "species": "Delphox-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.082,
+      "conditions_added": [],
+      "positioning_delta": 0.001,
+      "entry_coverage": 0.763,
+      "patches": [
+        {
+          "variant_id": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "p_exposed": 0.26,
+          "best_answer": {
+            "member": "ba332631bbf1f4b0",
+            "condition": "fresh",
+            "p": 0.871
+          }
+        },
+        {
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.331,
+          "best_answer": {
+            "member": "ba332631bbf1f4b0",
+            "condition": "fresh",
+            "p": 0.757
+          }
+        },
+        {
+          "variant_id": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "p_exposed": 0.295,
+          "best_answer": {
+            "member": "ba332631bbf1f4b0",
+            "condition": "fresh",
+            "p": 0.532
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "32bb8e94204339eb",
+      "human_id": "swampert_mega",
+      "species": "Swampert-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.032,
+      "conditions_added": [],
+      "positioning_delta": 0.025,
+      "entry_coverage": 0.815,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.443,
+          "best_answer": {
+            "member": "32bb8e94204339eb",
+            "condition": "fresh",
+            "p": 0.535
+          }
+        },
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.382,
+          "best_answer": {
+            "member": "32bb8e94204339eb",
+            "condition": "fresh",
+            "p": 0.628
+          }
+        },
+        {
+          "variant_id": "6a6ce89e4def7507",
+          "species": "Excadrill",
+          "weight": 0.0652,
+          "p_exposed": 0.318,
+          "best_answer": {
+            "member": "32bb8e94204339eb",
+            "condition": "fresh",
+            "p": 0.777
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "9914e3566af2aeed",
+      "human_id": "tyranitar_mega",
+      "species": "Tyranitar-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.012,
+      "conditions_added": [],
+      "positioning_delta": 0.012,
+      "entry_coverage": 0.539,
+      "patches": [
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.207,
+          "best_answer": {
+            "member": "9914e3566af2aeed",
+            "condition": "fresh",
+            "p": 0.739
+          }
+        },
+        {
+          "variant_id": "29cb29385e52ae6b",
+          "species": "Metagross-Mega",
+          "weight": 0.0543,
+          "p_exposed": 0.35,
+          "best_answer": {
+            "member": "9914e3566af2aeed",
+            "condition": "fresh",
+            "p": 0.591
+          }
+        },
+        {
+          "variant_id": "0fea55eedbba5a3c",
+          "species": "Arcanine-Hisui",
+          "weight": 0.0353,
+          "p_exposed": 0.416,
+          "best_answer": {
+            "member": "9914e3566af2aeed",
+            "condition": "fresh",
+            "p": 0.743
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "bc17d25604f0165b",
+      "human_id": "venusaur_mega",
+      "species": "Venusaur-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.085,
+      "conditions_added": [],
+      "positioning_delta": 0.037,
+      "entry_coverage": 0.614,
+      "patches": [
+        {
+          "variant_id": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "p_exposed": 0.498,
+          "best_answer": {
+            "member": "bc17d25604f0165b",
+            "condition": "fresh",
+            "p": 0.709
+          }
+        },
+        {
+          "variant_id": "7ee9621dff483549",
+          "species": "Garchomp",
+          "weight": 0.1417,
+          "p_exposed": 0.379,
+          "best_answer": {
+            "member": "bc17d25604f0165b",
+            "condition": "fresh",
+            "p": 0.816
+          }
+        },
+        {
+          "variant_id": "b108eda46851045d",
+          "species": "Kingambit",
+          "weight": 0.116,
+          "p_exposed": 0.219,
+          "best_answer": {
+            "member": "bc17d25604f0165b",
+            "condition": "fresh",
+            "p": 0.593
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "6a6ce89e4def7507",
+      "human_id": "excadrill_no_item",
+      "species": "Excadrill",
+      "set_label": "No item",
+      "marginal_score": 0.023,
+      "conditions_added": [],
+      "positioning_delta": 0.003,
+      "entry_coverage": 0.754,
+      "patches": [
+        {
+          "variant_id": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "weight": 0.2644,
+          "p_exposed": 0.383,
+          "best_answer": {
+            "member": "6a6ce89e4def7507",
+            "condition": "fresh",
+            "p": 0.887
+          }
+        },
+        {
+          "variant_id": "0d139b488c72ba6b",
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "p_exposed": 0.294,
+          "best_answer": {
+            "member": "6a6ce89e4def7507",
+            "condition": "fresh",
+            "p": 0.686
+          }
+        },
+        {
+          "variant_id": "65759830f2d594a9",
+          "species": "Froslass-Mega",
+          "weight": 0.0587,
+          "p_exposed": 0.222,
+          "best_answer": {
+            "member": "6a6ce89e4def7507",
+            "condition": "fresh",
+            "p": 0.694
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "12e5002bf5dbd9fc",
+      "human_id": "aerodactyl_mega",
+      "species": "Aerodactyl-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.005,
+      "conditions_added": [],
+      "positioning_delta": 0.012,
+      "entry_coverage": 0.712,
+      "patches": [
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.402,
+          "best_answer": {
+            "member": "12e5002bf5dbd9fc",
+            "condition": "fresh",
+            "p": 0.731
+          }
+        },
+        {
+          "variant_id": "b81efa96488db225",
+          "species": "Garchomp",
+          "weight": 0.1659,
+          "p_exposed": 0.347,
+          "best_answer": {
+            "member": "12e5002bf5dbd9fc",
+            "condition": "fresh",
+            "p": 0.575
+          }
+        },
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.412,
+          "best_answer": {
+            "member": "12e5002bf5dbd9fc",
+            "condition": "fresh",
+            "p": 0.744
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "df5989403dfe079b",
+      "human_id": "raichu_mega_y",
+      "species": "Raichu-Mega-Y",
+      "set_label": "Mega",
+      "marginal_score": 0.033,
+      "conditions_added": [],
+      "positioning_delta": 0.016,
+      "entry_coverage": 0.508,
+      "patches": [
+        {
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.394,
+          "best_answer": {
+            "member": "df5989403dfe079b",
+            "condition": "fresh",
+            "p": 0.754
+          }
+        },
+        {
+          "variant_id": "29cb29385e52ae6b",
+          "species": "Metagross-Mega",
+          "weight": 0.0543,
+          "p_exposed": 0.315,
+          "best_answer": {
+            "member": "df5989403dfe079b",
+            "condition": "fresh",
+            "p": 0.663
+          }
+        },
+        {
+          "variant_id": "5d8734869e065ff8",
+          "species": "Basculegion",
+          "weight": 0.0528,
+          "p_exposed": 0.303,
+          "best_answer": {
+            "member": "df5989403dfe079b",
+            "condition": "fresh",
+            "p": 0.894
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "65759830f2d594a9",
+      "human_id": "froslass_mega",
+      "species": "Froslass-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.058,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "65759830f2d594a9",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.036,
+      "entry_coverage": 0.355,
+      "patches": [
+        {
+          "variant_id": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "weight": 0.2644,
+          "p_exposed": 0.481,
+          "best_answer": {
+            "member": "65759830f2d594a9",
+            "condition": "fresh",
+            "p": 0.52
+          }
+        },
+        {
+          "variant_id": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "p_exposed": 0.25,
+          "best_answer": {
+            "member": "65759830f2d594a9",
+            "condition": "fresh",
+            "p": 0.502
+          }
+        },
+        {
+          "variant_id": "7ee9621dff483549",
+          "species": "Garchomp",
+          "weight": 0.1417,
+          "p_exposed": 0.35,
+          "best_answer": {
+            "member": "65759830f2d594a9",
+            "condition": "fresh",
+            "p": 0.842
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "0bd04caa0f94951f",
+      "human_id": "venusaur_no_item",
+      "species": "Venusaur",
+      "set_label": "No item",
+      "marginal_score": 0.013,
+      "conditions_added": [],
+      "positioning_delta": 0.018,
+      "entry_coverage": 0.697,
+      "patches": [
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.354,
+          "best_answer": {
+            "member": "0bd04caa0f94951f",
+            "condition": "fresh",
+            "p": 0.876
+          }
+        },
+        {
+          "variant_id": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "weight": 0.1539,
+          "p_exposed": 0.255,
+          "best_answer": {
+            "member": "0bd04caa0f94951f",
+            "condition": "fresh",
+            "p": 0.684
+          }
+        },
+        {
+          "variant_id": "ecc6e7a87992c098",
+          "species": "Floette-Mega",
+          "weight": 0.126,
+          "p_exposed": 0.417,
+          "best_answer": {
+            "member": "0bd04caa0f94951f",
+            "condition": "fresh",
+            "p": 0.501
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "29cb29385e52ae6b",
+      "human_id": "metagross_mega",
+      "species": "Metagross-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.032,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "29cb29385e52ae6b",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": -0.008,
+      "entry_coverage": 0.54,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.241,
+          "best_answer": {
+            "member": "29cb29385e52ae6b",
+            "condition": "fresh",
+            "p": 0.899
+          }
+        },
+        {
+          "variant_id": "12e5002bf5dbd9fc",
+          "species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "p_exposed": 0.349,
+          "best_answer": {
+            "member": "29cb29385e52ae6b",
+            "condition": "fresh",
+            "p": 0.894
+          }
+        },
+        {
+          "variant_id": "cd46ff2ba67018e9",
+          "species": "Toxapex",
+          "weight": 0.0509,
+          "p_exposed": 0.263,
+          "best_answer": {
+            "member": "29cb29385e52ae6b",
+            "condition": "fresh",
+            "p": 0.618
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "551065ab4f44372b",
+      "human_id": "blastoise_mega",
+      "species": "Blastoise-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.06,
+      "conditions_added": [],
+      "positioning_delta": 0.027,
+      "entry_coverage": 0.805,
+      "patches": [
+        {
+          "variant_id": "32bb8e94204339eb",
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "p_exposed": 0.283,
+          "best_answer": {
+            "member": "551065ab4f44372b",
+            "condition": "fresh",
+            "p": 0.667
+          }
+        },
+        {
+          "variant_id": "65759830f2d594a9",
+          "species": "Froslass-Mega",
+          "weight": 0.0587,
+          "p_exposed": 0.241,
+          "best_answer": {
+            "member": "551065ab4f44372b",
+            "condition": "fresh",
+            "p": 0.578
+          }
+        },
+        {
+          "variant_id": "0bd04caa0f94951f",
+          "species": "Venusaur",
+          "weight": 0.057,
+          "p_exposed": 0.241,
+          "best_answer": {
+            "member": "551065ab4f44372b",
+            "condition": "fresh",
+            "p": 0.772
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "5d8734869e065ff8",
+      "human_id": "basculegion_mystic_water",
+      "species": "Basculegion",
+      "set_label": "Mystic Water",
+      "marginal_score": 0.006,
+      "conditions_added": [],
+      "positioning_delta": 0.009,
+      "entry_coverage": 0.662,
+      "patches": [
+        {
+          "variant_id": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "weight": 0.2644,
+          "p_exposed": 0.314,
+          "best_answer": {
+            "member": "5d8734869e065ff8",
+            "condition": "fresh",
+            "p": 0.592
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.474,
+          "best_answer": {
+            "member": "5d8734869e065ff8",
+            "condition": "fresh",
+            "p": 0.796
+          }
+        },
+        {
+          "variant_id": "0d139b488c72ba6b",
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "p_exposed": 0.489,
+          "best_answer": {
+            "member": "5d8734869e065ff8",
+            "condition": "fresh",
+            "p": 0.504
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "04882156ee2a5a7f",
+      "human_id": "gholdengo_no_item",
+      "species": "Gholdengo",
+      "set_label": "No item",
+      "marginal_score": 0.02,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "04882156ee2a5a7f",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.039,
+      "entry_coverage": 0.425,
+      "patches": [
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.422,
+          "best_answer": {
+            "member": "04882156ee2a5a7f",
+            "condition": "fresh",
+            "p": 0.793
+          }
+        },
+        {
+          "variant_id": "ba332631bbf1f4b0",
+          "species": "Delphox-Mega",
+          "weight": 0.0973,
+          "p_exposed": 0.222,
+          "best_answer": {
+            "member": "04882156ee2a5a7f",
+            "condition": "fresh",
+            "p": 0.729
+          }
+        },
+        {
+          "variant_id": "9914e3566af2aeed",
+          "species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "p_exposed": 0.261,
+          "best_answer": {
+            "member": "04882156ee2a5a7f",
+            "condition": "fresh",
+            "p": 0.815
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "cd46ff2ba67018e9",
+      "human_id": "toxapex_no_item",
+      "species": "Toxapex",
+      "set_label": "No item",
+      "marginal_score": 0.076,
+      "conditions_added": [],
+      "positioning_delta": 0.011,
+      "entry_coverage": 0.528,
+      "patches": [
+        {
+          "variant_id": "29cb29385e52ae6b",
+          "species": "Metagross-Mega",
+          "weight": 0.0543,
+          "p_exposed": 0.493,
+          "best_answer": {
+            "member": "cd46ff2ba67018e9",
+            "condition": "fresh",
+            "p": 0.561
+          }
+        },
+        {
+          "variant_id": "5d8734869e065ff8",
+          "species": "Basculegion",
+          "weight": 0.0528,
+          "p_exposed": 0.341,
+          "best_answer": {
+            "member": "cd46ff2ba67018e9",
+            "condition": "fresh",
+            "p": 0.636
+          }
+        },
+        {
+          "variant_id": "e790d0912282271b",
+          "species": "Annihilape",
+          "weight": 0.0385,
+          "p_exposed": 0.472,
+          "best_answer": {
+            "member": "cd46ff2ba67018e9",
+            "condition": "fresh",
+            "p": 0.619
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "89f6a0fb54f76dec",
+      "human_id": "glimmora_no_item",
+      "species": "Glimmora",
+      "set_label": "No item",
+      "marginal_score": 0.059,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "89f6a0fb54f76dec",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.023,
+      "entry_coverage": 0.468,
+      "patches": [
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.25,
+          "best_answer": {
+            "member": "89f6a0fb54f76dec",
+            "condition": "fresh",
+            "p": 0.563
+          }
+        },
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.235,
+          "best_answer": {
+            "member": "89f6a0fb54f76dec",
+            "condition": "fresh",
+            "p": 0.879
+          }
+        },
+        {
+          "variant_id": "0bd04caa0f94951f",
+          "species": "Venusaur",
+          "weight": 0.057,
+          "p_exposed": 0.3,
+          "best_answer": {
+            "member": "89f6a0fb54f76dec",
+            "condition": "fresh",
+            "p": 0.655
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "1c591cb55605955e",
+      "human_id": "maushold_no_item",
+      "species": "Maushold",
+      "set_label": "No item",
+      "marginal_score": 0.065,
+      "conditions_added": [],
+      "positioning_delta": 0.038,
+      "entry_coverage": 0.532,
+      "patches": [
+        {
+          "variant_id": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "p_exposed": 0.333,
+          "best_answer": {
+            "member": "1c591cb55605955e",
+            "condition": "fresh",
+            "p": 0.763
+          }
+        },
+        {
+          "variant_id": "7ee9621dff483549",
+          "species": "Garchomp",
+          "weight": 0.1417,
+          "p_exposed": 0.286,
+          "best_answer": {
+            "member": "1c591cb55605955e",
+            "condition": "fresh",
+            "p": 0.646
+          }
+        },
+        {
+          "variant_id": "ecc6e7a87992c098",
+          "species": "Floette-Mega",
+          "weight": 0.126,
+          "p_exposed": 0.289,
+          "best_answer": {
+            "member": "1c591cb55605955e",
+            "condition": "fresh",
+            "p": 0.857
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "ae0193d508ee34cd",
+      "human_id": "gengar_mega",
+      "species": "Gengar-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.015,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "ae0193d508ee34cd",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": -0.002,
+      "entry_coverage": 0.629,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.21,
+          "best_answer": {
+            "member": "ae0193d508ee34cd",
+            "condition": "fresh",
+            "p": 0.53
+          }
+        },
+        {
+          "variant_id": "7b89eac335d57676",
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "p_exposed": 0.227,
+          "best_answer": {
+            "member": "ae0193d508ee34cd",
+            "condition": "fresh",
+            "p": 0.52
+          }
+        },
+        {
+          "variant_id": "89f6a0fb54f76dec",
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "p_exposed": 0.312,
+          "best_answer": {
+            "member": "ae0193d508ee34cd",
+            "condition": "fresh",
+            "p": 0.574
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "380e5c54f238637e",
+      "human_id": "ninetales_alola_no_item",
+      "species": "Ninetales-Alola",
+      "set_label": "No item",
+      "marginal_score": 0.011,
+      "conditions_added": [],
+      "positioning_delta": 0.032,
+      "entry_coverage": 0.533,
+      "patches": [
+        {
+          "variant_id": "9914e3566af2aeed",
+          "species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "p_exposed": 0.38,
+          "best_answer": {
+            "member": "380e5c54f238637e",
+            "condition": "fresh",
+            "p": 0.709
+          }
+        },
+        {
+          "variant_id": "6a6ce89e4def7507",
+          "species": "Excadrill",
+          "weight": 0.0652,
+          "p_exposed": 0.249,
+          "best_answer": {
+            "member": "380e5c54f238637e",
+            "condition": "fresh",
+            "p": 0.541
+          }
+        },
+        {
+          "variant_id": "12e5002bf5dbd9fc",
+          "species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "p_exposed": 0.309,
+          "best_answer": {
+            "member": "380e5c54f238637e",
+            "condition": "fresh",
+            "p": 0.537
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "6b7827ff86c3ab1e",
+      "human_id": "torkoal_charcoal",
+      "species": "Torkoal",
+      "set_label": "Charcoal",
+      "marginal_score": 0.046,
+      "conditions_added": [],
+      "positioning_delta": 0.02,
+      "entry_coverage": 0.74,
+      "patches": [
+        {
+          "variant_id": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "p_exposed": 0.227,
+          "best_answer": {
+            "member": "6b7827ff86c3ab1e",
+            "condition": "fresh",
+            "p": 0.863
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.313,
+          "best_answer": {
+            "member": "6b7827ff86c3ab1e",
+            "condition": "fresh",
+            "p": 0.738
+          }
+        },
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.389,
+          "best_answer": {
+            "member": "6b7827ff86c3ab1e",
+            "condition": "fresh",
+            "p": 0.693
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "b79a3be4192062a6",
+      "human_id": "mawile_mega",
+      "species": "Mawile-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.076,
+      "conditions_added": [],
+      "positioning_delta": 0.005,
+      "entry_coverage": 0.456,
+      "patches": [
+        {
+          "variant_id": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "p_exposed": 0.449,
+          "best_answer": {
+            "member": "b79a3be4192062a6",
+            "condition": "fresh",
+            "p": 0.525
+          }
+        },
+        {
+          "variant_id": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "p_exposed": 0.491,
+          "best_answer": {
+            "member": "b79a3be4192062a6",
+            "condition": "fresh",
+            "p": 0.835
+          }
+        },
+        {
+          "variant_id": "df5989403dfe079b",
+          "species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "p_exposed": 0.317,
+          "best_answer": {
+            "member": "b79a3be4192062a6",
+            "condition": "fresh",
+            "p": 0.795
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "877bef9ccf0e5065",
+      "human_id": "aerodactyl_no_item",
+      "species": "Aerodactyl",
+      "set_label": "No item",
+      "marginal_score": 0.034,
+      "conditions_added": [],
+      "positioning_delta": 0.023,
+      "entry_coverage": 0.553,
+      "patches": [
+        {
+          "variant_id": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "p_exposed": 0.334,
+          "best_answer": {
+            "member": "877bef9ccf0e5065",
+            "condition": "fresh",
+            "p": 0.67
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.388,
+          "best_answer": {
+            "member": "877bef9ccf0e5065",
+            "condition": "fresh",
+            "p": 0.649
+          }
+        },
+        {
+          "variant_id": "7b89eac335d57676",
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "p_exposed": 0.437,
+          "best_answer": {
+            "member": "877bef9ccf0e5065",
+            "condition": "fresh",
+            "p": 0.603
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "e2e8beece2bfa215",
+      "human_id": "gholdengo_life_orb",
+      "species": "Gholdengo",
+      "set_label": "Life Orb",
+      "marginal_score": 0.028,
+      "conditions_added": [],
+      "positioning_delta": 0.025,
+      "entry_coverage": 0.795,
+      "patches": [
+        {
+          "variant_id": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "p_exposed": 0.481,
+          "best_answer": {
+            "member": "e2e8beece2bfa215",
+            "condition": "fresh",
+            "p": 0.898
+          }
+        },
+        {
+          "variant_id": "ae0193d508ee34cd",
+          "species": "Gengar-Mega",
+          "weight": 0.0475,
+          "p_exposed": 0.432,
+          "best_answer": {
+            "member": "e2e8beece2bfa215",
+            "condition": "fresh",
+            "p": 0.521
+          }
+        },
+        {
+          "variant_id": "f3fd77eb4c04d5e0",
+          "species": "Vivillon",
+          "weight": 0.035,
+          "p_exposed": 0.308,
+          "best_answer": {
+            "member": "e2e8beece2bfa215",
+            "condition": "fresh",
+            "p": 0.823
           }
         }
       ]

@@ -258,7 +258,10 @@ const teamScore: TeamScore = {
 
 // --- candidates -------------------------------------------------------------
 
-const candidates: Candidate[] = pick(12).map((v) => ({
+// 40 rather than a handful: one of Phase 1's questions is how many candidates
+// a user actually scans at each slot, and a list short enough to read at a
+// glance cannot answer it.
+const candidates: Candidate[] = pick(40).map((v) => ({
   variant_id: idOf(v),
   human_id: v.id,
   species: v.species,
@@ -277,13 +280,19 @@ const candidates: Candidate[] = pick(12).map((v) => ({
       : [],
   positioning_delta: round(stable(`${v.id}pd`) * 0.05 - 0.01),
   entry_coverage: round(0.35 + stable(`${v.id}cec`) * 0.5),
-  patches: byWeight.slice(4, 6).map((o) => ({
-    variant_id: idOf(o),
-    species: o.species,
-    weight: round(o.weight, 4),
-    p_exposed: round(0.2 + stable(`${v.id}${o.id}pe`) * 0.3),
-    best_answer: {member: idOf(v), condition: 'fresh' as const, p: round(0.5 + stable(`${v.id}${o.id}p`) * 0.4)},
-  })),
+  // Each candidate patches a different slice of the field, and never itself —
+  // a fixture where every card answers the same two Pokémon makes the matchup
+  // dimension look broken and tells the Phase 1 read-through nothing.
+  patches: byWeight
+    .filter((o) => o.id !== v.id && stable(`${v.id}${o.id}patch`) > 0.88)
+    .slice(0, 3)
+    .map((o) => ({
+      variant_id: idOf(o),
+      species: o.species,
+      weight: round(o.weight, 4),
+      p_exposed: round(0.2 + stable(`${v.id}${o.id}pe`) * 0.3),
+      best_answer: {member: idOf(v), condition: 'fresh' as const, p: round(0.5 + stable(`${v.id}${o.id}p`) * 0.4)},
+    })),
 }));
 
 // --- custom set draft -------------------------------------------------------
