@@ -1,0 +1,99 @@
+/* Teambuilder (SPEC-teambuilder.md) screens. Kept separate from styles.css,
+   which already covers the damage-viz, simulator and evaluator pages.
+   Variables come from styles.css's :root. */
+
+/* --- Build screen ---------------------------------------------------------- */
+.page-head { margin-bottom: 22px; }
+.build-page .muted { color: var(--ink-muted); font-weight: 400; }
+.build-page .error { color: #b3423a; }
+
+.build-team { margin-bottom: 28px; }
+.build-team-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+.build-team-head h2 { font-size: 15px; margin: 0; }
+.build-controls { display: flex; gap: 8px; }
+.build-controls button { font-size: 12.5px; padding: 4px 10px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; color: var(--ink-secondary); }
+.build-controls button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.build-controls button:disabled { opacity: 0.45; cursor: default; }
+
+.team-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; list-style: none; margin: 0; padding: 0; }
+.team-slot { position: relative; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 8px; min-height: 62px; display: flex; flex-direction: column; gap: 2px; background: var(--surface-raised); }
+.team-slot.filled { border-style: solid; background: var(--surface); border-color: var(--accent); }
+.slot-index { font-size: 10.5px; color: var(--ink-muted); }
+.slot-species { font-size: 13px; font-weight: 600; line-height: 1.25; }
+.slot-set { font-size: 11px; color: var(--ink-secondary); }
+.slot-empty { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+.slot-remove { position: absolute; top: 4px; right: 5px; border: none; background: none; color: var(--ink-muted); font-size: 15px; line-height: 1; cursor: pointer; padding: 0 2px; }
+.slot-remove:hover { color: #b3423a; }
+.build-complete { font-size: 13px; margin-top: 12px; color: var(--ink-secondary); }
+
+.candidates-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.candidates-head h2 { font-size: 15px; margin: 0; }
+.candidates-head p { margin: 0; font-size: 12.5px; }
+
+.candidate-filters { display: flex; gap: 22px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.candidate-filters label { display: flex; flex-direction: column; gap: 5px; font-size: 11.5px; color: var(--ink-secondary); }
+.candidate-filters select, .candidate-filters input { font-size: 12.5px; padding: 4px 7px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--ink); font-family: inherit; }
+
+.sort-toggle { display: flex; }
+.sort-toggle button { font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; color: var(--ink-secondary); }
+.sort-toggle button:first-child { border-radius: 6px 0 0 6px; }
+.sort-toggle button:last-child { border-radius: 0 6px 6px 0; }
+.sort-toggle button + button { border-left: none; }
+.sort-toggle button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.candidate-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.candidate-card { border: 1px solid var(--border); border-radius: 9px; padding: 12px 14px; background: var(--surface); }
+.candidate-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.candidate-rank { font-size: 11px; color: var(--ink-muted); min-width: 18px; }
+.candidate-name { flex: 1; display: flex; align-items: baseline; gap: 8px; }
+.candidate-name a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.candidate-name a:hover { color: var(--accent); }
+.candidate-set { font-size: 11.5px; color: var(--ink-secondary); }
+.provisional-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: #b3752a; border: 1px solid #b3752a55; border-radius: 4px; padding: 0 4px; }
+.candidate-pick { font-size: 12.5px; padding: 4px 12px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); border-radius: 6px; cursor: pointer; }
+.candidate-pick:hover { background: var(--accent); color: #fff; }
+
+.candidate-dimensions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.dimension { display: flex; flex-direction: column; gap: 3px; padding: 8px 10px; border-radius: 7px; background: var(--surface-raised); border: 1px solid transparent; }
+.dimension.active { border-color: var(--accent); background: #4653c80a; }
+.dimension-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.045em; color: var(--ink-muted); }
+.dimension-value { font-size: 16px; font-weight: 650; }
+.dimension-note { font-size: 11.5px; color: var(--ink-secondary); line-height: 1.4; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+
+.condition-chip { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--border); background: var(--surface); border-radius: 5px; padding: 1px 5px; font-size: 11px; }
+.tier-badge { font-size: 9.5px; border-radius: 3px; padding: 0 3px; border: 1px solid; cursor: help; }
+.tier-0 { color: #2e7d5b; border-color: #2e7d5b55; background: #2e7d5b0d; }
+.tier-1 { color: #4653c8; border-color: #4653c855; background: #4653c80d; }
+.tier-2 { color: #b3423a; border-color: #b3423a55; background: #b3423a0d; }
+.tier-computed { color: var(--ink-muted); border-color: var(--border); background: var(--surface-raised); }
+
+.show-more { margin-top: 14px; font-size: 12.5px; padding: 6px 14px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; color: var(--ink-secondary); }
+.show-more:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- Set editor ------------------------------------------------------------ */
+.set-editor { position: fixed; right: 24px; bottom: 24px; width: 380px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 28px rgba(31, 36, 48, 0.16); padding: 16px 18px; z-index: 20; }
+.set-editor-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.set-editor-head h3 { font-size: 14.5px; margin: 0; }
+.set-editor .link { border: none; background: none; color: var(--ink-muted); font-size: 12px; cursor: pointer; text-decoration: underline; }
+.set-modes { display: flex; margin-bottom: 12px; }
+.set-modes button { flex: 1; font-size: 12px; padding: 5px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; color: var(--ink-secondary); }
+.set-modes button:first-child { border-radius: 6px 0 0 6px; }
+.set-modes button:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+.set-modes button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.sp-editor p { font-size: 11.5px; line-height: 1.45; margin: 0 0 10px; }
+.sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+.sp-grid label { display: flex; flex-direction: column; gap: 3px; font-size: 10.5px; color: var(--ink-muted); }
+.sp-grid input { font-size: 13px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 5px; width: 100%; font-family: inherit; }
+.sp-budget { font-size: 12px; font-weight: 600; margin: 0 0 10px; }
+.sp-budget.ok { color: #2e7d5b; }
+.sp-budget.over { color: #b3423a; font-weight: 550; }
+.set-editor-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.set-editor-actions button { font-size: 12.5px; padding: 5px 12px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; color: var(--ink-secondary); }
+.set-editor-actions button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.set-editor-actions button:disabled { opacity: 0.45; cursor: default; }
+
+/* --- Phase 1 question panel ------------------------------------------------ */
+.phase1-note { margin-top: 36px; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; background: var(--surface-raised); }
+.phase1-note h3 { font-size: 13px; margin: 0 0 8px; color: var(--ink-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.phase1-note ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.55; color: var(--ink-secondary); }
+.phase1-note li { margin-bottom: 6px; }

@@ -7,6 +7,7 @@ import RankingsPage from './pages/RankingsPage';
 import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
 import TeamEvaluatorPage from './pages/TeamEvaluatorPage';
+import BuildPage from './pages/BuildPage';
 
 function Landing() {
   return (
@@ -58,6 +59,15 @@ function Landing() {
             common each opponent is.
           </p>
         </Link>
+        <Link className="landing-card" to="/build">
+          <h2>Build me a team</h2>
+          <p>
+            Guided teambuilding: pick a slot at a time and get candidates ranked
+            on three axes at once — matchup coverage, the conditions they let
+            the team bring about, and how much they help teammates get in.
+            Running on fixture data while the pipeline is built.
+          </p>
+        </Link>
         <Link className="landing-card" to="/team-evaluator">
           <h2>How does my team hold up?</h2>
           <p>
@@ -83,6 +93,7 @@ export default function App() {
         <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
         <NavLink to="/team-evaluator">Team evaluator</NavLink>
+        <NavLink to="/build">Build</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -95,6 +106,7 @@ export default function App() {
         <Route path="/pokemon/:variantId" element={<PokemonDetailPage />} />
         <Route path="/team-builder" element={<TeamBuilderPage />} />
         <Route path="/team-evaluator" element={<TeamEvaluatorPage />} />
+        <Route path="/build" element={<BuildPage />} />
       </Routes>
     </div>
   );
