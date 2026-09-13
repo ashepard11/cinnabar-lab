@@ -1,7 +1,8 @@
 # Pokémon Champions VGC — Metagame Analytics
 
 Analytics for the Pokémon Champions VGC metagame (**Regulation M-B, Season 3**
-ranked battle data from Pikalytics), in two projects sharing one pipeline:
+ranked battle data from Pikalytics — see [Regulation status](#regulation-status),
+this is stale), in three projects sharing one pipeline:
 
 **Damage visualizations** (`SPEC-damageviz.md`):
 
@@ -23,10 +24,36 @@ ranked battle data from Pikalytics), in two projects sharing one pipeline:
 5. **Team builder** (`/team-builder`) — pick a 1–4 variant core, get partners
    ranked by how well they patch the core's worst matchups, weighted by
    opponent usage and matchup urgency.
+6. **Team evaluator** (`/team-evaluator`, `SPEC-team-evaluator.md`) — paste a
+   Showdown team and get type matrices, relevant BST, board control inventory,
+   RNG exposure, damage sources and worst matchups.
+
+**Automated teambuilder** (`SPEC-teambuilder.md`) — *not started.* Searches the
+space of legal 6-Pokémon teams and ranks them against the usage-weighted
+metagame on three axes: matchups, enablers and positioning. Guided mode ranks
+candidates slot by slot; automatic mode searches the whole space. It consumes
+both pipelines above and is blocked on the Priority 0 items in
+[BACKLOG.md](BACKLOG.md).
 
 Design decisions and their reasoning live in [DECISIONS.md](DECISIONS.md);
 the move-selection policy design is documented in
 [docs/policy-design.md](docs/policy-design.md).
+
+## Regulation status
+
+The metagame is defined by a regulation that rolls over every three to four
+months. **Regulation M-C is current**, running 9 September to 2 December 2026.
+It added 36 Pokémon, 18 items and 6 Mega Evolutions over M-B; nothing legal in
+M-A or M-B was removed.
+
+**This pipeline is still pinned to M-B Season 3, which ended on 9 September
+2026.** The format identifiers are hardcoded in two places — `lib/scrape.ts`
+(`battledataregmbs3`) and `lib/sim/engine.ts` (`gen9championsbssregmb`) — so
+every number below the M-C cutover describes a format that is no longer played.
+BACKLOG item 10 is the fix: read legality from Showdown's data keyed on a
+regulation identifier in configuration, so switching formats is a config change
+rather than a code change. Do that before building anything new against the
+current data.
 
 ## Quick start
 
