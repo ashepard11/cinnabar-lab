@@ -20,7 +20,12 @@ import * as path from 'node:path';
 import {activeRegulationConfig} from '../lib/format-rules';
 import type {
   Candidate,
+  EffectCategory,
   EnablerRecord,
+  PositioningTool,
+  PresetSet,
+  SuppliedCondition,
+  EnablerTarget,
   MatchupCell,
   PositioningProfile,
   TeamScore,
@@ -74,6 +79,11 @@ const conditions: ConditionDescriptor[] = [
     label: 'Opponent entered already damaged',
     derives_from: 'final_hp_distribution',
   },
+  {
+    id: 'phys_mitigation',
+    kind: 'simulated',
+    label: 'Incoming physical damage reduced (extension roadmap, not in the v0 five)',
+  },
 ];
 
 // --- matchup cells ----------------------------------------------------------
@@ -120,65 +130,78 @@ for (const a of cellVariants) {
 
 // --- enablers ---------------------------------------------------------------
 
-const enablers: EnablerRecord[] = [
-  {
-    variant_id: idOf(byWeight[0]),
-    human_id: byWeight[0].id,
-    // One move doing two things produces two records, which is the case the
-    // catalog's shape exists to handle.
-    enablers: [
-      {
-        condition: 'moves_first',
-        mechanism: 'move:Swords Dance',
-        mechanism_class: 'setup_move',
-        target: 'self',
-        action_cost: 1,
-        speed_tier: 'computed',
-      },
-      {
-        condition: 'chip',
-        mechanism: 'move:Rock Slide',
-        mechanism_class: 'free_spread_damage',
-        target: 'opponent_side',
-        action_cost: 0,
-        speed_tier: 0,
-        magnitude: 'calc',
-      },
-    ],
-  },
-  {
-    variant_id: idOf(byWeight[1]),
-    human_id: byWeight[1].id,
-    enablers: [
-      {
-        condition: 'rain',
-        mechanism: 'ability:Drizzle',
-        mechanism_class: 'switch_in_ability',
-        target: 'field',
-        action_cost: 0,
-        speed_tier: 0,
-      },
-    ],
-  },
-  {
-    variant_id: idOf(byWeight[2]),
-    human_id: byWeight[2].id,
-    enablers: [
-      {
-        condition: 'moves_first',
-        mechanism: 'move:Tailwind',
-        mechanism_class: 'support_move',
-        target: 'ally_side',
-        action_cost: 1,
-        speed_tier: 'computed',
-      },
-    ],
-  },
+/**
+ * A small catalog of mechanisms, each with the effect category it belongs to.
+ * Real enablers come from lib/effects.ts (BACKLOG item 11); this is enough
+ * shapes to exercise the grouping and the pill rendering.
+ */
+const MECHANISMS: Array<{
+  condition: EnablerRecord['enablers'][number]['condition'];
+  mechanism: string;
+  mechanism_class: EnablerRecord['enablers'][number]['mechanism_class'];
+  category: EffectCategory;
+  target: EnablerRecord['enablers'][number]['target'];
+  action_cost: number;
+  speed_tier: 0 | 1 | 2 | 'computed';
+}> = [
+  {condition: 'moves_first', mechanism: 'move:Tailwind', mechanism_class: 'support_move', category: 'speed', target: 'ally_side', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'moves_first', mechanism: 'move:Icy Wind', mechanism_class: 'support_move', category: 'speed', target: 'opponent_side', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'moves_first', mechanism: 'move:Thunder Wave', mechanism_class: 'status_move', category: 'speed', target: 'opponent_side', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'moves_first', mechanism: 'move:Dragon Dance', mechanism_class: 'setup_move', category: 'speed', target: 'self', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'rain', mechanism: 'ability:Drizzle', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
+  {condition: 'sun', mechanism: 'ability:Drought', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
+  {condition: 'sand', mechanism: 'ability:Sand Stream', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
+  {condition: 'snow', mechanism: 'move:Snowscape', mechanism_class: 'support_move', category: 'weather', target: 'field', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'phys_mitigation', mechanism: 'ability:Intimidate', mechanism_class: 'switch_in_ability', category: 'mitigation', target: 'opponent_side', action_cost: 0, speed_tier: 0},
+  {condition: 'phys_mitigation', mechanism: 'move:Reflect', mechanism_class: 'support_move', category: 'mitigation', target: 'ally_side', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'chip', mechanism: 'move:Rock Slide', mechanism_class: 'free_spread_damage', category: 'option', target: 'opponent_side', action_cost: 0, speed_tier: 0},
+  {condition: 'chip', mechanism: 'move:Heat Wave', mechanism_class: 'free_spread_damage', category: 'option', target: 'opponent_side', action_cost: 0, speed_tier: 0},
 ];
+
+/** Positioning tools, which are categorised but supply no condition. */
+const TOOLS: Array<{tool: string; effect: PositioningTool['effect']; category: EffectCategory}> = [
+  {tool: 'move:U-turn', effect: 'entry_cost_to_zero', category: 'pivoting'},
+  {tool: 'move:Volt Switch', effect: 'entry_cost_to_zero', category: 'pivoting'},
+  {tool: 'move:Follow Me', effect: 'entry_cost_to_zero', category: 'targeting'},
+  {tool: 'move:Fake Out', effect: 'entry_cost_to_zero', category: 'targeting'},
+  {tool: 'ability:Intimidate', effect: 'physical_two_thirds', category: 'mitigation'},
+  {tool: 'move:Protect', effect: 'all_three_quarters', category: 'protect'},
+];
+
+function enablersFor(v: Variant) {
+  return MECHANISMS.filter((_, k) => stable(`${v.id}mech${k}`) > 0.82).map((m) => ({
+    condition: m.condition,
+    mechanism: m.mechanism,
+    mechanism_class: m.mechanism_class,
+    category: m.category,
+    target: m.target,
+    action_cost: m.action_cost,
+    speed_tier: m.speed_tier,
+    // Tier 0 beats the whole field by definition; a computed tier depends on
+    // who it is facing, which is exactly what this number reports.
+    first_share:
+      m.speed_tier === 0 ? 1 : m.speed_tier === 2 ? 0 : round(0.45 + stable(`${v.id}${m.mechanism}fs`) * 0.5, 2),
+    ...(m.condition === 'chip' ? {magnitude: 'calc' as const} : {}),
+  }));
+}
+
+function toolsFor(v: Variant) {
+  return TOOLS.filter((_, k) => stable(`${v.id}tool${k}`) > 0.84).map((t) => ({
+    tool: t.tool,
+    effect: t.effect,
+    speed_tier: 'computed' as const,
+  }));
+}
+
+const enablers: EnablerRecord[] = byWeight.map((v) => ({
+  variant_id: idOf(v),
+  human_id: v.id,
+  enablers: enablersFor(v),
+}));
 
 // --- positioning ------------------------------------------------------------
 
-const positioning: PositioningProfile[] = pick(8).map((v) => {
+const positioning: PositioningProfile[] = byWeight.map((v) => {
   const costly = byWeight.slice(0, 12).filter((w) => stable(`${v.id}${w.id}cost`) > 0.75);
   return {
     variant_id: idOf(v),
@@ -191,10 +214,7 @@ const positioning: PositioningProfile[] = pick(8).map((v) => {
       cost: round(0.5 + stable(`${v.id}${w.id}c`) * 0.45),
       spread_retained: round(0.15 + stable(`${v.id}${w.id}s`) * 0.4),
     })),
-    tools_provided:
-      stable(`${v.id}tool`) > 0.6
-        ? [{tool: 'move:U-turn', effect: 'entry_cost_to_zero' as const, speed_tier: 'computed' as const}]
-        : [],
+    tools_provided: toolsFor(v),
   };
 });
 
@@ -211,11 +231,15 @@ const teamScore: TeamScore = {
   conditions_supplied: [
     {
       condition: 'rain',
-      enablers: [{member: idOf(team[1]), mechanism: 'ability:Drizzle', speed_tier: 0}],
+      category: 'weather',
+      delta: 0.031,
+      enablers: [{member: idOf(team[1]), mechanism: 'ability:Drizzle', speed_tier: 0, first_share: 1}],
     },
     {
       condition: 'moves_first',
-      enablers: [{member: idOf(team[2]), mechanism: 'move:Tailwind', speed_tier: 'computed'}],
+      category: 'speed',
+      delta: 0.055,
+      enablers: [{member: idOf(team[2]), mechanism: 'move:Tailwind', speed_tier: 'computed', first_share: 0.85}],
     },
   ],
   setup_profile: {
@@ -258,42 +282,138 @@ const teamScore: TeamScore = {
 
 // --- candidates -------------------------------------------------------------
 
-// 40 rather than a handful: one of Phase 1's questions is how many candidates
-// a user actually scans at each slot, and a list short enough to read at a
-// glance cannot answer it.
-const candidates: Candidate[] = pick(40).map((v) => ({
-  variant_id: idOf(v),
-  human_id: v.id,
-  species: v.species,
-  set_label: v.set_label ?? 'No item',
-  marginal_score: round(stable(`${v.id}ms`) * 0.09),
-  conditions_added:
-    stable(`${v.id}ca`) > 0.7
-      ? [
-          {
-            condition: 'moves_first' as const,
-            enablers: [
-              {member: idOf(v), mechanism: 'move:Tailwind', speed_tier: 'computed' as const},
-            ],
-          },
-        ]
-      : [],
-  positioning_delta: round(stable(`${v.id}pd`) * 0.05 - 0.01),
-  entry_coverage: round(0.35 + stable(`${v.id}cec`) * 0.5),
-  // Each candidate patches a different slice of the field, and never itself —
-  // a fixture where every card answers the same two Pokémon makes the matchup
-  // dimension look broken and tells the Phase 1 read-through nothing.
-  patches: byWeight
-    .filter((o) => o.id !== v.id && stable(`${v.id}${o.id}patch`) > 0.88)
-    .slice(0, 3)
-    .map((o) => ({
-      variant_id: idOf(o),
+const NATURES = ['Adamant', 'Modest', 'Jolly', 'Timid', 'Careful', 'Bold', 'Relaxed', 'Brave'];
+const SPARE_ITEMS = ['Assault Vest', 'Sitrus Berry', 'Leftovers', 'Choice Scarf', 'Focus Sash', 'Life Orb'];
+
+/**
+ * Preset sets for a species. Phase 2's move-selection rules emit up to three
+ * sets per species and item bucket; until they exist this fans one variant out
+ * into two or three plausible ones so the preset picker has something to pick
+ * between.
+ */
+function presetsFor(v: Variant): PresetSet[] {
+  const ranked = [...v.moves].sort((a, b) => b.usage - a.usage).map((m) => m.name);
+  const count = stable(`${v.id}nsets`) > 0.55 ? (stable(`${v.id}nsets2`) > 0.75 ? 3 : 2) : 1;
+  return Array.from({length: count}, (_, k) => {
+    const item = k === 0 ? v.item : SPARE_ITEMS[Math.floor(stable(`${v.id}item${k}`) * SPARE_ITEMS.length)];
+    const moves = k === 0 ? ranked.slice(0, 4) : [...ranked.slice(0, 3), ranked[3 + k] ?? ranked[0]];
+    return {
+      variant_id: k === 0 ? idOf(v) : `${idOf(v)}-s${k}`,
+      human_id: k === 0 ? v.id : `${v.id}_alt${k}`,
+      set_label: k === 0 ? (v.set_label ?? v.item ?? 'No item') : (item ?? 'No item'),
+      item: item ?? null,
+      ability: v.ability,
+      nature: k === 0 ? v.nature : NATURES[Math.floor(stable(`${v.id}nat${k}`) * NATURES.length)],
+      sps: v.sps,
+      moves,
+      usage_share: round(k === 0 ? 0.55 + stable(`${v.id}us`) * 0.35 : 0.08 + stable(`${v.id}us${k}`) * 0.2, 2),
+      tier: v.tier,
+    };
+  });
+}
+
+/**
+ * The conditions a candidate supplies, grouped by category, each carrying the
+ * teammate win-rate gain attributable to it.
+ */
+function supportFor(v: Variant): SuppliedCondition[] {
+  const byCondition = new Map<string, SuppliedCondition>();
+  for (const e of enablersFor(v)) {
+    if (e.condition === 'chip') continue; // chip is a magnitude, not a supplied state
+    const existing = byCondition.get(e.condition);
+    const entry = {
+      member: idOf(v),
+      mechanism: e.mechanism,
+      speed_tier: e.speed_tier,
+      first_share: e.first_share,
+    };
+    if (existing) existing.enablers.push(entry);
+    else
+      byCondition.set(e.condition, {
+        condition: e.condition,
+        category: e.category,
+        enablers: [entry],
+        delta: round(0.004 + stable(`${v.id}${e.condition}d`) * 0.055),
+      });
+  }
+  return [...byCondition.values()];
+}
+
+/**
+ * The whole universe is a candidate, not a shortlist.
+ *
+ * A user filtering for "something that handles these three threats" needs
+ * every set in scope, even when they only ever click one. Ranking decides
+ * what floats to the top; it should not decide what exists.
+ */
+const candidates: Candidate[] = byWeight.map((v) => {
+  const support = supportFor(v);
+  const tools = toolsFor(v);
+  // Support and positioning are both teammate win-rate gains, so they are
+  // computed jointly rather than summed per condition — two conditions helping
+  // the same matchup must not be counted twice.
+  const supportDelta = support.length === 0 ? 0 : round(0.006 + stable(`${v.id}sd`) * 0.062);
+  const positioningDelta = tools.length === 0 ? 0 : round(0.003 + stable(`${v.id}pd2`) * 0.045);
+  // Opponents are only unlocked by a tool that actually reduces entry cost, so
+  // this list and positioning_delta must rise and fall together.
+  const unlocked =
+    tools.length === 0
+      ? []
+      : byWeight.filter((o) => o.id !== v.id && stable(`${v.id}${o.id}unlock`) > 0.93).slice(0, 4);
+
+  return {
+    variant_id: idOf(v),
+    human_id: v.id,
+    species: v.species,
+    set_label: v.set_label ?? 'No item',
+    marginal_score: round(stable(`${v.id}ms`) * 0.09),
+    support_delta: supportDelta,
+    conditions_added: support,
+    positioning_delta: positioningDelta,
+    opponents_unlocked: unlocked.map((o, k) => ({
       species: o.species,
       weight: round(o.weight, 4),
-      p_exposed: round(0.2 + stable(`${v.id}${o.id}pe`) * 0.3),
-      best_answer: {member: idOf(v), condition: 'fresh' as const, p: round(0.5 + stable(`${v.id}${o.id}p`) * 0.4)},
+      helps: byWeight[(k + 2) % 6].species,
     })),
-}));
+    entry_coverage: round(0.35 + stable(`${v.id}cec`) * 0.5),
+    sets: presetsFor(v),
+    source: 'preset' as const,
+    // Each candidate patches a different slice of the field, and never itself —
+    // a fixture where every card answers the same two Pokémon makes the matchup
+    // dimension look broken and tells the Phase 1 read-through nothing.
+    patches: byWeight
+      .filter((o) => o.id !== v.id && stable(`${v.id}${o.id}patch`) > 0.88)
+      .slice(0, 3)
+      .map((o) => ({
+        variant_id: idOf(o),
+        species: o.species,
+        weight: round(o.weight, 4),
+        p_exposed: round(0.2 + stable(`${v.id}${o.id}pe`) * 0.3),
+        best_answer: {member: idOf(v), condition: 'fresh' as const, p: round(0.5 + stable(`${v.id}${o.id}p`) * 0.4)},
+      })),
+  };
+});
+
+// --- candidate matchups -----------------------------------------------------
+
+/**
+ * Every candidate's win probability against every variant in the field.
+ *
+ * The matchup-cells fixture covers only a handful of pairs, because it carries
+ * the full cell shape — HP quantiles, provenance, inheritance. This is the thin
+ * version: one number per ordered pair, which is what the Build screen's
+ * "handles these threats" filter and the threat lists actually read. Against
+ * real data this is a projection of the matrix, not a second source.
+ */
+const candidateMatchups: Record<string, Record<string, number>> = {};
+for (const a of byWeight) {
+  const row: Record<string, number> = {};
+  for (const b of byWeight) {
+    if (a.id === b.id) continue;
+    row[idOf(b)] = round(0.08 + stable(`${a.id}>${b.id}mu`) * 0.86, 2);
+  }
+  candidateMatchups[idOf(a)] = row;
+}
 
 // --- custom set draft -------------------------------------------------------
 
@@ -341,6 +461,11 @@ function main() {
   write('team-score', {generated_at: new Date().toISOString(), team: teamScore});
   write('candidates', {generated_at: new Date().toISOString(), candidates});
   write('custom-set-drafts', {generated_at: new Date().toISOString(), drafts});
+  write('candidate-matchups', {
+    generated_at: new Date().toISOString(),
+    /** p(row beats column), keyed on content id. */
+    matchups: candidateMatchups,
+  });
   console.log(
     `\nNumbers in these files are invented. Species, weights and ids are real.`
   );

@@ -1,6 +1,10 @@
 import {Link, useParams} from 'react-router-dom';
 import {useEnablers, useFixtureVariants, useMatchupCells, usePositioning} from '../lib/useFixtures';
 import SpeedTierBadge from '../components/teambuilder/SpeedTierBadge';
+import {CATEGORY_LABELS, CONDITION_LABELS, type TeambuilderConditionId} from '../../lib/teambuilder/types';
+
+const conditionLabel = (id: string) =>
+  CONDITION_LABELS[id as TeambuilderConditionId] ?? id;
 
 const pct = (n: number) => `${(n * 100).toFixed(1)}%`;
 
@@ -144,6 +148,7 @@ export default function VariantDetailPage() {
           <table className="detail-table">
             <thead>
               <tr>
+                <th>Category</th>
                 <th>Condition</th>
                 <th>Mechanism</th>
                 <th>Class</th>
@@ -155,7 +160,8 @@ export default function VariantDetailPage() {
             <tbody>
               {enablers.map((e) => (
                 <tr key={`${e.condition}:${e.mechanism}`}>
-                  <td><strong>{e.condition}</strong></td>
+                  <td className="muted">{CATEGORY_LABELS[e.category]}</td>
+                  <td><strong>{conditionLabel(e.condition)}</strong></td>
                   <td><code>{e.mechanism}</code></td>
                   <td>{e.mechanism_class.replace(/_/g, ' ')}</td>
                   <td>{e.target.replace(/_/g, ' ')}</td>

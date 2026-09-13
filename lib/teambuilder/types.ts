@@ -39,7 +39,80 @@ export type TeambuilderConditionId =
   | 'rain'
   | 'snow'
   | 'sand'
-  | 'chip';
+  | 'chip'
+  /**
+   * Extension-roadmap condition, not in the v0 five. Declared because the
+   * enabler catalog has to put Intimidate, Reflect and Light Screen somewhere,
+   * and mapping them onto `moves_first` because it happens to exist would be a
+   * lie the interface then displays as "speed control: Reflect".
+   */
+  | 'phys_mitigation';
+
+/**
+ * Display name for a condition. `moves_first` is the simulator's name for the
+ * state; users read it as speed control, which is what every mechanism that
+ * reaches it actually is.
+ */
+export const CONDITION_LABELS: Record<TeambuilderConditionId, string> = {
+  fresh: 'Fresh',
+  moves_first: 'Speed control',
+  sun: 'Sun',
+  rain: 'Rain',
+  snow: 'Snow',
+  sand: 'Sand',
+  chip: 'Chip damage',
+  phys_mitigation: 'Physical mitigation',
+};
+
+/**
+ * Effect categories, lifted from the team evaluator's board-control taxonomy
+ * (BACKLOG item 11) so the two projects group the same effects the same way.
+ *
+ * `priority` is deliberately absent. Damage priority is a property of the
+ * Pokémon's own matchup and is already inside its win probabilities — listing
+ * it as support would count it twice.
+ */
+export type EffectCategory =
+  | 'speed'
+  | 'weather'
+  | 'terrain'
+  | 'mitigation'
+  | 'healing'
+  | 'option'
+  | 'pivoting'
+  | 'targeting'
+  | 'protect';
+
+export const CATEGORY_LABELS: Record<EffectCategory, string> = {
+  speed: 'Speed control',
+  weather: 'Weather',
+  terrain: 'Terrain',
+  mitigation: 'Damage mitigation',
+  healing: 'Healing',
+  option: 'Option control',
+  pivoting: 'Pivoting',
+  targeting: 'Targeting control',
+  protect: 'Protect',
+};
+
+/**
+ * Which categories are support (they change the fight your Pokémon is in) and
+ * which are positioning (they change whether it can reach the fight).
+ *
+ * `mitigation` and `weather` appear in both, and that is not an oversight.
+ * Intimidate, Reflect and Friend Guard are conditions in their own right and
+ * they also cut a teammate's entry cost — SPEC-teambuilder.md Phase 6 lists
+ * all three in its positioning-tool table. The two readings are different
+ * questions about the same effect, so both are shown; the underlying deltas
+ * are computed separately and never summed.
+ */
+export const SUPPORT_CATEGORIES: EffectCategory[] = [
+  'speed', 'weather', 'terrain', 'mitigation', 'healing', 'option',
+];
+
+export const POSITIONING_CATEGORIES: EffectCategory[] = [
+  'pivoting', 'targeting', 'protect', 'mitigation', 'weather',
+];
 
 /** A condition reached by combining two others, e.g. rain plus moving first. */
 export type CombinationConditionId = `${TeambuilderConditionId}+${TeambuilderConditionId}`;
@@ -151,10 +224,20 @@ export interface Enabler {
   /** Namespaced mechanism, e.g. "move:Bulk Up", "ability:Drizzle". */
   mechanism: string;
   mechanism_class: MechanismClass;
+  /** Which effect bucket this belongs to, for grouping across candidates. */
+  category: EffectCategory;
   target: EnablerTarget;
   /** Actions the enabler costs. 0 for passives and free spread chip. */
   action_cost: number;
   speed_tier: SpeedTierSpec;
+  /**
+   * Share of the metagame by usage this enabler resolves against before the
+   * opponent can act. Only meaningful when `speed_tier` is 'computed' — a
+   * non-priority Tailwind user is fast against some of the field and slow
+   * against the rest, and the single number is what a reader can actually use.
+   * Tier 0 enablers are 1 by definition; tier 2 are 0.
+   */
+  first_share?: number;
   /**
    * Derived-condition enablers carry an amount rather than a yes-or-no fact.
    * `'calc'` means the amount is computed at scoring time by running the
@@ -261,7 +344,22 @@ export interface PositioningProfile {
 
 export interface SuppliedCondition {
   condition: AnyConditionId;
-  enablers: Array<{member: string; mechanism: string; speed_tier: SpeedTierSpec}>;
+  /** Bucket for grouping, so the same category sits in the same place on every row. */
+  category: EffectCategory;
+  enablers: Array<{
+    member: string;
+    mechanism: string;
+    speed_tier: SpeedTierSpec;
+    /** See Enabler.first_share — the share of the field this beats to the punch. */
+    first_share?: number;
+  }>;
+  /**
+   * Teammate win-rate gain attributable to this condition alone, in percentage
+   * points. Summing these across conditions over-counts when two conditions
+   * help the same matchup, so `Candidate.support_delta` is computed jointly
+   * rather than as a sum of these.
+   */
+  delta?: number;
 }
 
 export interface WorstMatchup {
@@ -328,18 +426,67 @@ export interface Candidate {
   human_id: string;
   species: string;
   set_label: string;
-  /** (a) Score improvement from adding this member. */
+  /**
+   * (a) Matchup coverage, in percentage points of metagame-weighted team score:
+   * score(T + this) − score(T). Incremental by construction — a Pokémon that
+   * beats Garchomp 90% of the time adds nothing if a teammate already beats it
+   * 88%, because `p_exposed` takes the team's best answer.
+   */
   marginal_score: number;
-  /** (b) Conditions this member newly supplies to the team. */
+  /**
+   * (b) Support, in the same unit: how much this member raises its *teammates'*
+   * metagame-weighted win rate by supplying conditions they convert on. A
+   * Tailwind user that lets a slow attacker move first scores here, not under
+   * matchup coverage, because the gain belongs to the teammate.
+   */
+  support_delta: number;
+  /** The conditions behind `support_delta`, for the pills on the card. */
   conditions_added: SuppliedCondition[];
-  /** (c) Improvement in teammates' ability to reach their good matchups. */
+  /**
+   * (c) Positioning, in the same unit: how much this member raises teammates'
+   * win rate by letting them reach their good matchups — pivots, redirection,
+   * entry-cost reduction.
+   *
+   * Provisional. Expressing positioning as a win-rate delta makes it
+   * comparable with the other two, but whether that is the right display is
+   * open until the Phase 6 logic is real; `opponents_unlocked` is the concrete
+   * detail behind it.
+   */
   positioning_delta: number;
+  /**
+   * Opponents a teammate can now safely enter against that it could not
+   * before. The legible version of `positioning_delta`.
+   */
+  opponents_unlocked: Array<{species: string; weight: number; helps: string}>;
   /** Entry coverage this candidate has on its own. */
   entry_coverage: number;
   /** Opponents this candidate answers that the current team does not. */
   patches: WorstMatchup[];
+  /**
+   * Every preset set for this species and item bucket. The Build screen opens
+   * the editor on whichever one the candidate row represents and offers the
+   * rest alongside it.
+   */
+  sets?: PresetSet[];
   /** True until a custom set's simulations land (Phase 6b). */
   provisional?: boolean;
+  /** Set when the candidate came from the custom-set editor rather than usage. */
+  source?: 'preset' | 'custom';
+}
+
+/** One named set for a species — what the preset picker lists. */
+export interface PresetSet {
+  variant_id: string;
+  human_id: string;
+  set_label: string;
+  item: string | null;
+  ability: string;
+  nature: string;
+  sps: Partial<StatsTable>;
+  moves: string[];
+  /** Share of this species' usage running this set. */
+  usage_share: number;
+  tier?: 'core' | 'extended';
 }
 
 // ---------------------------------------------------------------------------

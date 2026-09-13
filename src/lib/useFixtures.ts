@@ -73,5 +73,12 @@ export const usePositioning = () =>
 export const useTeamScore = () =>
   useFixture<TeamScore>('team-score', (r: {team: TeamScore}) => r.team);
 
+/** p(row beats column) keyed on content id — the thin projection of the matrix. */
+export const useCandidateMatchups = () =>
+  useFixture<Record<string, Record<string, number>>>(
+    'candidate-matchups',
+    (r: {matchups: Record<string, Record<string, number>>}) => r.matchups
+  );
+
 export const useCustomSetDrafts = () =>
   useFixture<CustomSetDraft[]>('custom-set-drafts', (r: {drafts: CustomSetDraft[]}) => r.drafts);

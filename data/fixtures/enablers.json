@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T19:41:34.039Z",
+  "generated_at": "2026-09-13T20:25:57.562Z",
   "records": [
     {
       "variant_id": "6348f4da7d2dbe83",
@@ -7,20 +7,13 @@
       "enablers": [
         {
           "condition": "moves_first",
-          "mechanism": "move:Swords Dance",
-          "mechanism_class": "setup_move",
-          "target": "self",
-          "action_cost": 1,
-          "speed_tier": "computed"
-        },
-        {
-          "condition": "chip",
-          "mechanism": "move:Rock Slide",
-          "mechanism_class": "free_spread_damage",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
           "target": "opponent_side",
-          "action_cost": 0,
-          "speed_tier": 0,
-          "magnitude": "calc"
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.66
         }
       ]
     },
@@ -29,12 +22,34 @@
       "human_id": "charizard_mega_y",
       "enablers": [
         {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.9
+        },
+        {
           "condition": "rain",
           "mechanism": "ability:Drizzle",
           "mechanism_class": "switch_in_ability",
+          "category": "weather",
           "target": "field",
           "action_cost": 0,
-          "speed_tier": 0
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
         }
       ]
     },
@@ -44,11 +59,2294 @@
       "enablers": [
         {
           "condition": "moves_first",
-          "mechanism": "move:Tailwind",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.65
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "e44db8e5f05ae054",
+      "human_id": "whimsicott_no_item",
+      "enablers": []
+    },
+    {
+      "variant_id": "432a0774c3cb2f6b",
+      "human_id": "kingambit_no_item",
+      "enablers": [
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "244400d9167e7084",
+      "human_id": "sneasler_no_item",
+      "enablers": [
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
           "mechanism_class": "support_move",
+          "category": "mitigation",
           "target": "ally_side",
           "action_cost": 1,
-          "speed_tier": "computed"
+          "speed_tier": "computed",
+          "first_share": 0.57
+        }
+      ]
+    },
+    {
+      "variant_id": "3cba8a8d93d115d7",
+      "human_id": "farigiraf_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.8
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "7b89eac335d57676",
+      "human_id": "basculegion_no_item",
+      "enablers": [
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "0fb76124be7787ae",
+      "human_id": "staraptor_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.85
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "b81efa96488db225",
+      "human_id": "garchomp_life_orb",
+      "enablers": []
+    },
+    {
+      "variant_id": "5f29a1803653b87e",
+      "human_id": "sylveon_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.87
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.82
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "294a12dc9de3473f",
+      "human_id": "archaludon_no_item",
+      "enablers": [
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.78
+        }
+      ]
+    },
+    {
+      "variant_id": "7ee9621dff483549",
+      "human_id": "garchomp_no_item",
+      "enablers": [
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.82
+        }
+      ]
+    },
+    {
+      "variant_id": "0d139b488c72ba6b",
+      "human_id": "pelipper_no_item",
+      "enablers": [
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.71
+        }
+      ]
+    },
+    {
+      "variant_id": "ecc6e7a87992c098",
+      "human_id": "floette_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.54
+        }
+      ]
+    },
+    {
+      "variant_id": "b108eda46851045d",
+      "human_id": "kingambit_black_glasses",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.49
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.91
+        }
+      ]
+    },
+    {
+      "variant_id": "199ab4a670f9cf95",
+      "human_id": "grimmsnarl_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.7
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        }
+      ]
+    },
+    {
+      "variant_id": "14a6dece6b118f48",
+      "human_id": "milotic_no_item",
+      "enablers": []
+    },
+    {
+      "variant_id": "ba332631bbf1f4b0",
+      "human_id": "delphox_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        }
+      ]
+    },
+    {
+      "variant_id": "32bb8e94204339eb",
+      "human_id": "swampert_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.69
+        }
+      ]
+    },
+    {
+      "variant_id": "9914e3566af2aeed",
+      "human_id": "tyranitar_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.69
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "bc17d25604f0165b",
+      "human_id": "venusaur_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.64
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.89
+        }
+      ]
+    },
+    {
+      "variant_id": "6a6ce89e4def7507",
+      "human_id": "excadrill_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.57
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "12e5002bf5dbd9fc",
+      "human_id": "aerodactyl_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.58
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.94
+        }
+      ]
+    },
+    {
+      "variant_id": "df5989403dfe079b",
+      "human_id": "raichu_mega_y",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.85
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "65759830f2d594a9",
+      "human_id": "froslass_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "0bd04caa0f94951f",
+      "human_id": "venusaur_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.93
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.74
+        }
+      ]
+    },
+    {
+      "variant_id": "29cb29385e52ae6b",
+      "human_id": "metagross_mega",
+      "enablers": [
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "551065ab4f44372b",
+      "human_id": "blastoise_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.73
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.83
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "5d8734869e065ff8",
+      "human_id": "basculegion_mystic_water",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.82
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "04882156ee2a5a7f",
+      "human_id": "gholdengo_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.69
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "cd46ff2ba67018e9",
+      "human_id": "toxapex_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.88
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "89f6a0fb54f76dec",
+      "human_id": "glimmora_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.81
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        }
+      ]
+    },
+    {
+      "variant_id": "1c591cb55605955e",
+      "human_id": "maushold_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.81
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "ae0193d508ee34cd",
+      "human_id": "gengar_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.89
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        }
+      ]
+    },
+    {
+      "variant_id": "380e5c54f238637e",
+      "human_id": "ninetales_alola_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.77
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.6
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "6b7827ff86c3ab1e",
+      "human_id": "torkoal_charcoal",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.94
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "b79a3be4192062a6",
+      "human_id": "mawile_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.6
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.54
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "877bef9ccf0e5065",
+      "human_id": "aerodactyl_no_item",
+      "enablers": [
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.48
+        }
+      ]
+    },
+    {
+      "variant_id": "e2e8beece2bfa215",
+      "human_id": "gholdengo_life_orb",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.77
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.53
+        }
+      ]
+    },
+    {
+      "variant_id": "e790d0912282271b",
+      "human_id": "annihilape_no_item",
+      "enablers": [
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.86
+        }
+      ]
+    },
+    {
+      "variant_id": "9755a0045e004927",
+      "human_id": "dragonite_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.63
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "ef9b2f51b638e6f0",
+      "human_id": "sableye_no_item",
+      "enablers": [
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "0fea55eedbba5a3c",
+      "human_id": "arcanine_hisui_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.84
+        }
+      ]
+    },
+    {
+      "variant_id": "f3fd77eb4c04d5e0",
+      "human_id": "vivillon_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.87
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "a3e874aa17d64a43",
+      "human_id": "scovillain_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.7
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "681710c491ab285d",
+      "human_id": "politoed_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.86
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.75
+        }
+      ]
+    },
+    {
+      "variant_id": "3b385347b2418c33",
+      "human_id": "hydreigon_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.52
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "02de32630aacfe83",
+      "human_id": "basculegion_life_orb",
+      "enablers": [
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "ee1c1380d017b503",
+      "human_id": "rotom_wash_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.56
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.58
+        }
+      ]
+    },
+    {
+      "variant_id": "c2016c15c04faa73",
+      "human_id": "tyranitar_no_item",
+      "enablers": [
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "4b420d2b794a92ad",
+      "human_id": "ceruledge_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.5
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "c18f9984845495b5",
+      "human_id": "kommo_o_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.54
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "d91720b005f7fca1",
+      "human_id": "lycanroc_dusk_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.59
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.47
+        }
+      ]
+    },
+    {
+      "variant_id": "42f922e8deb10c3c",
+      "human_id": "corviknight_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.57
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "b480d401f773928f",
+      "human_id": "gardevoir_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.64
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.94
+        }
+      ]
+    },
+    {
+      "variant_id": "524e3ac34b82a95f",
+      "human_id": "talonflame_no_item",
+      "enablers": [
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "bb25298dfb948cda",
+      "human_id": "blaziken_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.6
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.89
+        }
+      ]
+    },
+    {
+      "variant_id": "241412cd1c149c2b",
+      "human_id": "raichu_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.84
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.61
+        }
+      ]
+    },
+    {
+      "variant_id": "d33593382a90c000",
+      "human_id": "kingambit_life_orb",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.62
+        }
+      ]
+    },
+    {
+      "variant_id": "95e7bedd4584dd84",
+      "human_id": "tsareena_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "42ef72ec34eedf1f",
+      "human_id": "raichu_mega_x",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.81
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "693ad237a0b4ac3f",
+      "human_id": "scrafty_mega",
+      "enablers": [
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.57
+        }
+      ]
+    },
+    {
+      "variant_id": "fb8e8113d72598cd",
+      "human_id": "camerupt_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.86
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "5765df69d68814b3",
+      "human_id": "venusaur_life_orb",
+      "enablers": [
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "6c90a2a68428d877",
+      "human_id": "meowscarada_no_item",
+      "enablers": [
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.8
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "4da6f47f5990823b",
+      "human_id": "talonflame_sharp_beak",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.62
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "fac9f0a62a8a49ee",
+      "human_id": "kangaskhan_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.71
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        }
+      ]
+    },
+    {
+      "variant_id": "a381ab2df3e99b88",
+      "human_id": "glimmora_mega",
+      "enablers": [
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "2d479e22f4b6e584",
+      "human_id": "gholdengo_metal_coat",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.83
+        }
+      ]
+    },
+    {
+      "variant_id": "62b00a37c907bbf9",
+      "human_id": "garchomp_soft_sand",
+      "enablers": [
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.76
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "f629f663b038b16b",
+      "human_id": "sceptile_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.59
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "afae6046cba631b0",
+      "human_id": "mamoswine_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.94
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "579b514ac0567c3e",
+      "human_id": "charizard_mega_x",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.63
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "22243f764c7c0131",
+      "human_id": "pyroar_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "206ec31f442c1983",
+      "human_id": "incineroar_charcoal",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.85
+        },
+        {
+          "condition": "sun",
+          "mechanism": "ability:Drought",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.75
+        }
+      ]
+    },
+    {
+      "variant_id": "d0981ddc1b13136d",
+      "human_id": "staraptor_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.79
+        }
+      ]
+    },
+    {
+      "variant_id": "b3d4f447754011e0",
+      "human_id": "primarina_no_item",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.91
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "8361a3ddd4607fb6",
+      "human_id": "scizor_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Thunder Wave",
+          "mechanism_class": "status_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.68
+        },
+        {
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        }
+      ]
+    },
+    {
+      "variant_id": "86beb06daaca16e5",
+      "human_id": "greninja_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.8
+        },
+        {
+          "condition": "rain",
+          "mechanism": "ability:Drizzle",
+          "mechanism_class": "switch_in_ability",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "7e517dcd1c621101",
+      "human_id": "chandelure_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Icy Wind",
+          "mechanism_class": "support_move",
+          "category": "speed",
+          "target": "opponent_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.88
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect",
+          "mechanism_class": "support_move",
+          "category": "mitigation",
+          "target": "ally_side",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.75
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "5a509ac92d8f0336",
+      "human_id": "excadrill_mega",
+      "enablers": [
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.77
+        },
+        {
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate",
+          "mechanism_class": "switch_in_ability",
+          "category": "mitigation",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Rock Slide",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
+        }
+      ]
+    },
+    {
+      "variant_id": "2b7d76f07bd92dd5",
+      "human_id": "gallade_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.88
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.67
+        }
+      ]
+    },
+    {
+      "variant_id": "8b286f401c266787",
+      "human_id": "sableye_mega",
+      "enablers": [
+        {
+          "condition": "moves_first",
+          "mechanism": "move:Dragon Dance",
+          "mechanism_class": "setup_move",
+          "category": "speed",
+          "target": "self",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.63
+        },
+        {
+          "condition": "snow",
+          "mechanism": "move:Snowscape",
+          "mechanism_class": "support_move",
+          "category": "weather",
+          "target": "field",
+          "action_cost": 1,
+          "speed_tier": "computed",
+          "first_share": 0.74
+        },
+        {
+          "condition": "chip",
+          "mechanism": "move:Heat Wave",
+          "mechanism_class": "free_spread_damage",
+          "category": "option",
+          "target": "opponent_side",
+          "action_cost": 0,
+          "speed_tier": 0,
+          "first_share": 1,
+          "magnitude": "calc"
         }
       ]
     }

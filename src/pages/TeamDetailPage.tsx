@@ -1,6 +1,10 @@
 import {Link} from 'react-router-dom';
 import {useFixtureVariants, useMatchupCells, useTeamScore} from '../lib/useFixtures';
 import SpeedTierBadge from '../components/teambuilder/SpeedTierBadge';
+import {CATEGORY_LABELS, CONDITION_LABELS, type TeambuilderConditionId} from '../../lib/teambuilder/types';
+
+const conditionLabel = (id: string) =>
+  CONDITION_LABELS[id as TeambuilderConditionId] ?? id;
 
 const pct = (n: number) => `${(n * 100).toFixed(1)}%`;
 
@@ -149,6 +153,7 @@ export default function TeamDetailPage() {
         <table className="detail-table">
           <thead>
             <tr>
+              <th>Category</th>
               <th>Condition</th>
               <th>Supplied by</th>
               <th>Mechanism</th>
@@ -159,7 +164,8 @@ export default function TeamDetailPage() {
             {team.conditions_supplied.flatMap((c) =>
               c.enablers.map((e) => (
                 <tr key={`${c.condition}:${e.mechanism}`}>
-                  <td><strong>{c.condition}</strong></td>
+                  <td className="muted">{CATEGORY_LABELS[c.category]}</td>
+                  <td><strong>{conditionLabel(c.condition)}</strong></td>
                   <td>{nameOf(e.member)}</td>
                   <td><code>{e.mechanism}</code></td>
                   <td><SpeedTierBadge tier={e.speed_tier} /></td>
@@ -228,7 +234,7 @@ export default function TeamDetailPage() {
                 <td>{pct(w.weight)}</td>
                 <td className="loss">{pct(w.p_exposed)}</td>
                 <td className="muted">
-                  {nameOf(w.best_answer.member)} under {w.best_answer.condition}
+                  {nameOf(w.best_answer.member)} under {conditionLabel(w.best_answer.condition)}
                 </td>
               </tr>
             ))}
