@@ -46,14 +46,32 @@ months. **Regulation M-C is current**, running 9 September to 2 December 2026.
 It added 36 Pokémon, 18 items and 6 Mega Evolutions over M-B; nothing legal in
 M-A or M-B was removed.
 
-**This pipeline is still pinned to M-B Season 3, which ended on 9 September
-2026.** The format identifiers are hardcoded in two places — `lib/scrape.ts`
-(`battledataregmbs3`) and `lib/sim/engine.ts` (`gen9championsbssregmb`) — so
-every number below the M-C cutover describes a format that is no longer played.
-BACKLOG item 10 is the fix: read legality from Showdown's data keyed on a
-regulation identifier in configuration, so switching formats is a config change
-rather than a code change. Do that before building anything new against the
-current data.
+**This pipeline still runs M-B Season 3, which ended on 9 September 2026**, so
+every number here describes a format that is no longer played. The format ids
+are no longer hardcoded — `lib/format-rules.ts` resolves them from a regulation
+read from configuration:
+
+```bash
+CHAMPIONS_REGULATION=M-A npm run build-format-rules   # default: M-B
+npm run build-format-rules -- --all                   # every sourceable regulation
+```
+
+That writes `data/format-rules-<id>.json` with the legality sets (legal
+species, legal items, Mega-capable species and their stones, National Pokédex
+numbers for the species clause), resolved from the vendored Showdown mod
+intersected with the calc's Champions roster. M-B comes out at 323 species,
+148 items and 74 Mega formes; the item count matches the regulation
+announcement exactly.
+
+**M-C cannot be built yet.** The vendored Showdown build (`e440c4a`, ~July
+2026) ships only the `champions` (M-B) and `championsregma` (M-A) mods, so M-C
+has no legality data and its entry is declared but deliberately unsourceable —
+`SIM_FORMAT` and the resolver both throw rather than silently falling back to
+M-B rules. Moving to M-C needs three things together: re-vendoring
+pokemon-showdown, confirming M-C's Pikalytics format id against the live API,
+and re-scraping usage. Re-vendoring bumps `SIM_ENGINE_VERSION`, which
+invalidates `data/matchups.sqlite`, so budget a full matrix rebuild. See
+DECISIONS.md D39 and BACKLOG items 09 and 10.
 
 ## Quick start
 
@@ -77,8 +95,8 @@ npm run build-matchups   # full matrix build into data/matchups.sqlite (~hours; 
 npm run inspect-matchup -- --A charizard_mega_y --B incineroar_no_item --condition fresh --verbose
 ```
 
-Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity),
-`npm run typecheck`. Damage-viz data refreshes weekly via
+Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity +
+content-id tests + format rules + team evaluator), `npm run typecheck`. Damage-viz data refreshes weekly via
 `.github/workflows/refresh-data.yml`.
 
 Note: the weekly refresh regenerates usage/variants/viz JSON only. The
@@ -204,9 +222,10 @@ refresh changes `defender-variants.json`, re-run `npm run build-matchups`
 ## Repo layout
 
 ```
-data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex (committed)
+data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex,
+            resolved per-regulation format rules (committed)
 docs/       policy design doc
-lib/        pipeline library: scrape, variants, calc, pokemon, types
+lib/        pipeline library: scrape, variants, calc, pokemon, types, format-rules
 lib/sim/    battle simulator: engine, model, policy, condition, harness, sets
 lib/analysis/  matchup-matrix and team-coverage query APIs
 lib/evaluator/ team evaluator: dex, parse, typechart, tags, rng, bst, damage, match

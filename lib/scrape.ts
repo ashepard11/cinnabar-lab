@@ -24,10 +24,29 @@
  * nature + modal ability + modal item.
  */
 import axios from 'axios';
+import {activeRegulationConfig} from './format-rules';
 import type {ModalSet, PokemonUsage, StatsTable, UsageData, UsageEntry} from './types';
 
 const BASE = 'https://pikalytics.com';
-export const FORMAT = 'battledataregmbs3';
+/**
+ * Pikalytics format id for the active regulation (BACKLOG item 10). Resolved
+ * from configuration rather than hardcoded; set CHAMPIONS_REGULATION to
+ * switch. A regulation whose id this project has never confirmed throws here
+ * rather than scraping zero Pokémon and reporting success — the API answers an
+ * unrecognised format with `[]`, not a 404, so a wrong id looks like a quiet
+ * metagame collapse.
+ */
+export const FORMAT = ((): string => {
+  const {pikalytics_format, regulation_id} = activeRegulationConfig();
+  if (pikalytics_format === null) {
+    throw new Error(
+      `No confirmed Pikalytics format id for regulation ${regulation_id}. ` +
+        `Find it against the live API and record it in lib/format-rules.ts ` +
+        `before scraping.`
+    );
+  }
+  return pikalytics_format;
+})();
 export const RATING_CUTOFF = 1760;
 const TEAM_SIZE = 6;
 const REQUEST_DELAY_MS = 1000;

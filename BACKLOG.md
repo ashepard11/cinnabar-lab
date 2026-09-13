@@ -55,11 +55,13 @@ Three problems, found while writing the teambuilder spec. Two turned out to be f
 
 **Variant records carry no moves.** *Fixed.* `SPEC-damageviz.md` Phase 2 defines a variant as `{id, species, is_mega, item, ability, nature, evs, weight}` and `SPEC-sim.md` Phase 0 requires a `PokemonSet` containing `moves[]`, so as specified the sim could not run on the viz project's output. The pipeline diverged from the spec and got this right: variants in `data/defender-variants.json` carry a `moves` array with per-move usage, and `lib/sim/sets.ts` resolves the top four eligible. The specs still describe the old shape and need correcting.
 
-**Stats are modelled as EVs.** *Mostly fixed.* Champions has no EVs and no IVs. Every Pokémon is Level 50 with perfect stats, and investment is 66 Stat Points with a cap of 32 per stat, each point worth exactly 1 to the final stat. `SPEC-damageviz.md` converts SP to EVs at roughly 8:1, which is lossy and hides the real constraint. The pipeline again diverged and stores SP natively as `sps`, with `lib/sp.ts` converting only at the calc boundary and no `ivs` or `level` on the variant record. What is still missing is validation: nothing checks the 66-point total or the 32-per-stat cap on load, so a scraped spread that breaks the budget passes silently when it should be rejected as a parsing error.
+**Stats are modelled as EVs.** *Mostly fixed.* Champions has no EVs and no IVs. Every Pokémon is Level 50 with perfect stats, and investment is 66 Stat Points with a cap of 32 per stat, each point worth exactly 1 to the final stat. `SPEC-damageviz.md` converts SP to EVs at roughly 8:1, which is lossy and hides the real constraint. The pipeline again diverged and stores SP natively as `sps`, with `lib/sp.ts` converting only at the calc boundary and no `ivs` or `level` on the variant record. What was still missing was validation — nothing checked the 66-point total or the 32-per-stat cap, so a scraped spread breaking the budget passed silently when it should be rejected as a parsing error. That is now in place; see Progress below.
 
-**Regulation M-B Season 3 is hardcoded.** *Open.* It ended on 9 September 2026. `lib/scrape.ts` pins `battledataregmbs3` and `lib/sim/engine.ts` pins `gen9championsbssregmb`. See item 10.
+**Regulation M-B Season 3 is hardcoded.** *Fixed structurally, still M-B in practice.* It ended on 9 September 2026. Both format ids now resolve from the active regulation rather than being pinned in `lib/scrape.ts` and `lib/sim/engine.ts`, but M-B remains the default because it is the only regulation the vendored Showdown build can supply and the only one with scraped usage. See item 10.
 
 **Deliverable:** SP budget validation on load; spec corrections to `SPEC-damageviz.md` and `SPEC-sim.md` for the moves and SP defects; schema version 3 for `defender-variants.json` carrying the fields the teambuilder needs, with a migration from the v2 files in `data/`. Note that the schema the teambuilder spec calls "version 2" is a different shape from the `schema_version: 2` already on disk, so the bump goes to 3.
+
+**Progress.** SP budget validation landed alongside item 10: `validateSpSpread` and `assertSpBudget` in `lib/format-rules.ts`, enforced in `scripts/build-variants.ts` and covered by `npm run test-format-rules`. All 84 current variants pass. The EV half of that defect turned out to be moot — the Pikalytics API returns spreads SP-denominated, so the variant pipeline never converted from EVs (DECISIONS.md D39.11). Still open: the schema v3 bump and its migration, and the spec corrections.
 
 **Blocks:** everything
 
@@ -72,6 +74,10 @@ Build `lib/format-rules.ts` around a regulation identifier read from configurati
 Switching regulations then becomes a configuration change. It also makes backtesting against an earlier regulation possible, which the teambuilder's validation depends on.
 
 **Deliverable:** `lib/format-rules.ts`, plus a regulation selector on the data status screen.
+
+**Progress.** `lib/format-rules.ts` and `scripts/build-format-rules.ts` landed; `npm run build-format-rules -- --all` resolves M-A and M-B into `data/format-rules-<id>.json`. Both hardcoded format ids are gone: `lib/scrape.ts` and `lib/sim/engine.ts` now read the active regulation from `CHAMPIONS_REGULATION`, defaulting to M-B. M-B resolves to 323 species / 148 items / 74 Mega formes, and the item count matches the regulation announcement exactly. `scripts/build-matchups.ts` stamps the regulation and refuses to mix two in one matrix.
+
+Still open, and both need the vendored Showdown build replaced: M-C legality (the vendored build predates it, so the entry is declared but unsourceable) and the regulation selector, which needs Phase 1's data status screen to exist first. Per-species move bans stay empty — Showdown models them as learnset removals, which are indistinguishable from never learning the move. See DECISIONS.md D39.
 
 **Blocks:** teambuilder Phases 2, 8; item 15
 
