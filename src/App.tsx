@@ -8,6 +8,7 @@ import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
 import TeamEvaluatorPage from './pages/TeamEvaluatorPage';
 import BuildPage from './pages/BuildPage';
+import DataStatusPage from './pages/DataStatusPage';
 
 function Landing() {
   return (
@@ -94,6 +95,7 @@ export default function App() {
         <NavLink to="/team-builder">Team builder</NavLink>
         <NavLink to="/team-evaluator">Team evaluator</NavLink>
         <NavLink to="/build">Build</NavLink>
+        <NavLink to="/data-status">Data</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -107,6 +109,7 @@ export default function App() {
         <Route path="/team-builder" element={<TeamBuilderPage />} />
         <Route path="/team-evaluator" element={<TeamEvaluatorPage />} />
         <Route path="/build" element={<BuildPage />} />
+        <Route path="/data-status" element={<DataStatusPage />} />
       </Routes>
     </div>
   );
