@@ -9,6 +9,10 @@ import TeamBuilderPage from './pages/TeamBuilderPage';
 import TeamEvaluatorPage from './pages/TeamEvaluatorPage';
 import BuildPage from './pages/BuildPage';
 import DataStatusPage from './pages/DataStatusPage';
+import MovesetsPage from './pages/MovesetsPage';
+import VariantDetailPage from './pages/VariantDetailPage';
+import TeamDetailPage from './pages/TeamDetailPage';
+import GeneratePage from './pages/GeneratePage';
 
 function Landing() {
   return (
@@ -94,7 +98,10 @@ export default function App() {
         <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
         <NavLink to="/team-evaluator">Team evaluator</NavLink>
+        <span className="nav-sep" aria-hidden="true" />
         <NavLink to="/build">Build</NavLink>
+        <NavLink to="/generate">Generate</NavLink>
+        <NavLink to="/movesets">Movesets</NavLink>
         <NavLink to="/data-status">Data</NavLink>
       </nav>
       <Routes>
@@ -109,6 +116,10 @@ export default function App() {
         <Route path="/team-builder" element={<TeamBuilderPage />} />
         <Route path="/team-evaluator" element={<TeamEvaluatorPage />} />
         <Route path="/build" element={<BuildPage />} />
+        <Route path="/build/variant/:variantId" element={<VariantDetailPage />} />
+        <Route path="/build/team/:teamId" element={<TeamDetailPage />} />
+        <Route path="/generate" element={<GeneratePage />} />
+        <Route path="/movesets" element={<MovesetsPage />} />
         <Route path="/data-status" element={<DataStatusPage />} />
       </Routes>
     </div>
