@@ -1,0 +1,490 @@
+{
+  "generated_at": "2026-09-13T19:35:31.972Z",
+  "candidates": [
+    {
+      "variant_id": "6348f4da7d2dbe83",
+      "human_id": "incineroar_no_item",
+      "species": "Incineroar",
+      "set_label": "No item",
+      "marginal_score": 0.039,
+      "conditions_added": [],
+      "positioning_delta": 0.018,
+      "entry_coverage": 0.799,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.485,
+          "best_answer": {
+            "member": "6348f4da7d2dbe83",
+            "condition": "fresh",
+            "p": 0.824
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.358,
+          "best_answer": {
+            "member": "6348f4da7d2dbe83",
+            "condition": "fresh",
+            "p": 0.585
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "b3e49ebad0d4367b",
+      "human_id": "charizard_mega_y",
+      "species": "Charizard-Mega-Y",
+      "set_label": "Mega",
+      "marginal_score": 0.086,
+      "conditions_added": [],
+      "positioning_delta": -0.009,
+      "entry_coverage": 0.449,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.219,
+          "best_answer": {
+            "member": "b3e49ebad0d4367b",
+            "condition": "fresh",
+            "p": 0.719
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.397,
+          "best_answer": {
+            "member": "b3e49ebad0d4367b",
+            "condition": "fresh",
+            "p": 0.744
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "024cee1a8526e616",
+      "human_id": "sinistcha_no_item",
+      "species": "Sinistcha",
+      "set_label": "No item",
+      "marginal_score": 0.087,
+      "conditions_added": [],
+      "positioning_delta": 0.036,
+      "entry_coverage": 0.832,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.296,
+          "best_answer": {
+            "member": "024cee1a8526e616",
+            "condition": "fresh",
+            "p": 0.893
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.41,
+          "best_answer": {
+            "member": "024cee1a8526e616",
+            "condition": "fresh",
+            "p": 0.831
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "e44db8e5f05ae054",
+      "human_id": "whimsicott_no_item",
+      "species": "Whimsicott",
+      "set_label": "No item",
+      "marginal_score": 0.055,
+      "conditions_added": [],
+      "positioning_delta": 0.008,
+      "entry_coverage": 0.391,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.423,
+          "best_answer": {
+            "member": "e44db8e5f05ae054",
+            "condition": "fresh",
+            "p": 0.888
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.377,
+          "best_answer": {
+            "member": "e44db8e5f05ae054",
+            "condition": "fresh",
+            "p": 0.569
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "432a0774c3cb2f6b",
+      "human_id": "kingambit_no_item",
+      "species": "Kingambit",
+      "set_label": "No item",
+      "marginal_score": 0.061,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "432a0774c3cb2f6b",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.021,
+      "entry_coverage": 0.508,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.368,
+          "best_answer": {
+            "member": "432a0774c3cb2f6b",
+            "condition": "fresh",
+            "p": 0.672
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.244,
+          "best_answer": {
+            "member": "432a0774c3cb2f6b",
+            "condition": "fresh",
+            "p": 0.73
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "244400d9167e7084",
+      "human_id": "sneasler_no_item",
+      "species": "Sneasler",
+      "set_label": "No item",
+      "marginal_score": 0.009,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "244400d9167e7084",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.037,
+      "entry_coverage": 0.437,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.226,
+          "best_answer": {
+            "member": "244400d9167e7084",
+            "condition": "fresh",
+            "p": 0.612
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.349,
+          "best_answer": {
+            "member": "244400d9167e7084",
+            "condition": "fresh",
+            "p": 0.733
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "3cba8a8d93d115d7",
+      "human_id": "farigiraf_no_item",
+      "species": "Farigiraf",
+      "set_label": "No item",
+      "marginal_score": 0.072,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "3cba8a8d93d115d7",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.034,
+      "entry_coverage": 0.498,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.422,
+          "best_answer": {
+            "member": "3cba8a8d93d115d7",
+            "condition": "fresh",
+            "p": 0.831
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.423,
+          "best_answer": {
+            "member": "3cba8a8d93d115d7",
+            "condition": "fresh",
+            "p": 0.784
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "7b89eac335d57676",
+      "human_id": "basculegion_no_item",
+      "species": "Basculegion",
+      "set_label": "No item",
+      "marginal_score": 0.077,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "7b89eac335d57676",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.036,
+      "entry_coverage": 0.826,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.48,
+          "best_answer": {
+            "member": "7b89eac335d57676",
+            "condition": "fresh",
+            "p": 0.607
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.4,
+          "best_answer": {
+            "member": "7b89eac335d57676",
+            "condition": "fresh",
+            "p": 0.797
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "0fb76124be7787ae",
+      "human_id": "staraptor_mega",
+      "species": "Staraptor-Mega",
+      "set_label": "Mega",
+      "marginal_score": 0.07,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "0fb76124be7787ae",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": 0.014,
+      "entry_coverage": 0.779,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.462,
+          "best_answer": {
+            "member": "0fb76124be7787ae",
+            "condition": "fresh",
+            "p": 0.592
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.335,
+          "best_answer": {
+            "member": "0fb76124be7787ae",
+            "condition": "fresh",
+            "p": 0.784
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "b81efa96488db225",
+      "human_id": "garchomp_life_orb",
+      "species": "Garchomp",
+      "set_label": "Life Orb",
+      "marginal_score": 0.068,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "b81efa96488db225",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": -0.005,
+      "entry_coverage": 0.842,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.243,
+          "best_answer": {
+            "member": "b81efa96488db225",
+            "condition": "fresh",
+            "p": 0.811
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.38,
+          "best_answer": {
+            "member": "b81efa96488db225",
+            "condition": "fresh",
+            "p": 0.697
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "5f29a1803653b87e",
+      "human_id": "sylveon_no_item",
+      "species": "Sylveon",
+      "set_label": "No item",
+      "marginal_score": 0.001,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "enablers": [
+            {
+              "member": "5f29a1803653b87e",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed"
+            }
+          ]
+        }
+      ],
+      "positioning_delta": -0.007,
+      "entry_coverage": 0.361,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.203,
+          "best_answer": {
+            "member": "5f29a1803653b87e",
+            "condition": "fresh",
+            "p": 0.76
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.31,
+          "best_answer": {
+            "member": "5f29a1803653b87e",
+            "condition": "fresh",
+            "p": 0.845
+          }
+        }
+      ]
+    },
+    {
+      "variant_id": "294a12dc9de3473f",
+      "human_id": "archaludon_no_item",
+      "species": "Archaludon",
+      "set_label": "No item",
+      "marginal_score": 0.014,
+      "conditions_added": [],
+      "positioning_delta": -0.007,
+      "entry_coverage": 0.706,
+      "patches": [
+        {
+          "variant_id": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "p_exposed": 0.385,
+          "best_answer": {
+            "member": "294a12dc9de3473f",
+            "condition": "fresh",
+            "p": 0.736
+          }
+        },
+        {
+          "variant_id": "244400d9167e7084",
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "p_exposed": 0.441,
+          "best_answer": {
+            "member": "294a12dc9de3473f",
+            "condition": "fresh",
+            "p": 0.827
+          }
+        }
+      ]
+    }
+  ]
+}

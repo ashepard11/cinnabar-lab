@@ -65,6 +65,19 @@ All three defects resolved, 2026-09-13. Two turned out to have been fixed in pas
 
 Nothing in `SPEC-teambuilder.md` can start until these land.
 
+### A note on rebuilding the matrix
+
+Several queued items invalidate `data/matchups.sqlite`, which is hours of compute. They should be batched into one rebuild rather than paid for separately:
+
+- **Re-vendoring Showdown for M-C** bumps `SIM_ENGINE_VERSION`, which is part of the provenance run key, so every row is invalidated.
+- **Item 04, defensive item variants** changes the variant universe, so the pair set changes.
+- **Item 07, a better decision policy** changes `policy_version`, invalidating every row.
+- **Re-scraping usage for M-C** changes weights and the variant set.
+
+The matrix is already stale for an unrelated reason: it was built at 89 variants and the weekly refresh has moved the data to 84, so `npm run verify-matchups` reports a variant-count and row-count mismatch. Item 03 (incremental refresh) is what makes any of this cheap, and doing item 03 before the batch means the rebuild touches only what actually changed.
+
+Sequence suggestion: item 03 first, then the M-C migration and item 04 together, then re-simulate once. Item 07 is the exception — it is worth its own rebuild, because the point of it is measuring how much the policy changes.
+
 ### 10. Regulation-driven format rules *(Medium)*
 
 Regulations roll over every three to four months and each changes the legal Pokémon pool, the legal item list, the Mega Evolution list and sometimes individual move legality. M-C added 36 Pokémon, 18 items and 6 Megas over M-B. Any hardcoded list is wrong within a season, and the two format identifiers in `lib/scrape.ts` and `lib/sim/engine.ts` are both M-B.

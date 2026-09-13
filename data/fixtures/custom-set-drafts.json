@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-09-13T19:35:31.972Z",
+  "drafts": [
+    {
+      "species": "Incineroar",
+      "ability": "Intimidate",
+      "item": "Assault Vest",
+      "nature": "Careful",
+      "sps": {
+        "hp": 32,
+        "atk": 32,
+        "spd": 2
+      },
+      "moves": [
+        "Fake Out",
+        "Parting Shot",
+        "Flare Blitz",
+        "Throat Chop"
+      ],
+      "warm_start_from": "6348f4da7d2dbe83",
+      "validation_errors": []
+    },
+    {
+      "species": "Charizard-Mega-Y",
+      "ability": "Drought",
+      "item": "Leftovers",
+      "nature": "Modest",
+      "sps": {
+        "hp": 40,
+        "atk": 32,
+        "spe": 32
+      },
+      "moves": [
+        "Protect",
+        "Heat Wave",
+        "Solar Beam"
+      ],
+      "validation_errors": [
+        "40 SP in hp exceeds the 32-per-stat cap",
+        "104 SP total exceeds the 66-point budget",
+        "A set needs four moves"
+      ]
+    }
+  ]
+}

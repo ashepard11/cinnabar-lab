@@ -28,12 +28,15 @@ this is stale), in three projects sharing one pipeline:
    Showdown team and get type matrices, relevant BST, board control inventory,
    RNG exposure, damage sources and worst matchups.
 
-**Automated teambuilder** (`SPEC-teambuilder.md`) — *not started.* Searches the
+**Automated teambuilder** (`SPEC-teambuilder.md`) — *Phase 0 complete.* Searches the
 space of legal 6-Pokémon teams and ranks them against the usage-weighted
 metagame on three axes: matchups, enablers and positioning. Guided mode ranks
 candidates slot by slot; automatic mode searches the whole space. It consumes
-both pipelines above and is blocked on the Priority 0 items in
-[BACKLOG.md](BACKLOG.md).
+both pipelines above. Phase 0 (format rules, regulation configuration, data
+contracts) has landed: `lib/teambuilder/types.ts` holds the contracts and
+`npm run build-fixtures` generates `data/fixtures/` for Phase 1 to build the
+interface against. The remaining Priority 0 items in [BACKLOG.md](BACKLOG.md)
+block Phase 2 onward.
 
 Design decisions and their reasoning live in [DECISIONS.md](DECISIONS.md);
 the move-selection policy design is documented in

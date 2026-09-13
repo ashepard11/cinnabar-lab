@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-09-13T19:35:31.966Z",
+  "conditions": [
+    {
+      "id": "fresh",
+      "kind": "simulated",
+      "label": "Both Pokémon at full health, no field effects"
+    },
+    {
+      "id": "moves_first",
+      "kind": "simulated",
+      "label": "The measured Pokémon moves first"
+    },
+    {
+      "id": "sun",
+      "kind": "simulated",
+      "label": "Harsh sunlight"
+    },
+    {
+      "id": "rain",
+      "kind": "simulated",
+      "label": "Rain"
+    },
+    {
+      "id": "snow",
+      "kind": "simulated",
+      "label": "Snow"
+    },
+    {
+      "id": "sand",
+      "kind": "simulated",
+      "label": "Sandstorm"
+    },
+    {
+      "id": "chip",
+      "kind": "derived",
+      "label": "Opponent entered already damaged",
+      "derives_from": "final_hp_distribution"
+    }
+  ]
+}

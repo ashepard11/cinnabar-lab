@@ -751,3 +751,40 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
     upstream specs whose original intent is still worth being able to read;
     quietly editing them to match the code would erase the fact that the
     pipeline diverged deliberately and was right to.
+
+18. **Teambuilder contracts live in `lib/teambuilder/types.ts`, not
+    `lib/types.ts`.** The spec says to put them in `lib/types.ts`, but that
+    file is shared by the scraper, the calc layer, both visualizations and the
+    simulator, and adding a third project's vocabulary makes all of them
+    harder to read. Same reasoning as `lib/evaluator/*`. `Variant` stays in
+    `lib/types.ts`, since every project uses it.
+
+19. **Condition definitions are split into a serializable descriptor and a
+    registry carrying the gate functions.** The spec's `SimulatedCondition`
+    and `DerivedCondition` have function-valued fields
+    (`structural_gate`, `transform`, `excluded_when`) which cannot be written
+    to a fixture file. `ConditionDescriptor` is what ships in JSON and what
+    the interface renders; the functions hang off it. The spec's real
+    requirement — nothing enters the registry without every field filled — is
+    unaffected.
+
+20. **The teambuilder's condition vocabulary is deliberately not the
+    simulator's.** `lib/sim/condition.ts` names mechanisms (`tailwind_A`,
+    `trick_room`, `A_boosted_atk`); the teambuilder names states
+    (`moves_first`). That is the spec's central move: Tailwind, Icy Wind,
+    Trick Room, Thunder Wave and a +2 Speed boost are five mechanisms and one
+    condition, because the only thing the battle depends on is whether this
+    Pokémon moves first. Keeping both vocabularies and mapping between them in
+    Phase 5 is cheaper than forcing either to serve both purposes.
+
+21. **Fixtures use real species, weights and content ids with invented
+    numbers.** Phase 1 lays the interface out against plausible data rather
+    than lorem ipsum, and every file says in its generator that the
+    probabilities are made up. `scripts/test-teambuilder-contracts.ts` asserts
+    the invariants the types cannot express — chiefly that a cell is never
+    absent and never null, and that inherited cells name their source — so a
+    fixture cannot teach the interface to handle a case that should never
+    reach it. The generator is seeded deterministically, so fixtures do not
+    churn on every run. It caught one real bug immediately: the first version
+    emitted unsorted HP quantile arrays, which are a distribution and must be
+    sorted by definition.
