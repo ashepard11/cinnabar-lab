@@ -23,6 +23,7 @@
     "test-format-rules": "tsx scripts/test-format-rules.ts",
     "test-evaluator": "tsx scripts/test-evaluator.ts",
     "migrate-matchups": "tsx scripts/migrate-matchups-v2.ts",
+    "migrate-variants": "tsx scripts/migrate-variants-v3.ts",
     "verify-matchups": "tsx scripts/verify-matchups.ts",
     "sim-smoke": "tsx scripts/sim-smoke.ts",
     "inspect-matchup": "tsx scripts/inspect-matchup.ts",

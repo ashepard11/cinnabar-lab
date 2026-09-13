@@ -133,6 +133,13 @@ export interface Variant {
    */
   cid?: string;
   species: string;
+  /**
+   * National Pokédex number. Stored rather than derived at search time because
+   * the species clause keys on it and deriving it from a name string is
+   * error-prone for alternate formes — Heat Rotom and Wash Rotom must collide.
+   * Schema v3.
+   */
+  national_dex?: number;
   is_mega: boolean;
   mega_stone?: string;
   item: string | null;
@@ -144,11 +151,36 @@ export interface Variant {
   weight: number;
   /** move usage from the base Pokémon (moves + usage %), carried for viz 1 */
   moves: UsageEntry[];
+  /**
+   * Short label distinguishing sets within a species — the item bucket today,
+   * a real set name once Phase 2 emits multiple sets per bucket. Schema v3.
+   */
+  set_label?: string;
+  /**
+   * How `moves` was chosen. Only `modal_set` is produced today; `top_usage`
+   * and `override` arrive with Phase 2's move-selection rules and the
+   * Movesets review screen. Schema v3.
+   */
+  moves_source?: 'modal_set' | 'top_usage' | 'override';
+  /**
+   * Tiering (SPEC-teambuilder.md Phase 2). `core` variants are eligible team
+   * members and get the full condition set; `extended` variants are simulated
+   * as opponents only. Schema v3.
+   */
+  tier?: VariantTier;
 }
 
+export type VariantTier = 'core' | 'extended';
+
 export interface VariantsData {
-  /** 2 = variants carry `cid` (content-addressed id, BACKLOG item 02). */
-  schema_version: 1 | 2;
+  /**
+   * 2 = variants carry `cid` (content-addressed id, BACKLOG item 02).
+   * 3 = adds `regulation` plus per-variant `national_dex`, `set_label`,
+   *     `moves_source` and `tier` (BACKLOG item 09).
+   */
+  schema_version: 1 | 2 | 3;
+  /** Regulation the variants were built for. Schema v3. */
+  regulation?: string;
   generated_at: string;
   variants: Variant[];
 }

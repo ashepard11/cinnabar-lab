@@ -18,7 +18,10 @@ import {
   type RegulationId,
   type TeamMemberRef,
 } from '../lib/format-rules';
-import type {VariantsData} from '../lib/types';
+import {
+  VARIANT_SCHEMA_VERSION, assignTiers, defaultSetLabel, validateVariantsData,
+} from '../lib/variant-schema';
+import type {Variant, VariantsData} from '../lib/types';
 import type {FormatRulesFile} from './build-format-rules';
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
@@ -240,6 +243,92 @@ const withLevel = variants.variants.filter(
   (v) => 'level' in v && (v as {level?: number}).level !== 50
 );
 check('no variant carries a level other than 50', withLevel.length === 0);
+
+// ---------------------------------------------------------------------------
+section('Variant schema v3 (BACKLOG item 09)');
+
+check(
+  'the committed file is schema v3 and names its regulation',
+  variants.schema_version === VARIANT_SCHEMA_VERSION && variants.regulation === 'M-B',
+  `v${variants.schema_version} / ${variants.regulation}`
+);
+
+check(
+  'every variant carries national_dex, set_label, moves_source and tier',
+  variants.variants.every(
+    (v) =>
+      typeof v.national_dex === 'number' &&
+      typeof v.set_label === 'string' &&
+      v.moves_source !== undefined &&
+      (v.tier === 'core' || v.tier === 'extended')
+  )
+);
+
+check(
+  'national_dex agrees with the resolved format rules',
+  variants.variants.every((v) => v.national_dex === mb.national_dex.get(toId(v.species)))
+);
+
+check(
+  'a clean file validates with no errors',
+  validateVariantsData(variants, rules, mb.legal_species).length === 0
+);
+
+check(
+  'validation rejects a file whose regulation disagrees with the rules',
+  validateVariantsData({...variants, regulation: 'M-A'}, rules, mb.legal_species).length > 0
+);
+
+const budgetBreaker: VariantsData = {
+  ...variants,
+  variants: [{...variants.variants[0], sps: {hp: 32, atk: 32, def: 32, spa: 0, spd: 0, spe: 0}}],
+};
+check(
+  'validation rejects an over-budget spread on load',
+  validateVariantsData(budgetBreaker, rules, mb.legal_species).some((e) =>
+    e.message.includes('illegal SP spread')
+  )
+);
+
+const withIvsField: VariantsData = {
+  ...variants,
+  variants: [{...variants.variants[0], ivs: {hp: 31}} as unknown as Variant],
+};
+check(
+  'validation rejects a variant carrying an ivs field',
+  validateVariantsData(withIvsField, rules, mb.legal_species).some((e) =>
+    e.message.includes('ivs')
+  )
+);
+
+// Tiering is by descending weight, ties broken by id, so a rescrape that
+// reorders equal-weight variants cannot silently swap their tiers.
+const core = variants.variants.filter((v) => v.tier === 'core');
+const extended = variants.variants.filter((v) => v.tier === 'extended');
+check(
+  'core tier is the top 70 by weight',
+  core.length === 70 && extended.length === variants.variants.length - 70,
+  `${core.length} core / ${extended.length} extended`
+);
+check(
+  'every core variant outweighs every extended one',
+  Math.min(...core.map((v) => v.weight)) >= Math.max(...extended.map((v) => v.weight))
+);
+
+const shuffled = [...variants.variants].reverse();
+check(
+  'tier assignment is independent of input order',
+  assignTiers(shuffled).every(
+    (v) => v.tier === variants.variants.find((o) => o.id === v.id)!.tier
+  )
+);
+
+check(
+  'set_label distinguishes item buckets and names Megas',
+  defaultSetLabel({is_mega: true, item: 'Charizardite Y'} as Variant) === 'Mega' &&
+    defaultSetLabel({is_mega: false, item: 'Assault Vest'} as Variant) === 'Assault Vest' &&
+    defaultSetLabel({is_mega: false, item: null} as Variant) === 'No item'
+);
 
 // ---------------------------------------------------------------------------
 section('Team clauses');

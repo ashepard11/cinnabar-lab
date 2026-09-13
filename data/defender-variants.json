@@ -1,5 +1,6 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
+  "regulation": "M-B",
   "generated_at": "2026-09-07T11:46:28.182Z",
   "variants": [
     {
@@ -60,7 +61,11 @@
           "usage": 0.001
         }
       ],
-      "cid": "b108eda46851045d"
+      "cid": "b108eda46851045d",
+      "national_dex": 983,
+      "set_label": "Black Glasses",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "kingambit_life_orb",
@@ -120,7 +125,11 @@
           "usage": 0.001
         }
       ],
-      "cid": "d33593382a90c000"
+      "cid": "d33593382a90c000",
+      "national_dex": 983,
+      "set_label": "Life Orb",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "kingambit_no_item",
@@ -180,7 +189,11 @@
           "usage": 0.001
         }
       ],
-      "cid": "432a0774c3cb2f6b"
+      "cid": "432a0774c3cb2f6b",
+      "national_dex": 983,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "garchomp_life_orb",
@@ -240,7 +253,11 @@
           "usage": 0.02
         }
       ],
-      "cid": "b81efa96488db225"
+      "cid": "b81efa96488db225",
+      "national_dex": 445,
+      "set_label": "Life Orb",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "garchomp_soft_sand",
@@ -300,7 +317,11 @@
           "usage": 0.02
         }
       ],
-      "cid": "62b00a37c907bbf9"
+      "cid": "62b00a37c907bbf9",
+      "national_dex": 445,
+      "set_label": "Soft Sand",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "garchomp_no_item",
@@ -360,7 +381,11 @@
           "usage": 0.02
         }
       ],
-      "cid": "7ee9621dff483549"
+      "cid": "7ee9621dff483549",
+      "national_dex": 445,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "incineroar_charcoal",
@@ -420,7 +445,11 @@
           "usage": 0.024
         }
       ],
-      "cid": "206ec31f442c1983"
+      "cid": "206ec31f442c1983",
+      "national_dex": 727,
+      "set_label": "Charcoal",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "incineroar_no_item",
@@ -480,7 +509,11 @@
           "usage": 0.024
         }
       ],
-      "cid": "6348f4da7d2dbe83"
+      "cid": "6348f4da7d2dbe83",
+      "national_dex": 727,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "charizard_mega_y",
@@ -541,7 +574,11 @@
           "usage": 0.022000000000000002
         }
       ],
-      "cid": "b3e49ebad0d4367b"
+      "cid": "b3e49ebad0d4367b",
+      "national_dex": 6,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "charizard_mega_x",
@@ -602,7 +639,11 @@
           "usage": 0.022000000000000002
         }
       ],
-      "cid": "579b514ac0567c3e"
+      "cid": "579b514ac0567c3e",
+      "national_dex": 6,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "basculegion_mystic_water",
@@ -662,7 +703,11 @@
           "usage": 0.006
         }
       ],
-      "cid": "5d8734869e065ff8"
+      "cid": "5d8734869e065ff8",
+      "national_dex": 902,
+      "set_label": "Mystic Water",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "basculegion_life_orb",
@@ -722,7 +767,11 @@
           "usage": 0.006
         }
       ],
-      "cid": "02de32630aacfe83"
+      "cid": "02de32630aacfe83",
+      "national_dex": 902,
+      "set_label": "Life Orb",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "basculegion_no_item",
@@ -782,7 +831,11 @@
           "usage": 0.006
         }
       ],
-      "cid": "7b89eac335d57676"
+      "cid": "7b89eac335d57676",
+      "national_dex": 902,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "sinistcha_no_item",
@@ -842,7 +895,11 @@
           "usage": 0.008
         }
       ],
-      "cid": "024cee1a8526e616"
+      "cid": "024cee1a8526e616",
+      "national_dex": 1013,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "whimsicott_no_item",
@@ -902,7 +959,11 @@
           "usage": 0.038
         }
       ],
-      "cid": "e44db8e5f05ae054"
+      "cid": "e44db8e5f05ae054",
+      "national_dex": 547,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "sneasler_no_item",
@@ -962,7 +1023,11 @@
           "usage": 0.024
         }
       ],
-      "cid": "244400d9167e7084"
+      "cid": "244400d9167e7084",
+      "national_dex": 903,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "farigiraf_no_item",
@@ -1022,7 +1087,11 @@
           "usage": 0.064
         }
       ],
-      "cid": "3cba8a8d93d115d7"
+      "cid": "3cba8a8d93d115d7",
+      "national_dex": 981,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "staraptor_mega",
@@ -1083,7 +1152,11 @@
           "usage": 0.040999999999999995
         }
       ],
-      "cid": "0fb76124be7787ae"
+      "cid": "0fb76124be7787ae",
+      "national_dex": 398,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "staraptor_no_item",
@@ -1143,7 +1216,11 @@
           "usage": 0.040999999999999995
         }
       ],
-      "cid": "d0981ddc1b13136d"
+      "cid": "d0981ddc1b13136d",
+      "national_dex": 398,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "sylveon_no_item",
@@ -1203,7 +1280,11 @@
           "usage": 0.036000000000000004
         }
       ],
-      "cid": "5f29a1803653b87e"
+      "cid": "5f29a1803653b87e",
+      "national_dex": 700,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "archaludon_no_item",
@@ -1263,7 +1344,11 @@
           "usage": 0.003
         }
       ],
-      "cid": "294a12dc9de3473f"
+      "cid": "294a12dc9de3473f",
+      "national_dex": 1018,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "venusaur_mega",
@@ -1324,7 +1409,11 @@
           "usage": 0.027000000000000003
         }
       ],
-      "cid": "bc17d25604f0165b"
+      "cid": "bc17d25604f0165b",
+      "national_dex": 3,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "venusaur_life_orb",
@@ -1384,7 +1473,11 @@
           "usage": 0.027000000000000003
         }
       ],
-      "cid": "5765df69d68814b3"
+      "cid": "5765df69d68814b3",
+      "national_dex": 3,
+      "set_label": "Life Orb",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "venusaur_no_item",
@@ -1444,7 +1537,11 @@
           "usage": 0.027000000000000003
         }
       ],
-      "cid": "0bd04caa0f94951f"
+      "cid": "0bd04caa0f94951f",
+      "national_dex": 3,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "pelipper_no_item",
@@ -1504,7 +1601,11 @@
           "usage": 0.034
         }
       ],
-      "cid": "0d139b488c72ba6b"
+      "cid": "0d139b488c72ba6b",
+      "national_dex": 279,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "floette_mega",
@@ -1565,7 +1666,11 @@
           "usage": 0.002
         }
       ],
-      "cid": "ecc6e7a87992c098"
+      "cid": "ecc6e7a87992c098",
+      "national_dex": 670,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "tyranitar_mega",
@@ -1626,7 +1731,11 @@
           "usage": 0.018000000000000002
         }
       ],
-      "cid": "9914e3566af2aeed"
+      "cid": "9914e3566af2aeed",
+      "national_dex": 248,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "tyranitar_no_item",
@@ -1686,7 +1795,11 @@
           "usage": 0.018000000000000002
         }
       ],
-      "cid": "c2016c15c04faa73"
+      "cid": "c2016c15c04faa73",
+      "national_dex": 248,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "grimmsnarl_no_item",
@@ -1746,7 +1859,11 @@
           "usage": 0.027999999999999997
         }
       ],
-      "cid": "199ab4a670f9cf95"
+      "cid": "199ab4a670f9cf95",
+      "national_dex": 861,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "aerodactyl_mega",
@@ -1807,7 +1924,11 @@
           "usage": 0.005
         }
       ],
-      "cid": "12e5002bf5dbd9fc"
+      "cid": "12e5002bf5dbd9fc",
+      "national_dex": 142,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "aerodactyl_no_item",
@@ -1867,7 +1988,11 @@
           "usage": 0.005
         }
       ],
-      "cid": "877bef9ccf0e5065"
+      "cid": "877bef9ccf0e5065",
+      "national_dex": 142,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "gholdengo_life_orb",
@@ -1927,7 +2052,11 @@
           "usage": 0.017
         }
       ],
-      "cid": "e2e8beece2bfa215"
+      "cid": "e2e8beece2bfa215",
+      "national_dex": 1000,
+      "set_label": "Life Orb",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "gholdengo_metal_coat",
@@ -1987,7 +2116,11 @@
           "usage": 0.017
         }
       ],
-      "cid": "2d479e22f4b6e584"
+      "cid": "2d479e22f4b6e584",
+      "national_dex": 1000,
+      "set_label": "Metal Coat",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "gholdengo_no_item",
@@ -2047,7 +2180,11 @@
           "usage": 0.017
         }
       ],
-      "cid": "04882156ee2a5a7f"
+      "cid": "04882156ee2a5a7f",
+      "national_dex": 1000,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "raichu_mega_y",
@@ -2108,7 +2245,11 @@
           "usage": 0.10400000000000001
         }
       ],
-      "cid": "df5989403dfe079b"
+      "cid": "df5989403dfe079b",
+      "national_dex": 26,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "raichu_mega_x",
@@ -2169,7 +2310,11 @@
           "usage": 0.10400000000000001
         }
       ],
-      "cid": "42ef72ec34eedf1f"
+      "cid": "42ef72ec34eedf1f",
+      "national_dex": 26,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "raichu_no_item",
@@ -2229,7 +2374,11 @@
           "usage": 0.10400000000000001
         }
       ],
-      "cid": "241412cd1c149c2b"
+      "cid": "241412cd1c149c2b",
+      "national_dex": 26,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "milotic_no_item",
@@ -2289,7 +2438,11 @@
           "usage": 0.048
         }
       ],
-      "cid": "14a6dece6b118f48"
+      "cid": "14a6dece6b118f48",
+      "national_dex": 350,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "delphox_mega",
@@ -2350,7 +2503,11 @@
           "usage": 0.011000000000000001
         }
       ],
-      "cid": "ba332631bbf1f4b0"
+      "cid": "ba332631bbf1f4b0",
+      "national_dex": 655,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "swampert_mega",
@@ -2411,7 +2568,11 @@
           "usage": 0.049
         }
       ],
-      "cid": "32bb8e94204339eb"
+      "cid": "32bb8e94204339eb",
+      "national_dex": 260,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "excadrill_mega",
@@ -2472,7 +2633,11 @@
           "usage": 0.002
         }
       ],
-      "cid": "5a509ac92d8f0336"
+      "cid": "5a509ac92d8f0336",
+      "national_dex": 530,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "excadrill_no_item",
@@ -2532,7 +2697,11 @@
           "usage": 0.002
         }
       ],
-      "cid": "6a6ce89e4def7507"
+      "cid": "6a6ce89e4def7507",
+      "national_dex": 530,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "glimmora_mega",
@@ -2593,7 +2762,11 @@
           "usage": 0.013000000000000001
         }
       ],
-      "cid": "a381ab2df3e99b88"
+      "cid": "a381ab2df3e99b88",
+      "national_dex": 970,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "glimmora_no_item",
@@ -2653,7 +2826,11 @@
           "usage": 0.013000000000000001
         }
       ],
-      "cid": "89f6a0fb54f76dec"
+      "cid": "89f6a0fb54f76dec",
+      "national_dex": 970,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "ninetales_alola_no_item",
@@ -2713,7 +2890,11 @@
           "usage": 0.02
         }
       ],
-      "cid": "380e5c54f238637e"
+      "cid": "380e5c54f238637e",
+      "national_dex": 38,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "froslass_mega",
@@ -2774,7 +2955,11 @@
           "usage": 0.026000000000000002
         }
       ],
-      "cid": "65759830f2d594a9"
+      "cid": "65759830f2d594a9",
+      "national_dex": 478,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "metagross_mega",
@@ -2835,7 +3020,11 @@
           "usage": 0.059000000000000004
         }
       ],
-      "cid": "29cb29385e52ae6b"
+      "cid": "29cb29385e52ae6b",
+      "national_dex": 376,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "dragonite_mega",
@@ -2896,7 +3085,11 @@
           "usage": 0.138
         }
       ],
-      "cid": "9755a0045e004927"
+      "cid": "9755a0045e004927",
+      "national_dex": 149,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "gengar_mega",
@@ -2957,7 +3150,11 @@
           "usage": 0.023
         }
       ],
-      "cid": "ae0193d508ee34cd"
+      "cid": "ae0193d508ee34cd",
+      "national_dex": 94,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "blastoise_mega",
@@ -3018,7 +3215,11 @@
           "usage": 0.031
         }
       ],
-      "cid": "551065ab4f44372b"
+      "cid": "551065ab4f44372b",
+      "national_dex": 9,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "toxapex_no_item",
@@ -3074,7 +3275,11 @@
           "usage": 0.008
         }
       ],
-      "cid": "cd46ff2ba67018e9"
+      "cid": "cd46ff2ba67018e9",
+      "national_dex": 748,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "maushold_no_item",
@@ -3134,7 +3339,11 @@
           "usage": 0.105
         }
       ],
-      "cid": "1c591cb55605955e"
+      "cid": "1c591cb55605955e",
+      "national_dex": 925,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "torkoal_charcoal",
@@ -3194,7 +3403,11 @@
           "usage": 0.036000000000000004
         }
       ],
-      "cid": "6b7827ff86c3ab1e"
+      "cid": "6b7827ff86c3ab1e",
+      "national_dex": 324,
+      "set_label": "Charcoal",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "talonflame_sharp_beak",
@@ -3254,7 +3467,11 @@
           "usage": 0.07400000000000001
         }
       ],
-      "cid": "4da6f47f5990823b"
+      "cid": "4da6f47f5990823b",
+      "national_dex": 663,
+      "set_label": "Sharp Beak",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "talonflame_no_item",
@@ -3314,7 +3531,11 @@
           "usage": 0.07400000000000001
         }
       ],
-      "cid": "524e3ac34b82a95f"
+      "cid": "524e3ac34b82a95f",
+      "national_dex": 663,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "mawile_mega",
@@ -3375,7 +3596,11 @@
           "usage": 0.01
         }
       ],
-      "cid": "b79a3be4192062a6"
+      "cid": "b79a3be4192062a6",
+      "national_dex": 303,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "hydreigon_no_item",
@@ -3435,7 +3660,11 @@
           "usage": 0.073
         }
       ],
-      "cid": "3b385347b2418c33"
+      "cid": "3b385347b2418c33",
+      "national_dex": 635,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "annihilape_no_item",
@@ -3495,7 +3724,11 @@
           "usage": 0.044000000000000004
         }
       ],
-      "cid": "e790d0912282271b"
+      "cid": "e790d0912282271b",
+      "national_dex": 979,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "arcanine_hisui_no_item",
@@ -3555,7 +3788,11 @@
           "usage": 0.027000000000000003
         }
       ],
-      "cid": "0fea55eedbba5a3c"
+      "cid": "0fea55eedbba5a3c",
+      "national_dex": 59,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "politoed_no_item",
@@ -3615,7 +3852,11 @@
           "usage": 0.11
         }
       ],
-      "cid": "681710c491ab285d"
+      "cid": "681710c491ab285d",
+      "national_dex": 186,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "sableye_mega",
@@ -3676,7 +3917,11 @@
           "usage": 0.048
         }
       ],
-      "cid": "8b286f401c266787"
+      "cid": "8b286f401c266787",
+      "national_dex": 302,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "sableye_no_item",
@@ -3736,7 +3981,11 @@
           "usage": 0.048
         }
       ],
-      "cid": "ef9b2f51b638e6f0"
+      "cid": "ef9b2f51b638e6f0",
+      "national_dex": 302,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "kommo_o_no_item",
@@ -3796,7 +4045,11 @@
           "usage": 0.034
         }
       ],
-      "cid": "c18f9984845495b5"
+      "cid": "c18f9984845495b5",
+      "national_dex": 784,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "blaziken_mega",
@@ -3857,7 +4110,11 @@
           "usage": 0.077
         }
       ],
-      "cid": "bb25298dfb948cda"
+      "cid": "bb25298dfb948cda",
+      "national_dex": 257,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "scovillain_mega",
@@ -3918,7 +4175,11 @@
           "usage": 0.027999999999999997
         }
       ],
-      "cid": "a3e874aa17d64a43"
+      "cid": "a3e874aa17d64a43",
+      "national_dex": 952,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "vivillon_no_item",
@@ -3978,7 +4239,11 @@
           "usage": 0.028999999999999998
         }
       ],
-      "cid": "f3fd77eb4c04d5e0"
+      "cid": "f3fd77eb4c04d5e0",
+      "national_dex": 666,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "ceruledge_no_item",
@@ -4038,7 +4303,11 @@
           "usage": 0.003
         }
       ],
-      "cid": "4b420d2b794a92ad"
+      "cid": "4b420d2b794a92ad",
+      "national_dex": 937,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "rotom_wash_no_item",
@@ -4098,7 +4367,11 @@
           "usage": 0.053
         }
       ],
-      "cid": "ee1c1380d017b503"
+      "cid": "ee1c1380d017b503",
+      "national_dex": 479,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "lycanroc_dusk_no_item",
@@ -4158,7 +4431,11 @@
           "usage": 0.015
         }
       ],
-      "cid": "d91720b005f7fca1"
+      "cid": "d91720b005f7fca1",
+      "national_dex": 745,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "corviknight_no_item",
@@ -4218,7 +4495,11 @@
           "usage": 0.016
         }
       ],
-      "cid": "42f922e8deb10c3c"
+      "cid": "42f922e8deb10c3c",
+      "national_dex": 823,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "gardevoir_mega",
@@ -4279,7 +4560,11 @@
           "usage": 0.075
         }
       ],
-      "cid": "b480d401f773928f"
+      "cid": "b480d401f773928f",
+      "national_dex": 282,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "kangaskhan_mega",
@@ -4340,7 +4625,11 @@
           "usage": 0.026000000000000002
         }
       ],
-      "cid": "fac9f0a62a8a49ee"
+      "cid": "fac9f0a62a8a49ee",
+      "national_dex": 115,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "tsareena_no_item",
@@ -4400,7 +4689,11 @@
           "usage": 0.111
         }
       ],
-      "cid": "95e7bedd4584dd84"
+      "cid": "95e7bedd4584dd84",
+      "national_dex": 763,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "scrafty_mega",
@@ -4461,7 +4754,11 @@
           "usage": 0.079
         }
       ],
-      "cid": "693ad237a0b4ac3f"
+      "cid": "693ad237a0b4ac3f",
+      "national_dex": 560,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "scizor_mega",
@@ -4522,7 +4819,11 @@
           "usage": 0.015
         }
       ],
-      "cid": "8361a3ddd4607fb6"
+      "cid": "8361a3ddd4607fb6",
+      "national_dex": 212,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "meowscarada_no_item",
@@ -4582,7 +4883,11 @@
           "usage": 0.077
         }
       ],
-      "cid": "6c90a2a68428d877"
+      "cid": "6c90a2a68428d877",
+      "national_dex": 908,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "primarina_no_item",
@@ -4642,7 +4947,11 @@
           "usage": 0.055999999999999994
         }
       ],
-      "cid": "b3d4f447754011e0"
+      "cid": "b3d4f447754011e0",
+      "national_dex": 730,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "camerupt_mega",
@@ -4703,7 +5012,11 @@
           "usage": 0.009000000000000001
         }
       ],
-      "cid": "fb8e8113d72598cd"
+      "cid": "fb8e8113d72598cd",
+      "national_dex": 323,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "core"
     },
     {
       "id": "mamoswine_no_item",
@@ -4763,7 +5076,11 @@
           "usage": 0.052000000000000005
         }
       ],
-      "cid": "afae6046cba631b0"
+      "cid": "afae6046cba631b0",
+      "national_dex": 473,
+      "set_label": "No item",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "chandelure_mega",
@@ -4824,7 +5141,11 @@
           "usage": 0.040999999999999995
         }
       ],
-      "cid": "7e517dcd1c621101"
+      "cid": "7e517dcd1c621101",
+      "national_dex": 609,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "gallade_mega",
@@ -4885,7 +5206,11 @@
           "usage": 0.043
         }
       ],
-      "cid": "2b7d76f07bd92dd5"
+      "cid": "2b7d76f07bd92dd5",
+      "national_dex": 475,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "greninja_mega",
@@ -4946,7 +5271,11 @@
           "usage": 0.151
         }
       ],
-      "cid": "86beb06daaca16e5"
+      "cid": "86beb06daaca16e5",
+      "national_dex": 658,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "sceptile_mega",
@@ -5007,7 +5336,11 @@
           "usage": 0.018000000000000002
         }
       ],
-      "cid": "f629f663b038b16b"
+      "cid": "f629f663b038b16b",
+      "national_dex": 254,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     },
     {
       "id": "pyroar_mega",
@@ -5068,7 +5401,11 @@
           "usage": 0.039
         }
       ],
-      "cid": "22243f764c7c0131"
+      "cid": "22243f764c7c0131",
+      "national_dex": 668,
+      "set_label": "Mega",
+      "moves_source": "modal_set",
+      "tier": "extended"
     }
   ]
 }
