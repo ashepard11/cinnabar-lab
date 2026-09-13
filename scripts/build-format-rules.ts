@@ -11,17 +11,30 @@
  * reads Showdown, so it lives in scripts/ and emits JSON the frontend can
  * fetch, the same split scripts/build-evaluator-dex.ts uses.
  *
+ * Everything is resolved against the regulation's **VGC doubles** format, not
+ * the BSS singles format the 1v1 harness runs in. `Flat Rules` resolves
+ * `Picked Team Size = Auto` by game type, so BSS reports bring-3 and VGC
+ * reports bring-4; sourcing clauses from the harness's format would describe a
+ * different game. `sim_format` is an implementation detail of the simulator
+ * (DECISIONS.md D20-D21) and is recorded here only for provenance.
+ *
  * Sourcing rules, following the same existence/metadata split as the evaluator
  * dex build:
  *  - *Existence* comes from the vendored @smogon/calc gen-0 dex, which is the
  *    trimmed Champions roster. The Showdown mod inherits the full gen-9 dex,
  *    so its species table is NOT Champions existence — iterating it directly
  *    admits hundreds of species that do not exist in the format.
- *  - *Species legality* comes from the mod's formats-data tier assignments,
- *    intersected with that existence check. A species is legal when its tier
- *    is neither "Illegal" nor an Uber-class tier, and it is not flagged
- *    isNonstandard. Champions BSS is a flat format with no restricted
- *    legendaries, so Uber is the restricted bucket.
+ *  - *Species legality* comes from the VGC format's rule table, intersected
+ *    with that existence check: a species is legal when the format's own
+ *    banlist does not ban it. The banlist is tag-driven (`-tag:mythical`,
+ *    `-tag:restrictedlegendary`, `-nonexistent`, …), which is why Mewtwo is
+ *    excluded and Gholdengo is not. Do NOT read legality off the mod's `tier`
+ *    field — that is the Champions *singles ladder* tiering (OU/UU/Uber) and
+ *    disagrees with VGC legality on species that see real usage.
+ *  - *Clause values* (team size, bring count, level, item and species clauses)
+ *    come from the same rule table and are checked against the values declared
+ *    in lib/format-rules.ts. A mismatch fails the build rather than letting a
+ *    regulation change slip through unnoticed.
  *  - *Item legality* comes from the mod's item table, filtered to items that
  *    exist in the mod and are not marked nonstandard.
  *  - *Mega capability* is read off species with a `requiredItem` and a
@@ -49,18 +62,7 @@ import {
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
-/**
- * Tiers that mean "not legal in a flat Champions format".
- *
- * Only "Illegal". The mod's `tier` field is the Champions *singles ladder*
- * tiering — OU, UU, UUBL, Uber — not VGC legality, and the two disagree:
- * Gholdengo, Mega Gengar, Mega Blastoise, Mega Blaziken, Mega Lucario,
- * Mega Starmie and Palafin are all Uber on that ladder and all perfectly legal
- * in BSS. Four of them appear in the scraped M-B usage data, which is how this
- * was caught. Champions carries no restricted legendaries, Paradox Pokémon or
- * Treasures of Ruin at all, so there is no restricted bucket to subtract here.
- */
-const EXCLUDED_TIERS = new Set(['Illegal']);
+
 
 /** The JSON shape written to disk. Sets and Maps serialize as arrays/pairs. */
 export interface FormatRulesFile {
@@ -68,7 +70,18 @@ export interface FormatRulesFile {
   regulation_id: RegulationId;
   generated_at: string;
   showdown_mod: string;
+  /** VGC doubles format the legality below was resolved from. */
+  legality_format: string;
+  /** BSS singles format the 1v1 harness runs in. Provenance only. */
   sim_format: string;
+  /** Clause values read back out of the format's rule table. */
+  sourced_clauses: {
+    team_size: number;
+    bring_count: number;
+    level: number;
+    item_clause: boolean;
+    species_clause: boolean;
+  };
   legal_species: string[];
   legal_items: string[];
   /** [speciesId, itemId] pairs. */
@@ -89,7 +102,41 @@ function resolve(config: RegulationConfig): FormatRulesFile {
         `and invalidates data/matchups.sqlite.`
     );
   }
-  const mod = Dex.mod(config.showdown_mod!);
+  const format = Dex.formats.get(config.legality_format!);
+  if (!format.exists) {
+    throw new Error(`Format ${config.legality_format} not found in the vendored Showdown build.`);
+  }
+  if (format.gameType !== 'doubles') {
+    throw new Error(
+      `Format ${config.legality_format} is ${format.gameType}, not doubles. ` +
+        `Legality must come from the VGC format — see the module comment.`
+    );
+  }
+  const mod = Dex.mod(format.mod);
+  const ruleTable = Dex.formats.getRuleTable(format);
+
+  // Clause values are read back out of the rule table and cross-checked
+  // against what lib/format-rules.ts declares, so a regulation that changes
+  // one fails the build instead of silently disagreeing with the search.
+  const sourced = {
+    team_size: ruleTable.maxTeamSize,
+    bring_count: ruleTable.pickedTeamSize ?? ruleTable.maxTeamSize,
+    level: ruleTable.adjustLevel ?? ruleTable.adjustLevelDown ?? 0,
+    item_clause: ruleTable.has('itemclause'),
+    species_clause: ruleTable.has('speciesclause'),
+  };
+  const mismatches: string[] = [];
+  if (sourced.team_size !== config.team_size) mismatches.push(`team_size ${sourced.team_size} vs declared ${config.team_size}`);
+  if (sourced.bring_count !== config.bring_count) mismatches.push(`bring_count ${sourced.bring_count} vs declared ${config.bring_count}`);
+  if (sourced.level !== config.level) mismatches.push(`level ${sourced.level} vs declared ${config.level}`);
+  if (sourced.item_clause !== config.item_clause) mismatches.push(`item_clause ${sourced.item_clause} vs declared ${config.item_clause}`);
+  if (!sourced.species_clause) mismatches.push('species clause absent from the format');
+  if (mismatches.length > 0) {
+    throw new Error(
+      `${config.regulation_id}: lib/format-rules.ts disagrees with ${config.legality_format} — ` +
+        mismatches.join('; ')
+    );
+  }
 
   const legalSpecies: string[] = [];
   const megaCapable: [string, string][] = [];
@@ -100,14 +147,10 @@ function resolve(config: RegulationConfig): FormatRulesFile {
     // In the calc dex but unknown to the mod: a naming divergence worth
     // knowing about rather than silently dropping.
     if (!species.exists) {
-      warnings.push(`${calcSpecies.name} exists in the calc dex but not in mod ${config.showdown_mod}`);
+      warnings.push(`${calcSpecies.name} exists in the calc dex but not in mod ${format.mod}`);
       continue;
     }
-    const legal =
-      !species.isNonstandard &&
-      species.tier !== undefined &&
-      !EXCLUDED_TIERS.has(species.tier);
-    if (!legal) continue;
+    if (ruleTable.isBannedSpecies(species)) continue;
 
     legalSpecies.push(species.id);
     nationalDex.push([species.id, species.num]);
@@ -128,8 +171,10 @@ function resolve(config: RegulationConfig): FormatRulesFile {
     schema_version: 1,
     regulation_id: config.regulation_id,
     generated_at: new Date().toISOString(),
-    showdown_mod: config.showdown_mod!,
+    showdown_mod: format.mod,
+    legality_format: config.legality_format!,
     sim_format: config.sim_format!,
+    sourced_clauses: sourced,
     legal_species: legalSpecies.sort(),
     legal_items: legalItems.sort(),
     mega_capable: megaCapable.sort((a, b) => a[0].localeCompare(b[0])),

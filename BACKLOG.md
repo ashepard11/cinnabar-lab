@@ -61,7 +61,7 @@ Three problems, found while writing the teambuilder spec. Two turned out to be f
 
 **Deliverable:** SP budget validation on load; spec corrections to `SPEC-damageviz.md` and `SPEC-sim.md` for the moves and SP defects; schema version 3 for `defender-variants.json` carrying the fields the teambuilder needs, with a migration from the v2 files in `data/`. Note that the schema the teambuilder spec calls "version 2" is a different shape from the `schema_version: 2` already on disk, so the bump goes to 3.
 
-**Progress.** SP budget validation landed alongside item 10: `validateSpSpread` and `assertSpBudget` in `lib/format-rules.ts`, enforced in `scripts/build-variants.ts` and covered by `npm run test-format-rules`. All 84 current variants pass. The EV half of that defect turned out to be moot — the Pikalytics API returns spreads SP-denominated, so the variant pipeline never converted from EVs (DECISIONS.md D39.11). Still open: the schema v3 bump and its migration, and the spec corrections.
+**Progress.** SP budget validation landed alongside item 10: `validateSpSpread` and `assertSpBudget` in `lib/format-rules.ts`, enforced in `scripts/build-variants.ts` and covered by `npm run test-format-rules`. All 84 current variants pass. The EV half of that defect turned out to be moot — the Pikalytics API returns spreads SP-denominated, so the variant pipeline never converted from EVs (DECISIONS.md D39.13). Still open: the schema v3 bump and its migration, and the spec corrections.
 
 **Blocks:** everything
 

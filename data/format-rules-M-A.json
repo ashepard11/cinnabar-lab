@@ -1,9 +1,17 @@
 {
   "schema_version": 1,
   "regulation_id": "M-A",
-  "generated_at": "2026-09-13T19:25:30.315Z",
+  "generated_at": "2026-09-13T19:31:17.652Z",
   "showdown_mod": "championsregma",
+  "legality_format": "gen9championsvgc2026regma",
   "sim_format": "gen9championsbssregma",
+  "sourced_clauses": {
+    "team_size": 6,
+    "bring_count": 4,
+    "level": 50,
+    "item_clause": true,
+    "species_clause": true
+  },
   "legal_species": [
     "abomasnow",
     "abomasnowmega",

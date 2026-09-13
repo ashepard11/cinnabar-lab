@@ -619,7 +619,6 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    workflow; `npm run test-evaluator` (158 checks) runs in `npm test` and CI.
 
 ### D39: Regulation-driven format rules and SP budget validation (BACKLOG items 09 + 10, SPEC-teambuilder.md Phase 0, 2026-09-13)
-
 1. **Two halves, split on browser-safety.** `lib/format-rules.ts` is
    declarative and browser-safe — dates, clause values, which Showdown mod
    carries which regulation, the Pikalytics format id, and the pure
@@ -628,25 +627,43 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    `scripts/build-evaluator-dex.ts` (D35), and for the same reason: the
    regulation selector the spec asks for on the data status screen must not
    drag pokemon-showdown into the web bundle.
-
 2. **Existence comes from the calc dex, legality from the mod.** Iterating
    `mod.species.all()` directly yields 339 "legal" species for M-B because the
    Champions mod inherits the full gen-9 dex — its `exists` flag is not
    Champions existence. Intersecting with the `@smogon/calc` gen-0 roster
    (324 species) is what makes the number mean anything. Exactly the trap
    documented for the evaluator dex.
-
-3. **`tier` is the singles ladder, not VGC legality.** The first filter
-   excluded Uber-tier species on the reading that Uber is the restricted
-   bucket. It is not: Gholdengo, Mega Gengar, Mega Blastoise, Mega Blaziken,
-   Mega Lucario, Mega Starmie and Palafin are all Uber on the Champions
-   OU/UU singles ladder and all legal in BSS. Four of them appear in the
-   scraped M-B usage data, so the test asserting "every built variant species
-   is legal" caught it. The filter is now `tier !== 'Illegal'` and nothing
-   else. Champions carries no restricted legendaries, Paradox Pokémon or
-   Treasures of Ruin at all, so there is no restricted bucket to subtract.
-
-4. **M-B resolves to 323 species / 148 items / 74 Mega formes.** The item
+3. **Legality comes from the VGC doubles format's rule table, and
+   `legality_format` is separate from `sim_format`.** This project analyses
+   VGC doubles; the 1v1 harness runs BSS singles only because the doubles
+   engine cannot start a battle with one Pokémon per side (D20-D21). Those two
+   formats are not interchangeable for legality: Champions' `Flat Rules`
+   resolves `Picked Team Size = Auto` by game type, so
+   `gen9championsbssregmb` reports `pickedTeamSize` 3 while
+   `gen9championsvgc2026regmb` reports 4. Sourcing clauses from the harness's
+   format would have silently encoded bring-3 into a bring-4 game. The
+   registry now carries both ids, the resolver asserts the legality format is
+   `gameType: 'doubles'`, and species legality is
+   `ruleTable.isBannedSpecies()` — the format's own tag-driven banlist
+   (`-tag:mythical`, `-tag:restrictedlegendary`, `-nonexistent`).
+4. **`tier` is the singles ladder and must not be used for legality.**
+   Recorded because it is an easy and plausible mistake. An earlier pass read
+   legality off the mod's `tier` field and excluded Uber on the reading that
+   Uber is the restricted bucket. It is not: Gholdengo, Mega Gengar, Mega
+   Blastoise, Mega Blaziken, Mega Lucario, Mega Starmie and Palafin are all
+   Uber on the Champions OU/UU *singles ladder* and all legal in VGC, and four
+   appear in the scraped M-B usage data — which is how the "every built
+   variant species is legal" test caught it. The rule table gives the same 323
+   species without the reasoning-by-proxy, and correctly excludes Mewtwo via
+   its `Restricted Legendary` tag.
+5. **Clause values are cross-checked, not merely declared.** `team_size`,
+   `bring_count`, `level`, `item_clause` and the species clause are read back
+   out of the rule table and compared against what the registry declares; a
+   mismatch fails the build. They stay declared as well so browser code has
+   them without fetching the resolved JSON. This is what the spec asks for
+   when it says to verify its figures at runtime rather than trusting the
+   prose.
+6. **M-B resolves to 323 species / 148 items / 74 Mega formes.** The item
    count matches the regulation announcement exactly, which is the strongest
    available evidence that the sourcing method is right. The species count
    does not match the announcement's "224 legal Pokémon" under any obvious
@@ -654,8 +671,7 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    numbers. Left as an open question rather than tuning the filter until a
    number matched, which would be fitting data to prose. The item agreement
    and the variant-subset test are what the pipeline actually depends on.
-
-5. **M-C is declared but deliberately unsourceable.** The vendored Showdown
+7. **M-C is declared but deliberately unsourceable.** The vendored Showdown
    build (`e440c4a`, ~July 2026) ships only the `champions` (M-B) and
    `championsregma` (M-A) mods, so M-C — current since 2026-09-09 — has no
    legality data. Its entry carries the dates and clauses with
@@ -665,14 +681,12 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    and are not encoded as data. Re-vendoring Showdown is what fills this in,
    and it bumps `SIM_ENGINE_VERSION`, which invalidates the 2.4M-battle
    matrix — so it is its own decision, not a side effect of this one.
-
-6. **`DEFAULT_REGULATION` is M-B, not the current M-C.** Every committed
+8. **`DEFAULT_REGULATION` is M-B, not the current M-C.** Every committed
    artifact in `data/` is M-B. Defaulting to a regulation with no vendored
    legality and no scraped usage would break the pipeline rather than update
    it. Move the default in the same change that re-vendors Showdown and
    re-scrapes usage.
-
-7. **Unknown regulation ids throw; they do not fall back.** A typo'd
+9. **Unknown regulation ids throw; they do not fall back.** A typo'd
    `CHAMPIONS_REGULATION` that quietly builds M-B data is worse than a failed
    build. Same reasoning for the Pikalytics format id: the API answers an
    unrecognised format with `[]` rather than a 404, so a guessed id scrapes
@@ -680,8 +694,7 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    the only one this project has ever confirmed. A 2026-09-13 probe for M-C's
    was inconclusive — the API returned `[]` for every month-and-format pair
    tried, including ones known to hold data.
-
-8. **The matrix gets a regulation guard, not a schema change.** The
+10. **The matrix gets a regulation guard, not a schema change.** The
    `sim_runs` key covers policy, calc and engine versions but not the
    regulation, so rows from two regulations would share a `run_id` and become
    indistinguishable. Builds are resumable, so this path is reached often.
@@ -691,20 +704,17 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
    it is the only regulation the pipeline could produce. Growing the
    `sim_runs` key belongs with BACKLOG item 03, which touches this schema
    anyway.
-
-9. **`banned_moves` is empty and documented as unsourceable.** Showdown
+11. **`banned_moves` is empty and documented as unsourceable.** Showdown
    models per-species move bans by removing the move from the learnset, which
    is indistinguishable from a Pokémon that never learned it. The field is a
    placeholder until a real source exists, recorded rather than faked.
-
-10. **SP validation rejects rather than clamps.** Champions gives 66 points
+12. **SP validation rejects rather than clamps.** Champions gives 66 points
     with a 32-per-stat cap and each point is worth exactly 1 to the final
     stat, so a spread breaking the budget is a scrape or parse error, not an
     exotic set — a clamped spread produces plausible-looking damage numbers
     that are quietly wrong. Under-spending is legal and real sets do it, so
     only the upper bound is enforced. All 84 current variants pass.
-
-11. **The EV defect in BACKLOG item 09 was already moot.** The Pikalytics API
+13. **The EV defect in BACKLOG item 09 was already moot.** The Pikalytics API
     returns spreads SP-denominated (`lib/scrape.ts`), so the variant pipeline
     never converted from EVs; `lib/sp.ts`'s `evToSp` is used only for pasted
     Showdown teams in the evaluator. What was actually missing was the budget

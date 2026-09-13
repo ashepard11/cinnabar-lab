@@ -50,9 +50,23 @@ export interface RegulationConfig {
    */
   showdown_mod: string | null;
   /**
+   * Showdown format id that defines *legality* — the VGC doubles format, since
+   * that is the format this project analyses. Null when unsourceable.
+   *
+   * This is deliberately not `sim_format`. The two differ in exactly the way
+   * that matters: `Flat Rules` resolves `Picked Team Size = Auto` by game
+   * type, so the VGC doubles format reports bring-4 and the BSS singles format
+   * reports bring-3. Sourcing clauses from the harness's format would silently
+   * describe a different game.
+   */
+  legality_format: string | null;
+  /**
    * Showdown format id the 1v1 harness runs battles in, or null when
-   * unsourceable. BSS (singles) rather than VGC (doubles) — see the note in
-   * lib/sim/engine.ts on why the two are equivalent for a strict 1v1.
+   * unsourceable. BSS (singles) rather than VGC (doubles) because the doubles
+   * engine cannot start a battle with one Pokémon per side, and for a strict
+   * 1v1 the two are mechanically identical — see DECISIONS.md D20–D21. This
+   * is an implementation detail of the simulator and says nothing about
+   * legality.
    */
   sim_format: string | null;
   /**
@@ -69,6 +83,12 @@ export interface RegulationConfig {
   sp_total: 66;
   /** …with no more than 32 in any one stat. */
   sp_per_stat_cap: 32;
+  /**
+   * Bring-6 pick-4. Both are declared here so browser code has them without
+   * fetching the resolved JSON, and both are verified against the VGC
+   * format's rule table by scripts/build-format-rules.ts, which fails the
+   * build on a mismatch rather than letting a regulation change slip through.
+   */
   team_size: 6;
   bring_count: 4;
   open_team_lists: boolean;
@@ -110,6 +130,7 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     active_from: '2026-01-06',
     active_until: '2026-05-05',
     showdown_mod: 'championsregma',
+    legality_format: 'gen9championsvgc2026regma',
     sim_format: 'gen9championsbssregma',
     // Never scraped by this project; the M-A season predates it.
     pikalytics_format: null,
@@ -128,6 +149,7 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     active_from: '2026-05-06',
     active_until: '2026-09-08',
     showdown_mod: 'champions',
+    legality_format: 'gen9championsvgc2026regmb',
     sim_format: 'gen9championsbssregmb',
     pikalytics_format: 'battledataregmbs3',
     level: 50,
@@ -159,6 +181,7 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     active_from: '2026-09-09',
     active_until: '2026-12-02',
     showdown_mod: null,
+    legality_format: null,
     sim_format: null,
     pikalytics_format: null,
     level: 50,
@@ -190,7 +213,11 @@ export function isRegulationId(value: string): value is RegulationId {
 
 /** True when the vendored Showdown build can supply this regulation's legality. */
 export function isSourceable(config: RegulationConfig): boolean {
-  return config.showdown_mod !== null && config.sim_format !== null;
+  return (
+    config.showdown_mod !== null &&
+    config.legality_format !== null &&
+    config.sim_format !== null
+  );
 }
 
 /**

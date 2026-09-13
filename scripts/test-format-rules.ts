@@ -125,6 +125,45 @@ check(
   mb.banned_moves.size === 0
 );
 
+// Legality must come from the VGC doubles format, not the BSS singles format
+// the 1v1 harness runs in. Flat Rules resolves "Picked Team Size = Auto" by
+// game type, so BSS reports bring-3 and VGC reports bring-4 — sourcing from
+// the harness's format would silently describe a different game.
+const mbFile: FormatRulesFile = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, 'format-rules-M-B.json'), 'utf8')
+);
+check(
+  'legality is resolved from the VGC doubles format, not BSS',
+  mbFile.legality_format.includes('vgc') && !mbFile.legality_format.includes('bss'),
+  mbFile.legality_format
+);
+check(
+  'the BSS format is recorded separately, for the harness only',
+  mbFile.sim_format.includes('bss'),
+  mbFile.sim_format
+);
+check(
+  'bring count sourced from the format is 4, not the BSS 3',
+  mbFile.sourced_clauses.bring_count === 4,
+  `${mbFile.sourced_clauses.bring_count}`
+);
+check(
+  'sourced clauses agree with the declared config',
+  mbFile.sourced_clauses.team_size === mb.team_size &&
+    mbFile.sourced_clauses.bring_count === mb.bring_count &&
+    mbFile.sourced_clauses.level === mb.level &&
+    mbFile.sourced_clauses.item_clause === mb.item_clause &&
+    mbFile.sourced_clauses.species_clause
+);
+check(
+  'a restricted legendary is excluded by the format banlist',
+  !mb.legal_species.has('mewtwo')
+);
+check(
+  'species Uber on the singles ladder but legal in VGC are included',
+  ['gholdengo', 'gengarmega', 'palafin', 'lucariomega'].every((s) => mb.legal_species.has(s))
+);
+
 // Every variant the pipeline actually built must be legal in the regulation it
 // was built under. This is the check that would catch a mis-scoped tier filter.
 const variants: VariantsData = JSON.parse(
