@@ -6,3 +6,6 @@ dist/
 *.sqlite-shm
 
 .scratch/
+
+# Orphaned agent worktrees (scratch copies of the repo, never artifacts)
+.claude/worktrees/
