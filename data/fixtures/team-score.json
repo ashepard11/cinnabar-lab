@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T19:41:34.040Z",
+  "generated_at": "2026-09-14T01:27:45.404Z",
   "team": {
     "members": [
       "6348f4da7d2dbe83",
@@ -15,21 +15,27 @@
     "conditions_supplied": [
       {
         "condition": "rain",
+        "category": "weather",
+        "delta": 0.031,
         "enablers": [
           {
             "member": "b3e49ebad0d4367b",
             "mechanism": "ability:Drizzle",
-            "speed_tier": 0
+            "speed_tier": 0,
+            "first_share": 1
           }
         ]
       },
       {
         "condition": "moves_first",
+        "category": "speed",
+        "delta": 0.055,
         "enablers": [
           {
             "member": "024cee1a8526e616",
             "mechanism": "move:Tailwind",
-            "speed_tier": "computed"
+            "speed_tier": "computed",
+            "first_share": 0.85
           }
         ]
       }

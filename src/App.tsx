@@ -7,6 +7,12 @@ import RankingsPage from './pages/RankingsPage';
 import PokemonDetailPage from './pages/PokemonDetailPage';
 import TeamBuilderPage from './pages/TeamBuilderPage';
 import TeamEvaluatorPage from './pages/TeamEvaluatorPage';
+import BuildPage from './pages/BuildPage';
+import DataStatusPage from './pages/DataStatusPage';
+import MovesetsPage from './pages/MovesetsPage';
+import VariantDetailPage from './pages/VariantDetailPage';
+import TeamDetailPage from './pages/TeamDetailPage';
+import GeneratePage from './pages/GeneratePage';
 
 function Landing() {
   return (
@@ -58,6 +64,15 @@ function Landing() {
             common each opponent is.
           </p>
         </Link>
+        <Link className="landing-card" to="/build">
+          <h2>Build me a team</h2>
+          <p>
+            Guided teambuilding: pick a slot at a time and get candidates ranked
+            on three axes at once — matchup coverage, the conditions they let
+            the team bring about, and how much they help teammates get in.
+            Running on fixture data while the pipeline is built.
+          </p>
+        </Link>
         <Link className="landing-card" to="/team-evaluator">
           <h2>How does my team hold up?</h2>
           <p>
@@ -83,6 +98,11 @@ export default function App() {
         <NavLink to="/pokemon">Pokémon</NavLink>
         <NavLink to="/team-builder">Team builder</NavLink>
         <NavLink to="/team-evaluator">Team evaluator</NavLink>
+        <span className="nav-sep" aria-hidden="true" />
+        <NavLink to="/build">Build</NavLink>
+        <NavLink to="/generate">Generate</NavLink>
+        <NavLink to="/movesets">Movesets</NavLink>
+        <NavLink to="/data-status">Data</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -95,6 +115,12 @@ export default function App() {
         <Route path="/pokemon/:variantId" element={<PokemonDetailPage />} />
         <Route path="/team-builder" element={<TeamBuilderPage />} />
         <Route path="/team-evaluator" element={<TeamEvaluatorPage />} />
+        <Route path="/build" element={<BuildPage />} />
+        <Route path="/build/variant/:variantId" element={<VariantDetailPage />} />
+        <Route path="/build/team/:teamId" element={<TeamDetailPage />} />
+        <Route path="/generate" element={<GeneratePage />} />
+        <Route path="/movesets" element={<MovesetsPage />} />
+        <Route path="/data-status" element={<DataStatusPage />} />
       </Routes>
     </div>
   );
