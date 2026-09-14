@@ -72,75 +72,28 @@ export const CONDITION_LABELS: Record<TeambuilderConditionId, string> = {
  * Pokémon's own matchup and is already inside its win probabilities — listing
  * it as support would count it twice.
  */
-export type EffectCategory =
-  | 'speed'
-  | 'weather'
-  | 'terrain'
-  | 'mitigation'
-  | 'healing'
-  | 'option'
-  | 'pivoting'
-  | 'targeting'
-  | 'protect';
-
-export const CATEGORY_LABELS: Record<EffectCategory, string> = {
-  speed: 'Speed control',
-  weather: 'Weather',
-  terrain: 'Terrain',
-  mitigation: 'Damage mitigation',
-  healing: 'Healing',
-  option: 'Option control',
-  pivoting: 'Pivoting',
-  targeting: 'Targeting control',
-  protect: 'Protect',
-};
-
 /**
- * Which categories are support (they change the fight your Pokémon is in) and
- * which are positioning (they change whether it can reach the fight).
+ * The effect taxonomy lives in `lib/effects.ts` and is shared with the
+ * evaluator (BACKLOG item 11). It used to be hand-mirrored here, which is
+ * exactly the drift item 11 exists to end — the mirror had already lost the
+ * rule that puts Wide and Quick Guard in the Protects row.
  *
- * `mitigation` and `weather` appear in both, and that is not an oversight.
- * Intimidate, Reflect and Friend Guard are conditions in their own right and
- * they also cut a teammate's entry cost — SPEC-teambuilder.md Phase 6 lists
- * all three in its positioning-tool table.
+ * Re-exported rather than re-pointed at every call site: `lib/teambuilder/`
+ * is the teambuilder's vocabulary, and its screens should keep importing their
+ * types from one place.
  */
-export const SUPPORT_CATEGORIES: EffectCategory[] = [
-  'speed', 'weather', 'terrain', 'mitigation', 'healing', 'option',
-];
+import type {EffectCategory} from '../effects';
 
-export const POSITIONING_CATEGORIES: EffectCategory[] = [
-  'pivoting', 'targeting', 'protect', 'mitigation', 'weather',
-];
-
-/**
- * Display grouping, shared with the evaluator's board control table (D38.3).
- *
- * The ten categories above are the lib-level inventory; these five are how
- * they are shown. The Build screen renders both the support pills and the
- * board control table on one page, so they have to group the same effects the
- * same way — a reader should not have to hold two taxonomies for one roster.
- */
-export type DisplayGroupId = 'speed' | 'field' | 'option' | 'defense' | 'protect';
-
-export const DISPLAY_GROUPS: Array<{
-  id: DisplayGroupId;
-  label: string;
-  sources: EffectCategory[];
-}> = [
-  {id: 'speed', label: 'Speed control', sources: ['speed']},
-  {id: 'field', label: 'Field effects', sources: ['weather', 'terrain']},
-  {id: 'option', label: 'Option control', sources: ['targeting', 'option']},
-  {id: 'defense', label: 'Defensive tools', sources: ['mitigation', 'healing', 'pivoting']},
-  {id: 'protect', label: 'Protects', sources: ['protect']},
-];
-
-export function displayGroupFor(category: EffectCategory): DisplayGroupId {
-  return DISPLAY_GROUPS.find((g) => g.sources.includes(category))?.id ?? 'option';
-}
-
-export function displayGroupLabel(id: DisplayGroupId): string {
-  return DISPLAY_GROUPS.find((g) => g.id === id)?.label ?? id;
-}
+export type {EffectCategory, DisplayGroupId} from '../effects';
+export {
+  CATEGORY_LABELS,
+  DISPLAY_GROUPS,
+  SUPPORT_CATEGORIES,
+  POSITIONING_CATEGORIES,
+  TEAMBUILDER_CATEGORIES,
+  displayGroupFor,
+  displayGroupLabel,
+} from '../effects';
 
 /** A condition reached by combining two others, e.g. rain plus moving first. */
 export type CombinationConditionId = `${TeambuilderConditionId}+${TeambuilderConditionId}`;

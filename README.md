@@ -244,7 +244,9 @@ what you want.
    undercounted and flagged.
 8. **Champions dex gaps thin the curated tables** (Psychic/Misty Surge,
    Serene Grace, pinch berries, …) — CI's taxonomy-rot gate tracks the exact
-   drop list in both directions, so a closed gap forces a table review.
+   drop list in both directions, so a closed gap forces a table review. The
+   tables live in `lib/effects.ts` and are shared with the teambuilder
+   (BACKLOG item 11), so the two tools categorise an effect identically.
 
 ## Repo layout
 
@@ -252,9 +254,10 @@ what you want.
 data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex,
             resolved per-regulation format rules (committed)
 docs/       policy design doc
-lib/        pipeline library: scrape, variants, calc, pokemon, types, format-rules
+lib/        pipeline library: scrape, variants, calc, pokemon, types, format-rules,
+            effects (the one effect taxonomy, shared by evaluator + teambuilder)
 lib/sim/    battle simulator: engine, model, policy, condition, harness, sets
-lib/analysis/  matchup-matrix and team-coverage query APIs
+lib/analysis/  matchup-matrix query APIs, team coverage, refresh planning, worker pool
 lib/evaluator/ team evaluator: dex, parse, typechart, tags, rng, bst, damage, match
 scripts/    runnable pipeline steps + tests + matrix build
 src/        React frontend (Vite, React Router, D3 scale-chromatic, sql.js)

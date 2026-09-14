@@ -15,7 +15,7 @@ Four specs now exist: `SPEC-damageviz.md`, `SPEC-sim.md`, `SPEC-team-evaluator.m
 
 **Teambuilder Phases 0 and 1 are complete and on `main`.** Phase 0 delivered regulation-driven format rules, variant schema v3 and the data contracts; Phase 1 delivered all six screens against fixture data — Build, Generate, Team detail, Pokémon detail, Movesets and Data status. Two of those already run on real data rather than fixtures. The evaluator presentation pass merged alongside them.
 
-Phase 2 is next in the spec's order, and the Priority 0 items below are what stand between here and it. Item 03 has since closed, which removes the compute wall in front of most of them: changes that move the variant set now cost only the pairs they actually touch, so item 04 and Phase 2's moveset selection no longer need to wait for a batched rebuild.
+Phase 2 is next in the spec's order, and the Priority 0 items below are what stand between here and it. Items 03 and 11 have since closed. Item 03 removed the compute wall in front of most of what remains: changes that move the variant set now cost only the pairs they actually touch, so item 04 and Phase 2's moveset selection no longer need to wait for a batched rebuild. Item 11 unblocked Phase 4.
 
 The teambuilder also turned up three defects in the earlier specs. Those were item 09, now closed — two had been fixed in passing while items 01–08 were built, and the third is handled by item 10.
 
@@ -75,6 +75,40 @@ note under item 04.
 
 **Unblocked:** 04, 05, teambuilder Phases 2, 6b
 
+### 11. Shared effect table *(Small)* — done
+
+`lib/effects.ts` holds the curated tables and the whole vocabulary: ten
+categories, their labels and descriptions, the five display groups, the
+teambuilder's nine-category subset, and the dex-validation gate.
+`lib/evaluator/tags.ts` keeps the rule engine and imports the rest;
+`lib/teambuilder/types.ts` re-exports rather than redefining.
+
+**There were three copies, not two.** The third was `BoardControlTable.tsx`,
+holding the five display rows the teambuilder's `DISPLAY_GROUPS` was mirroring
+— so lifting only the lib categories would have left the two that had actually
+diverged still diverged.
+
+**The divergence was real and is now fixed.** D38.3 moved Wide and Quick Guard
+into the Protects row for display; the evaluator implemented it, the
+teambuilder's mirror did not. The same two moves would have shown under Option
+control on the Build screen and under Protects on the evaluator — on a page
+that renders both.
+
+`displayGroupFor` now throws on an unknown category instead of the
+teambuilder's silent `'option'` fallback, which is how two tables disagree for
+months without anyone noticing. `scripts/test-effects.ts` (27 checks, in CI)
+asserts the re-exports are the *same objects*, so a future copy-paste fails
+rather than passing until it rots. The dex-drift gate stays in
+`test-evaluator.ts`, which needs the dex loaded.
+
+`priority` remains in the taxonomy and out of `TEAMBUILDER_CATEGORIES`: damage
+priority is already inside a Pokémon's matchup numbers, while the evaluator has
+no matchup numbers behind its inventory. See DECISIONS.md D42.
+
+**Unblocked:** teambuilder Phase 4
+
+---
+
 ### 08. Team evaluator *(Large)* — done
 
 Merged in [#5](https://github.com/ashepard11/cinnabar-lab/pull/5), specified in `SPEC-team-evaluator.md`, live at `/team-evaluator`. Showdown paste parsing, ability-aware type matrices, relevant BST, board control inventory, RNG exposure, damage sources, and worst matchups via nearest-variant matching. [#6](https://github.com/ashepard11/cinnabar-lab/pull/6) is an open draft adding a presentation pass.
@@ -105,7 +139,7 @@ All three defects resolved, 2026-09-13. Two turned out to have been fixed in pas
 
 ## Priority 0 — blocks the rest of the teambuilder
 
-Phases 0 and 1 are done. Nothing from Phase 2 onward can start until these land.
+Phases 0 and 1 are done. Items 03 and 11 have since closed, leaving item 10 — which is one thing: replace the vendored Showdown build. Item 04 waits on it for the item universe.
 
 ### A note on rebuilding the matrix
 
@@ -160,20 +194,6 @@ Also closes the evaluator's defensive-item fidelity gap.
 **This is also the trigger for reconsidering the core tier.** The tier currently gates nothing — every pair is simulated regardless — because at 84 variants skipping extended-against-extended saves 990 pairs of 3,486, which does not pay for the failure mode a gate creates. Pairs are quadratic, so if this item takes the universe to around 200 variants that becomes 19,900 pairs and the calculation changes. See DECISIONS.md D41.7.
 
 **Depends on:** 03 *(done)*, 10
-
-### 11. Shared effect table *(Small)*
-
-The teambuilder's enabler catalog needs the same thing the evaluator's board control inventory already has: a curated table mapping abilities, moves and items to their effects. Speed control, weather, terrain, targeting, mitigation, pivoting, option control.
-
-Item 08 shipped this as `lib/evaluator/tags.ts`, with a CI taxonomy-rot gate tracking dex drift in both directions. Lift it to `lib/effects.ts` and import from both rather than writing a second copy for the teambuilder, which would guarantee drift.
-
-**The drift has already started.** Phase 1 needed the same taxonomy for the Build screen's support pills and added `EffectCategory` and `DISPLAY_GROUPS` to `lib/teambuilder/types.ts`, hand-mirroring the evaluator's ten categories and the five display rows from D38.3. Two hand-maintained copies of one taxonomy now exist, and only one of them has the CI gate watching for dex drift. The lift is no longer preventative.
-
-The mapping still needs a pass before moving: the teambuilder's categories key on condition, the evaluator's on display grouping, and `priority` is deliberately absent from the teambuilder's set because damage priority is already inside a Pokémon's own matchup numbers.
-
-**Blocks:** teambuilder Phase 4
-
----
 
 ## Priority 1 — do next
 

@@ -968,3 +968,63 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    enforcement, swap, `foreign_key_check` before commit), and the test's
    synthetic schema now matches the real DDL. Verified by reverting the fix and
    confirming the test fails.
+
+---
+
+### D42: One effect taxonomy (BACKLOG item 11, 2026-09-13)
+
+1. **The data and the vocabulary moved; the rule engine stayed.**
+   `lib/effects.ts` now holds the curated tables — abilities, moves and items
+   whose effects the exported move metadata cannot express — plus the category
+   set, labels, display groups and the dex-validation gate. What stayed in
+   `lib/evaluator/tags.ts` is the pass over `ParsedSet`s that turns moves into
+   tags, because it is coupled to the evaluator's dex and parser while the
+   teambuilder works on `Variant`. Sharing that too would need an abstraction
+   over two set representations, and neither caller can justify one yet. The
+   duplication was in the data and the words, so that is what was lifted.
+
+2. **There were three copies, not two.** The backlog recorded the teambuilder's
+   mirror in `lib/teambuilder/types.ts` as the second. The third was
+   `BoardControlTable.tsx`, which held the five display rows the teambuilder's
+   `DISPLAY_GROUPS` was mirroring. Lifting only the lib-level categories would
+   have left the two copies that had actually diverged still diverged.
+
+3. **They had already diverged, and the case is Wide and Quick Guard.** D38.3
+   moved them from option control into the Protects row for display, and the
+   evaluator implemented that as a special case in a local `rowOf`. The
+   teambuilder's `displayGroupFor` had no equivalent, so the same two moves
+   would have appeared under Option control on the Build screen and under
+   Protects on the evaluator — on a page that renders both. The rule now lives
+   once, as an optional `subGroup` argument to the shared `displayGroupFor`.
+
+4. **`displayGroupFor` throws on an unknown category instead of falling back.**
+   The teambuilder's copy returned `'option'` for anything it did not
+   recognise. That is how two tables disagree for months without anyone
+   noticing: the miscategorised effect still renders, just in the wrong row.
+   The evaluator's version already asserted non-null. Failing loudly is the
+   behaviour worth keeping, and the fixtures were checked against it before the
+   change landed — every category they carry is in the taxonomy.
+
+5. **`priority` stays in the taxonomy and out of the teambuilder's subset.**
+   Damage priority is already inside a Pokémon's matchup numbers, because the
+   simulator plays Sucker Punch and its value lands in the win rate; crediting
+   it again as an enabler would double-count. The evaluator has no matchup
+   numbers behind its inventory, so for it priority is real information. One
+   taxonomy with a named subset (`TEAMBUILDER_CATEGORIES`) states that
+   difference in one place, where the previous arrangement expressed it as two
+   lists that happened to differ by one entry.
+
+6. **`validateCurated` takes a lookup interface, not an `EvaluatorDex`.** Three
+   existence checks are all it needs, and accepting the whole dex type would
+   tie the shared taxonomy to the evaluator's data layer and cost it
+   browser-safety — which the teambuilder's screens depend on. The evaluator
+   adapts its dex at the call site in four lines.
+
+7. **The anti-drift test asserts identity, not equality.**
+   `scripts/test-effects.ts` checks that the teambuilder's re-exports are the
+   *same objects* as the shared ones, so a future copy-paste fails rather than
+   passing until the copies diverge. It also checks the properties a caller
+   would otherwise reimplement locally: every category in exactly one display
+   group, the guards rule, the subset relation. Hermetic and dex-free; the
+   curated tables' agreement with the Champions dex remains the separate
+   taxonomy-rot gate in `test-evaluator.ts`, which needs the dex loaded.

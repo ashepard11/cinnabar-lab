@@ -20,6 +20,10 @@ jobs:
       # Team evaluator (BACKLOG item 08): parser parity, type/tag/RNG/BST
       # rules, damage-source oracle, variant matching, taxonomy-rot gate.
       - run: npm run test-evaluator
+      # Shared effect taxonomy (BACKLOG item 11): display-group totality, the
+      # Wide/Quick Guard placement rule, and that the teambuilder re-exports
+      # the shared tables rather than keeping a copy.
+      - run: npm run test-effects
       # Incremental matrix refresh (BACKLOG item 03): diff categories, reuse
       # arithmetic, crash resumption, pruning, and the sqlite v2 -> v3 upgrade.
       # Hermetic — builds its own temporary databases, no dex, no fixtures.

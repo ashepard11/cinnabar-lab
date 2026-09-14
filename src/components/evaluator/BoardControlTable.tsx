@@ -1,5 +1,7 @@
 import { boardControl } from '../../../lib/evaluator/tags';
-import type { CategoryId, Tag } from '../../../lib/evaluator/tags';
+import { DISPLAY_GROUPS, displayGroupFor } from '../../../lib/effects';
+import type { DisplayGroupId, EffectCategory } from '../../../lib/effects';
+import type { Tag } from '../../../lib/evaluator/tags';
 import type { EvaluatorDex } from '../../../lib/evaluator/dex';
 import type { ParsedSet } from '../../../lib/evaluator/parse';
 import { setLabel } from './TeamInput';
@@ -9,37 +11,11 @@ import { setLabel } from './TeamInput';
  * rows (DECISIONS.md D38.3). The lib inventory is unchanged; regrouping —
  * including moving Wide/Quick Guard from option control into Protects — is
  * purely presentational.
+ *
+ * Both the rows and the Wide/Quick Guard rule now come from `lib/effects.ts`,
+ * shared with the teambuilder's support pills (BACKLOG item 11), so the two
+ * views of one roster cannot group the same effect differently.
  */
-type RowId = 'speed' | 'field' | 'option' | 'defense' | 'protect';
-
-const ROWS: Array<{ id: RowId; label: string; description: string; sources: CategoryId[] }> = [
-  {
-    id: 'speed', label: 'Speed control', sources: ['speed', 'priority'],
-    description: 'Speed drops, Tailwind, Trick Room, paralysis, priority moves, speed abilities.',
-  },
-  {
-    id: 'field', label: 'Field effects', sources: ['weather', 'terrain'],
-    description: 'Weather and terrain setters, removal, and neutralizers.',
-  },
-  {
-    id: 'option', label: 'Option control', sources: ['targeting', 'option'],
-    description: 'Redirection, Fake Out pressure, Encore-class denial, blocking abilities.',
-  },
-  {
-    id: 'defense', label: 'Defensive tools', sources: ['mitigation', 'healing', 'pivoting'],
-    description: 'Damage mitigation, healing, and pivoting.',
-  },
-  {
-    id: 'protect', label: 'Protects', sources: ['protect'],
-    description: 'Protect-class moves plus Wide and Quick Guard; members without one are flagged.',
-  },
-];
-
-/** Final row for a tag: its source category's row, except guards → Protects. */
-function rowOf(source: CategoryId, tag: Tag): RowId {
-  if (source === 'option' && tag.subGroup === 'guards') return 'protect';
-  return ROWS.find((r) => r.sources.includes(source))!.id;
-}
 
 const MAX_TOOLS_SHOWN = 4;
 
@@ -78,14 +54,14 @@ export default function BoardControlTable({ dex, sets }: { dex: EvaluatorDex; se
   const inventory = boardControl(dex, sets);
 
   // perRow[rowId][memberIndex] = deduped tools that member contributes.
-  const perRow: Record<RowId, Tag[][]> = {
+  const perRow: Record<DisplayGroupId, Tag[][]> = {
     speed: sets.map(() => []), field: sets.map(() => []), option: sets.map(() => []),
     defense: sets.map(() => []), protect: sets.map(() => []),
   };
   for (const cat of inventory) {
     cat.perMember.forEach((tags, si) => {
       for (const tag of tags) {
-        const bucket = perRow[rowOf(cat.id, tag)][si];
+        const bucket = perRow[displayGroupFor(cat.id as EffectCategory, tag.subGroup)][si];
         if (!bucket.some((t) => t.name === tag.name)) bucket.push(tag);
       }
     });
@@ -93,7 +69,7 @@ export default function BoardControlTable({ dex, sets }: { dex: EvaluatorDex; se
 
   return (
     <div className="bcx">
-      {ROWS.map(({ id, label, description }) => {
+      {DISPLAY_GROUPS.map(({ id, label, description }) => {
         const members = perRow[id]
           .map((tags, si) => ({ tags, si }))
           .filter(({ tags }) => tags.length > 0);

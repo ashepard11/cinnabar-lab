@@ -1,25 +1,48 @@
 /**
  * lib/evaluator/tags.ts — the board-control inventory (SPEC-team-evaluator.md
- * Phase 4, as revised in D36): 10 categories, each defined as a *rule* over
- * the exported move metadata plus a curated supplement for semantics the data
- * lacks (mostly abilities and items).
+ * Phase 4, as revised in D36): 10 categories, each defined as a *rule* over the
+ * exported move metadata plus the curated supplement in `lib/effects.ts` for
+ * semantics the data lacks (mostly abilities and items).
  *
- * Curated names are validated against the Champions dex: entries the dex
- * lacks are dropped (validateCurated reports them; the test suite asserts the
- * drop list matches EXPECTED_CURATED_DROPS exactly, in both directions).
+ * The taxonomy and the curated tables moved to `lib/effects.ts` (BACKLOG item
+ * 11) so the teambuilder's enabler catalog can share them instead of keeping a
+ * hand-maintained second copy. What stays here is the rule engine: the pass
+ * over `ParsedSet`s that turns moves into tags, which is coupled to the
+ * evaluator's dex and parser.
+ *
+ * Curated names are validated against the Champions dex: entries the dex lacks
+ * are dropped (`validateCurated` reports them; the test suite asserts the drop
+ * list matches `EXPECTED_CURATED_DROPS` exactly, in both directions).
  * Categories are independent rules over the same data, not a partition —
  * Grassy Terrain providers appear in both terrain control and healing by
- * design, while Fake Out (targeting control only) and Wide/Quick Guard
- * (option control only) are deliberate single-listings (D36).
+ * design, while Fake Out (targeting control only) and Wide/Quick Guard (option
+ * control only) are deliberate single-listings (D36).
  */
 import {getMove, getSpecies, isDamaging, secondariesOf, toID} from './dex';
+import {
+  CATEGORY_META,
+  SPEED_ABILITIES, PRIORITY_ABILITIES, PRIORITY_CONDITIONAL_MOVES,
+  WEATHER_SETTER_ABILITIES, WEATHER_NEUTRALIZER_ABILITIES,
+  TERRAIN_SETTER_ABILITIES, TERRAIN_REMOVAL_MOVES,
+  TARGETING_MOVES, REDIRECT_IMMUNE_ABILITIES, REDIRECT_IMMUNE_MOVES,
+  MITIGATION_ABILITIES, PROTECT_VOLATILES, PROTECT_RIDERS,
+  HEALING_MOVES_CURATED, HEALING_ABILITIES, HEALING_ITEMS,
+  OPTION_VOLATILES, OPTION_ABILITIES,
+  validateCurated as validateCuratedAgainst,
+} from '../effects';
+import type {CuratedAbility, EffectCategory, FieldCondition} from '../effects';
 import type {DexMove, EvaluatorDex} from './dex';
 import type {ParsedSet} from './parse';
 
-/** Field states a conditional tag can depend on. */
-export type FieldCondition =
-  | 'sun' | 'rain' | 'sand' | 'snow'
-  | 'grassy' | 'electric' | 'psychic' | 'misty';
+export type {EffectCategory, FieldCondition} from '../effects';
+export {EXPECTED_CURATED_DROPS} from '../effects';
+
+/**
+ * Historical name for `EffectCategory`. Kept because the evaluator's UI and
+ * tests speak in terms of board-control categories, and renaming every call
+ * site would churn more than it clarifies.
+ */
+export type CategoryId = EffectCategory;
 
 export interface Tag {
   /** Cell text: the move / ability / item name (or a typing note). */
@@ -34,10 +57,6 @@ export interface Tag {
   dimmed?: boolean;
 }
 
-export type CategoryId =
-  | 'speed' | 'priority' | 'weather' | 'terrain' | 'targeting'
-  | 'mitigation' | 'protect' | 'healing' | 'pivoting' | 'option';
-
 export interface Category {
   id: CategoryId;
   label: string;
@@ -46,174 +65,19 @@ export interface Category {
   perMember: Tag[][];
 }
 
-// ---------------------------------------------------------------------------
-// Curated tables (data, not conditionals — iterated by validation and UI).
-// ---------------------------------------------------------------------------
-
-interface CuratedAbility {
-  name: string;
-  annotation?: string;
-  conditional?: FieldCondition;
-}
-
-const SPEED_ABILITIES: CuratedAbility[] = [
-  {name: 'Quick Draw', annotation: '30% chance'},
-  {name: 'Unburden', annotation: 'after item is used'},
-  {name: 'Chlorophyll', conditional: 'sun', annotation: 'needs sun'},
-  {name: 'Swift Swim', conditional: 'rain', annotation: 'needs rain'},
-  {name: 'Sand Rush', conditional: 'sand', annotation: 'needs sand'},
-  {name: 'Slush Rush', conditional: 'snow', annotation: 'needs snow'},
-  {name: 'Surge Surfer', conditional: 'electric', annotation: 'needs Electric Terrain'},
-  {name: 'Quark Drive', annotation: 'conditional'},
-  {name: 'Protosynthesis', annotation: 'conditional'},
-];
-// Prankster is deliberately NOT here (D36: status-move priority is not
-// board-level speed control); Gale Wings lives under priority.
-
-const PRIORITY_ABILITIES: CuratedAbility[] = [
-  {name: 'Gale Wings', annotation: 'full-HP Flying-move priority'},
-];
-
-/** Conditional-priority moves the derived rule misses (D36: Grassy Glide is
- * priority 0 in the Champions data; its +1 is granted in-battle). */
-const PRIORITY_CONDITIONAL_MOVES: Array<{name: string; conditional: FieldCondition; annotation: string}> = [
-  {name: 'Grassy Glide', conditional: 'grassy', annotation: '+1 in Grassy Terrain'},
-];
-
-const WEATHER_SETTER_ABILITIES: Array<CuratedAbility & {sets: FieldCondition}> = [
-  {name: 'Drought', sets: 'sun'},
-  {name: 'Drizzle', sets: 'rain'},
-  {name: 'Sand Stream', sets: 'sand'},
-  {name: 'Snow Warning', sets: 'snow'},
-  {name: 'Orichalcum Pulse', sets: 'sun', annotation: 'sun + Atk boost'},
-];
-
-const WEATHER_NEUTRALIZER_ABILITIES: CuratedAbility[] = [
-  {name: 'Cloud Nine', annotation: 'negates weather'},
-  {name: 'Air Lock', annotation: 'negates weather'},
-];
-
-const TERRAIN_SETTER_ABILITIES: Array<CuratedAbility & {sets: FieldCondition}> = [
-  {name: 'Grassy Surge', sets: 'grassy'},
-  {name: 'Electric Surge', sets: 'electric'},
-  {name: 'Psychic Surge', sets: 'psychic'},
-  {name: 'Misty Surge', sets: 'misty'},
-  {name: 'Seed Sower', sets: 'grassy', annotation: 'when hit'},
-];
-
-const TERRAIN_REMOVAL_MOVES: Array<{name: string; annotation: string}> = [
-  {name: 'Ice Spinner', annotation: 'removes terrain'},
-  {name: 'Steel Roller', annotation: 'removes terrain (fails without one)'},
-];
-
-const TARGETING_MOVES: Array<{name: string; annotation?: string}> = [
-  {name: 'Fake Out', annotation: 'flinch pressure — its only category (D36)'},
-  {name: 'Ally Switch', annotation: 'repositioning'},
-];
-
-const REDIRECT_IMMUNE_ABILITIES: CuratedAbility[] = [
-  {name: 'Stalwart'},
-  {name: 'Propeller Tail'},
-];
-const REDIRECT_IMMUNE_MOVES = ['Snipe Shot'];
-
-const MITIGATION_ABILITIES: CuratedAbility[] = [
-  {name: 'Intimidate'},
-  {name: 'Friend Guard'},
-  {name: 'Multiscale', annotation: 'at full HP'},
-  {name: 'Fur Coat'},
-  {name: 'Ice Scales'},
-  {name: 'Fluffy', annotation: 'contact only'},
-];
-
-/** Protect-class volatiles (single-target self-protection). Wide/Quick Guard
- * are sideConditions and explicitly not Protect-class (D36). */
-const PROTECT_VOLATILES = new Set([
-  'protect', 'banefulbunker', 'burningbulwark', 'silktrap', 'spikyshield',
-  'kingsshield', 'obstruct', 'maxguard',
-]);
-const PROTECT_RIDERS: Record<string, string> = {
-  'Baneful Bunker': 'poisons on contact',
-  'Spiky Shield': 'chips on contact',
-  'Silk Trap': 'drops Spe on contact',
-  'Burning Bulwark': 'burns on contact',
-  "King's Shield": 'drops Atk on contact',
-};
-
-const HEALING_MOVES_CURATED: Array<{name: string; annotation: string}> = [
-  {name: 'Leech Seed', annotation: 'per-turn drain'},
-];
-
-const HEALING_ABILITIES: CuratedAbility[] = [
-  {name: 'Regenerator', annotation: 'heals on switch — pairs with pivoting'},
-  {name: 'Poison Heal', annotation: 'while poisoned'},
-  {name: 'Rain Dish', conditional: 'rain', annotation: 'needs rain'},
-  {name: 'Ice Body', conditional: 'snow', annotation: 'needs snow'},
-  {name: 'Dry Skin', conditional: 'rain', annotation: 'needs rain'},
-];
-
-const HEALING_ITEMS: Array<{name: string; annotation?: string}> = [
-  {name: 'Leftovers'},
-  {name: 'Black Sludge', annotation: 'Poison-types only'},
-  {name: 'Shell Bell'},
-  {name: 'Sitrus Berry', annotation: 'at ≤ ½ HP'},
-  {name: 'Figy Berry', annotation: 'pinch berry'},
-  {name: 'Wiki Berry', annotation: 'pinch berry'},
-  {name: 'Mago Berry', annotation: 'pinch berry'},
-  {name: 'Aguav Berry', annotation: 'pinch berry'},
-  {name: 'Iapapa Berry', annotation: 'pinch berry'},
-];
-
-/** Option-denial volatiles: derived rule for Encore-class moves. */
-const OPTION_VOLATILES = new Set(['encore', 'disable', 'taunt', 'torment', 'imprison', 'healblock']);
-
-const OPTION_ABILITIES: CuratedAbility[] = [
-  {name: 'Armor Tail', annotation: 'blocks priority'},
-  {name: 'Dazzling', annotation: 'blocks priority'},
-  {name: 'Queenly Majesty', annotation: 'blocks priority'},
-  {name: 'Sweet Veil', annotation: 'blocks sleep (side)'},
-  {name: 'Vital Spirit', annotation: 'blocks sleep (self)'},
-  {name: 'Insomnia', annotation: 'blocks sleep (self)'},
-  {name: 'Aroma Veil', annotation: 'blocks Taunt/Encore-class (side)'},
-  {name: 'Oblivious', annotation: 'Taunt-immune'},
-  {name: 'Own Tempo', annotation: 'Intimidate-immune'},
-  {name: 'Inner Focus', annotation: 'Intimidate-immune'},
-  {name: 'Scrappy', annotation: 'Intimidate-immune'},
-  {name: 'Good as Gold', annotation: 'status-move immunity'},
-  {name: 'Magic Bounce', annotation: 'reflects status moves'},
-];
-
 /**
- * Curated names verified absent from the Champions dex at spec time. The test
- * suite fails when validateCurated() diverges from this list in either
- * direction, so a closed dex gap forces a table review.
+ * Every curated name not in the given dex (sorted, deduped).
+ *
+ * Adapts `EvaluatorDex` to the three existence checks `lib/effects.ts` needs,
+ * which is all that keeps the shared taxonomy free of the evaluator's data
+ * layer.
  */
-export const EXPECTED_CURATED_DROPS = [
-  'Aguav Berry', 'Air Lock', 'Black Sludge', 'Dazzling', 'Figy Berry',
-  'Grassy Surge', 'Iapapa Berry', 'Ice Scales', 'Mago Berry', 'Misty Surge',
-  'Orichalcum Pulse', 'Propeller Tail', 'Protosynthesis', 'Psychic Surge',
-  'Quark Drive', 'Seed Sower', 'Wiki Berry',
-];
-
-/** Every curated name not in the given dex (sorted, deduped). */
 export function validateCurated(dex: EvaluatorDex): string[] {
-  const missing = new Set<string>();
-  const ability = (n: string) => { if (!(toID(n) in dex.abilities)) missing.add(n); };
-  const move = (n: string) => { if (!getMove(dex, n)) missing.add(n); };
-  const item = (n: string) => { if (!(toID(n) in dex.items)) missing.add(n); };
-  for (const a of [
-    ...SPEED_ABILITIES, ...PRIORITY_ABILITIES, ...WEATHER_SETTER_ABILITIES,
-    ...WEATHER_NEUTRALIZER_ABILITIES, ...TERRAIN_SETTER_ABILITIES,
-    ...REDIRECT_IMMUNE_ABILITIES, ...MITIGATION_ABILITIES,
-    ...HEALING_ABILITIES, ...OPTION_ABILITIES,
-  ]) ability(a.name);
-  for (const m of [
-    ...PRIORITY_CONDITIONAL_MOVES, ...TERRAIN_REMOVAL_MOVES,
-    ...TARGETING_MOVES, ...HEALING_MOVES_CURATED,
-  ]) move(m.name);
-  for (const m of REDIRECT_IMMUNE_MOVES) move(m);
-  for (const i of HEALING_ITEMS) item(i.name);
-  return [...missing].sort();
+  return validateCuratedAgainst({
+    hasAbility: (n) => toID(n) in dex.abilities,
+    hasMove: (n) => !!getMove(dex, n),
+    hasItem: (n) => toID(n) in dex.items,
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -271,19 +135,6 @@ export function providedConditions(dex: EvaluatorDex, sets: ParsedSet[]): Set<Fi
 // ---------------------------------------------------------------------------
 // The inventory.
 // ---------------------------------------------------------------------------
-
-const CATEGORY_META: Array<{id: CategoryId; label: string; description: string}> = [
-  {id: 'speed', label: 'Speed control', description: 'Speed drops, Tailwind, Trick Room, paralysis, speed abilities.'},
-  {id: 'priority', label: 'Priority', description: 'Damage-first priority moves (guaranteed-rider moves like Fake Out are targeting control).'},
-  {id: 'weather', label: 'Weather control', description: 'Weather setters and neutralizers.'},
-  {id: 'terrain', label: 'Terrain control', description: 'Terrain setters and removal.'},
-  {id: 'targeting', label: 'Targeting control', description: 'Redirection, Fake Out pressure, redirection immunity.'},
-  {id: 'mitigation', label: 'Damage mitigation', description: 'Screens, offensive-stat drops, burn, defensive self-boosts, abilities.'},
-  {id: 'protect', label: 'Protect moves', description: 'Single-target self-protection; members without one are flagged.'},
-  {id: 'healing', label: 'Healing', description: 'Recovery moves, drain attacks, abilities, items, field.'},
-  {id: 'pivoting', label: 'Pivoting', description: 'Self-switching and opponent force-switching moves only (D36).'},
-  {id: 'option', label: 'Option control', description: 'Denying the opponent choices: Encore-class, guards, blocking abilities.'},
-];
 
 function abilityTags(set: ParsedSet, dex: EvaluatorDex, table: CuratedAbility[], subGroup: string): Tag[] {
   return table
