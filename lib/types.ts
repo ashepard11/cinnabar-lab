@@ -115,7 +115,14 @@ export interface PokemonUsage {
 
 export interface UsageData {
   scraped_at: string;
+  /** Feed the usage weights came from (tournaments). */
   format: string;
+  /**
+   * Feed the build data came from (ladder) — moves, items, abilities, natures
+   * and spreads. Separate because the tournament feed publishes no spreads;
+   * see lib/format-rules.ts. Absent on files written before BACKLOG item 10.
+   */
+  build_format?: string;
   pokemon: PokemonUsage[];
 }
 

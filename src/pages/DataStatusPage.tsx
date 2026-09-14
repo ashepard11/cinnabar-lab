@@ -120,8 +120,17 @@ export default function DataStatusPage() {
                   <dd>{r.legality_format ?? '—'}</dd>
                   <dt>Simulated in</dt>
                   <dd>{r.sim_format ?? '—'}</dd>
-                  <dt>Usage source</dt>
-                  <dd>{r.pikalytics_format ?? '—'}</dd>
+                  <dt>Usage weights</dt>
+                  <dd>{r.pikalytics_usage_format ?? '—'}</dd>
+                  {/* Split because tournament feeds publish no stat spreads —
+                      see lib/format-rules.ts and DECISIONS.md D43. Shown only
+                      when the two differ, so M-B's single feed reads as one. */}
+                  {r.pikalytics_build_format !== r.pikalytics_usage_format && (
+                    <>
+                      <dt>Build data</dt>
+                      <dd>{r.pikalytics_build_format ?? '—'}</dd>
+                    </>
+                  )}
                 </dl>
               </div>
             );

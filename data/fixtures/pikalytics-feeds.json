@@ -1,0 +1,225 @@
+{
+  "note": "Trimmed live Pikalytics leaderboard payloads, captured 2026-09-14. Only the fields lib/scrape.ts reads. Used by scripts/test-scrape.ts; see BACKLOG item 10.",
+  "captured_at": "2026-09-14",
+  "month": "2026-05",
+  "feeds": {
+    "championstournamentsregmb": {
+      "entries": 297,
+      "sample": [
+        {
+          "name": "Kingambit",
+          "rank": "1",
+          "games": 25582,
+          "percent": "35.59"
+        },
+        {
+          "name": "Garchomp",
+          "rank": "2",
+          "games": 21285,
+          "percent": "30.02"
+        },
+        {
+          "name": "Incineroar",
+          "rank": "3",
+          "games": 19438,
+          "percent": "27.88"
+        },
+        {
+          "name": "Basculegion",
+          "rank": "4",
+          "games": 18899,
+          "percent": "26.29"
+        },
+        {
+          "name": "Charizard-Mega-Y",
+          "rank": "5",
+          "games": 18666,
+          "percent": "25.70"
+        },
+        {
+          "name": "Sinistcha",
+          "rank": "6",
+          "games": 16735,
+          "percent": "23.89"
+        },
+        {
+          "name": "Whimsicott",
+          "rank": "7",
+          "games": 15946,
+          "percent": "22.46"
+        },
+        {
+          "name": "Sneasler",
+          "rank": "8",
+          "games": 14139,
+          "percent": "20.60"
+        },
+        {
+          "name": "Farigiraf",
+          "rank": "9",
+          "games": 13303,
+          "percent": "18.98"
+        },
+        {
+          "name": "Staraptor-Mega",
+          "rank": "10",
+          "games": 12104,
+          "percent": "16.47"
+        },
+        {
+          "name": "Sylveon",
+          "rank": "11",
+          "games": 11361,
+          "percent": "16.12"
+        },
+        {
+          "name": "Archaludon",
+          "rank": "12",
+          "games": 10568,
+          "percent": "14.54"
+        }
+      ]
+    },
+    "gen9championsvgc2026regmb": {
+      "entries": 208,
+      "sample": [
+        {
+          "name": "Garchomp",
+          "rank": "1",
+          "games": 13224
+        },
+        {
+          "name": "Sinistcha",
+          "rank": "2",
+          "games": 10048
+        },
+        {
+          "name": "Basculegion",
+          "rank": "3",
+          "games": 13447
+        },
+        {
+          "name": "Whimsicott",
+          "rank": "4",
+          "games": 9052
+        },
+        {
+          "name": "Kingambit",
+          "rank": "5",
+          "games": 20250
+        },
+        {
+          "name": "Staraptor",
+          "rank": "6",
+          "games": 7278
+        },
+        {
+          "name": "Incineroar",
+          "rank": "7",
+          "games": 14161
+        },
+        {
+          "name": "Charizard",
+          "rank": "8",
+          "games": 9960
+        },
+        {
+          "name": "Raichu",
+          "rank": "9",
+          "games": 6320
+        },
+        {
+          "name": "Pelipper",
+          "rank": "10",
+          "games": 5359
+        },
+        {
+          "name": "Sneasler",
+          "rank": "11",
+          "games": 15502
+        },
+        {
+          "name": "Archaludon",
+          "rank": "12",
+          "games": 5167
+        }
+      ]
+    },
+    "championstournaments": {
+      "entries": 254,
+      "sample": [
+        {
+          "name": "Rillaboom",
+          "rank": "1",
+          "games": 3422,
+          "percent": "48.87"
+        },
+        {
+          "name": "Sneasler",
+          "rank": "2",
+          "games": 15502,
+          "percent": "48.41"
+        },
+        {
+          "name": "Salamence-Mega",
+          "rank": "3",
+          "games": 2357,
+          "percent": "34.89"
+        },
+        {
+          "name": "Incineroar",
+          "rank": "4",
+          "games": 14161,
+          "percent": "34.05"
+        },
+        {
+          "name": "Kingambit",
+          "rank": "5",
+          "games": 20250,
+          "percent": "31.91"
+        },
+        {
+          "name": "Basculegion",
+          "rank": "6",
+          "games": 13447,
+          "percent": "26.80"
+        },
+        {
+          "name": "Floette-Eternal-Mega",
+          "rank": "7",
+          "percent": "18.77"
+        },
+        {
+          "name": "Farigiraf",
+          "rank": "8",
+          "games": 9775,
+          "percent": "17.35"
+        },
+        {
+          "name": "Golisopod-Mega",
+          "rank": "9",
+          "games": 1110,
+          "percent": "16.18"
+        },
+        {
+          "name": "Pelipper",
+          "rank": "10",
+          "games": 5359,
+          "percent": "13.33"
+        },
+        {
+          "name": "Indeedee",
+          "rank": "11",
+          "games": 952,
+          "percent": "13.14"
+        },
+        {
+          "name": "Indeedee-F",
+          "rank": "12",
+          "games": 724,
+          "percent": "11.00"
+        }
+      ]
+    }
+  }
+}

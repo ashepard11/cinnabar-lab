@@ -20,6 +20,10 @@ jobs:
       # Team evaluator (BACKLOG item 08): parser parity, type/tag/RNG/BST
       # rules, damage-source oracle, variant matching, taxonomy-rot gate.
       - run: npm run test-evaluator
+      # Pikalytics feed handling (BACKLOG item 10): which feed states usage
+      # percentages vs needs them derived, and how Mega formes join across
+      # feeds. Hermetic — runs on captured payloads, never the network.
+      - run: npm run test-scrape
       # Shared effect taxonomy (BACKLOG item 11): display-group totality, the
       # Wide/Quick Guard placement rule, and that the teambuilder re-exports
       # the shared tables rather than keeping a copy.

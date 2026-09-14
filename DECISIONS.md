@@ -1040,3 +1040,74 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    group, the guards rule, the subset relation. Hermetic and dex-free; the
    curated tables' agreement with the Champions dex remains the separate
    taxonomy-rot gate in `test-evaluator.ts`, which needs the dex loaded.
+
+---
+
+### D43: Pikalytics feeds — usage from tournaments, spreads from the ladder (BACKLOG item 10, 2026-09-14)
+
+1. **The API was never dead; the month key is not the calendar month.** An
+   initial probe concluded the JSON API had been retired, because every
+   format-and-month pair returned HTTP 200 with `[]` — including
+   `battledataregmbs3`, which produced every committed usage file. It had not.
+   All of these feeds serve their data under the `2026-05` month key regardless
+   of regulation, and `discoverDataDate` finds it by probing backwards. Only
+   the hand probes were wrong. Recorded because the failure mode is convincing:
+   an unrecognised format and a valid format in an empty month are
+   byte-identical responses, so "no data" never distinguishes a wrong id from a
+   wrong date. Probe a known-good id across months before concluding anything.
+
+2. **The month key will drift out of reach.** `discoverDataDate` probes six
+   months back. Data sitting at `2026-05` becomes invisible after 2026-11, and
+   the symptom will be an empty scrape rather than an error. Not fixed here —
+   noted so it is recognised when it happens.
+
+3. **Pikalytics names the current regulation without a suffix**, exactly as
+   Showdown names its mods: `championstournaments` is M-C,
+   `championstournamentsregmb` is M-B, `championstournamentsregma` is M-A. The
+   earlier guess of `battledataregmc*` was the wrong family entirely. This also
+   means any id without a suffix is a moving target across a regulation
+   rollover, in both projects.
+
+4. **Tournament feeds never publish spreads.** Not a young-season artefact: a
+   fully finished M-B tournament season reports zero spreads and zero natures,
+   identical to a five-day-old M-C one, while both ladder feeds report thirty
+   spreads and nine natures per Pokémon. So the choice of feed is not one
+   choice but two, and they resolve differently — weights from the tournament
+   feed because events are what a teambuilder should weight against, builds
+   from the ladder feed because it is the only one that describes how a
+   Pokémon is actually put together.
+
+5. **The two feeds model Mega Evolution incompatibly.** The tournament feed
+   makes each Mega forme a first-class entry with its own usage — 25 of the 70
+   Pokémon above the threshold, 28% of all usage weight. The ladder feed has no
+   Mega entries at all, carrying the stone as an item on the base species.
+   Joining on the raw name silently loses every Mega; falling back to the base
+   species resolves all of them, 70/70 for M-B and 72/72 for M-C. Taking a
+   Mega's spread from its base form is not a compromise the join forces —
+   `lib/variants.ts` already did it, because Pikalytics has never published
+   Mega-specific spreads.
+
+6. **Usage semantics differ per feed and the difference is not a rounding
+   error.** The tournament and doubles-ladder feeds carry a `percent` field
+   matching what the site displays; the older `battledata*` singles feed does
+   not, and usage must be derived from game counts. Deriving on a feed that
+   states its percentages puts Rillaboom at 7.6% where the site says 48.9% and
+   reorders the entire metagame. `usageOf` prefers the stated field and falls
+   back to the derivation.
+
+7. **M-B deliberately stays on its single proven feed.** `battledataregmbs3`
+   carries both halves, so M-B needs no split. It is the BSS *singles* ladder,
+   which this project does not analyse, and moving M-B to the doubles pair
+   would be a correction — but a correction that changes weights and modal sets,
+   therefore content ids, therefore every row of the matrix. Left until that
+   rebuild is wanted, so the weekly refresh keeps producing comparable numbers.
+   The split is applied only where a feed is actually missing something.
+
+8. **M-C is still blocked, and on data rather than on code.** Its usage feed
+   works and carries 254 entries with 72 above the threshold. Its ladder feed
+   carries no spreads yet — the season is five days old, and its M-B
+   counterpart has thirty per Pokémon, so they are expected to arrive. Until
+   they do, every M-C variant would take the default spread, so `scrapeUsage`
+   refuses a roster-wide spread failure rather than producing a metagame of
+   invented stat allocations. Re-vendoring Showdown is not attempted until
+   there is M-C data worth rebuilding the matrix for.

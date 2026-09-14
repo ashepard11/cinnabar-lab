@@ -78,15 +78,30 @@ intersected with the calc's Champions roster. M-B comes out at 323 species,
 148 items and 74 Mega formes; the item count matches the regulation
 announcement exactly.
 
-**M-C cannot be built yet.** The vendored Showdown build (`e440c4a`, ~July
-2026) ships only the `champions` (M-B) and `championsregma` (M-A) mods, so M-C
-has no legality data and its entry is declared but deliberately unsourceable —
-`SIM_FORMAT` and the resolver both throw rather than silently falling back to
-M-B rules. Moving to M-C needs three things together: re-vendoring
-pokemon-showdown, confirming M-C's Pikalytics format id against the live API,
-and re-scraping usage. Re-vendoring bumps `SIM_ENGINE_VERSION`, which
-invalidates `data/matchups.sqlite`, so budget a full matrix rebuild. See
-DECISIONS.md D39 and BACKLOG items 09 and 10.
+**M-C cannot be built yet, and the reason is now narrower.** The vendored
+Showdown build (`e440c4a`, ~July 2026) ships only the `champions` (M-B) and
+`championsregma` (M-A) mods, so M-C has no legality data and its entry is
+declared but deliberately unsourceable — `SIM_FORMAT` and the resolver both
+throw rather than silently falling back to M-B rules.
+
+The Pikalytics side is resolved: M-C's feeds are confirmed and recorded
+(`championstournaments` for usage weights, `gen9championsvgc2026regmc` for
+build data). Usage weights come from the tournament feed and build data from
+the ladder feed, because tournament feeds publish no stat spreads at all — a
+finished M-B tournament season reports zero, the same as a five-day-old M-C
+one. What blocks M-C now is that its ladder feed has not started publishing
+spreads either. Until it does, every variant would take a default spread, and
+`scrapeUsage` refuses a roster-wide spread failure rather than producing a
+metagame of invented stat allocations.
+
+Note that Pikalytics and Showdown both name the *current* regulation without a
+suffix and archive the previous one, so `champions` and `championstournaments`
+are moving targets across a rollover. Re-vendoring therefore also remaps M-B
+onto `championsregmb`, and drops M-A entirely (its mod is gone from master; the
+committed `data/format-rules-M-A.json` is self-contained, so readers are
+unaffected). Re-vendoring bumps `SIM_ENGINE_VERSION`, which invalidates
+`data/matchups.sqlite`, so budget a full matrix rebuild. See DECISIONS.md D39
+and D43, and BACKLOG items 09 and 10.
 
 ## Quick start
 

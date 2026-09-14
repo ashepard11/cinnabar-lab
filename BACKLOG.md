@@ -175,7 +175,13 @@ Switching regulations then becomes a configuration change. It also makes backtes
 
 Phase 1's data status screen (`/data-status`) now renders every regulation with its dates, formats and usage source, and marks M-C as declared-but-unsourceable with the reason. What is missing is the *selector*, and it is not blocked on interface work any more — it is blocked on there being a second regulation worth switching to. A dropdown with one working option would be a worse lie than the sentence currently in its place.
 
-So the remaining work is one thing, not two: **replace the vendored Showdown build.** That resolves M-C legality and makes the selector meaningful at the same time. It also needs M-C's Pikalytics format id confirmed against the live API, since guessing one is worse than admitting ignorance — the API answers an unrecognised format with `[]` rather than a 404.
+**The Pikalytics half is done (2026-09-14).** M-C's feed ids are confirmed against the live API and recorded: `championstournaments` for usage weights, `gen9championsvgc2026regmc` for build data. Pikalytics names the current regulation without a suffix and archives the previous one, exactly as Showdown names its mods — the earlier `battledataregmc*` guess was the wrong family. `lib/scrape.ts` now reads the two feeds, prefers a feed's stated `percent` over the game-count derivation, and joins Mega formes across feeds by base species. Hermetic coverage in `scripts/test-scrape.ts`.
+
+**What still blocks M-C is data, not code: the ladder feed has no spreads yet.** Tournament feeds never publish spreads — a finished M-B tournament season has zero, the same as a five-day-old M-C one — and M-C's ladder feed has not started publishing them either, though its M-B counterpart carries thirty per Pokémon. Until they appear, every M-C variant would take the default spread, so the scraper refuses a roster-wide spread failure rather than inventing a metagame. Re-check the ladder feed periodically; nothing else is needed from Pikalytics.
+
+So the remaining work is: **wait for M-C spreads, then replace the vendored Showdown build.** That resolves M-C legality and makes the selector meaningful at the same time.
+
+**Re-vendoring has two consequences worth knowing before it starts.** Showdown master renames mods on rollover the same way Pikalytics does — `champions` now means M-C and M-B has moved to `championsregmb`, so this repo's `M-B -> champions` mapping would silently start serving M-C rules. And `championsregma` has been deleted from master entirely, so M-A becomes unregenerable; the committed `data/format-rules-M-A.json` is self-contained (285 species, 117 items, 58 Megas) so existing readers are unaffected.
 
 Per-species move bans stay empty regardless: Showdown models them as learnset removals, indistinguishable from never learning the move. See DECISIONS.md D39.
 

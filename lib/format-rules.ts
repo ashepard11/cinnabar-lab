@@ -70,14 +70,33 @@ export interface RegulationConfig {
    */
   sim_format: string | null;
   /**
-   * Pikalytics API format id for usage scraping (lib/scrape.ts), or null when
-   * this project has never confirmed one. Only M-B's is known good — it is
-   * what produced every usage file in data/. Guessing an id is worse than
-   * admitting ignorance: the API answers an unrecognised format with an empty
-   * array rather than a 404, so a wrong id scrapes zero Pokémon and reports
-   * success.
+   * Pikalytics format id supplying **usage weights** — how often a Pokémon is
+   * brought. This is the tournament feed: real event results, which is what a
+   * teambuilder should weight against.
+   *
+   * Null when this project has never confirmed one. Guessing an id is worse
+   * than admitting ignorance: the API answers an unrecognised format with an
+   * empty array rather than a 404, so a wrong id scrapes zero Pokémon and
+   * reports success.
    */
-  pikalytics_format: string | null;
+  pikalytics_usage_format: string | null;
+  /**
+   * Pikalytics format id supplying **build data** — moves, items, abilities,
+   * natures and SP spreads.
+   *
+   * Deliberately a different feed from `pikalytics_usage_format`, because the
+   * tournament feed does not publish spreads at all. That is a property of the
+   * feed and not of season maturity: a fully finished M-B tournament season
+   * reports zero spreads and zero natures, exactly like a five-day-old M-C one,
+   * while both ladder feeds report thirty spreads and nine natures per Pokémon.
+   * Verified against the live API on 2026-09-14.
+   *
+   * Splitting the two is the point rather than a workaround: weights say what
+   * people bring to events, builds say how people build it. Taking every build
+   * field from one feed also keeps a variant internally consistent — its item,
+   * ability, moves and spread all describe the same population.
+   */
+  pikalytics_build_format: string | null;
   level: 50;
   /** Champions gives every Pokémon 66 Stat Points to distribute. */
   sp_total: 66;
@@ -132,8 +151,10 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     showdown_mod: 'championsregma',
     legality_format: 'gen9championsvgc2026regma',
     sim_format: 'gen9championsbssregma',
-    // Never scraped by this project; the M-A season predates it.
-    pikalytics_format: null,
+    // Never scraped by this project; the M-A season predates it. The ids are
+    // recorded because they exist and resolve, not because they were used.
+    pikalytics_usage_format: 'championstournamentsregma',
+    pikalytics_build_format: 'gen9championsvgc2026regma',
     level: 50,
     sp_total: 66,
     sp_per_stat_cap: 32,
@@ -151,7 +172,22 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     showdown_mod: 'champions',
     legality_format: 'gen9championsvgc2026regmb',
     sim_format: 'gen9championsbssregmb',
-    pikalytics_format: 'battledataregmbs3',
+    /**
+     * Deliberately still the single proven feed, not the tournament/ladder
+     * pair M-C uses.
+     *
+     * `battledataregmbs3` produced every committed usage file and carries both
+     * halves — game counts to derive usage from, and thirty spreads per
+     * Pokémon — so M-B needs no split. It is the BSS *singles* ladder, which
+     * this project does not analyse, and moving M-B to
+     * `championstournamentsregmb` + `gen9championsvgc2026regmb` would be the
+     * correction. That migration is not free: different weights and different
+     * modal sets mean different content ids, which invalidates every row of
+     * data/matchups.sqlite. Leave it until that rebuild is wanted, so the
+     * weekly refresh keeps producing comparable numbers. See DECISIONS.md D43.
+     */
+    pikalytics_usage_format: 'battledataregmbs3',
+    pikalytics_build_format: 'battledataregmbs3',
     level: 50,
     sp_total: 66,
     sp_per_stat_cap: 32,
@@ -170,11 +206,18 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
    * (260 and 166, up from 224 and 148) are spec prose with nothing to verify
    * them against — do not encode them here as if they were data.
    *
-   * The Pikalytics id is unknown for the same reason. `battledataregmcs1` is
-   * the obvious extrapolation from M-B's `battledataregmbs3`, but a probe on
-   * 2026-09-13 was inconclusive (the API returns `[]` for every
-   * month-and-format pair, including ones known to hold data), so it stays
-   * null until a real scrape confirms it.
+   * The Pikalytics ids **are** now confirmed against the live API
+   * (2026-09-14), and they are not the `battledataregmc*` extrapolation the
+   * earlier probe guessed at. Pikalytics keeps the current regulation on an
+   * unsuffixed id and archives the previous one — `championstournaments` is
+   * M-C, `championstournamentsregmb` is M-B — exactly the convention Showdown
+   * uses for its mods. The earlier probe read as inconclusive because it asked
+   * for the wrong stats month; all of these feeds serve their data under the
+   * `2026-05` month key regardless of regulation.
+   *
+   * Usage data therefore exists for M-C. **Spreads do not**, in either feed,
+   * which is what still blocks building M-C variants — see
+   * `pikalytics_build_format` and BACKLOG item 10.
    */
   'M-C': {
     regulation_id: 'M-C',
@@ -183,7 +226,8 @@ export const REGULATIONS: Record<RegulationId, RegulationConfig> = {
     showdown_mod: null,
     legality_format: null,
     sim_format: null,
-    pikalytics_format: null,
+    pikalytics_usage_format: 'championstournaments',
+    pikalytics_build_format: 'gen9championsvgc2026regmc',
     level: 50,
     sp_total: 66,
     sp_per_stat_cap: 32,
