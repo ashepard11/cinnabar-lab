@@ -12,6 +12,7 @@ import { DatabaseSync } from 'node:sqlite';
 import * as fs from 'fs';
 import * as path from 'path';
 import { CONDITION_IDS, mirrorCondition, type ConditionId } from '../lib/sim/condition';
+import { SCHEMA_VERSION, SUPPORTED_SCHEMA_VERSIONS } from '../lib/analysis/schema';
 import type { VariantsData } from '../lib/types';
 
 const ROOT = path.join(__dirname, '..');
@@ -25,12 +26,19 @@ const check = (label: string, ok: boolean, detail = '') => {
   if (!ok) failures++;
 };
 
-// 0. schema v2 (BACKLOG item 02) — cids + provenance run key present
+// 0. schema — cids + provenance run key present (BACKLOG items 02, 03)
 const meta = Object.fromEntries(
   (db.prepare('SELECT key, value FROM metadata').all() as any[]).map((r) => [r.key, r.value]),
 ) as Record<string, string>;
-check('schema v2', meta.schema_version === '2' && !!meta.current_run_id,
-  `schema_version=${meta.schema_version ?? 'v1'}, current run ${meta.current_run_id ?? '—'}`);
+check(
+  `schema v${SCHEMA_VERSION}`,
+  SUPPORTED_SCHEMA_VERSIONS.includes(meta.schema_version) && !!meta.current_run_id,
+  `schema_version=${meta.schema_version ?? 'v1'}, current run ${meta.current_run_id ?? '—'}`,
+);
+// Rows for retired variants are deliberate cache (BACKLOG item 03), so the
+// table is expected to be larger than the current view. Report the gap rather
+// than failing on it, so an unexplained excess is still visible.
+const allRows = (db.prepare('SELECT COUNT(*) c FROM matchups').get() as any).c as number;
 const currentVariants = (db.prepare('SELECT COUNT(*) c FROM variants WHERE current = 1').get() as any).c as number;
 check('variants table matches json', currentVariants === ids.length,
   `${currentVariants} current variants (json has ${ids.length})`);
@@ -87,6 +95,10 @@ console.log(`\n  stats: avg n=${stats.avg_n.toFixed(1)} battles/cell, avg CI wid
 
 const battles = (db.prepare('SELECT SUM(n_simulated) s FROM matchups_current').get() as any).s / 2; // rows double-count via mirrors
 console.log(`  total battles simulated: ${Math.round(battles).toLocaleString()}`);
+console.log(
+  `  ${allRows.toLocaleString()} rows in the table, ${(allRows - count).toLocaleString()} of them ` +
+  `cached for variants outside the current set (npm run refresh-matchups -- --prune drops them)`,
+);
 
 db.close();
 console.log(`\n${failures === 0 ? 'ALL CHECKS PASSED' : `${failures} FAILURES`}`);
