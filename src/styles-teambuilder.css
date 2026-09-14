@@ -383,3 +383,57 @@
 .evaluator-buttons button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 .evaluator-body { padding: 4px 16px 16px; border-top: 1px solid var(--border); }
 .evaluator-blurb { font-size: 12px; color: var(--ink-muted); line-height: 1.5; margin: 10px 0 14px; max-width: 640px; }
+
+/* --- v4: horizontal candidate rows, single-row filters, paired matrices ---- */
+
+/* Candidate card: identity + three tiles + actions on one row. */
+.candidate-card { padding: 9px 12px; }
+.candidate-row { display: grid; grid-template-columns: minmax(170px, 1.25fr) repeat(3, minmax(0, 1fr)) auto; gap: 12px; align-items: start; }
+.candidate-ident { min-width: 0; }
+.candidate-name { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
+.candidate-name a { font-size: 13.5px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.candidate-name a:hover { color: var(--accent); }
+.candidate-rank { font-size: 10.5px; color: var(--ink-muted); min-width: 14px; }
+.set-count { font-size: 9.5px; color: var(--ink-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 0 4px; cursor: help; }
+.provisional-badge, .candidate-ident .badge-active { font-size: 9px; padding: 0 3px; }
+.set-summary { font-size: 10.5px; color: var(--ink-secondary); margin: 0; display: flex; flex-direction: column; gap: 1px; }
+.set-summary-line { display: flex; gap: 4px; flex-wrap: wrap; align-items: baseline; }
+.set-move { font-size: 9.5px; padding: 0 3px; }
+
+.candidate-dimensions { display: contents; }
+.dimension { padding: 6px 8px; gap: 2px; min-width: 0; }
+.dimension-label { font-size: 9.5px; cursor: help; }
+.dimension-value { font-size: 15px; line-height: 1.15; }
+.dimension-subvalue { font-size: 10px; }
+.value-suffix { font-size: 9px; }
+.category-chips { margin-top: 2px; }
+.category-chip { font-size: 9px; }
+.support-pills { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.support-pill { font-size: 10px; padding: 0 4px; }
+.swing-list { margin-top: 4px; }
+.swing-list li { font-size: 10px; gap: 4px; }
+
+.candidate-actions { display: flex; flex-direction: column; gap: 4px; align-items: stretch; }
+.candidate-pick { font-size: 11.5px; padding: 3px 10px; }
+.candidate-expand { font-size: 10.5px; padding: 2px 10px; }
+
+/* Filters: one row. */
+.filter-bar { padding: 8px 10px; margin-bottom: 14px; }
+.filter-row { display: flex; gap: 10px; align-items: center; flex-wrap: nowrap; margin: 0; }
+.filter-bar select, .filter-bar > .filter-row > input { font-size: 12px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--ink); font-family: inherit; }
+.filter-bar > .filter-row > input { width: 130px; }
+.filter-bar .sort-toggle button { padding: 3px 8px; font-size: 11.5px; }
+.threat-inline { position: relative; display: flex; align-items: center; gap: 5px; flex: 1; min-width: 0; flex-wrap: wrap; }
+.threat-inline .threat-chip { font-size: 10.5px; padding: 1px 3px 1px 7px; }
+.threat-inline .threat-input { flex: 1; min-width: 120px; font-size: 12px; padding: 3px 6px; }
+.filter-count { margin-left: auto; font-size: 12px; white-space: nowrap; }
+
+/* Type matrices side by side. */
+.typematrix.side-by-side { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.typematrix.side-by-side .tm-half { min-width: 0; overflow-x: auto; }
+.typematrix.side-by-side h3 { margin-top: 0; cursor: help; }
+
+@media (max-width: 900px) {
+  .candidate-row { grid-template-columns: 1fr 1fr; }
+  .typematrix.side-by-side { grid-template-columns: 1fr; }
+}

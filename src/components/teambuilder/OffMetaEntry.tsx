@@ -115,14 +115,10 @@ export default function OffMetaEntry({
   return (
     <div className="set-editor off-meta" role="dialog" aria-label="Add a Pokémon not in the list">
       <div className="set-editor-head">
-        <h3>Add any legal Pokémon</h3>
+        <h3>Add any legal Pokémon <span className="muted">slot {teamSize + 1}</span></h3>
         <button type="button" className="link" onClick={onCancel}>Cancel</button>
       </div>
 
-      <p className="muted">
-        Slot {teamSize + 1}. Anything legal in {RULES.regulation_id}, whether or not
-        it appears in usage data.
-      </p>
 
       <div className="sp-editor">
         <div className="custom-grid">
@@ -209,11 +205,8 @@ export default function OffMetaEntry({
                 {impact.patches.map((p) => `${p.species} (${pct(p.weight)} of the field, ${pct(p.p)})`).join(', ')}.
               </p>
             )}
-            <p className="muted impact-caveat">
-              Provisional. A set with no matrix rows is estimated from the damage
-              calculator — speed order and KO counts at both roll boundaries — and
-              refined once its simulations land. It stays marked provisional
-              everywhere it appears until then.
+            <p className="muted impact-caveat" title="A set with no matrix rows is estimated from the damage calculator — speed order and KO counts at both roll boundaries — and refined once its simulations land.">
+              Provisional until its simulations land.
             </p>
           </div>
         )}

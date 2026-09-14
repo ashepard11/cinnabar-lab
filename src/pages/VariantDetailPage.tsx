@@ -54,7 +54,7 @@ export default function VariantDetailPage() {
               {variant.tier && <> · <span className="badge-active">{variant.tier} tier</span></>}
             </>
           ) : (
-            'Not in the fixture set — the fixture covers only the top variants by weight.'
+            'Not in the fixture set.'
           )}
         </p>
       </header>
@@ -66,33 +66,27 @@ export default function VariantDetailPage() {
             <div className="headline-numbers">
               <div className="headline">
                 <span className="headline-value">{pct(positioning.entry_coverage)}</span>
-                <span className="headline-label">Entry coverage</span>
-                <span className="headline-note">
-                  Share of the field it can switch in on while keeping at least 80% of
-                  its full-health matchup spread.
+                <span className="headline-label" title="Share of the field it can switch in on while keeping at least 80% of its full-health matchup spread.">
+                  Entry coverage
                 </span>
               </div>
               <div className="headline">
                 <span className="headline-value">{positioning.conversion}</span>
-                <span className="headline-label">Conversion</span>
-                <span className="headline-note">
-                  Across that share, how many opponents it is actually favoured
-                  against after paying the entry cost.
+                <span className="headline-label" title="Across that share, how many opponents it is favoured against after paying the entry cost.">
+                  Conversion
                 </span>
               </div>
               <div className="headline">
                 <span className="headline-value">{pct(positioning.switch_in_score)}</span>
-                <span className="headline-label">Switch-in score</span>
-                <span className="headline-note">
-                  Usage-weighted matchup spread retained after entry costs. Hard to
-                  read alone, which is why the two above exist.
+                <span className="headline-label" title="Usage-weighted matchup spread retained after entry costs.">
+                  Switch-in score
                 </span>
               </div>
             </div>
 
             <h3>Cannot safely come in on</h3>
             {positioning.costly_entries.length === 0 ? (
-              <p className="muted">Nothing in the fixture field costs it more than it can afford.</p>
+              <p className="muted">Nothing costs it more than it can afford.</p>
             ) : (
               <table className="detail-table">
                 <thead>
@@ -113,11 +107,6 @@ export default function VariantDetailPage() {
                 </tbody>
               </table>
             )}
-            <p className="muted footnote">
-              Entry cost assumes the opponent attacks with its best move into the
-              switch. It does not model prediction, Protect, or the opponent
-              switching out — it is a floor on how safely this Pokémon enters.
-            </p>
 
             {positioning.tools_provided.length > 0 && (
               <>
@@ -141,9 +130,7 @@ export default function VariantDetailPage() {
       <section>
         <h2>What it enables</h2>
         {enablers.length === 0 ? (
-          <p className="muted">
-            No enablers recorded. It contributes through matchups and positioning only.
-          </p>
+          <p className="muted">No enablers.</p>
         ) : (
           <table className="detail-table">
             <thead>
@@ -172,20 +159,12 @@ export default function VariantDetailPage() {
             </tbody>
           </table>
         )}
-        <p className="muted footnote">
-          One record per mechanism-and-condition pair — a move doing two things
-          appears twice. Effects the simulator applies on its own, like Swift Swim
-          gaining speed once rain is up, are not enablers.
-        </p>
       </section>
 
       <section>
         <h2>Matchup spread</h2>
         {spread.length === 0 ? (
-          <p className="muted">
-            No fixture cells for this variant. The fixture matrix covers only the top
-            six by weight.
-          </p>
+          <p className="muted">No fixture cells for this variant.</p>
         ) : (
           <table className="detail-table">
             <thead>

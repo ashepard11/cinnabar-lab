@@ -54,7 +54,7 @@ export default function TeamDetailPage() {
       <header className="page-head">
         <Link to="/build" className="back-link">← Back to Build</Link>
         <h1>Team detail</h1>
-        <p className="subtitle">Running on fixture data — every score here is invented.</p>
+        <p className="subtitle">Fixture data.</p>
       </header>
 
       <section className="score-band-section">
@@ -68,22 +68,18 @@ export default function TeamDetailPage() {
             <div className="band-marker ceiling" style={{left: `${team.score_ceiling * 100}%`}} />
           </div>
           <div className="band-labels">
-            <span>
+            <span title="No conditions, no chip">
               <strong>{pct(team.score_floor)}</strong> floor
-              <span className="muted"> — no conditions, no chip</span>
             </span>
-            <span>
+            <span title="Every supplied condition available">
               <strong>{pct(team.score_ceiling)}</strong> ceiling
-              <span className="muted"> — every supplied condition available</span>
             </span>
           </div>
         </div>
         <div className="reliance">
           <span className="headline-value">{pct(team.condition_reliance)}</span>
-          <span className="headline-label">Condition reliance</span>
-          <span className="headline-note">
-            How much of the ceiling depends on setup landing. The score is a ceiling,
-            not an expectation — the model applies no reliability priors.
+          <span className="headline-label" title="How much of the ceiling depends on setup landing. The score is a ceiling, not an expectation — the model applies no reliability priors.">
+            Condition reliance
           </span>
         </div>
       </section>
@@ -101,12 +97,6 @@ export default function TeamDetailPage() {
 
       <section>
         <h2>Matchup grid</h2>
-        <p className="muted footnote" style={{marginTop: 0, marginBottom: 12}}>
-          Six members down the side, the metagame across the top. In this fixture
-          build the matrix covers only the six variants the generator emits, so the
-          columns happen to be the same Pokémon as the rows and the diagonal is
-          empty. Against real data these are different sets.
-        </p>
         {opponents.length === 0 ? (
           <p className="muted">No fixture cells.</p>
         ) : (
@@ -208,10 +198,8 @@ export default function TeamDetailPage() {
         </table>
         {team.positioning.unreachable_opponents.length > 0 && (
           <p className="muted footnote">
-            No member can safely come in on:{' '}
+            No member enters safely on{' '}
             {team.positioning.unreachable_opponents.map((o) => `${o.species} (${pct(o.weight)})`).join(', ')}.
-            Positioning is reported alongside the score rather than folded into it —
-            a single number would hide which of three problems this team has.
           </p>
         )}
       </section>
@@ -243,11 +231,7 @@ export default function TeamDetailPage() {
       </section>
 
       <section>
-        <h2>Member contributions</h2>
-        <p className="muted footnote">
-          Leave-one-out score delta. This is what says whether the sixth slot is
-          doing anything.
-        </p>
+        <h2 title="Leave-one-out score delta — what each slot is actually doing.">Member contributions</h2>
         <ul className="contribution-chart">
           {[...team.member_contributions]
             .sort((a, b) => b.marginal_score - a.marginal_score)

@@ -28,14 +28,8 @@ export default function DamageMarimekko({ sets }: { dex: EvaluatorDex; sets: Par
     return <p className="footer-note">No damaging moves on this team — nothing to chart.</p>;
   }
   return (
-    <div>
+    <div title="Average roll of one clean hit into a neutral 100 HP / 80 / 80 target, ×1.5 for spread moves, under the attacker's auto-set weather, unweighted. Shares sum to 100%.">
       <Marimekko data={ds.viz} />
-      <p className="footer-note">
-        Same model as the metagame damage-sources tab: average roll of one
-        clean hit into a neutral 100 HP / 80 / 80 target, ×1.5 for spread
-        moves, under the attacker's auto-set weather — but unweighted (every
-        move counts once). Shares sum to 100% across cells.
-      </p>
       {ds.flagged.length > 0 && (
         <p className="footer-note">
           Undercounted (base power depends on battle state the model fixes at

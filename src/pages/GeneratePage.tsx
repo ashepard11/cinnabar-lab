@@ -82,21 +82,14 @@ export default function GeneratePage() {
     <div className="page generate-page">
       <header className="page-head">
         <h1>Generate teams</h1>
-        <p className="subtitle">
-          Automatic mode: search the space of legal teams and rank them against the
-          usage-weighted metagame. The search lands in Phase 8 — this list is
-          derived from fixture data so the card layout and controls can be judged
-          now.
-        </p>
+        <p className="subtitle">Fixture data — the search itself lands in Phase 8.</p>
       </header>
 
       <section className="generate-config">
         <h2>Configuration</h2>
         <div className="config-row">
-          <label>
-            <span>
-              λ <span className="muted">second-best blending</span>
-            </span>
+          <label title="Approximates bring-6 pick-4 by blending a team's second-best answer into its best. At 0 a team scores as its single best answer.">
+            <span>λ</span>
             <input
               type="range"
               min={0}
@@ -106,13 +99,9 @@ export default function GeneratePage() {
               onChange={(e) => setLambda(Number(e.target.value))}
             />
             <output>{lambda.toFixed(2)}</output>
-            <span className="config-help">
-              Approximates bring-6 pick-4 by blending a team's second-best answer
-              into its best. At 0 a team scores exactly as its single best answer.
-            </span>
           </label>
 
-          <label>
+          <label title="At width 1 the automatic search reproduces greedy guided mode exactly.">
             <span>Beam width</span>
             <input
               type="number"
@@ -121,23 +110,15 @@ export default function GeneratePage() {
               value={beamWidth}
               onChange={(e) => setBeamWidth(Number(e.target.value))}
             />
-            <span className="config-help">
-              At width 1 the automatic search reproduces greedy guided mode exactly.
-            </span>
           </label>
 
-          <label className="checkbox">
+          <label className="checkbox" title="Charges a tier-2 enabler roughly a turn of absorbed damage. Approximate.">
             <input
               type="checkbox"
               checked={priceSlowEnablers}
               onChange={(e) => setPriceSlowEnablers(e.target.checked)}
             />
             <span>Price slow enablers</span>
-            <span className="config-help">
-              Charges a tier-2 enabler roughly a turn of absorbed damage. Off by
-              default and approximate — whether users expect this to move the
-              numbers is one of Phase 1's open questions.
-            </span>
           </label>
         </div>
       </section>
@@ -204,23 +185,6 @@ export default function GeneratePage() {
         </ol>
       </section>
 
-      <aside className="phase1-note">
-        <h3>What this screen is trying to find out</h3>
-        <ul>
-          <li>
-            <strong>Does the band read before the ceiling?</strong> Sorting by
-            ceiling puts swingy teams up top. If the top 20 by ceiling turns out to
-            be entirely high-reliance teams, the ceiling is being read as an
-            expectation and this list needs to lead with the band instead.
-          </li>
-          <li>
-            <strong>Do the configuration controls belong here at all?</strong> λ and
-            beam width are modelling parameters, not user preferences. If nobody
-            touches them, they should become constants and stop taking up the top
-            of the screen.
-          </li>
-        </ul>
-      </aside>
     </div>
   );
 }

@@ -103,11 +103,8 @@ export default function MovesetsPage() {
     <div className="page movesets-page">
       <header className="page-head">
         <h1>Movesets</h1>
-        <p className="subtitle">
-          Pikalytics publishes per-move usage, not four-move sets. The selection
-          below is the plain top four — Phase 2's corrections are not built yet,
-          so this shows the naive choice next to what it passed over. Usage
-          percentages are real; the selection is what needs reviewing.
+        <p className="subtitle" title="Pikalytics publishes per-move usage, not four-move sets. The selection shown is the plain top four; Phase 2's corrections are not built yet.">
+          Generated movesets against the usage they came from. Low confidence first.
         </p>
       </header>
 
@@ -201,12 +198,9 @@ export default function MovesetsPage() {
 
       {overrideCount > 0 && (
         <section className="override-export">
-          <h2>data/moveset-overrides.json</h2>
-          <p className="muted">
-            Overrides are version-controlled and survive a rescrape, so they belong
-            in the repo rather than in browser storage. A static site cannot write
-            the file, so copy this in for now.
-          </p>
+          <h2 title="Overrides are version-controlled and survive a rescrape. A static site cannot write the file, so copy this in.">
+            data/moveset-overrides.json
+          </h2>
           <pre>{exportPayload}</pre>
         </section>
       )}

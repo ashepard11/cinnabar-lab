@@ -105,7 +105,6 @@ export default function EvaluatorPanel({sets}: {sets: ParsedSet[]}) {
 
       {active && (
         <div className="evaluator-body">
-          <p className="evaluator-blurb">{active.blurb}</p>
           {error && <p className="error">Failed to load the dex: {error}</p>}
           {!dex && !error && <p className="muted">Loading the dex…</p>}
           {dex && <Section id={active.id} dex={dex} sets={sets} />}

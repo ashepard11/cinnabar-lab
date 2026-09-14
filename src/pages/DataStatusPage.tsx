@@ -82,10 +82,7 @@ export default function DataStatusPage() {
     <div className="page data-status">
       <header className="page-head">
         <h1>Data status</h1>
-        <p className="subtitle">
-          What the analysis is currently built from, and where it has drifted.
-          This page reads the committed data directly — nothing here is fixture.
-        </p>
+        <p className="subtitle">What the analysis is built from, and where it has drifted.</p>
       </header>
 
       {errors.map((e) => (
@@ -93,7 +90,7 @@ export default function DataStatusPage() {
       ))}
 
       <section>
-        <h2>Regulation</h2>
+        <h2 title="Switching regulation is a configuration change: set CHAMPIONS_REGULATION and rebuild.">Regulation</h2>
         <div className="status-grid">
           {(Object.keys(REGULATIONS) as RegulationId[]).map((id) => {
             const r = REGULATIONS[id];
@@ -104,7 +101,11 @@ export default function DataStatusPage() {
                 <div className="regulation-head">
                   <strong>{id}</strong>
                   {active && <span className="badge-active">active</span>}
-                  {!sourceable && <span className="badge-warn">no data</span>}
+                  {!sourceable && (
+                    <span className="badge-warn" title="The vendored Showdown build predates this regulation, so its legality cannot be resolved. Switching needs a re-vendor, which bumps the engine version and invalidates the matrix.">
+                      no data
+                    </span>
+                  )}
                 </div>
                 <p className="muted">
                   {r.active_from} → {r.active_until ?? 'current'}
@@ -117,24 +118,10 @@ export default function DataStatusPage() {
                   <dt>Usage source</dt>
                   <dd>{r.pikalytics_format ?? '—'}</dd>
                 </dl>
-                {!sourceable && (
-                  <p className="regulation-note">
-                    The vendored Showdown build predates this regulation, so its
-                    legality cannot be resolved. Switching to it needs a
-                    re-vendor, which bumps the engine version and invalidates
-                    the matrix.
-                  </p>
-                )}
               </div>
             );
           })}
         </div>
-        <p className="muted switch-note">
-          Switching regulation is a configuration change — set{' '}
-          <code>CHAMPIONS_REGULATION</code> and rebuild. A selector here needs
-          more than one regulation to have data, so it stays a note until the
-          M-C migration lands.
-        </p>
       </section>
 
       <section>
@@ -170,7 +157,7 @@ export default function DataStatusPage() {
           <dl className="status-list">
             <dt>Resolved from</dt>
             <dd>
-              {rules.legality_format} <span className="muted">(doubles — legality)</span>
+              {rules.legality_format}
             </dd>
             <dt>Legal species</dt>
             <dd>{rules.legal_species.length}</dd>
@@ -179,9 +166,8 @@ export default function DataStatusPage() {
             <dt>Mega formes</dt>
             <dd>{rules.mega_capable.length}</dd>
             <dt>Team / bring</dt>
-            <dd>
+            <dd title="Read from the format's rule table, not declared in config">
               {rules.sourced_clauses.team_size} / {rules.sourced_clauses.bring_count}
-              <span className="muted"> — sourced from the format, not declared</span>
             </dd>
             <dt>Generated</dt>
             <dd>
@@ -234,10 +220,7 @@ export default function DataStatusPage() {
                   </p>
                 )}
                 <p className="muted">
-                  The weekly refresh regenerates usage and variants but not the
-                  matrix. Rebuilding it is hours of compute, so it is worth
-                  batching with the other changes that invalidate it — see the
-                  note in BACKLOG.md.
+                  The weekly refresh regenerates usage and variants, not the matrix.
                 </p>
               </div>
             )}

@@ -47,7 +47,10 @@ export default function BoardControlTable({ dex, sets }: { dex: EvaluatorDex; se
   const inventory = boardControl(dex, sets);
   return (
     <div className="bc-scroll">
-      <table className="bc-table">
+      <table
+        className="bc-table"
+        title="Rules run over move metadata; abilities and items come from curated, dex-validated tables. Dimmed entries need a field state no team member provides. An empty row means the team has none."
+      >
         <thead>
           <tr>
             <th />
@@ -63,12 +66,6 @@ export default function BoardControlTable({ dex, sets }: { dex: EvaluatorDex; se
           ))}
         </tbody>
       </table>
-      <p className="footer-note">
-        Rules run over move metadata; abilities and items come from curated,
-        dex-validated tables. Dimmed entries need a field state (sun, terrain,
-        …) no team member provides. Empty rows are findings too — an empty
-        Speed control row means the team has none.
-      </p>
     </div>
   );
 }

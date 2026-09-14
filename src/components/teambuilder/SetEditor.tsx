@@ -152,12 +152,7 @@ export default function SetEditor({
               </label>
             </li>
           ))}
-          {presets.length === 1 && (
-            <p className="muted">
-              One preset for this Pokémon. Phase 2's move-selection rules emit up to
-              three sets per item bucket, so this list grows once they land.
-            </p>
-          )}
+
         </ul>
       ) : (
         <div className="sp-editor">
@@ -181,8 +176,8 @@ export default function SetEditor({
             </label>
           </div>
 
-          <label className="full">
-            <span>Nature — the only stat alignment Champions has</span>
+          <label className="full" title="A nature is the only stat alignment Champions has — there are no EVs to shift and no IVs to lower.">
+            <span>Nature</span>
             <select
               value={custom.nature}
               onChange={(e) => setCustom((c) => ({...c, nature: e.target.value}))}

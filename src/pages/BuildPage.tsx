@@ -58,7 +58,6 @@ export default function BuildPage() {
   const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS);
   const [detailed, setDetailed] = useState(false);
   const [visible, setVisible] = useState(PAGE);
-  const [maxScanned, setMaxScanned] = useState(PAGE);
   const [editing, setEditing] = useState<Candidate | null>(null);
   const [offMeta, setOffMeta] = useState(false);
 
@@ -171,12 +170,8 @@ export default function BuildPage() {
     <div className="page build-page">
       <header className="page-head">
         <h1>Build a team</h1>
-        <p className="subtitle">
-          Guided mode: pick a slot at a time and the candidate list re-ranks against
-          what you already have. All three figures on a card are percentage points
-          of metagame-weighted win rate — the difference is whose. Running on{' '}
-          <strong>fixture data</strong>: species, sets and weights are real, every
-          score is invented.
+        <p className="subtitle" title="Every figure is percentage points of metagame-weighted win rate. Matchup is this Pokémon's own; support and positioning are what it adds to teammates.">
+          Fixture data — species, sets and weights are real, scores are invented.
         </p>
       </header>
 
@@ -263,30 +258,18 @@ export default function BuildPage() {
             <button
               type="button"
               className="show-more"
-              onClick={() => {
-                const next = visible + PAGE;
-                setVisible(next);
-                setMaxScanned((m) => Math.max(m, next));
-              }}
+              onClick={() => setVisible(visible + PAGE)}
             >
               Show {Math.min(PAGE, ranked.length - visible)} more
               <span className="muted"> ({ranked.length - visible} remaining)</span>
             </button>
           )}
-          {ranked.length === 0 && (
-            <p className="muted">
-              Nothing in the universe matches all of those filters at once. Drop one,
-              or lower what counts as a good matchup.
-            </p>
-          )}
+          {ranked.length === 0 && <p className="muted">No candidate matches those filters.</p>}
 
           <div className="off-meta-entry">
             <button type="button" className="link" onClick={() => setOffMeta(true)}>
               + Add a Pokémon that isn't in this list
             </button>
-            <span className="muted">
-              Anything legal in {RULES.regulation_id}, whether or not it sees usage.
-            </span>
           </div>
         </section>
       )}
@@ -303,32 +286,6 @@ export default function BuildPage() {
         <OffMetaEntry onCancel={() => setOffMeta(false)} onAdd={addOffMeta} teamSize={team.length} />
       )}
 
-      <ScanNote maxScanned={maxScanned} />
     </div>
-  );
-}
-
-function ScanNote({maxScanned}: {maxScanned: number}) {
-  return (
-    <aside className="phase1-note">
-      <h3>What this build is trying to find out</h3>
-      <ul>
-        <li>
-          <strong>How deep does the candidate list get read?</strong> Furthest opened
-          this session: <strong>{maxScanned}</strong>. If that settles near ten, the
-          core tier can be much smaller than seventy and the matrix build shrinks
-          accordingly.
-        </li>
-        <li>
-          <strong>Do the three figures compare?</strong> All three are percentage
-          points of metagame win rate; they differ in whose win rate moves.
-        </li>
-        <li>
-          <strong>Is positioning the right measure?</strong> Expressing it as a
-          teammate win-rate delta makes it comparable, but it is derived from
-          machinery that does not exist yet. Revisit when Phase 6 is real.
-        </li>
-      </ul>
-    </aside>
   );
 }
