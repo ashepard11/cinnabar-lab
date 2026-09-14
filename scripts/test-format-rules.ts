@@ -20,6 +20,7 @@ import {
 } from '../lib/format-rules';
 import {
   VARIANT_SCHEMA_VERSION, assignTiers, defaultSetLabel, validateVariantsData,
+  CORE_TIER_MIN_WEIGHT, TOURNAMENT_ROUNDS, coreTierMinWeight,
 } from '../lib/variant-schema';
 import type {Variant, VariantsData} from '../lib/types';
 import type {FormatRulesFile} from './build-format-rules';
@@ -301,18 +302,28 @@ check(
   )
 );
 
-// Tiering is by descending weight, ties broken by id, so a rescrape that
-// reorders equal-weight variants cannot silently swap their tiers.
+// Tiering is a usage threshold, not a rank cutoff (DECISIONS.md D41), so a
+// rescrape that reorders equal-weight variants cannot swap their tiers.
 const core = variants.variants.filter((v) => v.tier === 'core');
 const extended = variants.variants.filter((v) => v.tier === 'extended');
 check(
-  'core tier is the top 70 by weight',
-  core.length === 70 && extended.length === variants.variants.length - 70,
-  `${core.length} core / ${extended.length} extended`
+  'core tier is exactly the variants at or above the usage threshold',
+  core.every((v) => v.weight >= CORE_TIER_MIN_WEIGHT) &&
+    extended.every((v) => v.weight < CORE_TIER_MIN_WEIGHT) &&
+    core.length + extended.length === variants.variants.length,
+  `${core.length} core / ${extended.length} extended at ` +
+    `${(CORE_TIER_MIN_WEIGHT * 100).toFixed(2)}%`
 );
 check(
   'every core variant outweighs every extended one',
   Math.min(...core.map((v) => v.weight)) >= Math.max(...extended.map((v) => v.weight))
+);
+check(
+  'the threshold is where one encounter becomes more likely than not',
+  // 1 - (1 - w) ** rounds crosses 0.5 exactly at the threshold.
+  Math.abs(1 - Math.pow(1 - CORE_TIER_MIN_WEIGHT, TOURNAMENT_ROUNDS) - 0.5) < 1e-12 &&
+    Math.abs(coreTierMinWeight(1) - 0.5) < 1e-12,
+  `${(CORE_TIER_MIN_WEIGHT * 100).toFixed(3)}% over ${TOURNAMENT_ROUNDS} rounds`
 );
 
 const shuffled = [...variants.variants].reverse();

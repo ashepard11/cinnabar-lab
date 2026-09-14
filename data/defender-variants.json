@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "regulation": "M-B",
-  "generated_at": "2026-09-07T11:46:28.182Z",
+  "generated_at": "2026-09-14T02:59:13.661Z",
   "variants": [
     {
       "id": "kingambit_black_glasses",
@@ -129,7 +129,7 @@
       "national_dex": 983,
       "set_label": "Life Orb",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "kingambit_no_item",
@@ -771,7 +771,7 @@
       "national_dex": 902,
       "set_label": "Life Orb",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "basculegion_no_item",
@@ -1477,7 +1477,7 @@
       "national_dex": 3,
       "set_label": "Life Orb",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "venusaur_no_item",
@@ -1799,7 +1799,7 @@
       "national_dex": 248,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "grimmsnarl_no_item",
@@ -2056,7 +2056,7 @@
       "national_dex": 1000,
       "set_label": "Life Orb",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "gholdengo_metal_coat",
@@ -2120,7 +2120,7 @@
       "national_dex": 1000,
       "set_label": "Metal Coat",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "gholdengo_no_item",
@@ -2314,7 +2314,7 @@
       "national_dex": 26,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "raichu_no_item",
@@ -2378,7 +2378,7 @@
       "national_dex": 26,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "milotic_no_item",
@@ -2766,7 +2766,7 @@
       "national_dex": 970,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "glimmora_no_item",
@@ -3089,7 +3089,7 @@
       "national_dex": 149,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "gengar_mega",
@@ -3471,7 +3471,7 @@
       "national_dex": 663,
       "set_label": "Sharp Beak",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "talonflame_no_item",
@@ -3535,7 +3535,7 @@
       "national_dex": 663,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "mawile_mega",
@@ -3664,7 +3664,7 @@
       "national_dex": 635,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "annihilape_no_item",
@@ -3728,7 +3728,7 @@
       "national_dex": 979,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "arcanine_hisui_no_item",
@@ -3792,7 +3792,7 @@
       "national_dex": 59,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "politoed_no_item",
@@ -3856,7 +3856,7 @@
       "national_dex": 186,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "sableye_mega",
@@ -3985,7 +3985,7 @@
       "national_dex": 302,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "kommo_o_no_item",
@@ -4049,7 +4049,7 @@
       "national_dex": 784,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "blaziken_mega",
@@ -4114,7 +4114,7 @@
       "national_dex": 257,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "scovillain_mega",
@@ -4179,7 +4179,7 @@
       "national_dex": 952,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "vivillon_no_item",
@@ -4243,7 +4243,7 @@
       "national_dex": 666,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "ceruledge_no_item",
@@ -4307,7 +4307,7 @@
       "national_dex": 937,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "rotom_wash_no_item",
@@ -4371,7 +4371,7 @@
       "national_dex": 479,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "lycanroc_dusk_no_item",
@@ -4435,7 +4435,7 @@
       "national_dex": 745,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "corviknight_no_item",
@@ -4499,7 +4499,7 @@
       "national_dex": 823,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "gardevoir_mega",
@@ -4564,7 +4564,7 @@
       "national_dex": 282,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "kangaskhan_mega",
@@ -4629,7 +4629,7 @@
       "national_dex": 115,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "tsareena_no_item",
@@ -4693,7 +4693,7 @@
       "national_dex": 763,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "scrafty_mega",
@@ -4758,7 +4758,7 @@
       "national_dex": 560,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "scizor_mega",
@@ -4887,7 +4887,7 @@
       "national_dex": 908,
       "set_label": "No item",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "primarina_no_item",
@@ -5016,7 +5016,7 @@
       "national_dex": 323,
       "set_label": "Mega",
       "moves_source": "modal_set",
-      "tier": "core"
+      "tier": "extended"
     },
     {
       "id": "mamoswine_no_item",

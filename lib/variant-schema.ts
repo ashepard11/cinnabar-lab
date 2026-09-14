@@ -28,28 +28,66 @@ import type {Variant, VariantsData, VariantTier} from './types';
 export const VARIANT_SCHEMA_VERSION = 3;
 
 /**
- * Core-tier size. The spec says "the top seventy or so variants by weight,
- * subject to what Phase 1 learns about how many candidates a user scans", so
- * this is a starting point rather than a settled number — revisit once the
- * interface exists. Everything below it down to the 1% species threshold is
- * extended tier: simulated as opponents, eligible as team members only during
- * local-search refinement.
+ * Tournament length the core-tier threshold is calibrated against: a full
+ * regional is nine Swiss rounds on day one, six on day two, then top cut.
  */
-export const CORE_TIER_SIZE = 70;
+export const TOURNAMENT_ROUNDS = 17;
 
 /**
- * Assign tiers by descending weight. Returns a new array; does not mutate.
- * Ties are broken by id so the assignment is deterministic across rebuilds —
- * two variants on the same weight must not swap tiers just because the scrape
- * reordered them.
+ * Minimum usage weight for the core tier.
+ *
+ * **This gates nothing.** `scripts/build-matchups.ts` simulates every pair
+ * regardless of tier, and candidate ranking does not filter on it either. The
+ * tier is a triage label: it sets the default filter on the Movesets screen
+ * ("which sets are worth reviewing"), a count on the data status screen, and a
+ * badge on the variant page. SPEC-teambuilder.md Phase 5 describes it as a
+ * compute gate — simulate core-against-core and core-against-extended, skip
+ * extended-against-extended — but that build does not exist yet, so treat the
+ * spec's description as intent rather than as what the code does.
+ *
+ * The number is derived rather than chosen. `weight` is the chance a given
+ * opposing team carries the variant, so across `TOURNAMENT_ROUNDS` opponents
+ * the chance of meeting it at least once is `1 - (1 - weight) ** rounds`. The
+ * core tier is the set you are more likely than not to actually face, which
+ * puts the threshold where that expression crosses one half:
+ *
+ *   weight >= 1 - 0.5 ** (1 / 17) = 0.03995
+ *
+ * This replaces a flat "top seventy or so" count (DECISIONS.md D41), which was
+ * provisional and never justified. A threshold states a property of the
+ * metagame, tracks it as usage moves rather than holding a fixed count while
+ * the distribution changes shape, and needs no tie-break: equal weights land
+ * in the same tier by construction, so a rescrape cannot flip one across a
+ * rank cutoff.
+ *
+ * Two approximations, both mild and both in the same direction. Opposing teams
+ * are not independent draws — archetypes travel together (BACKLOG item 15) —
+ * and Swiss pairs on record, which over-represents popular picks late. Both
+ * put the true crossing slightly below 4%, so this is a little conservative.
+ *
+ * **When to revisit.** Promoting this to a real compute gate is only worth it
+ * when the variant universe is big enough for the saving to matter. At 84
+ * variants, skipping extended-against-extended saves 990 pairs of 3,486 — 28%
+ * of one overnight build, which does not justify a permanent gate or the
+ * "why is this Pokémon missing" failure mode it creates. BACKLOG item 04
+ * (defensive item variants) is the trigger: pairs are quadratic, so 84 -> 200
+ * variants is 19,900 pairs, and a gate starts paying for itself.
  */
-export function assignTiers(variants: Variant[], coreSize = CORE_TIER_SIZE): Variant[] {
-  const ranked = [...variants].sort(
-    (a, b) => b.weight - a.weight || a.id.localeCompare(b.id)
-  );
-  const tierOf = new Map<string, VariantTier>();
-  ranked.forEach((v, i) => tierOf.set(v.id, i < coreSize ? 'core' : 'extended'));
-  return variants.map((v) => ({...v, tier: tierOf.get(v.id)!}));
+export const CORE_TIER_MIN_WEIGHT = coreTierMinWeight(TOURNAMENT_ROUNDS);
+
+/** The usage weight at which `p` chance of at least one encounter is reached. */
+export function coreTierMinWeight(rounds = TOURNAMENT_ROUNDS, p = 0.5): number {
+  return 1 - Math.pow(1 - p, 1 / rounds);
+}
+
+export function assignTiers(
+  variants: Variant[],
+  minWeight = CORE_TIER_MIN_WEIGHT
+): Variant[] {
+  return variants.map((v) => ({
+    ...v,
+    tier: (v.weight >= minWeight ? 'core' : 'extended') as VariantTier,
+  }));
 }
 
 /**
