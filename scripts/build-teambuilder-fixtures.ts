@@ -148,6 +148,8 @@ const MECHANISMS: Array<{
   {condition: 'moves_first', mechanism: 'move:Icy Wind', mechanism_class: 'support_move', category: 'speed', target: 'opponent_side', action_cost: 1, speed_tier: 'computed'},
   {condition: 'moves_first', mechanism: 'move:Thunder Wave', mechanism_class: 'status_move', category: 'speed', target: 'opponent_side', action_cost: 1, speed_tier: 'computed'},
   {condition: 'moves_first', mechanism: 'move:Dragon Dance', mechanism_class: 'setup_move', category: 'speed', target: 'self', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'moves_first', mechanism: 'move:Trick Room', mechanism_class: 'support_move', category: 'speed', target: 'field', action_cost: 1, speed_tier: 'computed'},
+  {condition: 'moves_first', mechanism: 'move:Electroweb', mechanism_class: 'support_move', category: 'speed', target: 'opponent_side', action_cost: 1, speed_tier: 'computed'},
   {condition: 'rain', mechanism: 'ability:Drizzle', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
   {condition: 'sun', mechanism: 'ability:Drought', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
   {condition: 'sand', mechanism: 'ability:Sand Stream', mechanism_class: 'switch_in_ability', category: 'weather', target: 'field', action_cost: 0, speed_tier: 0},
@@ -163,13 +165,44 @@ const TOOLS: Array<{tool: string; effect: PositioningTool['effect']; category: E
   {tool: 'move:U-turn', effect: 'entry_cost_to_zero', category: 'pivoting'},
   {tool: 'move:Volt Switch', effect: 'entry_cost_to_zero', category: 'pivoting'},
   {tool: 'move:Follow Me', effect: 'entry_cost_to_zero', category: 'targeting'},
+  {tool: 'move:Rage Powder', effect: 'entry_cost_to_zero', category: 'targeting'},
+  {tool: 'move:Ally Switch', effect: 'entry_cost_to_zero', category: 'targeting'},
+  {tool: 'move:Parting Shot', effect: 'entry_cost_to_zero', category: 'pivoting'},
+  {tool: 'move:Flip Turn', effect: 'entry_cost_to_zero', category: 'pivoting'},
+  {tool: 'move:Light Screen', effect: 'relevant_two_thirds', category: 'mitigation'},
+  {tool: 'move:Reflect', effect: 'relevant_two_thirds', category: 'mitigation'},
   {tool: 'move:Fake Out', effect: 'entry_cost_to_zero', category: 'targeting'},
   {tool: 'ability:Intimidate', effect: 'physical_two_thirds', category: 'mitigation'},
   {tool: 'move:Protect', effect: 'all_three_quarters', category: 'protect'},
 ];
 
+/**
+ * Enablers are read off the variant's real moves and ability, not assigned at
+ * random. Pelipper listing Tailwind in its moveset while supplying no speed
+ * control is the kind of incoherence that makes a fixture actively misleading
+ * — a reader cannot tell a layout problem from a data problem.
+ */
+/**
+ * The four moves a variant actually runs — the same top-four the preset set
+ * shows. Enablers must come from these rather than from the full usage list,
+ * or a card can claim Tailwind support while displaying a set without it.
+ */
+function resolvedMoves(v: Variant): Set<string> {
+  return new Set(
+    [...v.moves]
+      .sort((a, b) => b.usage - a.usage)
+      .slice(0, 4)
+      .map((m) => m.name.toLowerCase())
+  );
+}
+
 function enablersFor(v: Variant) {
-  return MECHANISMS.filter((_, k) => stable(`${v.id}mech${k}`) > 0.82).map((m) => ({
+  const moveNames = resolvedMoves(v);
+  const ability = v.ability.toLowerCase();
+  return MECHANISMS.filter((m) => {
+    const name = m.mechanism.slice(m.mechanism.indexOf(':') + 1).toLowerCase();
+    return m.mechanism.startsWith('ability:') ? ability === name : moveNames.has(name);
+  }).map((m) => ({
     condition: m.condition,
     mechanism: m.mechanism,
     mechanism_class: m.mechanism_class,
@@ -185,8 +218,24 @@ function enablersFor(v: Variant) {
   }));
 }
 
+/** Positioning tools, likewise read off the real set. */
+function toolCategoriesFor(v: Variant): EffectCategory[] {
+  const moveNames = resolvedMoves(v);
+  const ability = v.ability.toLowerCase();
+  const cats = TOOLS.filter((t) => {
+    const name = t.tool.slice(t.tool.indexOf(':') + 1).toLowerCase();
+    return t.tool.startsWith('ability:') ? ability === name : moveNames.has(name);
+  }).map((t) => t.category);
+  return [...new Set(cats)];
+}
+
 function toolsFor(v: Variant) {
-  return TOOLS.filter((_, k) => stable(`${v.id}tool${k}`) > 0.84).map((t) => ({
+  const moveNames = resolvedMoves(v);
+  const ability = v.ability.toLowerCase();
+  return TOOLS.filter((t) => {
+    const name = t.tool.slice(t.tool.indexOf(':') + 1).toLowerCase();
+    return t.tool.startsWith('ability:') ? ability === name : moveNames.has(name);
+  }).map((t) => ({
     tool: t.tool,
     effect: t.effect,
     speed_tier: 'computed' as const,
@@ -361,15 +410,63 @@ const candidates: Candidate[] = byWeight.map((v) => {
       ? []
       : byWeight.filter((o) => o.id !== v.id && stable(`${v.id}${o.id}unlock`) > 0.93).slice(0, 4);
 
+  // Which matchups the support and the positioning tools actually move. The
+  // teammate named here is a placeholder — the Build screen remaps these onto
+  // the real partial team, because a swing is only meaningful relative to who
+  // is already picked.
+  const swingPool = byWeight.filter((o) => o.id !== v.id);
+  const supportSwings = support.flatMap((c) =>
+    swingPool
+      .filter((o) => stable(`${v.id}${o.id}${c.condition}sw`) > 0.955)
+      .slice(0, 2)
+      .map((o) => {
+        const before = round(0.22 + stable(`${v.id}${o.id}b`) * 0.28);
+        return {
+          opponent: idOf(o),
+          opponent_species: o.species,
+          weight: round(o.weight, 4),
+          before,
+          after: round(Math.min(0.95, before + 0.18 + stable(`${v.id}${o.id}a`) * 0.34)),
+          condition: c.condition,
+          mechanism: c.enablers[0]?.mechanism,
+        };
+      })
+  );
+  const positioningSwings =
+    tools.length === 0
+      ? []
+      : swingPool
+          .filter((o) => stable(`${v.id}${o.id}psw`) > 0.945)
+          .slice(0, 3)
+          .map((o) => {
+            const before = round(0.15 + stable(`${v.id}${o.id}pb`) * 0.25);
+            return {
+              opponent: idOf(o),
+              opponent_species: o.species,
+              weight: round(o.weight, 4),
+              before,
+              after: round(Math.min(0.92, before + 0.2 + stable(`${v.id}${o.id}pa`) * 0.3)),
+              mechanism: tools[0]?.tool,
+            };
+          });
+
   return {
     variant_id: idOf(v),
     human_id: v.id,
     species: v.species,
     set_label: v.set_label ?? 'No item',
+    is_mega: v.is_mega,
     marginal_score: round(stable(`${v.id}ms`) * 0.09),
     support_delta: supportDelta,
     conditions_added: support,
+    support_swings: supportSwings
+      .sort((a, b) => (b.after - b.before) * b.weight - (a.after - a.before) * a.weight)
+      .slice(0, 5),
     positioning_delta: positioningDelta,
+    positioning_categories: toolCategoriesFor(v),
+    positioning_swings: positioningSwings
+      .sort((a, b) => (b.after - b.before) * b.weight - (a.after - a.before) * a.weight)
+      .slice(0, 4),
     opponents_unlocked: unlocked.map((o, k) => ({
       species: o.species,
       weight: round(o.weight, 4),

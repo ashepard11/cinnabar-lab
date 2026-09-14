@@ -315,3 +315,71 @@
 .caret.open { transform: rotate(90deg); }
 .evaluator-body { padding: 0 16px 16px; border-top: 1px solid var(--border); }
 .evaluator-body .error { color: #b3423a; font-size: 13px; }
+
+/* --- v3: set summaries, tile states, filter bar, section buttons ----------- */
+
+/* Team slots: three states, not two. */
+.team-slot.pending { border-style: dashed; background: var(--surface-raised); }
+.team-slot.considering { border: 1px solid #b3752a; background: #b3752a0a; box-shadow: 0 0 0 3px #b3752a1a; }
+.team-slot.filled { border-style: solid; background: var(--surface); border-color: var(--accent); }
+.slot-considering { font-size: 11.5px; color: #b3752a; font-weight: 600; }
+.slot-detail { font-size: 10px; color: var(--ink-muted); line-height: 1.35; }
+.slot-moves { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px; }
+.slot-moves li { font-size: 9.5px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 3px; padding: 0 3px; line-height: 1.5; }
+.team-slot { min-height: 96px; }
+
+/* Set summary on candidate cards. */
+.set-summary { font-size: 11px; color: var(--ink-secondary); margin: 0 0 10px 28px; display: flex; flex-direction: column; gap: 2px; }
+.set-summary-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: baseline; }
+.set-summary .muted { color: var(--ink-muted); }
+.set-item { font-weight: 550; }
+.set-sep { color: var(--ink-muted); }
+.set-moves { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
+.set-move { font-size: 10px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; line-height: 1.6; }
+.set-summary.compact .set-moves { margin-top: 1px; }
+
+/* Tiles: collapsed by default, expandable per card. */
+.candidate-expand { font-size: 11.5px; padding: 3px 9px; border: 1px solid var(--border); background: var(--surface); color: var(--ink-secondary); border-radius: 6px; cursor: pointer; }
+.candidate-expand:hover { border-color: var(--accent); color: var(--accent); }
+.candidate-card.open { border-color: var(--accent); }
+.dimension-subvalue { font-size: 10.5px; color: var(--ink-muted); }
+.value-suffix { font-size: 10px; color: var(--ink-muted); font-weight: 400; margin-left: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+.category-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px; }
+.category-chip { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.035em; color: var(--ink-secondary); background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; line-height: 1.6; }
+.empty-note { font-size: 11px; color: var(--ink-muted); font-style: italic; line-height: 1.45; }
+
+/* Swing lists: "Opponent 24%→68%", matching the existing team builder. */
+.swing-list { list-style: none; margin: 6px 0 0; padding: 0; width: 100%; }
+.swing-list li { display: flex; gap: 6px; align-items: baseline; padding: 1px 0; cursor: help; font-size: 11px; flex-wrap: wrap; }
+.swing-teammate { font-weight: 600; color: var(--ink); }
+.swing-teammate::after { content: 'vs'; color: var(--ink-muted); font-weight: 400; margin-left: 5px; }
+.swing-opponent { color: var(--ink-secondary); flex: 1; }
+.swing-change { color: #2e7d5b; font-weight: 600; white-space: nowrap; }
+
+/* Filter bar. */
+.filter-bar { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; background: var(--surface-raised); }
+.filter-row { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 12px; }
+.filter { display: flex; flex-direction: column; gap: 4px; }
+.filter .field-label { margin: 0; }
+.filter select, .filter input { font-size: 12.5px; padding: 4px 7px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--ink); font-family: inherit; }
+.filter-count { margin-left: auto; font-size: 12.5px; color: var(--ink-muted); display: flex; align-items: baseline; gap: 8px; }
+.filter-count strong { color: var(--ink); }
+.filter-count .link { border: none; background: none; color: var(--accent); font-size: 11.5px; cursor: pointer; text-decoration: underline; padding: 0; font-family: inherit; }
+.filter-bar .threat-filter { border: none; background: none; padding: 0; margin: 0; }
+
+.candidates-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.candidates-head-controls { display: flex; gap: 10px; align-items: center; }
+.density { font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; cursor: pointer; color: var(--ink-secondary); }
+.density.active, .density:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Evaluator: a bar of section buttons rather than one expand-everything. */
+.evaluator-panel { margin: 0 0 28px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); }
+.evaluator-bar { display: flex; align-items: center; gap: 14px; padding: 10px 14px; flex-wrap: wrap; }
+.evaluator-bar-label { font-size: 13px; font-weight: 600; white-space: nowrap; }
+.evaluator-bar-label .muted { font-weight: 400; color: var(--ink-muted); font-size: 11.5px; }
+.evaluator-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+.evaluator-buttons button { font-size: 12px; padding: 4px 11px; border: 1px solid var(--border); background: var(--surface); border-radius: 14px; cursor: pointer; color: var(--ink-secondary); font-family: inherit; }
+.evaluator-buttons button:hover { border-color: var(--accent); color: var(--accent); }
+.evaluator-buttons button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.evaluator-body { padding: 4px 16px 16px; border-top: 1px solid var(--border); }
+.evaluator-blurb { font-size: 12px; color: var(--ink-muted); line-height: 1.5; margin: 10px 0 14px; max-width: 640px; }

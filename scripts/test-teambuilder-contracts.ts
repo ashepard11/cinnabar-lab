@@ -277,6 +277,55 @@ check(
   candidates.every((c) => (c.sets?.length ?? 0) >= 1)
 );
 check(
+  'every candidate declares is_mega, so the Mega filter needs no side lookup',
+  candidates.every((c) => typeof c.is_mega === 'boolean')
+);
+check(
+  'Mega and non-Mega candidates partition the list',
+  candidates.filter((c) => c.is_mega).length + candidates.filter((c) => !c.is_mega).length ===
+    candidates.length
+);
+// Swings are what make a headline figure checkable, so a non-zero delta with
+// nothing to show is a hole in the explanation rather than a display choice.
+check(
+  'a candidate with support swings also has a support delta',
+  candidates.every((c) => c.support_swings.length === 0 || c.support_delta > 0)
+);
+check(
+  'a candidate with positioning swings also has positioning tools',
+  candidates.every((c) => c.positioning_swings.length === 0 || c.positioning_categories.length > 0)
+);
+check(
+  'positioning categories and positioning delta agree',
+  candidates.every((c) => (c.positioning_categories.length > 0) === (c.positioning_delta > 0))
+);
+check(
+  'every swing improves the matchup it names',
+  candidates.every((c) =>
+    [...c.support_swings, ...c.positioning_swings].every(
+      (s) => s.after > s.before && isProbability(s.before) && isProbability(s.after)
+    )
+  )
+);
+// Enablers are read off each variant's real moves and ability, so a candidate
+// claiming Tailwind must actually run Tailwind.
+check(
+  "every supplied mechanism appears in the candidate's own set",
+  candidates.every((c) => {
+    const set = c.sets?.[0];
+    if (!set) return true;
+    const moves = new Set(set.moves.map((m) => m.toLowerCase()));
+    return c.conditions_added.every((cond) =>
+      cond.enablers.every((e) => {
+        const name = e.mechanism.slice(e.mechanism.indexOf(':') + 1).toLowerCase();
+        return e.mechanism.startsWith('ability:')
+          ? set.ability.toLowerCase() === name
+          : moves.has(name);
+      })
+    );
+  })
+);
+check(
   'the candidate list covers the whole variant universe, not a shortlist',
   candidates.length >= 80,
   `${candidates.length} candidates`

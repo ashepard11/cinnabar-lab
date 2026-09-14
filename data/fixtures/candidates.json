@@ -1,29 +1,81 @@
 {
-  "generated_at": "2026-09-13T20:25:57.565Z",
+  "generated_at": "2026-09-14T01:27:45.404Z",
   "candidates": [
     {
       "variant_id": "6348f4da7d2dbe83",
       "human_id": "incineroar_no_item",
       "species": "Incineroar",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.039,
       "support_delta": 0.027,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
+          "condition": "phys_mitigation",
+          "category": "mitigation",
           "enablers": [
             {
               "member": "6348f4da7d2dbe83",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.66
+              "mechanism": "ability:Intimidate",
+              "speed_tier": 0,
+              "first_share": 1
             }
           ],
-          "delta": 0.048
+          "delta": 0.036
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.246,
+          "after": 0.539,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "8361a3ddd4607fb6",
+          "opponent_species": "Scizor-Mega",
+          "weight": 0.0096,
+          "before": 0.383,
+          "after": 0.858,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
         }
       ],
       "positioning_delta": 0.022,
+      "positioning_categories": [
+        "pivoting",
+        "targeting",
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.358,
+          "after": 0.722,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "380e5c54f238637e",
+          "opponent_species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "before": 0.285,
+          "after": 0.732,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "02de32630aacfe83",
+          "opponent_species": "Basculegion",
+          "weight": 0.0318,
+          "before": 0.312,
+          "after": 0.792,
+          "mechanism": "move:Parting Shot"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Whimsicott",
@@ -163,50 +215,74 @@
       "human_id": "charizard_mega_y",
       "species": "Charizard-Mega-Y",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.086,
       "support_delta": 0.007,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "b3e49ebad0d4367b",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.9
-            }
-          ],
-          "delta": 0.007
-        },
-        {
-          "condition": "rain",
+          "condition": "sun",
           "category": "weather",
           "enablers": [
             {
               "member": "b3e49ebad0d4367b",
-              "mechanism": "ability:Drizzle",
+              "mechanism": "ability:Drought",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.045
+          "delta": 0.025
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "9914e3566af2aeed",
+          "opponent_species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "before": 0.479,
+          "after": 0.892,
+          "condition": "sun",
+          "mechanism": "ability:Drought"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "b3e49ebad0d4367b",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.056
+          "opponent": "65759830f2d594a9",
+          "opponent_species": "Froslass-Mega",
+          "weight": 0.0587,
+          "before": 0.412,
+          "after": 0.906,
+          "condition": "sun",
+          "mechanism": "ability:Drought"
         }
       ],
       "positioning_delta": 0.016,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.217,
+          "after": 0.711,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.319,
+          "after": 0.651,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "e2e8beece2bfa215",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0397,
+          "before": 0.37,
+          "after": 0.606,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Pelipper",
@@ -346,6 +422,7 @@
       "human_id": "sinistcha_no_item",
       "species": "Sinistcha",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.087,
       "support_delta": 0.015,
       "conditions_added": [
@@ -355,15 +432,55 @@
           "enablers": [
             {
               "member": "024cee1a8526e616",
-              "mechanism": "move:Dragon Dance",
+              "mechanism": "move:Trick Room",
               "speed_tier": "computed",
-              "first_share": 0.65
+              "first_share": 0.5
             }
           ],
           "delta": 0.024
         }
       ],
+      "support_swings": [
+        {
+          "opponent": "8361a3ddd4607fb6",
+          "opponent_species": "Scizor-Mega",
+          "weight": 0.0096,
+          "before": 0.331,
+          "after": 0.743,
+          "condition": "moves_first",
+          "mechanism": "move:Trick Room"
+        }
+      ],
       "positioning_delta": 0.014,
+      "positioning_categories": [
+        "targeting"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.185,
+          "after": 0.513,
+          "mechanism": "move:Rage Powder"
+        },
+        {
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.187,
+          "after": 0.517,
+          "mechanism": "move:Rage Powder"
+        },
+        {
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.308,
+          "after": 0.612,
+          "mechanism": "move:Rage Powder"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Incineroar",
@@ -455,10 +572,74 @@
       "human_id": "whimsicott_no_item",
       "species": "Whimsicott",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.055,
-      "support_delta": 0,
-      "conditions_added": [],
+      "support_delta": 0.029,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "category": "speed",
+          "enablers": [
+            {
+              "member": "e44db8e5f05ae054",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed",
+              "first_share": 0.83
+            }
+          ],
+          "delta": 0.055
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.309,
+          "after": 0.516,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        },
+        {
+          "opponent": "b108eda46851045d",
+          "opponent_species": "Kingambit",
+          "weight": 0.116,
+          "before": 0.364,
+          "after": 0.622,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        }
+      ],
       "positioning_delta": 0.007,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.181,
+          "after": 0.503,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.154,
+          "after": 0.588,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "551065ab4f44372b",
+          "opponent_species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "before": 0.332,
+          "after": 0.664,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Politoed",
@@ -583,25 +764,63 @@
       "human_id": "kingambit_no_item",
       "species": "Kingambit",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.061,
-      "support_delta": 0.059,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.029,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "432a0774c3cb2f6b",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.022
+          "opponent": "6348f4da7d2dbe83",
+          "opponent_species": "Incineroar",
+          "weight": 0.2644,
+          "before": 0.263,
+          "after": 0.527,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "9914e3566af2aeed",
+          "opponent_species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "before": 0.163,
+          "after": 0.464,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.376,
+          "after": 0.762,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Kingambit",
+          "weight": 0.116,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.508,
       "sets": [
         {
@@ -719,37 +938,42 @@
       "human_id": "sneasler_no_item",
       "species": "Sneasler",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.009,
-      "support_delta": 0.029,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.015,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "244400d9167e7084",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.029
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.32,
+          "after": 0.653,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "244400d9167e7084",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.57
-            }
-          ],
-          "delta": 0.04
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.328,
+          "after": 0.67,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "7e517dcd1c621101",
+          "opponent_species": "Chandelure-Mega",
+          "weight": 0.0062,
+          "before": 0.349,
+          "after": 0.573,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0.015,
       "opponents_unlocked": [
         {
           "species": "Charizard-Mega-Y",
@@ -841,6 +1065,7 @@
       "human_id": "farigiraf_no_item",
       "species": "Farigiraf",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.072,
       "support_delta": 0.041,
       "conditions_added": [
@@ -850,29 +1075,67 @@
           "enablers": [
             {
               "member": "3cba8a8d93d115d7",
-              "mechanism": "move:Tailwind",
+              "mechanism": "move:Trick Room",
               "speed_tier": "computed",
-              "first_share": 0.8
+              "first_share": 0.77
             }
           ],
           "delta": 0.012
-        },
-        {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "3cba8a8d93d115d7",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.004
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [],
+      "positioning_delta": 0.04,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.287,
+          "after": 0.566,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.332,
+          "after": 0.537,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.238,
+          "after": 0.458,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Glimmora-Mega",
+          "weight": 0.012,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.498,
       "sets": [
         {
@@ -942,24 +1205,41 @@
       "human_id": "basculegion_no_item",
       "species": "Basculegion",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.077,
-      "support_delta": 0.049,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.043,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "7b89eac335d57676",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.023
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.277,
+          "after": 0.715,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "3b385347b2418c33",
+          "opponent_species": "Hydreigon",
+          "weight": 0.0332,
+          "before": 0.209,
+          "after": 0.551,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "42f922e8deb10c3c",
+          "opponent_species": "Corviknight",
+          "weight": 0.0247,
+          "before": 0.169,
+          "after": 0.62,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.043,
       "opponents_unlocked": [
         {
           "species": "Aerodactyl-Mega",
@@ -1075,50 +1355,33 @@
       "human_id": "staraptor_mega",
       "species": "Staraptor-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.07,
-      "support_delta": 0.067,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.018,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "0fb76124be7787ae",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.85
-            }
-          ],
-          "delta": 0.004
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.265,
+          "after": 0.674,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "0fb76124be7787ae",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.045
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "0fb76124be7787ae",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.011
+          "opponent": "b3d4f447754011e0",
+          "opponent_species": "Primarina",
+          "weight": 0.01,
+          "before": 0.388,
+          "after": 0.788,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.018,
       "opponents_unlocked": [
         {
           "species": "Vivillon",
@@ -1234,11 +1497,48 @@
       "human_id": "garchomp_life_orb",
       "species": "Garchomp",
       "set_label": "Life Orb",
+      "is_mega": false,
       "marginal_score": 0.068,
       "support_delta": 0,
       "conditions_added": [],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [],
+      "positioning_delta": 0.032,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.391,
+          "after": 0.666,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "12e5002bf5dbd9fc",
+          "opponent_species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "before": 0.305,
+          "after": 0.777,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.276,
+          "after": 0.541,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Talonflame",
+          "weight": 0.0224,
+          "helps": "Sinistcha"
+        }
+      ],
       "entry_coverage": 0.842,
       "sets": [
         {
@@ -1332,72 +1632,15 @@
       "human_id": "sylveon_no_item",
       "species": "Sylveon",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.001,
-      "support_delta": 0.038,
-      "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "5f29a1803653b87e",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.87
-            }
-          ],
-          "delta": 0.022
-        },
-        {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "5f29a1803653b87e",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.82
-            }
-          ],
-          "delta": 0.05
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "5f29a1803653b87e",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.022
-        }
-      ],
-      "positioning_delta": 0.034,
-      "opponents_unlocked": [
-        {
-          "species": "Swampert-Mega",
-          "weight": 0.0836,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Tyranitar-Mega",
-          "weight": 0.0824,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Torkoal",
-          "weight": 0.0425,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Gholdengo",
-          "weight": 0.0118,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.361,
       "sets": [
         {
@@ -1491,38 +1734,63 @@
       "human_id": "archaludon_no_item",
       "species": "Archaludon",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.014,
-      "support_delta": 0.038,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.021,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "294a12dc9de3473f",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.005
+          "opponent": "432a0774c3cb2f6b",
+          "opponent_species": "Kingambit",
+          "weight": 0.2269,
+          "before": 0.232,
+          "after": 0.602,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "294a12dc9de3473f",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.78
-            }
-          ],
-          "delta": 0.036
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.293,
+          "after": 0.736,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.254,
+          "after": 0.493,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Garchomp",
+          "weight": 0.1417,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Delphox-Mega",
+          "weight": 0.0973,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Toxapex",
+          "weight": 0.0509,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Kommo-o",
+          "weight": 0.0287,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.706,
       "sets": [
         {
@@ -1592,38 +1860,63 @@
       "human_id": "garchomp_no_item",
       "species": "Garchomp",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.063,
-      "support_delta": 0.039,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.034,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "7ee9621dff483549",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.04
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.366,
+          "after": 0.74,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "7ee9621dff483549",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.82
-            }
-          ],
-          "delta": 0.023
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.362,
+          "after": 0.602,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0d139b488c72ba6b",
+          "opponent_species": "Pelipper",
+          "weight": 0.1318,
+          "before": 0.369,
+          "after": 0.76,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Venusaur",
+          "weight": 0.057,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Basculegion",
+          "weight": 0.0528,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Lycanroc-Dusk",
+          "weight": 0.0256,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.515,
       "sets": [
         {
@@ -1693,37 +1986,60 @@
       "human_id": "pelipper_no_item",
       "species": "Pelipper",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.089,
       "support_delta": 0.046,
       "conditions_added": [
         {
-          "condition": "sand",
+          "condition": "moves_first",
+          "category": "speed",
+          "enablers": [
+            {
+              "member": "0d139b488c72ba6b",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed",
+              "first_share": 0.85
+            }
+          ],
+          "delta": 0.02
+        },
+        {
+          "condition": "rain",
           "category": "weather",
           "enablers": [
             {
               "member": "0d139b488c72ba6b",
-              "mechanism": "ability:Sand Stream",
+              "mechanism": "ability:Drizzle",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.058
+          "delta": 0.017
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "ef9b2f51b638e6f0",
+          "opponent_species": "Sableye",
+          "weight": 0.0367,
+          "before": 0.274,
+          "after": 0.762,
+          "condition": "rain",
+          "mechanism": "ability:Drizzle"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "0d139b488c72ba6b",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.71
-            }
-          ],
-          "delta": 0.023
+          "opponent": "42f922e8deb10c3c",
+          "opponent_species": "Corviknight",
+          "weight": 0.0247,
+          "before": 0.236,
+          "after": 0.532,
+          "condition": "rain",
+          "mechanism": "ability:Drizzle"
         }
       ],
       "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
       "opponents_unlocked": [],
       "entry_coverage": 0.422,
       "sets": [
@@ -1794,25 +2110,58 @@
       "human_id": "floette_mega",
       "species": "Floette-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.009,
-      "support_delta": 0.036,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.012,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "ecc6e7a87992c098",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.54
-            }
-          ],
-          "delta": 0.024
+          "opponent": "12e5002bf5dbd9fc",
+          "opponent_species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "before": 0.211,
+          "after": 0.555,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "89f6a0fb54f76dec",
+          "opponent_species": "Glimmora",
+          "weight": 0.0505,
+          "before": 0.398,
+          "after": 0.824,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.389,
+          "after": 0.647,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Talonflame",
+          "weight": 0.0224,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Raichu-Mega-X",
+          "weight": 0.0189,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Greninja-Mega",
+          "weight": 0.0069,
+          "helps": "Kingambit"
+        }
+      ],
       "entry_coverage": 0.428,
       "sets": [
         {
@@ -1882,37 +2231,33 @@
       "human_id": "kingambit_black_glasses",
       "species": "Kingambit",
       "set_label": "Black Glasses",
+      "is_mega": false,
       "marginal_score": 0.025,
-      "support_delta": 0.009,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.007,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "b108eda46851045d",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.49
-            }
-          ],
-          "delta": 0.025
+          "opponent": "1c591cb55605955e",
+          "opponent_species": "Maushold",
+          "weight": 0.0497,
+          "before": 0.244,
+          "after": 0.472,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "b108eda46851045d",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.91
-            }
-          ],
-          "delta": 0.029
+          "opponent": "bb25298dfb948cda",
+          "opponent_species": "Blaziken-Mega",
+          "weight": 0.0215,
+          "before": 0.315,
+          "after": 0.641,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.007,
       "opponents_unlocked": [
         {
           "species": "Basculegion",
@@ -2004,35 +2349,10 @@
       "human_id": "grimmsnarl_no_item",
       "species": "Grimmsnarl",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.053,
       "support_delta": 0.042,
       "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "199ab4a670f9cf95",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.7
-            }
-          ],
-          "delta": 0.018
-        },
-        {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "199ab4a670f9cf95",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.019
-        },
         {
           "condition": "phys_mitigation",
           "category": "mitigation",
@@ -2047,7 +2367,57 @@
           "delta": 0.028
         }
       ],
+      "support_swings": [
+        {
+          "opponent": "0d139b488c72ba6b",
+          "opponent_species": "Pelipper",
+          "weight": 0.1318,
+          "before": 0.246,
+          "after": 0.554,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        },
+        {
+          "opponent": "0fea55eedbba5a3c",
+          "opponent_species": "Arcanine-Hisui",
+          "weight": 0.0353,
+          "before": 0.434,
+          "after": 0.793,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        }
+      ],
       "positioning_delta": 0.034,
+      "positioning_categories": [
+        "pivoting",
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.202,
+          "after": 0.678,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "9914e3566af2aeed",
+          "opponent_species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "before": 0.176,
+          "after": 0.478,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "95e7bedd4584dd84",
+          "opponent_species": "Tsareena",
+          "weight": 0.0193,
+          "before": 0.216,
+          "after": 0.567,
+          "mechanism": "move:Parting Shot"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Farigiraf",
@@ -2187,10 +2557,41 @@
       "human_id": "milotic_no_item",
       "species": "Milotic",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.032,
       "support_delta": 0,
       "conditions_added": [],
+      "support_swings": [],
       "positioning_delta": 0.017,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.255,
+          "after": 0.51,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.346,
+          "after": 0.567,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "cd46ff2ba67018e9",
+          "opponent_species": "Toxapex",
+          "weight": 0.0509,
+          "before": 0.263,
+          "after": 0.527,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Farigiraf",
@@ -2330,37 +2731,41 @@
       "human_id": "delphox_mega",
       "species": "Delphox-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.082,
-      "support_delta": 0.008,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.018,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "ba332631bbf1f4b0",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.68
-            }
-          ],
-          "delta": 0.029
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.211,
+          "after": 0.413,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "ba332631bbf1f4b0",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.68
-            }
-          ],
-          "delta": 0.034
+          "opponent": "1c591cb55605955e",
+          "opponent_species": "Maushold",
+          "weight": 0.0497,
+          "before": 0.353,
+          "after": 0.711,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "afae6046cba631b0",
+          "opponent_species": "Mamoswine",
+          "weight": 0.011,
+          "before": 0.271,
+          "after": 0.701,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.018,
       "opponents_unlocked": [
         {
           "species": "Raichu-Mega-Y",
@@ -2495,25 +2900,63 @@
       "human_id": "swampert_mega",
       "species": "Swampert-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.032,
-      "support_delta": 0.064,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.006,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "32bb8e94204339eb",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.69
-            }
-          ],
-          "delta": 0.059
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.257,
+          "after": 0.514,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "a3e874aa17d64a43",
+          "opponent_species": "Scovillain-Mega",
+          "weight": 0.0347,
+          "before": 0.319,
+          "after": 0.793,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "8b286f401c266787",
+          "opponent_species": "Sableye-Mega",
+          "weight": 0.0001,
+          "before": 0.397,
+          "after": 0.822,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.815,
       "sets": [
         {
@@ -2583,50 +3026,74 @@
       "human_id": "tyranitar_mega",
       "species": "Tyranitar-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.012,
       "support_delta": 0.062,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "9914e3566af2aeed",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.69
-            }
-          ],
-          "delta": 0.05
-        },
-        {
-          "condition": "rain",
+          "condition": "sand",
           "category": "weather",
           "enablers": [
             {
               "member": "9914e3566af2aeed",
-              "mechanism": "ability:Drizzle",
+              "mechanism": "ability:Sand Stream",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.041
+          "delta": 0.006
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.492,
+          "after": 0.922,
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "9914e3566af2aeed",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.04
+          "opponent": "380e5c54f238637e",
+          "opponent_species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "before": 0.417,
+          "after": 0.756,
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream"
         }
       ],
       "positioning_delta": 0.023,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.338,
+          "after": 0.835,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0d139b488c72ba6b",
+          "opponent_species": "Pelipper",
+          "weight": 0.1318,
+          "before": 0.284,
+          "after": 0.559,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "f629f663b038b16b",
+          "opponent_species": "Sceptile-Mega",
+          "weight": 0.0111,
+          "before": 0.345,
+          "after": 0.564,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Garchomp",
@@ -2718,38 +3185,38 @@
       "human_id": "venusaur_mega",
       "species": "Venusaur-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.085,
-      "support_delta": 0.064,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.026,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [],
+      "opponents_unlocked": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "bc17d25604f0165b",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.64
-            }
-          ],
-          "delta": 0.016
+          "species": "Sinistcha",
+          "weight": 0.2386,
+          "helps": "Sinistcha"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "bc17d25604f0165b",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.89
-            }
-          ],
-          "delta": 0.037
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "helps": "Sneasler"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
       "entry_coverage": 0.614,
       "sets": [
         {
@@ -2819,50 +3286,41 @@
       "human_id": "excadrill_no_item",
       "species": "Excadrill",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.023,
-      "support_delta": 0.01,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.031,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "6a6ce89e4def7507",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.57
-            }
-          ],
-          "delta": 0.055
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.3,
+          "after": 0.751,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "6a6ce89e4def7507",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.031
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.387,
+          "after": 0.8,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "6a6ce89e4def7507",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.037
+          "opponent": "95e7bedd4584dd84",
+          "opponent_species": "Tsareena",
+          "weight": 0.0193,
+          "before": 0.225,
+          "after": 0.586,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.031,
       "opponents_unlocked": [
         {
           "species": "Whimsicott",
@@ -2954,6 +3412,7 @@
       "human_id": "aerodactyl_mega",
       "species": "Aerodactyl-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.005,
       "support_delta": 0.061,
       "conditions_added": [
@@ -2963,28 +3422,48 @@
           "enablers": [
             {
               "member": "12e5002bf5dbd9fc",
-              "mechanism": "move:Dragon Dance",
+              "mechanism": "move:Tailwind",
               "speed_tier": "computed",
-              "first_share": 0.58
+              "first_share": 0.92
             }
           ],
           "delta": 0.018
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "551065ab4f44372b",
+          "opponent_species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "before": 0.484,
+          "after": 0.887,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "12e5002bf5dbd9fc",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.94
-            }
-          ],
-          "delta": 0.02
+          "opponent": "241412cd1c149c2b",
+          "opponent_species": "Raichu",
+          "weight": 0.0214,
+          "before": 0.432,
+          "after": 0.626,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
         }
       ],
       "positioning_delta": 0.029,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "d91720b005f7fca1",
+          "opponent_species": "Lycanroc-Dusk",
+          "weight": 0.0256,
+          "before": 0.252,
+          "after": 0.489,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Pelipper",
@@ -3071,37 +3550,42 @@
       "human_id": "raichu_mega_y",
       "species": "Raichu-Mega-Y",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.033,
-      "support_delta": 0.05,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.004,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "df5989403dfe079b",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.85
-            }
-          ],
-          "delta": 0.039
+          "opponent": "12e5002bf5dbd9fc",
+          "opponent_species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "before": 0.203,
+          "after": 0.696,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "df5989403dfe079b",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.023
+          "opponent": "6a6ce89e4def7507",
+          "opponent_species": "Excadrill",
+          "weight": 0.0652,
+          "before": 0.394,
+          "after": 0.659,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "a3e874aa17d64a43",
+          "opponent_species": "Scovillain-Mega",
+          "weight": 0.0347,
+          "before": 0.257,
+          "after": 0.5,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0.004,
       "opponents_unlocked": [
         {
           "species": "Staraptor-Mega",
@@ -3217,37 +3701,41 @@
       "human_id": "froslass_mega",
       "species": "Froslass-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.058,
-      "support_delta": 0.034,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.04,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "65759830f2d594a9",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.68
-            }
-          ],
-          "delta": 0.024
+          "opponent": "bc17d25604f0165b",
+          "opponent_species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "before": 0.394,
+          "after": 0.815,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "65759830f2d594a9",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.042
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.256,
+          "after": 0.512,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "d91720b005f7fca1",
+          "opponent_species": "Lycanroc-Dusk",
+          "weight": 0.0256,
+          "before": 0.258,
+          "after": 0.659,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.04,
       "opponents_unlocked": [
         {
           "species": "Sinistcha",
@@ -3339,37 +3827,41 @@
       "human_id": "venusaur_no_item",
       "species": "Venusaur",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.013,
-      "support_delta": 0.056,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.005,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "0bd04caa0f94951f",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.93
-            }
-          ],
-          "delta": 0.031
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.209,
+          "after": 0.709,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "0bd04caa0f94951f",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.74
-            }
-          ],
-          "delta": 0.025
+          "opponent": "42f922e8deb10c3c",
+          "opponent_species": "Corviknight",
+          "weight": 0.0247,
+          "before": 0.245,
+          "after": 0.645,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "4da6f47f5990823b",
+          "opponent_species": "Talonflame",
+          "weight": 0.0132,
+          "before": 0.376,
+          "after": 0.633,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.005,
       "opponents_unlocked": [
         {
           "species": "Maushold",
@@ -3456,10 +3948,41 @@
       "human_id": "metagross_mega",
       "species": "Metagross-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.032,
       "support_delta": 0,
       "conditions_added": [],
+      "support_swings": [],
       "positioning_delta": 0.028,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.311,
+          "after": 0.79,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.17,
+          "after": 0.466,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "c2016c15c04faa73",
+          "opponent_species": "Tyranitar",
+          "weight": 0.0314,
+          "before": 0.315,
+          "after": 0.627,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Sneasler",
@@ -3575,37 +4098,41 @@
       "human_id": "blastoise_mega",
       "species": "Blastoise-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.06,
-      "support_delta": 0.038,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.031,
+      "positioning_categories": [
+        "targeting"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "551065ab4f44372b",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.73
-            }
-          ],
-          "delta": 0.049
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.378,
+          "after": 0.766,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "551065ab4f44372b",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.83
-            }
-          ],
-          "delta": 0.03
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.308,
+          "after": 0.769,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "3b385347b2418c33",
+          "opponent_species": "Hydreigon",
+          "weight": 0.0332,
+          "before": 0.238,
+          "after": 0.473,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0.031,
       "opponents_unlocked": [
         {
           "species": "Swampert-Mega",
@@ -3721,24 +4248,41 @@
       "human_id": "basculegion_mystic_water",
       "species": "Basculegion",
       "set_label": "Mystic Water",
+      "is_mega": false,
       "marginal_score": 0.006,
-      "support_delta": 0.014,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.025,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "5d8734869e065ff8",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.82
-            }
-          ],
-          "delta": 0.031
+          "opponent": "12e5002bf5dbd9fc",
+          "opponent_species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "before": 0.304,
+          "after": 0.761,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.244,
+          "after": 0.642,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "3b385347b2418c33",
+          "opponent_species": "Hydreigon",
+          "weight": 0.0332,
+          "before": 0.332,
+          "after": 0.536,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.025,
       "opponents_unlocked": [
         {
           "species": "Archaludon",
@@ -3854,37 +4398,41 @@
       "human_id": "gholdengo_no_item",
       "species": "Gholdengo",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.02,
-      "support_delta": 0.067,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.01,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "04882156ee2a5a7f",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.69
-            }
-          ],
-          "delta": 0.039
+          "opponent": "1c591cb55605955e",
+          "opponent_species": "Maushold",
+          "weight": 0.0497,
+          "before": 0.294,
+          "after": 0.595,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "04882156ee2a5a7f",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.009
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.212,
+          "after": 0.415,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "ee1c1380d017b503",
+          "opponent_species": "Rotom-Wash",
+          "weight": 0.0317,
+          "before": 0.339,
+          "after": 0.68,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.01,
       "opponents_unlocked": [
         {
           "species": "Sylveon",
@@ -3976,59 +4524,15 @@
       "human_id": "toxapex_no_item",
       "species": "Toxapex",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.076,
-      "support_delta": 0.044,
-      "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "cd46ff2ba67018e9",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.88
-            }
-          ],
-          "delta": 0.053
-        },
-        {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "cd46ff2ba67018e9",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.051
-        }
-      ],
-      "positioning_delta": 0.022,
-      "opponents_unlocked": [
-        {
-          "species": "Kingambit",
-          "weight": 0.2269,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Milotic",
-          "weight": 0.0982,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Froslass-Mega",
-          "weight": 0.0587,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Politoed",
-          "weight": 0.0342,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.528,
       "sets": [
         {
@@ -4122,37 +4626,14 @@
       "human_id": "glimmora_no_item",
       "species": "Glimmora",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.059,
-      "support_delta": 0.046,
-      "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "89f6a0fb54f76dec",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.81
-            }
-          ],
-          "delta": 0.025
-        },
-        {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "89f6a0fb54f76dec",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.035
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
       "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
       "opponents_unlocked": [],
       "entry_coverage": 0.468,
       "sets": [
@@ -4223,37 +4704,42 @@
       "human_id": "maushold_no_item",
       "species": "Maushold",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.065,
-      "support_delta": 0.03,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.018,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "1c591cb55605955e",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.043
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.205,
+          "after": 0.557,
+          "mechanism": "move:Follow Me"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "1c591cb55605955e",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.81
-            }
-          ],
-          "delta": 0.026
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.354,
+          "after": 0.728,
+          "mechanism": "move:Follow Me"
+        },
+        {
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.266,
+          "after": 0.534,
+          "mechanism": "move:Follow Me"
         }
       ],
-      "positioning_delta": 0.018,
       "opponents_unlocked": [
         {
           "species": "Dragonite-Mega",
@@ -4369,37 +4855,41 @@
       "human_id": "gengar_mega",
       "species": "Gengar-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.015,
-      "support_delta": 0.045,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.024,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "ae0193d508ee34cd",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.89
-            }
-          ],
-          "delta": 0.012
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.231,
+          "after": 0.599,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "ae0193d508ee34cd",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.68
-            }
-          ],
-          "delta": 0.022
+          "opponent": "65759830f2d594a9",
+          "opponent_species": "Froslass-Mega",
+          "weight": 0.0587,
+          "before": 0.244,
+          "after": 0.643,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "bc17d25604f0165b",
+          "opponent_species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "before": 0.165,
+          "after": 0.469,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.024,
       "opponents_unlocked": [
         {
           "species": "Delphox-Mega",
@@ -4539,51 +5029,63 @@
       "human_id": "ninetales_alola_no_item",
       "species": "Ninetales-Alola",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.011,
-      "support_delta": 0.028,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.013,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "380e5c54f238637e",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.77
-            }
-          ],
-          "delta": 0.042
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.214,
+          "after": 0.562,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "380e5c54f238637e",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.6
-            }
-          ],
-          "delta": 0.026
+          "opponent": "d0981ddc1b13136d",
+          "opponent_species": "Staraptor",
+          "weight": 0.0101,
+          "before": 0.255,
+          "after": 0.667,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "380e5c54f238637e",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.019
+          "opponent": "a381ab2df3e99b88",
+          "opponent_species": "Glimmora-Mega",
+          "weight": 0.012,
+          "before": 0.287,
+          "after": 0.566,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Basculegion",
+          "weight": 0.1835,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Primarina",
+          "weight": 0.01,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Gallade-Mega",
+          "weight": 0.0012,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.533,
       "sets": [
         {
@@ -4677,51 +5179,96 @@
       "human_id": "torkoal_charcoal",
       "species": "Torkoal",
       "set_label": "Charcoal",
+      "is_mega": false,
       "marginal_score": 0.046,
       "support_delta": 0.063,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "6b7827ff86c3ab1e",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.94
-            }
-          ],
-          "delta": 0.03
-        },
-        {
-          "condition": "rain",
+          "condition": "sun",
           "category": "weather",
           "enablers": [
             {
               "member": "6b7827ff86c3ab1e",
-              "mechanism": "ability:Drizzle",
+              "mechanism": "ability:Drought",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.005
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "6b7827ff86c3ab1e",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.021
+          "delta": 0.031
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [
+        {
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.228,
+          "after": 0.676,
+          "condition": "sun",
+          "mechanism": "ability:Drought"
+        },
+        {
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.37,
+          "after": 0.83,
+          "condition": "sun",
+          "mechanism": "ability:Drought"
+        }
+      ],
+      "positioning_delta": 0.048,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.291,
+          "after": 0.575,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "df5989403dfe079b",
+          "opponent_species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "before": 0.161,
+          "after": 0.459,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "0fea55eedbba5a3c",
+          "opponent_species": "Arcanine-Hisui",
+          "weight": 0.0353,
+          "before": 0.242,
+          "after": 0.466,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Sableye",
+          "weight": 0.0367,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Politoed",
+          "weight": 0.0342,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.74,
       "sets": [
         {
@@ -4839,37 +5386,41 @@
       "human_id": "mawile_mega",
       "species": "Mawile-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.076,
-      "support_delta": 0.053,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.027,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "b79a3be4192062a6",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.6
-            }
-          ],
-          "delta": 0.045
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.239,
+          "after": 0.631,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "b79a3be4192062a6",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.54
-            }
-          ],
-          "delta": 0.01
+          "opponent": "bb25298dfb948cda",
+          "opponent_species": "Blaziken-Mega",
+          "weight": 0.0215,
+          "before": 0.268,
+          "after": 0.681,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "fb8e8113d72598cd",
+          "opponent_species": "Camerupt-Mega",
+          "weight": 0.0153,
+          "before": 0.384,
+          "after": 0.779,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.027,
       "opponents_unlocked": [
         {
           "species": "Sinistcha",
@@ -4961,38 +5512,96 @@
       "human_id": "aerodactyl_no_item",
       "species": "Aerodactyl",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.034,
       "support_delta": 0.035,
       "conditions_added": [
         {
-          "condition": "sun",
-          "category": "weather",
+          "condition": "moves_first",
+          "category": "speed",
           "enablers": [
             {
               "member": "877bef9ccf0e5065",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.026
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "877bef9ccf0e5065",
-              "mechanism": "move:Reflect",
+              "mechanism": "move:Tailwind",
               "speed_tier": "computed",
               "first_share": 0.48
             }
           ],
-          "delta": 0.018
+          "delta": 0.023
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [
+        {
+          "opponent": "e790d0912282271b",
+          "opponent_species": "Annihilape",
+          "weight": 0.0385,
+          "before": 0.261,
+          "after": 0.571,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        },
+        {
+          "opponent": "4b420d2b794a92ad",
+          "opponent_species": "Ceruledge",
+          "weight": 0.0297,
+          "before": 0.428,
+          "after": 0.764,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        }
+      ],
+      "positioning_delta": 0.01,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.306,
+          "after": 0.607,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "cd46ff2ba67018e9",
+          "opponent_species": "Toxapex",
+          "weight": 0.0509,
+          "before": 0.336,
+          "after": 0.831,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "681710c491ab285d",
+          "opponent_species": "Politoed",
+          "weight": 0.0342,
+          "before": 0.315,
+          "after": 0.627,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Milotic",
+          "weight": 0.0982,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Dragonite-Mega",
+          "weight": 0.0382,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.553,
       "sets": [
         {
@@ -5062,38 +5671,63 @@
       "human_id": "gholdengo_life_orb",
       "species": "Gholdengo",
       "set_label": "Life Orb",
+      "is_mega": false,
       "marginal_score": 0.028,
-      "support_delta": 0.02,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.021,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "e2e8beece2bfa215",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.77
-            }
-          ],
-          "delta": 0.032
+          "opponent": "551065ab4f44372b",
+          "opponent_species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "before": 0.226,
+          "after": 0.603,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "e2e8beece2bfa215",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.53
-            }
-          ],
-          "delta": 0.055
+          "opponent": "681710c491ab285d",
+          "opponent_species": "Politoed",
+          "weight": 0.0342,
+          "before": 0.285,
+          "after": 0.575,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "2d479e22f4b6e584",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0118,
+          "before": 0.261,
+          "after": 0.68,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Grimmsnarl",
+          "weight": 0.1109,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Vivillon",
+          "weight": 0.035,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.795,
       "sets": [
         {
@@ -5187,25 +5821,55 @@
       "human_id": "annihilape_no_item",
       "species": "Annihilape",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.086,
-      "support_delta": 0.051,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.04,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "e790d0912282271b",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.86
-            }
-          ],
-          "delta": 0.038
+          "opponent": "fac9f0a62a8a49ee",
+          "opponent_species": "Kangaskhan-Mega",
+          "weight": 0.012,
+          "before": 0.225,
+          "after": 0.601,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "86beb06daaca16e5",
+          "opponent_species": "Greninja-Mega",
+          "weight": 0.0069,
+          "before": 0.315,
+          "after": 0.628,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Maushold",
+          "weight": 0.0497,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Lycanroc-Dusk",
+          "weight": 0.0256,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Meowscarada",
+          "weight": 0.0137,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.836,
       "sets": [
         {
@@ -5275,37 +5939,41 @@
       "human_id": "dragonite_mega",
       "species": "Dragonite-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.044,
-      "support_delta": 0.042,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.035,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "9755a0045e004927",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.63
-            }
-          ],
-          "delta": 0.025
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.346,
+          "after": 0.71,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "9755a0045e004927",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.056
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.364,
+          "after": 0.592,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "6b7827ff86c3ab1e",
+          "opponent_species": "Torkoal",
+          "weight": 0.0425,
+          "before": 0.168,
+          "after": 0.619,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.035,
       "opponents_unlocked": [
         {
           "species": "Staraptor-Mega",
@@ -5397,37 +6065,74 @@
       "human_id": "sableye_no_item",
       "species": "Sableye",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.037,
       "support_delta": 0.012,
       "conditions_added": [
-        {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "ef9b2f51b638e6f0",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.038
-        },
         {
           "condition": "phys_mitigation",
           "category": "mitigation",
           "enablers": [
             {
               "member": "ef9b2f51b638e6f0",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
+              "mechanism": "move:Reflect",
+              "speed_tier": "computed",
+              "first_share": 0.83
             }
           ],
           "delta": 0.027
         }
       ],
+      "support_swings": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "opponent_species": "Farigiraf",
+          "weight": 0.1865,
+          "before": 0.291,
+          "after": 0.8,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.227,
+          "after": 0.675,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        }
+      ],
       "positioning_delta": 0.012,
+      "positioning_categories": [
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "3b385347b2418c33",
+          "opponent_species": "Hydreigon",
+          "weight": 0.0332,
+          "before": 0.349,
+          "after": 0.716,
+          "mechanism": "move:Light Screen"
+        },
+        {
+          "opponent": "a381ab2df3e99b88",
+          "opponent_species": "Glimmora-Mega",
+          "weight": 0.012,
+          "before": 0.163,
+          "after": 0.593,
+          "mechanism": "move:Light Screen"
+        },
+        {
+          "opponent": "f629f663b038b16b",
+          "opponent_species": "Sceptile-Mega",
+          "weight": 0.0111,
+          "before": 0.264,
+          "after": 0.686,
+          "mechanism": "move:Light Screen"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Venusaur-Mega",
@@ -5519,24 +6224,25 @@
       "human_id": "arcanine_hisui_no_item",
       "species": "Arcanine-Hisui",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.084,
-      "support_delta": 0.058,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.035,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "0fea55eedbba5a3c",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.84
-            }
-          ],
-          "delta": 0.033
+          "opponent": "fb8e8113d72598cd",
+          "opponent_species": "Camerupt-Mega",
+          "weight": 0.0153,
+          "before": 0.352,
+          "after": 0.709,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.035,
       "opponents_unlocked": [
         {
           "species": "Incineroar",
@@ -5676,6 +6382,7 @@
       "human_id": "vivillon_no_item",
       "species": "Vivillon",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.011,
       "support_delta": 0.067,
       "conditions_added": [
@@ -5685,15 +6392,64 @@
           "enablers": [
             {
               "member": "f3fd77eb4c04d5e0",
-              "mechanism": "move:Dragon Dance",
+              "mechanism": "move:Tailwind",
               "speed_tier": "computed",
-              "first_share": 0.87
+              "first_share": 0.91
             }
           ],
           "delta": 0.025
         }
       ],
+      "support_swings": [
+        {
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.382,
+          "after": 0.84,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        },
+        {
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.256,
+          "after": 0.723,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        }
+      ],
       "positioning_delta": 0.043,
+      "positioning_categories": [
+        "targeting"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "ecc6e7a87992c098",
+          "opponent_species": "Floette-Mega",
+          "weight": 0.126,
+          "before": 0.202,
+          "after": 0.536,
+          "mechanism": "move:Rage Powder"
+        },
+        {
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.244,
+          "after": 0.485,
+          "mechanism": "move:Rage Powder"
+        },
+        {
+          "opponent": "551065ab4f44372b",
+          "opponent_species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "before": 0.322,
+          "after": 0.657,
+          "mechanism": "move:Rage Powder"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Kingambit",
@@ -5785,37 +6541,34 @@
       "human_id": "scovillain_mega",
       "species": "Scovillain-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.048,
-      "support_delta": 0.041,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.034,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "a3e874aa17d64a43",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.7
-            }
-          ],
-          "delta": 0.011
+          "opponent": "29cb29385e52ae6b",
+          "opponent_species": "Metagross-Mega",
+          "weight": 0.0543,
+          "before": 0.32,
+          "after": 0.796,
+          "mechanism": "move:Rage Powder"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "a3e874aa17d64a43",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.036
+          "opponent": "6c90a2a68428d877",
+          "opponent_species": "Meowscarada",
+          "weight": 0.0137,
+          "before": 0.307,
+          "after": 0.624,
+          "mechanism": "move:Rage Powder"
         }
       ],
-      "positioning_delta": 0.034,
       "opponents_unlocked": [
         {
           "species": "Froslass-Mega",
@@ -5907,50 +6660,65 @@
       "human_id": "politoed_no_item",
       "species": "Politoed",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.011,
       "support_delta": 0.044,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "681710c491ab285d",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.86
-            }
-          ],
-          "delta": 0.023
-        },
-        {
-          "condition": "sun",
+          "condition": "rain",
           "category": "weather",
           "enablers": [
             {
               "member": "681710c491ab285d",
-              "mechanism": "ability:Drought",
+              "mechanism": "ability:Drizzle",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.031
-        },
+          "delta": 0.057
+        }
+      ],
+      "support_swings": [
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "681710c491ab285d",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.75
-            }
-          ],
-          "delta": 0.038
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.23,
+          "after": 0.665,
+          "condition": "rain",
+          "mechanism": "ability:Drizzle"
         }
       ],
       "positioning_delta": 0.025,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "opponent_species": "Incineroar",
+          "weight": 0.2644,
+          "before": 0.346,
+          "after": 0.709,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "6a6ce89e4def7507",
+          "opponent_species": "Excadrill",
+          "weight": 0.0652,
+          "before": 0.351,
+          "after": 0.707,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "f629f663b038b16b",
+          "opponent_species": "Sceptile-Mega",
+          "weight": 0.0111,
+          "before": 0.159,
+          "after": 0.584,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Kingambit",
@@ -6066,59 +6834,15 @@
       "human_id": "hydreigon_no_item",
       "species": "Hydreigon",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.069,
-      "support_delta": 0.028,
-      "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "3b385347b2418c33",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.52
-            }
-          ],
-          "delta": 0.02
-        },
-        {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "3b385347b2418c33",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.026
-        }
-      ],
-      "positioning_delta": 0.029,
-      "opponents_unlocked": [
-        {
-          "species": "Blastoise-Mega",
-          "weight": 0.0528,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Mawile-Mega",
-          "weight": 0.0413,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Kommo-o",
-          "weight": 0.0287,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Sceptile-Mega",
-          "weight": 0.0111,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.421,
       "sets": [
         {
@@ -6188,25 +6912,63 @@
       "human_id": "basculegion_life_orb",
       "species": "Basculegion",
       "set_label": "Life Orb",
+      "is_mega": false,
       "marginal_score": 0.011,
-      "support_delta": 0.037,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.017,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "02de32630aacfe83",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.02
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.385,
+          "after": 0.782,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.342,
+          "after": 0.544,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "89f6a0fb54f76dec",
+          "opponent_species": "Glimmora",
+          "weight": 0.0505,
+          "before": 0.181,
+          "after": 0.49,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Milotic",
+          "weight": 0.0982,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Ceruledge",
+          "weight": 0.0297,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Meowscarada",
+          "weight": 0.0137,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.534,
       "sets": [
         {
@@ -6300,37 +7062,41 @@
       "human_id": "rotom_wash_no_item",
       "species": "Rotom-Wash",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.001,
-      "support_delta": 0.06,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.021,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "ee1c1380d017b503",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.56
-            }
-          ],
-          "delta": 0.036
+          "opponent": "b3e49ebad0d4367b",
+          "opponent_species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "before": 0.201,
+          "after": 0.676,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "ee1c1380d017b503",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.58
-            }
-          ],
-          "delta": 0.023
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.385,
+          "after": 0.795,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "9755a0045e004927",
+          "opponent_species": "Dragonite-Mega",
+          "weight": 0.0382,
+          "before": 0.321,
+          "after": 0.797,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.021,
       "opponents_unlocked": [
         {
           "species": "Sylveon",
@@ -6446,24 +7212,74 @@
       "human_id": "tyranitar_no_item",
       "species": "Tyranitar",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.071,
       "support_delta": 0.017,
       "conditions_added": [
         {
-          "condition": "sun",
+          "condition": "sand",
           "category": "weather",
           "enablers": [
             {
               "member": "c2016c15c04faa73",
-              "mechanism": "ability:Drought",
+              "mechanism": "ability:Sand Stream",
               "speed_tier": 0,
               "first_share": 1
             }
           ],
-          "delta": 0.021
+          "delta": 0.008
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.461,
+          "after": 0.691,
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream"
+        },
+        {
+          "opponent": "86beb06daaca16e5",
+          "opponent_species": "Greninja-Mega",
+          "weight": 0.0069,
+          "before": 0.495,
+          "after": 0.749,
+          "condition": "sand",
+          "mechanism": "ability:Sand Stream"
         }
       ],
       "positioning_delta": 0.023,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.163,
+          "after": 0.608,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "a3e874aa17d64a43",
+          "opponent_species": "Scovillain-Mega",
+          "weight": 0.0347,
+          "before": 0.32,
+          "after": 0.81,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "e790d0912282271b",
+          "opponent_species": "Annihilape",
+          "weight": 0.0385,
+          "before": 0.163,
+          "after": 0.45,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Dragonite-Mega",
@@ -6545,37 +7361,41 @@
       "human_id": "ceruledge_no_item",
       "species": "Ceruledge",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.013,
-      "support_delta": 0.065,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.008,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "4b420d2b794a92ad",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.5
-            }
-          ],
-          "delta": 0.007
+          "opponent": "380e5c54f238637e",
+          "opponent_species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "before": 0.161,
+          "after": 0.446,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "4b420d2b794a92ad",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.019
+          "opponent": "d33593382a90c000",
+          "opponent_species": "Kingambit",
+          "weight": 0.0208,
+          "before": 0.197,
+          "after": 0.525,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "693ad237a0b4ac3f",
+          "opponent_species": "Scrafty-Mega",
+          "weight": 0.0155,
+          "before": 0.392,
+          "after": 0.668,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.008,
       "opponents_unlocked": [
         {
           "species": "Kingambit",
@@ -6667,37 +7487,41 @@
       "human_id": "kommo_o_no_item",
       "species": "Kommo-o",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.053,
-      "support_delta": 0.028,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.018,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "c18f9984845495b5",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.54
-            }
-          ],
-          "delta": 0.016
+          "opponent": "12e5002bf5dbd9fc",
+          "opponent_species": "Aerodactyl-Mega",
+          "weight": 0.0651,
+          "before": 0.164,
+          "after": 0.595,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "c18f9984845495b5",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.035
+          "opponent": "380e5c54f238637e",
+          "opponent_species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "before": 0.182,
+          "after": 0.635,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "551065ab4f44372b",
+          "opponent_species": "Blastoise-Mega",
+          "weight": 0.0528,
+          "before": 0.376,
+          "after": 0.776,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.018,
       "opponents_unlocked": [
         {
           "species": "Incineroar",
@@ -6813,38 +7637,63 @@
       "human_id": "lycanroc_dusk_no_item",
       "species": "Lycanroc-Dusk",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.048,
-      "support_delta": 0.054,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.037,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "d91720b005f7fca1",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.59
-            }
-          ],
-          "delta": 0.038
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.28,
+          "after": 0.707,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "d91720b005f7fca1",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.47
-            }
-          ],
-          "delta": 0.041
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.346,
+          "after": 0.553,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.249,
+          "after": 0.496,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Grimmsnarl",
+          "weight": 0.1109,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Delphox-Mega",
+          "weight": 0.0973,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Vivillon",
+          "weight": 0.035,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.6,
       "sets": [
         {
@@ -6914,6 +7763,7 @@
       "human_id": "corviknight_no_item",
       "species": "Corviknight",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.037,
       "support_delta": 0.009,
       "conditions_added": [
@@ -6923,32 +7773,38 @@
           "enablers": [
             {
               "member": "42f922e8deb10c3c",
-              "mechanism": "move:Icy Wind",
+              "mechanism": "move:Tailwind",
               "speed_tier": "computed",
-              "first_share": 0.57
+              "first_share": 0.48
             }
           ],
           "delta": 0.037
         }
       ],
-      "positioning_delta": 0.018,
-      "opponents_unlocked": [
+      "support_swings": [
         {
-          "species": "Basculegion",
+          "opponent": "432a0774c3cb2f6b",
+          "opponent_species": "Kingambit",
+          "weight": 0.2269,
+          "before": 0.401,
+          "after": 0.703,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
           "weight": 0.1835,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Grimmsnarl",
-          "weight": 0.1109,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Blastoise-Mega",
-          "weight": 0.0528,
-          "helps": "Kingambit"
+          "before": 0.438,
+          "after": 0.786,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
         }
       ],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.492,
       "sets": [
         {
@@ -7018,38 +7874,33 @@
       "human_id": "gardevoir_mega",
       "species": "Gardevoir-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.042,
-      "support_delta": 0.035,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.004,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [],
+      "opponents_unlocked": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "b480d401f773928f",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.64
-            }
-          ],
-          "delta": 0.048
+          "species": "Kingambit",
+          "weight": 0.2269,
+          "helps": "Sinistcha"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "b480d401f773928f",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.94
-            }
-          ],
-          "delta": 0.035
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Garchomp",
+          "weight": 0.0116,
+          "helps": "Kingambit"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
       "entry_coverage": 0.786,
       "sets": [
         {
@@ -7119,11 +7970,86 @@
       "human_id": "talonflame_no_item",
       "species": "Talonflame",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.018,
-      "support_delta": 0,
-      "conditions_added": [],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_delta": 0.06,
+      "conditions_added": [
+        {
+          "condition": "moves_first",
+          "category": "speed",
+          "enablers": [
+            {
+              "member": "524e3ac34b82a95f",
+              "mechanism": "move:Tailwind",
+              "speed_tier": "computed",
+              "first_share": 0.49
+            }
+          ],
+          "delta": 0.051
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "opponent_species": "Farigiraf",
+          "weight": 0.1865,
+          "before": 0.426,
+          "after": 0.775,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        },
+        {
+          "opponent": "bc17d25604f0165b",
+          "opponent_species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "before": 0.221,
+          "after": 0.483,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
+        }
+      ],
+      "positioning_delta": 0.043,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.154,
+          "after": 0.445,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.293,
+          "after": 0.593,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.301,
+          "after": 0.596,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Archaludon",
+          "weight": 0.1471,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Rotom-Wash",
+          "weight": 0.0317,
+          "helps": "Whimsicott"
+        }
+      ],
       "entry_coverage": 0.811,
       "sets": [
         {
@@ -7217,37 +8143,41 @@
       "human_id": "blaziken_mega",
       "species": "Blaziken-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.08,
-      "support_delta": 0.009,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.047,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "bb25298dfb948cda",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.6
-            }
-          ],
-          "delta": 0.049
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.21,
+          "after": 0.41,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "bb25298dfb948cda",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.89
-            }
-          ],
-          "delta": 0.045
+          "opponent": "bc17d25604f0165b",
+          "opponent_species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "before": 0.368,
+          "after": 0.602,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "b79a3be4192062a6",
+          "opponent_species": "Mawile-Mega",
+          "weight": 0.0413,
+          "before": 0.202,
+          "after": 0.55,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.047,
       "opponents_unlocked": [
         {
           "species": "Tyranitar-Mega",
@@ -7387,38 +8317,64 @@
       "human_id": "raichu_no_item",
       "species": "Raichu",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.055,
-      "support_delta": 0.017,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.028,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "241412cd1c149c2b",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.84
-            }
-          ],
-          "delta": 0.032
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.276,
+          "after": 0.713,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "241412cd1c149c2b",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.61
-            }
-          ],
-          "delta": 0.01
+          "opponent": "9914e3566af2aeed",
+          "opponent_species": "Tyranitar-Mega",
+          "weight": 0.0824,
+          "before": 0.28,
+          "after": 0.722,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "5d8734869e065ff8",
+          "opponent_species": "Basculegion",
+          "weight": 0.0528,
+          "before": 0.16,
+          "after": 0.586,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Venusaur",
+          "weight": 0.057,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Scovillain-Mega",
+          "weight": 0.0347,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Ceruledge",
+          "weight": 0.0297,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Talonflame",
+          "weight": 0.0224,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.395,
       "sets": [
         {
@@ -7488,24 +8444,41 @@
       "human_id": "kingambit_life_orb",
       "species": "Kingambit",
       "set_label": "Life Orb",
+      "is_mega": false,
       "marginal_score": 0.028,
-      "support_delta": 0.011,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.009,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "d33593382a90c000",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.62
-            }
-          ],
-          "delta": 0.037
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.214,
+          "after": 0.562,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.257,
+          "after": 0.657,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "b79a3be4192062a6",
+          "opponent_species": "Mawile-Mega",
+          "weight": 0.0413,
+          "before": 0.167,
+          "after": 0.458,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.009,
       "opponents_unlocked": [
         {
           "species": "Charizard-Mega-Y",
@@ -7597,37 +8570,41 @@
       "human_id": "tsareena_no_item",
       "species": "Tsareena",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.005,
-      "support_delta": 0.057,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.038,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "95e7bedd4584dd84",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.014
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.175,
+          "after": 0.619,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "95e7bedd4584dd84",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.005
+          "opponent": "04882156ee2a5a7f",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0523,
+          "before": 0.334,
+          "after": 0.684,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "2b7d76f07bd92dd5",
+          "opponent_species": "Gallade-Mega",
+          "weight": 0.0012,
+          "before": 0.37,
+          "after": 0.748,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.038,
       "opponents_unlocked": [
         {
           "species": "Sneasler",
@@ -7752,37 +8729,42 @@
       "human_id": "raichu_mega_x",
       "species": "Raichu-Mega-X",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.023,
-      "support_delta": 0.046,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.046,
+      "positioning_categories": [
+        "targeting",
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "42ef72ec34eedf1f",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.81
-            }
-          ],
-          "delta": 0.033
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.345,
+          "after": 0.693,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "42ef72ec34eedf1f",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.033
+          "opponent": "32bb8e94204339eb",
+          "opponent_species": "Swampert-Mega",
+          "weight": 0.0836,
+          "before": 0.176,
+          "after": 0.622,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.185,
+          "after": 0.499,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0.046,
       "opponents_unlocked": [
         {
           "species": "Incineroar",
@@ -7874,25 +8856,89 @@
       "human_id": "scrafty_mega",
       "species": "Scrafty-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.062,
       "support_delta": 0.039,
       "conditions_added": [
         {
-          "condition": "snow",
-          "category": "weather",
+          "condition": "phys_mitigation",
+          "category": "mitigation",
           "enablers": [
             {
               "member": "693ad237a0b4ac3f",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.57
+              "mechanism": "ability:Intimidate",
+              "speed_tier": 0,
+              "first_share": 1
             }
           ],
-          "delta": 0.007
+          "delta": 0.008
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.323,
+          "after": 0.531,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.435,
+          "after": 0.633,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        }
+      ],
+      "positioning_delta": 0.003,
+      "positioning_categories": [
+        "targeting",
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "ee1c1380d017b503",
+          "opponent_species": "Rotom-Wash",
+          "weight": 0.0317,
+          "before": 0.357,
+          "after": 0.719,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "9755a0045e004927",
+          "opponent_species": "Dragonite-Mega",
+          "weight": 0.0382,
+          "before": 0.332,
+          "after": 0.536,
+          "mechanism": "move:Fake Out"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Sneasler",
+          "weight": 0.1996,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Delphox-Mega",
+          "weight": 0.0973,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Swampert-Mega",
+          "weight": 0.0836,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Froslass-Mega",
+          "weight": 0.0587,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.708,
       "sets": [
         {
@@ -7962,38 +9008,63 @@
       "human_id": "camerupt_mega",
       "species": "Camerupt-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.006,
-      "support_delta": 0.035,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.017,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "fb8e8113d72598cd",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.86
-            }
-          ],
-          "delta": 0.008
+          "opponent": "14a6dece6b118f48",
+          "opponent_species": "Milotic",
+          "weight": 0.0982,
+          "before": 0.344,
+          "after": 0.562,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "fb8e8113d72598cd",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.043
+          "opponent": "e2e8beece2bfa215",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0397,
+          "before": 0.218,
+          "after": 0.714,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "42f922e8deb10c3c",
+          "opponent_species": "Corviknight",
+          "weight": 0.0247,
+          "before": 0.167,
+          "after": 0.602,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Basculegion",
+          "weight": 0.0528,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Vivillon",
+          "weight": 0.035,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Rotom-Wash",
+          "weight": 0.0317,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.352,
       "sets": [
         {
@@ -8111,37 +9182,41 @@
       "human_id": "venusaur_life_orb",
       "species": "Venusaur",
       "set_label": "Life Orb",
+      "is_mega": false,
       "marginal_score": 0.029,
-      "support_delta": 0.063,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.038,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "5765df69d68814b3",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.051
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.372,
+          "after": 0.752,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "5765df69d68814b3",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.01
+          "opponent": "ee1c1380d017b503",
+          "opponent_species": "Rotom-Wash",
+          "weight": 0.0317,
+          "before": 0.217,
+          "after": 0.583,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "d0981ddc1b13136d",
+          "opponent_species": "Staraptor",
+          "weight": 0.0101,
+          "before": 0.323,
+          "after": 0.645,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.038,
       "opponents_unlocked": [
         {
           "species": "Milotic",
@@ -8233,59 +9308,15 @@
       "human_id": "meowscarada_no_item",
       "species": "Meowscarada",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.021,
-      "support_delta": 0.068,
-      "conditions_added": [
-        {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "6c90a2a68428d877",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.01
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "6c90a2a68428d877",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.8
-            }
-          ],
-          "delta": 0.021
-        }
-      ],
-      "positioning_delta": 0.013,
-      "opponents_unlocked": [
-        {
-          "species": "Basculegion",
-          "weight": 0.1835,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Garchomp",
-          "weight": 0.1659,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Milotic",
-          "weight": 0.0982,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Annihilape",
-          "weight": 0.0385,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.432,
       "sets": [
         {
@@ -8379,6 +9410,7 @@
       "human_id": "talonflame_sharp_beak",
       "species": "Talonflame",
       "set_label": "Sharp Beak",
+      "is_mega": false,
       "marginal_score": 0.033,
       "support_delta": 0.065,
       "conditions_added": [
@@ -8388,28 +9420,64 @@
           "enablers": [
             {
               "member": "4da6f47f5990823b",
-              "mechanism": "move:Thunder Wave",
+              "mechanism": "move:Tailwind",
               "speed_tier": "computed",
-              "first_share": 0.62
+              "first_share": 0.64
             }
           ],
           "delta": 0.057
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.256,
+          "after": 0.738,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "4da6f47f5990823b",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.032
+          "opponent": "4b420d2b794a92ad",
+          "opponent_species": "Ceruledge",
+          "weight": 0.0297,
+          "before": 0.334,
+          "after": 0.571,
+          "condition": "moves_first",
+          "mechanism": "move:Tailwind"
         }
       ],
       "positioning_delta": 0.004,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "294a12dc9de3473f",
+          "opponent_species": "Archaludon",
+          "weight": 0.1471,
+          "before": 0.369,
+          "after": 0.617,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "6a6ce89e4def7507",
+          "opponent_species": "Excadrill",
+          "weight": 0.0652,
+          "before": 0.175,
+          "after": 0.62,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.352,
+          "after": 0.708,
+          "mechanism": "move:Protect"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Basculegion",
@@ -8539,37 +9607,41 @@
       "human_id": "kangaskhan_mega",
       "species": "Kangaskhan-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.027,
-      "support_delta": 0.013,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.009,
+      "positioning_categories": [
+        "targeting"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "fac9f0a62a8a49ee",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.71
-            }
-          ],
-          "delta": 0.056
+          "opponent": "244400d9167e7084",
+          "opponent_species": "Sneasler",
+          "weight": 0.1996,
+          "before": 0.178,
+          "after": 0.497,
+          "mechanism": "move:Fake Out"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "fac9f0a62a8a49ee",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.008
+          "opponent": "681710c491ab285d",
+          "opponent_species": "Politoed",
+          "weight": 0.0342,
+          "before": 0.31,
+          "after": 0.617,
+          "mechanism": "move:Fake Out"
+        },
+        {
+          "opponent": "4da6f47f5990823b",
+          "opponent_species": "Talonflame",
+          "weight": 0.0132,
+          "before": 0.394,
+          "after": 0.802,
+          "mechanism": "move:Fake Out"
         }
       ],
-      "positioning_delta": 0.009,
       "opponents_unlocked": [
         {
           "species": "Froslass-Mega",
@@ -8661,46 +9733,15 @@
       "human_id": "glimmora_mega",
       "species": "Glimmora-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.068,
-      "support_delta": 0.039,
-      "conditions_added": [
-        {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "a381ab2df3e99b88",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.024
-        }
-      ],
-      "positioning_delta": 0.019,
-      "opponents_unlocked": [
-        {
-          "species": "Basculegion",
-          "weight": 0.1835,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Pelipper",
-          "weight": 0.1318,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Venusaur-Mega",
-          "weight": 0.0683,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Excadrill",
-          "weight": 0.0652,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.579,
       "sets": [
         {
@@ -8794,25 +9835,55 @@
       "human_id": "gholdengo_metal_coat",
       "species": "Gholdengo",
       "set_label": "Metal Coat",
+      "is_mega": false,
       "marginal_score": 0.013,
-      "support_delta": 0.062,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.037,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "2d479e22f4b6e584",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.83
-            }
-          ],
-          "delta": 0.055
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.301,
+          "after": 0.753,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "681710c491ab285d",
+          "opponent_species": "Politoed",
+          "weight": 0.0342,
+          "before": 0.266,
+          "after": 0.691,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Pelipper",
+          "weight": 0.1318,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Aerodactyl",
+          "weight": 0.0404,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Ceruledge",
+          "weight": 0.0297,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Venusaur",
+          "weight": 0.0144,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.588,
       "sets": [
         {
@@ -8882,37 +9953,41 @@
       "human_id": "garchomp_soft_sand",
       "species": "Garchomp",
       "set_label": "Soft Sand",
+      "is_mega": false,
       "marginal_score": 0.057,
-      "support_delta": 0.068,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.016,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "62b00a37c907bbf9",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.025
+          "opponent": "b3e49ebad0d4367b",
+          "opponent_species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "before": 0.374,
+          "after": 0.771,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "62b00a37c907bbf9",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.76
-            }
-          ],
-          "delta": 0.03
+          "opponent": "bb25298dfb948cda",
+          "opponent_species": "Blaziken-Mega",
+          "weight": 0.0215,
+          "before": 0.354,
+          "after": 0.713,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "5765df69d68814b3",
+          "opponent_species": "Venusaur",
+          "weight": 0.0144,
+          "before": 0.355,
+          "after": 0.587,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.016,
       "opponents_unlocked": [
         {
           "species": "Staraptor-Mega",
@@ -9028,72 +10103,15 @@
       "human_id": "sceptile_mega",
       "species": "Sceptile-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.058,
-      "support_delta": 0.057,
-      "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "f629f663b038b16b",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.59
-            }
-          ],
-          "delta": 0.012
-        },
-        {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "f629f663b038b16b",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.053
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "f629f663b038b16b",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.051
-        }
-      ],
-      "positioning_delta": 0.01,
-      "opponents_unlocked": [
-        {
-          "species": "Charizard-Mega-Y",
-          "weight": 0.2614,
-          "helps": "Sinistcha"
-        },
-        {
-          "species": "Staraptor-Mega",
-          "weight": 0.1761,
-          "helps": "Whimsicott"
-        },
-        {
-          "species": "Sylveon",
-          "weight": 0.1539,
-          "helps": "Kingambit"
-        },
-        {
-          "species": "Delphox-Mega",
-          "weight": 0.0973,
-          "helps": "Sneasler"
-        }
-      ],
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0,
+      "positioning_categories": [],
+      "positioning_swings": [],
+      "opponents_unlocked": [],
       "entry_coverage": 0.353,
       "sets": [
         {
@@ -9163,50 +10181,41 @@
       "human_id": "mamoswine_no_item",
       "species": "Mamoswine",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.037,
-      "support_delta": 0.031,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.044,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "afae6046cba631b0",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.94
-            }
-          ],
-          "delta": 0.014
+          "opponent": "3b385347b2418c33",
+          "opponent_species": "Hydreigon",
+          "weight": 0.0332,
+          "before": 0.293,
+          "after": 0.751,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "afae6046cba631b0",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.045
+          "opponent": "e2e8beece2bfa215",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0397,
+          "before": 0.363,
+          "after": 0.733,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "afae6046cba631b0",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.045
+          "opponent": "b79a3be4192062a6",
+          "opponent_species": "Mawile-Mega",
+          "weight": 0.0413,
+          "before": 0.326,
+          "after": 0.652,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.044,
       "opponents_unlocked": [
         {
           "species": "Garchomp",
@@ -9322,50 +10331,41 @@
       "human_id": "charizard_mega_x",
       "species": "Charizard-Mega-X",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.049,
-      "support_delta": 0.05,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.007,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "579b514ac0567c3e",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.63
-            }
-          ],
-          "delta": 0.016
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.157,
+          "after": 0.451,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "579b514ac0567c3e",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.051
+          "opponent": "ae0193d508ee34cd",
+          "opponent_species": "Gengar-Mega",
+          "weight": 0.0475,
+          "before": 0.26,
+          "after": 0.664,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "579b514ac0567c3e",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.03
+          "opponent": "cd46ff2ba67018e9",
+          "opponent_species": "Toxapex",
+          "weight": 0.0509,
+          "before": 0.17,
+          "after": 0.465,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.007,
       "opponents_unlocked": [
         {
           "species": "Sneasler",
@@ -9457,38 +10457,63 @@
       "human_id": "pyroar_mega",
       "species": "Pyroar-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.003,
-      "support_delta": 0.013,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.009,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "22243f764c7c0131",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.052
+          "opponent": "3cba8a8d93d115d7",
+          "opponent_species": "Farigiraf",
+          "weight": 0.1865,
+          "before": 0.246,
+          "after": 0.647,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "22243f764c7c0131",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.045
+          "opponent": "0bd04caa0f94951f",
+          "opponent_species": "Venusaur",
+          "weight": 0.057,
+          "before": 0.158,
+          "after": 0.453,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "6b7827ff86c3ab1e",
+          "opponent_species": "Torkoal",
+          "weight": 0.0425,
+          "before": 0.224,
+          "after": 0.442,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Glimmora",
+          "weight": 0.0505,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Torkoal",
+          "weight": 0.0425,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Arcanine-Hisui",
+          "weight": 0.0353,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.551,
       "sets": [
         {
@@ -9558,50 +10583,76 @@
       "human_id": "incineroar_charcoal",
       "species": "Incineroar",
       "set_label": "Charcoal",
+      "is_mega": false,
       "marginal_score": 0.06,
       "support_delta": 0.021,
       "conditions_added": [
-        {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "206ec31f442c1983",
-              "mechanism": "move:Icy Wind",
-              "speed_tier": "computed",
-              "first_share": 0.85
-            }
-          ],
-          "delta": 0.017
-        },
-        {
-          "condition": "sun",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "206ec31f442c1983",
-              "mechanism": "ability:Drought",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.049
-        },
         {
           "condition": "phys_mitigation",
           "category": "mitigation",
           "enablers": [
             {
               "member": "206ec31f442c1983",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.75
+              "mechanism": "ability:Intimidate",
+              "speed_tier": 0,
+              "first_share": 1
             }
           ],
           "delta": 0.042
         }
       ],
+      "support_swings": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "opponent_species": "Kingambit",
+          "weight": 0.2269,
+          "before": 0.245,
+          "after": 0.607,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "opponent_species": "Garchomp",
+          "weight": 0.1659,
+          "before": 0.413,
+          "after": 0.731,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        }
+      ],
       "positioning_delta": 0.04,
+      "positioning_categories": [
+        "pivoting",
+        "targeting",
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "199ab4a670f9cf95",
+          "opponent_species": "Grimmsnarl",
+          "weight": 0.1109,
+          "before": 0.387,
+          "after": 0.786,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "df5989403dfe079b",
+          "opponent_species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "before": 0.208,
+          "after": 0.549,
+          "mechanism": "move:Parting Shot"
+        },
+        {
+          "opponent": "02de32630aacfe83",
+          "opponent_species": "Basculegion",
+          "weight": 0.0318,
+          "before": 0.159,
+          "after": 0.456,
+          "mechanism": "move:Parting Shot"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Farigiraf",
@@ -9717,24 +10768,75 @@
       "human_id": "staraptor_no_item",
       "species": "Staraptor",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.05,
       "support_delta": 0.009,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
+          "condition": "phys_mitigation",
+          "category": "mitigation",
           "enablers": [
             {
               "member": "d0981ddc1b13136d",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.79
+              "mechanism": "ability:Intimidate",
+              "speed_tier": 0,
+              "first_share": 1
             }
           ],
-          "delta": 0.03
+          "delta": 0.051
+        }
+      ],
+      "support_swings": [
+        {
+          "opponent": "bc17d25604f0165b",
+          "opponent_species": "Venusaur-Mega",
+          "weight": 0.0683,
+          "before": 0.482,
+          "after": 0.883,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "bb25298dfb948cda",
+          "opponent_species": "Blaziken-Mega",
+          "weight": 0.0215,
+          "before": 0.244,
+          "after": 0.55,
+          "condition": "phys_mitigation",
+          "mechanism": "ability:Intimidate"
         }
       ],
       "positioning_delta": 0.034,
+      "positioning_categories": [
+        "mitigation",
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.217,
+          "after": 0.711,
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "opponent_species": "Farigiraf",
+          "weight": 0.1865,
+          "before": 0.155,
+          "after": 0.447,
+          "mechanism": "ability:Intimidate"
+        },
+        {
+          "opponent": "df5989403dfe079b",
+          "opponent_species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "before": 0.343,
+          "after": 0.56,
+          "mechanism": "ability:Intimidate"
+        }
+      ],
       "opponents_unlocked": [
         {
           "species": "Charizard-Mega-Y",
@@ -9821,37 +10923,41 @@
       "human_id": "primarina_no_item",
       "species": "Primarina",
       "set_label": "No item",
+      "is_mega": false,
       "marginal_score": 0.017,
-      "support_delta": 0.029,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.027,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "b3d4f447754011e0",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.91
-            }
-          ],
-          "delta": 0.015
+          "opponent": "0fb76124be7787ae",
+          "opponent_species": "Staraptor-Mega",
+          "weight": 0.1761,
+          "before": 0.199,
+          "after": 0.686,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "b3d4f447754011e0",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.014
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.185,
+          "after": 0.655,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "877bef9ccf0e5065",
+          "opponent_species": "Aerodactyl",
+          "weight": 0.0404,
+          "before": 0.295,
+          "after": 0.741,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.027,
       "opponents_unlocked": [
         {
           "species": "Sinistcha",
@@ -9991,38 +11097,47 @@
       "human_id": "scizor_mega",
       "species": "Scizor-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.02,
-      "support_delta": 0.035,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.045,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "8361a3ddd4607fb6",
-              "mechanism": "move:Thunder Wave",
-              "speed_tier": "computed",
-              "first_share": 0.68
-            }
-          ],
-          "delta": 0.057
-        },
-        {
-          "condition": "sand",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "8361a3ddd4607fb6",
-              "mechanism": "ability:Sand Stream",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.034
+          "opponent": "c2016c15c04faa73",
+          "opponent_species": "Tyranitar",
+          "weight": 0.0314,
+          "before": 0.316,
+          "after": 0.801,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "opponents_unlocked": [
+        {
+          "species": "Kingambit",
+          "weight": 0.116,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Toxapex",
+          "weight": 0.0509,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Ninetales-Alola",
+          "weight": 0.0473,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Scovillain-Mega",
+          "weight": 0.0347,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.817,
       "sets": [
         {
@@ -10092,50 +11207,41 @@
       "human_id": "greninja_mega",
       "species": "Greninja-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.066,
-      "support_delta": 0.047,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.015,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "86beb06daaca16e5",
-              "mechanism": "move:Tailwind",
-              "speed_tier": "computed",
-              "first_share": 0.8
-            }
-          ],
-          "delta": 0.043
+          "opponent": "e2e8beece2bfa215",
+          "opponent_species": "Gholdengo",
+          "weight": 0.0397,
+          "before": 0.26,
+          "after": 0.678,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "rain",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "86beb06daaca16e5",
-              "mechanism": "ability:Drizzle",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.04
+          "opponent": "d33593382a90c000",
+          "opponent_species": "Kingambit",
+          "weight": 0.0208,
+          "before": 0.296,
+          "after": 0.6,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "86beb06daaca16e5",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.034
+          "opponent": "5a509ac92d8f0336",
+          "opponent_species": "Excadrill-Mega",
+          "weight": 0.0032,
+          "before": 0.304,
+          "after": 0.618,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.015,
       "opponents_unlocked": [
         {
           "species": "Farigiraf",
@@ -10227,6 +11333,7 @@
       "human_id": "chandelure_mega",
       "species": "Chandelure-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.032,
       "support_delta": 0.045,
       "conditions_added": [
@@ -10236,29 +11343,86 @@
           "enablers": [
             {
               "member": "7e517dcd1c621101",
-              "mechanism": "move:Icy Wind",
+              "mechanism": "move:Trick Room",
               "speed_tier": "computed",
-              "first_share": 0.88
+              "first_share": 0.62
             }
           ],
           "delta": 0.012
-        },
-        {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "7e517dcd1c621101",
-              "mechanism": "move:Reflect",
-              "speed_tier": "computed",
-              "first_share": 0.75
-            }
-          ],
-          "delta": 0.029
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "opponent_species": "Farigiraf",
+          "weight": 0.1865,
+          "before": 0.329,
+          "after": 0.722,
+          "condition": "moves_first",
+          "mechanism": "move:Trick Room"
+        },
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.39,
+          "after": 0.873,
+          "condition": "moves_first",
+          "mechanism": "move:Trick Room"
+        }
+      ],
+      "positioning_delta": 0.006,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "opponent_species": "Charizard-Mega-Y",
+          "weight": 0.2614,
+          "before": 0.276,
+          "after": 0.698,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "opponent_species": "Whimsicott",
+          "weight": 0.2274,
+          "before": 0.3,
+          "after": 0.751,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "opponent_species": "Basculegion",
+          "weight": 0.1835,
+          "before": 0.274,
+          "after": 0.552,
+          "mechanism": "move:Protect"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Whimsicott",
+          "weight": 0.2274,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Raichu-Mega-Y",
+          "weight": 0.063,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Basculegion",
+          "weight": 0.0318,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.552,
       "sets": [
         {
@@ -10352,37 +11516,41 @@
       "human_id": "excadrill_mega",
       "species": "Excadrill-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.039,
-      "support_delta": 0.023,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.04,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "5a509ac92d8f0336",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.77
-            }
-          ],
-          "delta": 0.013
+          "opponent": "024cee1a8526e616",
+          "opponent_species": "Sinistcha",
+          "weight": 0.2386,
+          "before": 0.337,
+          "after": 0.833,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "phys_mitigation",
-          "category": "mitigation",
-          "enablers": [
-            {
-              "member": "5a509ac92d8f0336",
-              "mechanism": "ability:Intimidate",
-              "speed_tier": 0,
-              "first_share": 1
-            }
-          ],
-          "delta": 0.006
+          "opponent": "5f29a1803653b87e",
+          "opponent_species": "Sylveon",
+          "weight": 0.1539,
+          "before": 0.188,
+          "after": 0.505,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.24,
+          "after": 0.463,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.04,
       "opponents_unlocked": [
         {
           "species": "Delphox-Mega",
@@ -10474,37 +11642,41 @@
       "human_id": "gallade_mega",
       "species": "Gallade-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.023,
-      "support_delta": 0.007,
-      "conditions_added": [
+      "support_delta": 0,
+      "conditions_added": [],
+      "support_swings": [],
+      "positioning_delta": 0.014,
+      "positioning_categories": [
+        "protect"
+      ],
+      "positioning_swings": [
         {
-          "condition": "moves_first",
-          "category": "speed",
-          "enablers": [
-            {
-              "member": "2b7d76f07bd92dd5",
-              "mechanism": "move:Dragon Dance",
-              "speed_tier": "computed",
-              "first_share": 0.88
-            }
-          ],
-          "delta": 0.015
+          "opponent": "b108eda46851045d",
+          "opponent_species": "Kingambit",
+          "weight": 0.116,
+          "before": 0.285,
+          "after": 0.576,
+          "mechanism": "move:Protect"
         },
         {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "2b7d76f07bd92dd5",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.67
-            }
-          ],
-          "delta": 0.012
+          "opponent": "681710c491ab285d",
+          "opponent_species": "Politoed",
+          "weight": 0.0342,
+          "before": 0.339,
+          "after": 0.838,
+          "mechanism": "move:Protect"
+        },
+        {
+          "opponent": "8b286f401c266787",
+          "opponent_species": "Sableye-Mega",
+          "weight": 0.0001,
+          "before": 0.33,
+          "after": 0.818,
+          "mechanism": "move:Protect"
         }
       ],
-      "positioning_delta": 0.014,
       "opponents_unlocked": [
         {
           "species": "Garchomp",
@@ -10620,38 +11792,96 @@
       "human_id": "sableye_mega",
       "species": "Sableye-Mega",
       "set_label": "Mega",
+      "is_mega": true,
       "marginal_score": 0.083,
       "support_delta": 0.029,
       "conditions_added": [
         {
-          "condition": "moves_first",
-          "category": "speed",
+          "condition": "phys_mitigation",
+          "category": "mitigation",
           "enablers": [
             {
               "member": "8b286f401c266787",
-              "mechanism": "move:Dragon Dance",
+              "mechanism": "move:Reflect",
               "speed_tier": "computed",
-              "first_share": 0.63
+              "first_share": 0.52
             }
           ],
-          "delta": 0.03
-        },
-        {
-          "condition": "snow",
-          "category": "weather",
-          "enablers": [
-            {
-              "member": "8b286f401c266787",
-              "mechanism": "move:Snowscape",
-              "speed_tier": "computed",
-              "first_share": 0.74
-            }
-          ],
-          "delta": 0.038
+          "delta": 0.031
         }
       ],
-      "positioning_delta": 0,
-      "opponents_unlocked": [],
+      "support_swings": [
+        {
+          "opponent": "b108eda46851045d",
+          "opponent_species": "Kingambit",
+          "weight": 0.116,
+          "before": 0.352,
+          "after": 0.789,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        },
+        {
+          "opponent": "32bb8e94204339eb",
+          "opponent_species": "Swampert-Mega",
+          "weight": 0.0836,
+          "before": 0.322,
+          "after": 0.529,
+          "condition": "phys_mitigation",
+          "mechanism": "move:Reflect"
+        }
+      ],
+      "positioning_delta": 0.039,
+      "positioning_categories": [
+        "mitigation"
+      ],
+      "positioning_swings": [
+        {
+          "opponent": "7ee9621dff483549",
+          "opponent_species": "Garchomp",
+          "weight": 0.1417,
+          "before": 0.308,
+          "after": 0.769,
+          "mechanism": "move:Light Screen"
+        },
+        {
+          "opponent": "ba332631bbf1f4b0",
+          "opponent_species": "Delphox-Mega",
+          "weight": 0.0973,
+          "before": 0.273,
+          "after": 0.707,
+          "mechanism": "move:Light Screen"
+        },
+        {
+          "opponent": "32bb8e94204339eb",
+          "opponent_species": "Swampert-Mega",
+          "weight": 0.0836,
+          "before": 0.242,
+          "after": 0.481,
+          "mechanism": "move:Light Screen"
+        }
+      ],
+      "opponents_unlocked": [
+        {
+          "species": "Farigiraf",
+          "weight": 0.1865,
+          "helps": "Sinistcha"
+        },
+        {
+          "species": "Excadrill",
+          "weight": 0.0652,
+          "helps": "Whimsicott"
+        },
+        {
+          "species": "Venusaur",
+          "weight": 0.057,
+          "helps": "Kingambit"
+        },
+        {
+          "species": "Gholdengo",
+          "weight": 0.0523,
+          "helps": "Sneasler"
+        }
+      ],
       "entry_coverage": 0.37,
       "sets": [
         {

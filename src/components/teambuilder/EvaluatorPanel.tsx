@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {useDex} from '../../lib/useDex';
-import EvalSection from '../evaluator/EvalSection';
 import TypeMatrix from '../evaluator/TypeMatrix';
 import BoardControlTable from '../evaluator/BoardControlTable';
 import RngExposure from '../evaluator/RngExposure';
@@ -8,84 +7,108 @@ import RelevantBst from '../evaluator/RelevantBst';
 import DamageMarimekko from '../evaluator/DamageMarimekko';
 import WorstMatchups from '../evaluator/WorstMatchups';
 import type {ParsedSet} from '../../../lib/evaluator/parse';
+import type {EvaluatorDex} from '../../../lib/evaluator/dex';
+
+type SectionId = 'worst' | 'types' | 'board' | 'rng' | 'bst' | 'damage';
+
+const SECTIONS: Array<{id: SectionId; label: string; blurb: string}> = [
+  {
+    id: 'worst',
+    label: 'Worst matchups',
+    blurb: 'Metagame-weighted, lexicographic on best and second-best coverage — the same ranking the candidate list uses.',
+  },
+  {
+    id: 'types',
+    label: 'Type coverage',
+    blurb: "Attacking types against this team's defensive typings, and its offensive reach in reverse. Ability-aware.",
+  },
+  {
+    id: 'board',
+    label: 'Board control',
+    blurb: 'Speed, weather, terrain, targeting, mitigation, pivoting and option control across the roster.',
+  },
+  {
+    id: 'rng',
+    label: 'RNG exposure',
+    blurb: 'Rolls the team wants to hit, and rolls it needs not to miss.',
+  },
+  {
+    id: 'bst',
+    label: 'Stat totals',
+    blurb: 'Stats excluded where unused — Attack on a Pokémon with no physical moves, and so on.',
+  },
+  {
+    id: 'damage',
+    label: 'Damage sources',
+    blurb: "Where this team's damage comes from, by attack type and category.",
+  },
+];
+
+function Section({id, dex, sets}: {id: SectionId; dex: EvaluatorDex; sets: ParsedSet[]}) {
+  switch (id) {
+    case 'worst':
+      return <WorstMatchups sets={sets} />;
+    case 'types':
+      return <TypeMatrix dex={dex} sets={sets} />;
+    case 'board':
+      return <BoardControlTable dex={dex} sets={sets} />;
+    case 'rng':
+      return <RngExposure dex={dex} sets={sets} />;
+    case 'bst':
+      return <RelevantBst dex={dex} sets={sets} />;
+    case 'damage':
+      return <DamageMarimekko dex={dex} sets={sets} />;
+  }
+}
 
 /**
- * The team evaluator, embedded in the Build screen.
+ * The team evaluator, embedded between the team strip and the candidate list.
  *
- * These are the evaluator's own components, not copies. The teambuilder and
- * the evaluator answer overlapping questions about a roster, and maintaining
- * two type matrices or two board-control tables would guarantee they drift —
- * SPEC-teambuilder.md and BACKLOG item 08 both say to share them.
+ * These are the evaluator's own components, not copies — the two projects
+ * answer overlapping questions about a roster, and two type matrices would
+ * guarantee they drift.
  *
- * Collapsed by default. While building, the candidate list is the thing being
- * read; the composition check is what you turn to when a slot choice feels
- * wrong, so it lives one click away on the same screen rather than behind a
- * navigation step that loses the partial team.
+ * One section at a time rather than a single expand-everything toggle: six
+ * full-width panels between the team and the candidates would push the list
+ * off the screen, and a user checking type coverage is not simultaneously
+ * checking RNG exposure. Clicking the open section closes it.
  */
 export default function EvaluatorPanel({sets}: {sets: ParsedSet[]}) {
-  const [open, setOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<SectionId | null>(null);
   const {dex, error} = useDex();
 
   if (sets.length === 0) return null;
 
+  const active = SECTIONS.find((s) => s.id === openSection);
+
   return (
     <section className="evaluator-panel">
-      <button type="button" className="evaluator-toggle" onClick={() => setOpen((o) => !o)}>
-        <span className={open ? 'caret open' : 'caret'} aria-hidden="true">
-          ▸
+      <div className="evaluator-bar">
+        <span className="evaluator-bar-label">
+          Team composition <span className="muted">({sets.length} picked)</span>
         </span>
-        Team composition
-        <span className="muted">
-          {' '}
-          — type coverage, board control, RNG exposure and stat totals for the{' '}
-          {sets.length} Pokémon picked so far
-        </span>
-      </button>
+        <div className="evaluator-buttons">
+          {SECTIONS.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              title={s.blurb}
+              aria-pressed={openSection === s.id}
+              className={openSection === s.id ? 'active' : ''}
+              onClick={() => setOpenSection((cur) => (cur === s.id ? null : s.id))}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-      {open && (
+      {active && (
         <div className="evaluator-body">
+          <p className="evaluator-blurb">{active.blurb}</p>
           {error && <p className="error">Failed to load the dex: {error}</p>}
           {!dex && !error && <p className="muted">Loading the dex…</p>}
-          {dex && (
-            <>
-              <EvalSection
-                title="Worst matchups"
-                subtitle="Metagame-weighted, lexicographic on best and second-best coverage. The same ranking the candidate list uses."
-              >
-                <WorstMatchups sets={sets} />
-              </EvalSection>
-              <EvalSection
-                title="Type matchups"
-                subtitle="Attacking types against this team's defensive typings, and the team's offensive reach in reverse. Ability-aware."
-              >
-                <TypeMatrix dex={dex} sets={sets} />
-              </EvalSection>
-              <EvalSection
-                title="Board control"
-                subtitle="What the team has for speed, weather, terrain, targeting, mitigation, pivoting and option control."
-              >
-                <BoardControlTable dex={dex} sets={sets} />
-              </EvalSection>
-              <EvalSection
-                title="RNG exposure"
-                subtitle="Rolls the team wants to hit, and rolls it needs not to miss."
-              >
-                <RngExposure dex={dex} sets={sets} />
-              </EvalSection>
-              <EvalSection
-                title="Relevant stat totals"
-                subtitle="Stats excluded where unused — Attack on a Pokémon with no physical moves, and so on."
-              >
-                <RelevantBst dex={dex} sets={sets} />
-              </EvalSection>
-              <EvalSection
-                title="Damage sources"
-                subtitle="Where this team's damage comes from, by attack type and category."
-              >
-                <DamageMarimekko dex={dex} sets={sets} />
-              </EvalSection>
-            </>
-          )}
+          {dex && <Section id={active.id} dex={dex} sets={sets} />}
         </div>
       )}
     </section>

@@ -421,11 +421,35 @@ export interface TeamScore {
  * with no winning matchups and no conditions still has to appear, which
  * `marginal_score` alone would never show.
  */
+/**
+ * One matchup this candidate swings for a teammate.
+ *
+ * The number on a tile says how much changed; this says what changed, which is
+ * what a reader actually checks the number against. "Tailwind moves Basculegion
+ * from 41% to 78% against Floette" is inspectable in a way that "+4.6%" is not.
+ */
+export interface ValueSwing {
+  /** The team member whose matchup improves. Absent on self-swings. */
+  teammate?: string;
+  teammate_species?: string;
+  opponent: string;
+  opponent_species: string;
+  /** Usage weight of the opponent, for ordering by impact. */
+  weight: number;
+  before: number;
+  after: number;
+  /** The condition responsible — support swings only. */
+  condition?: AnyConditionId;
+  /** The mechanism responsible, e.g. "move:Tailwind". */
+  mechanism?: string;
+}
+
 export interface Candidate {
   variant_id: string;
   human_id: string;
   species: string;
   set_label: string;
+  is_mega: boolean;
   /**
    * (a) Matchup coverage, in percentage points of metagame-weighted team score:
    * score(T + this) − score(T). Incremental by construction — a Pokémon that
@@ -443,6 +467,12 @@ export interface Candidate {
   /** The conditions behind `support_delta`, for the pills on the card. */
   conditions_added: SuppliedCondition[];
   /**
+   * The biggest matchups this member's support swings for teammates, most
+   * impactful first. Not exhaustive — the top few are what makes the delta
+   * checkable.
+   */
+  support_swings: ValueSwing[];
+  /**
    * (c) Positioning, in the same unit: how much this member raises teammates'
    * win rate by letting them reach their good matchups — pivots, redirection,
    * entry-cost reduction.
@@ -458,6 +488,14 @@ export interface Candidate {
    * before. The legible version of `positioning_delta`.
    */
   opponents_unlocked: Array<{species: string; weight: number; helps: string}>;
+  /** The biggest entry swings this member creates for teammates. */
+  positioning_swings: ValueSwing[];
+  /**
+   * Effect categories this member's positioning tools fall under. Separate
+   * from `conditions_added` because a pivot or a redirector supplies no
+   * condition — it changes who can reach a fight, not what the fight is.
+   */
+  positioning_categories: EffectCategory[];
   /** Entry coverage this candidate has on its own. */
   entry_coverage: number;
   /** Opponents this candidate answers that the current team does not. */

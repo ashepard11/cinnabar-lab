@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T20:25:57.563Z",
+  "generated_at": "2026-09-14T01:27:45.403Z",
   "profiles": [
     {
       "variant_id": "6348f4da7d2dbe83",
@@ -8,6 +8,16 @@
       "conversion": 7,
       "costly_entries": [],
       "tools_provided": [
+        {
+          "tool": "move:Parting Shot",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
         {
           "tool": "ability:Intimidate",
           "effect": "physical_two_thirds",
@@ -41,11 +51,6 @@
         }
       ],
       "tools_provided": [
-        {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
         {
           "tool": "move:Protect",
           "effect": "all_three_quarters",
@@ -86,7 +91,7 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
+          "tool": "move:Rage Powder",
           "effect": "entry_cost_to_zero",
           "speed_tier": "computed"
         }
@@ -137,8 +142,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -168,7 +173,13 @@
           "spread_retained": 0.322
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "244400d9167e7084",
@@ -203,8 +214,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
+          "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -234,7 +250,13 @@
           "spread_retained": 0.173
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "7b89eac335d57676",
@@ -263,8 +285,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -290,8 +312,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -333,7 +355,13 @@
           "spread_retained": 0.347
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "5f29a1803653b87e",
@@ -354,13 +382,7 @@
           "spread_retained": 0.157
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "294a12dc9de3473f",
@@ -399,7 +421,13 @@
           "spread_retained": 0.266
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "7ee9621dff483549",
@@ -432,7 +460,13 @@
           "spread_retained": 0.412
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "0d139b488c72ba6b",
@@ -510,7 +544,13 @@
           "spread_retained": 0.321
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "b108eda46851045d",
@@ -539,8 +579,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -578,8 +618,18 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
+          "tool": "move:Parting Shot",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
           "speed_tier": "computed"
         }
       ]
@@ -617,8 +667,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -650,13 +700,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -686,7 +731,13 @@
           "spread_retained": 0.373
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "9914e3566af2aeed",
@@ -715,8 +766,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -746,7 +797,13 @@
           "spread_retained": 0.505
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "6a6ce89e4def7507",
@@ -769,8 +826,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -802,8 +859,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -835,8 +892,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
+          "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -849,8 +911,8 @@
       "costly_entries": [],
       "tools_provided": [
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -888,13 +950,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -932,8 +989,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -959,13 +1016,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
+          "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "move:Protect",
-          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1015,8 +1067,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1054,8 +1106,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1079,13 +1131,7 @@
           "spread_retained": 0.154
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "89f6a0fb54f76dec",
@@ -1147,13 +1193,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
+          "tool": "move:Follow Me",
           "effect": "entry_cost_to_zero",
           "speed_tier": "computed"
         },
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1191,8 +1237,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1228,7 +1274,13 @@
           "spread_retained": 0.26
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "6b7827ff86c3ab1e",
@@ -1243,7 +1295,13 @@
           "spread_retained": 0.443
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "b79a3be4192062a6",
@@ -1290,13 +1348,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1320,7 +1373,13 @@
           "spread_retained": 0.402
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "e2e8beece2bfa215",
@@ -1328,7 +1387,13 @@
       "entry_coverage": 0.512,
       "conversion": 20,
       "costly_entries": [],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "e790d0912282271b",
@@ -1355,7 +1420,13 @@
           "spread_retained": 0.218
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "9755a0045e004927",
@@ -1384,8 +1455,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1411,13 +1482,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
           "speed_tier": "computed"
         },
         {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
           "speed_tier": "computed"
         }
       ]
@@ -1461,8 +1532,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1500,7 +1571,7 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
+          "tool": "move:Rage Powder",
           "effect": "entry_cost_to_zero",
           "speed_tier": "computed"
         }
@@ -1551,8 +1622,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
+          "tool": "move:Rage Powder",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1584,8 +1660,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1603,18 +1679,7 @@
           "spread_retained": 0.351
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "move:Protect",
-          "effect": "all_three_quarters",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "02de32630aacfe83",
@@ -1653,7 +1718,13 @@
           "spread_retained": 0.327
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "ee1c1380d017b503",
@@ -1682,8 +1753,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1703,8 +1774,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1760,11 +1831,6 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
           "tool": "move:Protect",
           "effect": "all_three_quarters",
           "speed_tier": "computed"
@@ -1798,8 +1864,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1817,7 +1883,13 @@
           "spread_retained": 0.32
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "42f922e8deb10c3c",
@@ -1838,13 +1910,7 @@
           "spread_retained": 0.481
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "b480d401f773928f",
@@ -1865,7 +1931,13 @@
           "spread_retained": 0.493
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "524e3ac34b82a95f",
@@ -1910,7 +1982,13 @@
           "spread_retained": 0.458
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "bb25298dfb948cda",
@@ -1945,13 +2023,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -1981,7 +2054,18 @@
           "spread_retained": 0.318
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "d33593382a90c000",
@@ -2015,11 +2099,6 @@
         }
       ],
       "tools_provided": [
-        {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
         {
           "tool": "move:Protect",
           "effect": "all_three_quarters",
@@ -2072,8 +2151,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2099,8 +2178,13 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
+          "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2130,7 +2214,18 @@
           "spread_retained": 0.281
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "fb8e8113d72598cd",
@@ -2151,7 +2246,13 @@
           "spread_retained": 0.194
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "5765df69d68814b3",
@@ -2174,8 +2275,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2193,13 +2294,7 @@
           "spread_retained": 0.231
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "4da6f47f5990823b",
@@ -2227,11 +2322,6 @@
         }
       ],
       "tools_provided": [
-        {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
         {
           "tool": "move:Protect",
           "effect": "all_three_quarters",
@@ -2272,13 +2362,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
+          "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
           "speed_tier": "computed"
         }
       ]
@@ -2302,13 +2387,7 @@
           "spread_retained": 0.152
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "2d479e22f4b6e584",
@@ -2335,7 +2414,13 @@
           "spread_retained": 0.224
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "62b00a37c907bbf9",
@@ -2370,8 +2455,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Volt Switch",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2395,13 +2480,7 @@
           "spread_retained": 0.512
         }
       ],
-      "tools_provided": [
-        {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        }
-      ]
+      "tools_provided": []
     },
     {
       "variant_id": "afae6046cba631b0",
@@ -2424,13 +2503,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2468,8 +2542,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2505,7 +2579,13 @@
           "spread_retained": 0.344
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "206ec31f442c1983",
@@ -2546,8 +2626,18 @@
       ],
       "tools_provided": [
         {
+          "tool": "move:Parting Shot",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
           "tool": "move:Fake Out",
           "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
           "speed_tier": "computed"
         }
       ]
@@ -2579,6 +2669,11 @@
       ],
       "tools_provided": [
         {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
           "tool": "move:Protect",
           "effect": "all_three_quarters",
           "speed_tier": "computed"
@@ -2606,8 +2701,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2637,7 +2732,13 @@
           "spread_retained": 0.155
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "86beb06daaca16e5",
@@ -2660,13 +2761,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
-          "speed_tier": "computed"
-        },
-        {
-          "tool": "ability:Intimidate",
-          "effect": "physical_two_thirds",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2690,7 +2786,13 @@
           "spread_retained": 0.182
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "5a509ac92d8f0336",
@@ -2713,8 +2815,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Follow Me",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2740,8 +2842,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:Fake Out",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -2771,7 +2873,18 @@
           "spread_retained": 0.266
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
     }
   ]
 }

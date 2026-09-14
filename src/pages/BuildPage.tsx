@@ -3,6 +3,7 @@ import {useCandidates, useCandidateMatchups, useFixtureVariants} from '../lib/us
 import {activeRegulationConfig} from '../../lib/format-rules';
 import type {Candidate, PresetSet} from '../../lib/teambuilder/types';
 import CandidateCard, {type SortKey} from '../components/teambuilder/CandidateCard';
+import CandidateFilters, {EMPTY_FILTERS, type FilterState} from '../components/teambuilder/CandidateFilters';
 import TeamStrip from '../components/teambuilder/TeamStrip';
 import SetEditor, {type ChosenSet} from '../components/teambuilder/SetEditor';
 import EvaluatorPanel from '../components/teambuilder/EvaluatorPanel';
@@ -10,8 +11,6 @@ import OffMetaEntry from '../components/teambuilder/OffMetaEntry';
 import {teamToParsedSets, type TeamMember} from '../lib/teamToSets';
 
 const RULES = activeRegulationConfig();
-
-/** How many candidates the list shows before asking to show more. */
 const PAGE = 10;
 
 /** A "good matchup" for the threat filter. Deliberately generous. */
@@ -35,7 +34,6 @@ const SORTS: Array<{key: SortKey; label: string; help: string}> = [
   },
 ];
 
-/** Deterministic fixture jitter so picking re-ranks visibly. Not a model. */
 function perturb(candidate: Candidate, teamIds: string[]): number {
   const seed = candidate.variant_id + teamIds.join('');
   let h = 2166136261;
@@ -57,42 +55,51 @@ export default function BuildPage() {
 
   const [team, setTeam] = useState<Picked[]>([]);
   const [sortKey, setSortKey] = useState<SortKey>('marginal_score');
-  const [threats, setThreats] = useState<string[]>([]);
-  const [query, setQuery] = useState('');
+  const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS);
+  const [detailed, setDetailed] = useState(false);
   const [visible, setVisible] = useState(PAGE);
   const [maxScanned, setMaxScanned] = useState(PAGE);
   const [editing, setEditing] = useState<Candidate | null>(null);
   const [offMeta, setOffMeta] = useState(false);
 
   const teamIds = team.map((m) => m.candidate.variant_id);
-
-  /** Every variant is a possible threat to filter against, not just candidates. */
-  const threatOptions = useMemo(() => {
-    const seen = new Map<string, {id: string; label: string}>();
-    for (const c of candidates ?? []) {
-      if (!seen.has(c.variant_id)) {
-        seen.set(c.variant_id, {id: c.variant_id, label: `${c.species} (${c.set_label})`});
-      }
-    }
-    return [...seen.values()].sort((a, b) => a.label.localeCompare(b.label));
-  }, [candidates]);
+  const threatOptions = useMemo(
+    () =>
+      (candidates ?? [])
+        .map((c) => ({id: c.variant_id, label: `${c.species} (${c.set_label})`}))
+        .sort((a, b) => a.label.localeCompare(b.label)),
+    [candidates]
+  );
 
   const ranked = useMemo(() => {
     if (!candidates) return [];
     const picked = new Set(teamIds);
     let list = candidates.filter((c) => !picked.has(c.variant_id));
 
-    // "Handles these threats": keep only candidates with a good matchup into
-    // every selected opponent. This is the backward entry point — starting
-    // from a problem rather than from a Pokémon you already like.
-    if (threats.length > 0 && matchups) {
+    if (filters.mega !== 'all') {
+      const wantMega = filters.mega === 'mega';
+      list = list.filter((c) => c.is_mega === wantMega);
+    }
+    if (filters.supports) {
+      const cat = filters.supports;
+      // A category can be reached two ways: by supplying a condition in it, or
+      // by carrying a positioning tool in it. Mitigation and weather are in
+      // both lists, so both tests have to be exact — checking "has any
+      // positioning at all" would make those two match everything.
+      list = list.filter(
+        (c) =>
+          c.conditions_added.some((s) => s.category === cat) ||
+          c.positioning_categories.includes(cat)
+      );
+    }
+    if (filters.threats.length > 0 && matchups) {
       list = list.filter((c) => {
         const row = matchups[c.variant_id];
-        return row && threats.every((t) => (row[t] ?? 0) >= GOOD_MATCHUP);
+        return row && filters.threats.every((t) => (row[t] ?? 0) >= GOOD_MATCHUP);
       });
     }
-    if (query.trim()) {
-      const q = query.trim().toLowerCase();
+    if (filters.query.trim()) {
+      const q = filters.query.trim().toLowerCase();
       list = list.filter(
         (c) => c.species.toLowerCase().includes(q) || c.set_label.toLowerCase().includes(q)
       );
@@ -105,7 +112,30 @@ export default function BuildPage() {
       return c.marginal_score + jitter;
     };
     return [...list].sort((a, b) => score(b) - score(a));
-  }, [candidates, matchups, teamIds.join(','), threats.join(','), query, sortKey]);
+  }, [candidates, matchups, teamIds.join(","), filters, sortKey]);
+
+  /**
+   * Swings name a teammate, and a fixture cannot know who is on the team. Map
+   * them onto the real roster so the sentence reads as it will against real
+   * data: "Basculegion 41%→78% vs Floette" is only meaningful when Basculegion
+   * is actually picked.
+   */
+  const withTeammates = useMemo(() => {
+    if (team.length === 0) return ranked;
+    return ranked.map((c) => ({
+      ...c,
+      support_swings: c.support_swings.map((s, i) => ({
+        ...s,
+        teammate: team[i % team.length].candidate.variant_id,
+        teammate_species: team[i % team.length].candidate.species,
+      })),
+      positioning_swings: c.positioning_swings.map((s, i) => ({
+        ...s,
+        teammate: team[i % team.length].candidate.variant_id,
+        teammate_species: team[i % team.length].candidate.species,
+      })),
+    }));
+  }, [ranked, team]);
 
   function confirm(candidate: Candidate, chosen: ChosenSet) {
     const variant = variants?.find((v) => (v.cid ?? v.id) === candidate.variant_id);
@@ -131,12 +161,6 @@ export default function BuildPage() {
     setOffMeta(false);
   }
 
-  function showMore() {
-    const next = visible + PAGE;
-    setVisible(next);
-    setMaxScanned((m) => Math.max(m, next));
-  }
-
   const full = team.length >= RULES.team_size;
   const parsedSets = useMemo(() => teamToParsedSets(team), [team]);
 
@@ -151,8 +175,8 @@ export default function BuildPage() {
           Guided mode: pick a slot at a time and the candidate list re-ranks against
           what you already have. All three figures on a card are percentage points
           of metagame-weighted win rate — the difference is whose. Running on{' '}
-          <strong>fixture data</strong>: species and weights are real, every score is
-          invented.
+          <strong>fixture data</strong>: species, sets and weights are real, every
+          score is invented.
         </p>
       </header>
 
@@ -171,25 +195,19 @@ export default function BuildPage() {
           </div>
         </div>
         <TeamStrip
-          team={team.map((m) => m.candidate)}
+          team={team.map((m) => ({candidate: m.candidate, set: m.set}))}
           teamSize={RULES.team_size}
           onRemove={(id) => setTeam((t) => t.filter((m) => m.candidate.variant_id !== id))}
         />
       </section>
 
+      <EvaluatorPanel sets={parsedSets} />
+
       {!full && (
         <section className="build-candidates">
           <div className="candidates-head">
             <h2>Candidates for slot {team.length + 1}</h2>
-            <p className="muted">
-              {ranked.length} of {candidates.length}
-              {threats.length > 0 && ` with a good matchup into all ${threats.length} selected`}
-            </p>
-          </div>
-
-          <div className="candidate-filters">
-            <label>
-              <span>Sort by</span>
+            <div className="candidates-head-controls">
               <div className="sort-toggle" role="group" aria-label="Sort candidates">
                 {SORTS.map((s) => (
                   <button
@@ -203,48 +221,62 @@ export default function BuildPage() {
                   </button>
                 ))}
               </div>
-            </label>
-
-            <label>
-              <span>Find a Pokémon</span>
-              <input
-                type="search"
-                value={query}
-                placeholder="Species or set"
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </label>
+              <button
+                type="button"
+                className={detailed ? 'density active' : 'density'}
+                aria-pressed={detailed}
+                onClick={() => setDetailed((d) => !d)}
+                title="Show the matchups behind every figure on every card"
+              >
+                {detailed ? 'Compact' : 'Expand all'}
+              </button>
+            </div>
           </div>
 
-          <ThreatFilter
+          <CandidateFilters
             options={threatOptions}
-            selected={threats}
-            onChange={setThreats}
+            filters={filters}
+            onChange={(f) => {
+              setFilters(f);
+              setVisible(PAGE);
+            }}
             threshold={GOOD_MATCHUP}
+            matching={ranked.length}
+            total={candidates.length}
           />
 
           <ol className="candidate-list">
-            {ranked.slice(0, visible).map((c, i) => (
+            {withTeammates.slice(0, visible).map((c, i) => (
               <CandidateCard
                 key={c.variant_id}
                 candidate={c}
                 rank={i + 1}
                 highlight={sortKey}
+                detailed={detailed}
+                hasTeammates={team.length > 0}
                 onPick={setEditing}
               />
             ))}
           </ol>
 
           {ranked.length > visible && (
-            <button type="button" className="show-more" onClick={showMore}>
+            <button
+              type="button"
+              className="show-more"
+              onClick={() => {
+                const next = visible + PAGE;
+                setVisible(next);
+                setMaxScanned((m) => Math.max(m, next));
+              }}
+            >
               Show {Math.min(PAGE, ranked.length - visible)} more
               <span className="muted"> ({ranked.length - visible} remaining)</span>
             </button>
           )}
           {ranked.length === 0 && (
             <p className="muted">
-              Nothing in the universe has a good matchup into all of those at once.
-              Drop one, or lower what counts as good.
+              Nothing in the universe matches all of those filters at once. Drop one,
+              or lower what counts as a good matchup.
             </p>
           )}
 
@@ -259,8 +291,6 @@ export default function BuildPage() {
         </section>
       )}
 
-      <EvaluatorPanel sets={parsedSets} />
-
       {editing && (
         <SetEditor
           candidate={editing}
@@ -270,87 +300,10 @@ export default function BuildPage() {
       )}
 
       {offMeta && (
-        <OffMetaEntry
-          onCancel={() => setOffMeta(false)}
-          onAdd={addOffMeta}
-          teamSize={team.length}
-        />
+        <OffMetaEntry onCancel={() => setOffMeta(false)} onAdd={addOffMeta} teamSize={team.length} />
       )}
 
       <ScanNote maxScanned={maxScanned} />
-    </div>
-  );
-}
-
-/**
- * "Handles these threats" — the backward entry point.
- *
- * The design in the spec only works forward, from a Pokémon you already have
- * in mind. Real teambuilding starts at least as often from a problem: this
- * team loses to these three things, what fixes that. Selecting opponents here
- * filters the universe to sets with a good matchup into every one of them.
- */
-function ThreatFilter({
-  options,
-  selected,
-  onChange,
-  threshold,
-}: {
-  options: Array<{id: string; label: string}>;
-  selected: string[];
-  onChange: (ids: string[]) => void;
-  threshold: number;
-}) {
-  const [query, setQuery] = useState('');
-  const available = options.filter(
-    (o) => !selected.includes(o.id) && o.label.toLowerCase().includes(query.trim().toLowerCase())
-  );
-
-  return (
-    <div className="threat-filter">
-      <div className="threat-filter-head">
-        <span className="field-label">Handles these threats</span>
-        <span className="muted">
-          keeps only sets winning at least {Math.round(threshold * 100)}% against every one
-        </span>
-      </div>
-
-      <div className="threat-chips">
-        {selected.map((id) => (
-          <span key={id} className="threat-chip">
-            {options.find((o) => o.id === id)?.label ?? id}
-            <button type="button" aria-label="Remove" onClick={() => onChange(selected.filter((s) => s !== id))}>
-              ×
-            </button>
-          </span>
-        ))}
-        <input
-          type="search"
-          className="threat-input"
-          value={query}
-          placeholder={selected.length === 0 ? 'Add an opponent…' : 'Add another…'}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
-
-      {query.trim() && (
-        <ul className="threat-options">
-          {available.slice(0, 8).map((o) => (
-            <li key={o.id}>
-              <button
-                type="button"
-                onClick={() => {
-                  onChange([...selected, o.id]);
-                  setQuery('');
-                }}
-              >
-                {o.label}
-              </button>
-            </li>
-          ))}
-          {available.length === 0 && <li className="muted">No match</li>}
-        </ul>
-      )}
     </div>
   );
 }
@@ -368,9 +321,7 @@ function ScanNote({maxScanned}: {maxScanned: number}) {
         </li>
         <li>
           <strong>Do the three figures compare?</strong> All three are percentage
-          points of metagame win rate; they differ in whose win rate moves. If they
-          still do not read against each other, the ranking needs three orderings
-          rather than one number per axis.
+          points of metagame win rate; they differ in whose win rate moves.
         </li>
         <li>
           <strong>Is positioning the right measure?</strong> Expressing it as a
