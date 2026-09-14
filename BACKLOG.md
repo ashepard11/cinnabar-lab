@@ -11,7 +11,11 @@ Item numbers are stable. They do not change when priority changes, so references
 
 ## Status
 
-Three specs now exist: `SPEC-damageviz.md`, `SPEC-sim.md` and `SPEC-teambuilder.md`, plus `SPEC-team-evaluator.md` for the evaluator that item 08 produced. The teambuilder is the newest and the largest, and it reshuffles this list. Several items that were speculative are now prerequisites for it, one has been absorbed into it, and one is superseded by its design.
+Four specs now exist: `SPEC-damageviz.md`, `SPEC-sim.md`, `SPEC-team-evaluator.md` and `SPEC-teambuilder.md`. The teambuilder is the newest and the largest, and it reshuffled this list: several items that were speculative are now prerequisites for it, one has been absorbed into it, and one is superseded by its design.
+
+**Teambuilder Phases 0 and 1 are complete and on `main`.** Phase 0 delivered regulation-driven format rules, variant schema v3 and the data contracts; Phase 1 delivered all six screens against fixture data — Build, Generate, Team detail, Pokémon detail, Movesets and Data status. Two of those already run on real data rather than fixtures. The evaluator presentation pass merged alongside them.
+
+Phase 2 is next in the spec's order, and the Priority 0 items below are what stand between here and it.
 
 The teambuilder also turned up three defects in the earlier specs. Those were item 09, now closed — two had been fixed in passing while items 01–08 were built, and the third is handled by item 10.
 
@@ -41,6 +45,8 @@ Merged in [#5](https://github.com/ashepard11/cinnabar-lab/pull/5), specified in 
 
 Two dimensions overlap with the teambuilder and it should reuse these rather than reimplementing them. Worst matchups uses the same ranking logic. Board control inventory uses the evaluator's tag tables — see item 11 for the consolidation that still needs doing. The teambuilder's team detail screen should embed these panels rather than building parallel ones.
 
+A presentation pass followed in [#6](https://github.com/ashepard11/cinnabar-lab/pull/6) (DECISIONS.md D38): aggregate-first defensive type summary with the per-Pokémon grid behind a disclosure, offensive coverage moved to categorical count rows alongside damage sources, board control consolidated from ten categories to five display rows. It sat as a draft for two months and was rebased onto Phases 0–1 before merging, since it rewrote every evaluator component those phases had touched.
+
 Its remaining gaps are recorded under "Known limitations — team evaluator" in the README, not here.
 
 ---
@@ -61,9 +67,9 @@ All three defects resolved, 2026-09-13. Two turned out to have been fixed in pas
 
 ---
 
-## Priority 0 — blocks the teambuilder
+## Priority 0 — blocks the rest of the teambuilder
 
-Nothing in `SPEC-teambuilder.md` can start until these land.
+Phases 0 and 1 are done. Nothing from Phase 2 onward can start until these land.
 
 ### A note on rebuilding the matrix
 
@@ -71,12 +77,13 @@ Several queued items invalidate `data/matchups.sqlite`, which is hours of comput
 
 - **Re-vendoring Showdown for M-C** bumps `SIM_ENGINE_VERSION`, which is part of the provenance run key, so every row is invalidated.
 - **Item 04, defensive item variants** changes the variant universe, so the pair set changes.
+- **Teambuilder Phase 2** replaces the naive top-four moveset selection, which changes the resolved set — and therefore the content id — of any variant whose four moves move.
 - **Item 07, a better decision policy** changes `policy_version`, invalidating every row.
 - **Re-scraping usage for M-C** changes weights and the variant set.
 
-The matrix is already stale for an unrelated reason: it was built at 89 variants and the weekly refresh has moved the data to 84, so `npm run verify-matchups` reports a variant-count and row-count mismatch. Item 03 (incremental refresh) is what makes any of this cheap, and doing item 03 before the batch means the rebuild touches only what actually changed.
+The matrix is already stale for an unrelated reason, and `/data-status` names it precisely: built 2026-07-06 against 89 variants, while the weekly refresh has moved the set to 84. Five current variants have no rows, and ten rows belong to variants that no longer exist. Item 03 (incremental refresh) is what makes any of this cheap, and doing it before the batch means the rebuild touches only what actually changed.
 
-Sequence suggestion: item 03 first, then the M-C migration and item 04 together, then re-simulate once. Item 07 is the exception — it is worth its own rebuild, because the point of it is measuring how much the policy changes.
+Sequence suggestion: item 03 first, then the M-C migration, item 04 and Phase 2's moveset selection together, then re-simulate once. Item 07 is the exception — it is worth its own rebuild, because the point of it is measuring how much the policy changes.
 
 ### 10. Regulation-driven format rules *(Medium)*
 
@@ -90,7 +97,11 @@ Switching regulations then becomes a configuration change. It also makes backtes
 
 **Progress.** `lib/format-rules.ts` and `scripts/build-format-rules.ts` landed; `npm run build-format-rules -- --all` resolves M-A and M-B into `data/format-rules-<id>.json`. Both hardcoded format ids are gone: `lib/scrape.ts` and `lib/sim/engine.ts` now read the active regulation from `CHAMPIONS_REGULATION`, defaulting to M-B. M-B resolves to 323 species / 148 items / 74 Mega formes, and the item count matches the regulation announcement exactly. `scripts/build-matchups.ts` stamps the regulation and refuses to mix two in one matrix.
 
-Still open, and both need the vendored Showdown build replaced: M-C legality (the vendored build predates it, so the entry is declared but unsourceable) and the regulation selector, which needs Phase 1's data status screen to exist first. Per-species move bans stay empty — Showdown models them as learnset removals, which are indistinguishable from never learning the move. See DECISIONS.md D39.
+Phase 1's data status screen (`/data-status`) now renders every regulation with its dates, formats and usage source, and marks M-C as declared-but-unsourceable with the reason. What is missing is the *selector*, and it is not blocked on interface work any more — it is blocked on there being a second regulation worth switching to. A dropdown with one working option would be a worse lie than the sentence currently in its place.
+
+So the remaining work is one thing, not two: **replace the vendored Showdown build.** That resolves M-C legality and makes the selector meaningful at the same time. It also needs M-C's Pikalytics format id confirmed against the live API, since guessing one is worse than admitting ignorance — the API answers an unrecognised format with `[]` rather than a 404.
+
+Per-species move bans stay empty regardless: Showdown models them as learnset removals, indistinguishable from never learning the move. See DECISIONS.md D39.
 
 **Blocks:** teambuilder Phases 2, 8; item 15
 
@@ -101,6 +112,10 @@ When the scraper produces new variants, diff against existing and simulate only 
 Now a prerequisite rather than an optimization. The teambuilder adds conditions one at a time, edits movesets through its interface, and switches regulations from a dropdown. Each of those invalidates a subset of the matrix, and a full rebuild for any of them makes the workflow unusable.
 
 The cid and provenance keys from item 02 are in place, so the diff has something stable to key on.
+
+**Suggested next.** Everything remaining in this tier invalidates the matrix, and until this lands each invalidation means a full rebuild — hours of compute. Doing it first makes items 04, the M-C migration and every Phase 2 moveset edit cost minutes instead. It is also the only Priority 0 item with no open dependency.
+
+One lever worth settling while working on this: `CORE_TIER_SIZE` is 70, taken from the spec's "top seventy or so" and flagged provisional in `lib/variant-schema.ts`. Phase 1 was meant to answer how many candidates a user actually scans. If the answer is nearer ten, the core tier shrinks and the Phase 5 matrix build shrinks with it — the cheapest saving available before any simulation runs.
 
 **Depends on:** 02 *(done)*
 **Blocks:** teambuilder Phases 2, 6b
@@ -123,7 +138,11 @@ Also closes the evaluator's defensive-item fidelity gap.
 
 The teambuilder's enabler catalog needs the same thing the evaluator's board control inventory already has: a curated table mapping abilities, moves and items to their effects. Speed control, weather, terrain, targeting, mitigation, pivoting, option control.
 
-Item 08 shipped this as `lib/evaluator/tags.ts`, with a CI taxonomy-rot gate tracking dex drift in both directions. Lift it to `lib/effects.ts` and import from both rather than writing a second copy for the teambuilder, which would guarantee drift. Check the category list against what the enabler catalog actually needs before moving it — the enabler catalog keys on condition, and the evaluator's categories key on display grouping, so the mapping may not be one to one.
+Item 08 shipped this as `lib/evaluator/tags.ts`, with a CI taxonomy-rot gate tracking dex drift in both directions. Lift it to `lib/effects.ts` and import from both rather than writing a second copy for the teambuilder, which would guarantee drift.
+
+**The drift has already started.** Phase 1 needed the same taxonomy for the Build screen's support pills and added `EffectCategory` and `DISPLAY_GROUPS` to `lib/teambuilder/types.ts`, hand-mirroring the evaluator's ten categories and the five display rows from D38.3. Two hand-maintained copies of one taxonomy now exist, and only one of them has the CI gate watching for dex drift. The lift is no longer preventative.
+
+The mapping still needs a pass before moving: the teambuilder's categories key on condition, the evaluator's on display grouping, and `priority` is deliberately absent from the teambuilder's set because damage priority is already inside a Pokémon's own matchup numbers.
 
 **Blocks:** teambuilder Phase 4
 
