@@ -788,3 +788,62 @@ Implementation deviations and discoveries beyond the spec (D35/D36):
     churn on every run. It caught one real bug immediately: the first version
     emitted unsorted HP quantile arrays, which are a distribution and must be
     sorted by definition.
+
+### D40: Teambuilder Phase 1 — interface against fixtures (SPEC-teambuilder.md Phase 1, 2026-09-13)
+
+1. **Routes are `/build`, `/generate`, `/movesets`, `/data-status`, with detail
+   pages under `/build/`.** Deliberately not `/teambuilder`, which differs from
+   the existing `/team-builder` (the simulator project's core-and-partners
+   tool) by one hyphen and would be a permanent footgun. Whether the two tools
+   should merge is a real question — the new Build screen supersedes much of
+   what the old one does — but squatting the route would pre-empt it.
+
+2. **All three candidate dimensions are on the card at equal weight.** A
+   candidate earns its slot through matchup coverage, the conditions it adds,
+   or how much it helps teammates get in, and a list sorted only by marginal
+   score hides two thirds of that. The sort toggle highlights whichever
+   dimension is ordering the list so the reason a candidate sits where it does
+   stays visible. Whether this works at all, or whether users need three
+   separate orderings, is the question the layout exists to answer.
+
+3. **The Phase 1 questions are printed on the pages, not instrumented
+   silently.** The Build screen shows how deep into the candidate list the
+   session has read; the Generate screen asks whether the band reads before the
+   ceiling and whether the modelling controls belong in the interface at all.
+   Analytics would answer these more precisely, but this project has no
+   analytics and the questions are for whoever is using the fixture build.
+
+4. **The SP budget validator is real from day one.** The set editor runs
+   `validateSpSpread` from `lib/format-rules.ts` — the same code the pipeline
+   uses — so an illegal spread is rejected as the user types. This was the
+   cheapest way to find out whether the browser-safety claim on that module was
+   true. It was not: the module named `process`, which the web tsconfig has no
+   types for, and nothing in `src/` had imported it before.
+
+5. **Data status runs on real data, not fixtures.** The regulation registry,
+   the variants file, the resolved format rules and the matrix metadata all
+   exist. It surfaces the matrix drift by name — 5 current variants with no
+   rows, 10 rows for variants that no longer exist — which is the diagnosis
+   `verify-matchups`' bare counts do not give.
+
+6. **Movesets shows the naive top-four next to what it passed over.** Phase 2's
+   corrections (near-substitute suppression, the Protect rule, multiple sets
+   per bucket) are not built. Rather than hide that, the screen shows the
+   selection the pipeline actually makes today alongside the alternatives, so
+   the cases the rule will get wrong are visible before the rule is written.
+   Six of the seventy core sets are already flagged low confidence.
+
+7. **Fixture-derived behaviour is labelled as such at every site.** Re-ranking
+   on pick, the ranked team list on Generate, and the widening score bands are
+   all deterministic perturbations, not models. Each carries a comment saying
+   so, and the pages say plainly that species and weights are real while the
+   scores are invented. A fixture that reads as a result is worse than no
+   fixture.
+
+8. **Fixture defects found by rendering them.** The generator emitted unsorted
+   HP quantiles (caught by the contract tests), gave every candidate the same
+   two `patches` including one case of a Pokémon answering itself, and let
+   generated teams list their own members as worst matchups. None would have
+   surfaced from the JSON alone. The fixtures are now good enough that a layout
+   judgement made against them means something.
+

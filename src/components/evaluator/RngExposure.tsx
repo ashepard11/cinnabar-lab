@@ -73,10 +73,6 @@ export default function RngExposure({ dex, sets }: { dex: EvaluatorDex; sets: Pa
         </div>
       </div>
       {rng.notes.map((n, i) => <p key={i} className="footer-note">{n}</p>)}
-      <p className="footer-note">
-        Counts are per move slot, with per-use probabilities — deliberately no
-        combined "RNG score"; a flinch chance and a miss chance don't add.
-      </p>
     </div>
   );
 }

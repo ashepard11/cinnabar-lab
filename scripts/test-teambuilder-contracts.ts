@@ -236,9 +236,99 @@ check(
       typeof c.positioning_delta === 'number'
   )
 );
+// Positioning is a teammate win-rate gain, and adding a member only ever adds
+// tools — it cannot take a pivot or a redirector away from the team. So the
+// delta is non-negative by construction, and a negative one means the
+// computation is wrong rather than that the candidate is bad.
 check(
-  'positioning_delta may be negative — adding a member can hurt',
-  candidates.some((c) => c.positioning_delta < 0)
+  'positioning_delta is never negative',
+  candidates.every((c) => c.positioning_delta >= 0)
+);
+check(
+  'support_delta is never negative',
+  candidates.every((c) => c.support_delta >= 0)
+);
+check(
+  'a candidate supplying no conditions has zero support delta',
+  candidates.filter((c) => c.conditions_added.length === 0).every((c) => c.support_delta === 0)
+);
+check(
+  'every supplied condition carries a category and at least one enabler',
+  candidates.every((c) =>
+    c.conditions_added.every((s) => !!s.category && s.enablers.length > 0)
+  )
+);
+check(
+  'computed speed tiers carry a first_share, tier 0 is 1 and tier 2 is 0',
+  candidates.every((c) =>
+    c.conditions_added.every((s) =>
+      s.enablers.every((e) =>
+        e.speed_tier === 0
+          ? e.first_share === 1
+          : e.speed_tier === 2
+            ? e.first_share === 0
+            : typeof e.first_share === 'number' && e.first_share > 0 && e.first_share < 1
+      )
+    )
+  )
+);
+check(
+  'every candidate offers at least one preset set',
+  candidates.every((c) => (c.sets?.length ?? 0) >= 1)
+);
+check(
+  'every candidate declares is_mega, so the Mega filter needs no side lookup',
+  candidates.every((c) => typeof c.is_mega === 'boolean')
+);
+check(
+  'Mega and non-Mega candidates partition the list',
+  candidates.filter((c) => c.is_mega).length + candidates.filter((c) => !c.is_mega).length ===
+    candidates.length
+);
+// Swings are what make a headline figure checkable, so a non-zero delta with
+// nothing to show is a hole in the explanation rather than a display choice.
+check(
+  'a candidate with support swings also has a support delta',
+  candidates.every((c) => c.support_swings.length === 0 || c.support_delta > 0)
+);
+check(
+  'a candidate with positioning swings also has positioning tools',
+  candidates.every((c) => c.positioning_swings.length === 0 || c.positioning_categories.length > 0)
+);
+check(
+  'positioning categories and positioning delta agree',
+  candidates.every((c) => (c.positioning_categories.length > 0) === (c.positioning_delta > 0))
+);
+check(
+  'every swing improves the matchup it names',
+  candidates.every((c) =>
+    [...c.support_swings, ...c.positioning_swings].every(
+      (s) => s.after > s.before && isProbability(s.before) && isProbability(s.after)
+    )
+  )
+);
+// Enablers are read off each variant's real moves and ability, so a candidate
+// claiming Tailwind must actually run Tailwind.
+check(
+  "every supplied mechanism appears in the candidate's own set",
+  candidates.every((c) => {
+    const set = c.sets?.[0];
+    if (!set) return true;
+    const moves = new Set(set.moves.map((m) => m.toLowerCase()));
+    return c.conditions_added.every((cond) =>
+      cond.enablers.every((e) => {
+        const name = e.mechanism.slice(e.mechanism.indexOf(':') + 1).toLowerCase();
+        return e.mechanism.startsWith('ability:')
+          ? set.ability.toLowerCase() === name
+          : moves.has(name);
+      })
+    );
+  })
+);
+check(
+  'the candidate list covers the whole variant universe, not a shortlist',
+  candidates.length >= 80,
+  `${candidates.length} candidates`
 );
 check('every candidate has a display label', candidates.every((c) => !!c.species && !!c.set_label));
 

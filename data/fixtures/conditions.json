@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T19:41:34.036Z",
+  "generated_at": "2026-09-14T01:27:45.399Z",
   "conditions": [
     {
       "id": "fresh",
@@ -36,6 +36,11 @@
       "kind": "derived",
       "label": "Opponent entered already damaged",
       "derives_from": "final_hp_distribution"
+    },
+    {
+      "id": "phys_mitigation",
+      "kind": "simulated",
+      "label": "Incoming physical damage reduced (extension roadmap, not in the v0 five)"
     }
   ]
 }

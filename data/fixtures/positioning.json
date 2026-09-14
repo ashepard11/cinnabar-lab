@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T19:41:34.040Z",
+  "generated_at": "2026-09-14T01:27:45.403Z",
   "profiles": [
     {
       "variant_id": "6348f4da7d2dbe83",
@@ -7,7 +7,23 @@
       "entry_coverage": 0.564,
       "conversion": 7,
       "costly_entries": [],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Parting Shot",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "b3e49ebad0d4367b",
@@ -34,7 +50,13 @@
           "spread_retained": 0.235
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "024cee1a8526e616",
@@ -67,7 +89,13 @@
           "spread_retained": 0.194
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Rage Powder",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "e44db8e5f05ae054",
@@ -114,8 +142,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -147,8 +175,8 @@
       ],
       "tools_provided": [
         {
-          "tool": "move:U-turn",
-          "effect": "entry_cost_to_zero",
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
           "speed_tier": "computed"
         }
       ]
@@ -184,7 +212,18 @@
           "spread_retained": 0.424
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "3cba8a8d93d115d7",
@@ -211,7 +250,13 @@
           "spread_retained": 0.173
         }
       ],
-      "tools_provided": []
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
     },
     {
       "variant_id": "7b89eac335d57676",
@@ -238,7 +283,2608 @@
           "spread_retained": 0.242
         }
       ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "0fb76124be7787ae",
+      "switch_in_score": 0.473,
+      "entry_coverage": 0.56,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.647,
+          "spread_retained": 0.357
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.898,
+          "spread_retained": 0.32
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "b81efa96488db225",
+      "switch_in_score": 0.647,
+      "entry_coverage": 0.414,
+      "conversion": 21,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.81,
+          "spread_retained": 0.502
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.787,
+          "spread_retained": 0.481
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.764,
+          "spread_retained": 0.461
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.715,
+          "spread_retained": 0.417
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.808,
+          "spread_retained": 0.347
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "5f29a1803653b87e",
+      "switch_in_score": 0.508,
+      "entry_coverage": 0.666,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.702,
+          "spread_retained": 0.545
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.594,
+          "spread_retained": 0.157
+        }
+      ],
       "tools_provided": []
+    },
+    {
+      "variant_id": "294a12dc9de3473f",
+      "switch_in_score": 0.634,
+      "entry_coverage": 0.422,
+      "conversion": 21,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.609,
+          "spread_retained": 0.171
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.834,
+          "spread_retained": 0.37
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.508,
+          "spread_retained": 0.481
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.762,
+          "spread_retained": 0.307
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.544,
+          "spread_retained": 0.266
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "7ee9621dff483549",
+      "switch_in_score": 0.637,
+      "entry_coverage": 0.543,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.874,
+          "spread_retained": 0.158
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.52,
+          "spread_retained": 0.244
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.725,
+          "spread_retained": 0.426
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.71,
+          "spread_retained": 0.412
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "0d139b488c72ba6b",
+      "switch_in_score": 0.348,
+      "entry_coverage": 0.838,
+      "conversion": 8,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.755,
+          "spread_retained": 0.453
+        },
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.606,
+          "spread_retained": 0.168
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.737,
+          "spread_retained": 0.284
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.653,
+          "spread_retained": 0.362
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.57,
+          "spread_retained": 0.288
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.535,
+          "spread_retained": 0.505
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "ecc6e7a87992c098",
+      "switch_in_score": 0.309,
+      "entry_coverage": 0.394,
+      "conversion": 5,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.682,
+          "spread_retained": 0.496
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.769,
+          "spread_retained": 0.465
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.853,
+          "spread_retained": 0.388
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.778,
+          "spread_retained": 0.321
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "b108eda46851045d",
+      "switch_in_score": 0.312,
+      "entry_coverage": 0.525,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.779,
+          "spread_retained": 0.474
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.868,
+          "spread_retained": 0.401
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.804,
+          "spread_retained": 0.496
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "199ab4a670f9cf95",
+      "switch_in_score": 0.516,
+      "entry_coverage": 0.458,
+      "conversion": 18,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.58,
+          "spread_retained": 0.545
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.539,
+          "spread_retained": 0.509
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.623,
+          "spread_retained": 0.475
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.517,
+          "spread_retained": 0.489
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Parting Shot",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "14a6dece6b118f48",
+      "switch_in_score": 0.284,
+      "entry_coverage": 0.526,
+      "conversion": 8,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.733,
+          "spread_retained": 0.281
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.84,
+          "spread_retained": 0.376
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.891,
+          "spread_retained": 0.174
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.692,
+          "spread_retained": 0.397
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "ba332631bbf1f4b0",
+      "switch_in_score": 0.516,
+      "entry_coverage": 0.65,
+      "conversion": 19,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.56,
+          "spread_retained": 0.527
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.93,
+          "spread_retained": 0.456
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.596,
+          "spread_retained": 0.312
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "32bb8e94204339eb",
+      "switch_in_score": 0.429,
+      "entry_coverage": 0.713,
+      "conversion": 6,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.879,
+          "spread_retained": 0.411
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.766,
+          "spread_retained": 0.31
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.837,
+          "spread_retained": 0.373
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "9914e3566af2aeed",
+      "switch_in_score": 0.271,
+      "entry_coverage": 0.612,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.754,
+          "spread_retained": 0.452
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.57,
+          "spread_retained": 0.288
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.905,
+          "spread_retained": 0.294
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "bc17d25604f0165b",
+      "switch_in_score": 0.561,
+      "entry_coverage": 0.634,
+      "conversion": 8,
+      "costly_entries": [
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.781,
+          "spread_retained": 0.476
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.614,
+          "spread_retained": 0.176
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.814,
+          "spread_retained": 0.505
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "6a6ce89e4def7507",
+      "switch_in_score": 0.364,
+      "entry_coverage": 0.67,
+      "conversion": 15,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.755,
+          "spread_retained": 0.453
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.927,
+          "spread_retained": 0.454
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "12e5002bf5dbd9fc",
+      "switch_in_score": 0.47,
+      "entry_coverage": 0.374,
+      "conversion": 14,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.857,
+          "spread_retained": 0.392
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.651,
+          "spread_retained": 0.208
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.791,
+          "spread_retained": 0.485
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "df5989403dfe079b",
+      "switch_in_score": 0.479,
+      "entry_coverage": 0.722,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.581,
+          "spread_retained": 0.546
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.55,
+          "spread_retained": 0.519
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.572,
+          "spread_retained": 0.29
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "65759830f2d594a9",
+      "switch_in_score": 0.446,
+      "entry_coverage": 0.845,
+      "conversion": 4,
+      "costly_entries": [],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "0bd04caa0f94951f",
+      "switch_in_score": 0.569,
+      "entry_coverage": 0.417,
+      "conversion": 11,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.606,
+          "spread_retained": 0.168
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.73,
+          "spread_retained": 0.431
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.895,
+          "spread_retained": 0.425
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.554,
+          "spread_retained": 0.413
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "29cb29385e52ae6b",
+      "switch_in_score": 0.447,
+      "entry_coverage": 0.53,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.635,
+          "spread_retained": 0.485
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.853,
+          "spread_retained": 0.54
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.922,
+          "spread_retained": 0.201
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.944,
+          "spread_retained": 0.469
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "551065ab4f44372b",
+      "switch_in_score": 0.511,
+      "entry_coverage": 0.528,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.502,
+          "spread_retained": 0.228
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.864,
+          "spread_retained": 0.397
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "5d8734869e065ff8",
+      "switch_in_score": 0.469,
+      "entry_coverage": 0.571,
+      "conversion": 16,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.56,
+          "spread_retained": 0.527
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.755,
+          "spread_retained": 0.3
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.585,
+          "spread_retained": 0.302
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.894,
+          "spread_retained": 0.176
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.666,
+          "spread_retained": 0.374
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.568,
+          "spread_retained": 0.534
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "04882156ee2a5a7f",
+      "switch_in_score": 0.605,
+      "entry_coverage": 0.767,
+      "conversion": 19,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.609,
+          "spread_retained": 0.171
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.9,
+          "spread_retained": 0.182
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.808,
+          "spread_retained": 0.347
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.762,
+          "spread_retained": 0.306
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "cd46ff2ba67018e9",
+      "switch_in_score": 0.263,
+      "entry_coverage": 0.604,
+      "conversion": 11,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.825,
+          "spread_retained": 0.515
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.869,
+          "spread_retained": 0.154
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "89f6a0fb54f76dec",
+      "switch_in_score": 0.336,
+      "entry_coverage": 0.489,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.779,
+          "spread_retained": 0.474
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.871,
+          "spread_retained": 0.296
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.613,
+          "spread_retained": 0.327
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.865,
+          "spread_retained": 0.398
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "1c591cb55605955e",
+      "switch_in_score": 0.499,
+      "entry_coverage": 0.363,
+      "conversion": 18,
+      "costly_entries": [
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.843,
+          "spread_retained": 0.531
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.513,
+          "spread_retained": 0.486
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.826,
+          "spread_retained": 0.364
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Follow Me",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "ae0193d508ee34cd",
+      "switch_in_score": 0.262,
+      "entry_coverage": 0.739,
+      "conversion": 15,
+      "costly_entries": [
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.843,
+          "spread_retained": 0.531
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.819,
+          "spread_retained": 0.51
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.519,
+          "spread_retained": 0.491
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.942,
+          "spread_retained": 0.467
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "380e5c54f238637e",
+      "switch_in_score": 0.562,
+      "entry_coverage": 0.589,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.786,
+          "spread_retained": 0.328
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.753,
+          "spread_retained": 0.299
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.727,
+          "spread_retained": 0.428
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.71,
+          "spread_retained": 0.26
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "6b7827ff86c3ab1e",
+      "switch_in_score": 0.511,
+      "entry_coverage": 0.608,
+      "conversion": 7,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.744,
+          "spread_retained": 0.443
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "b79a3be4192062a6",
+      "switch_in_score": 0.258,
+      "entry_coverage": 0.771,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.672,
+          "spread_retained": 0.518
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.73,
+          "spread_retained": 0.278
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.579,
+          "spread_retained": 0.296
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.605,
+          "spread_retained": 0.167
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.941,
+          "spread_retained": 0.466
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.597,
+          "spread_retained": 0.312
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "877bef9ccf0e5065",
+      "switch_in_score": 0.344,
+      "entry_coverage": 0.845,
+      "conversion": 18,
+      "costly_entries": [
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.73,
+          "spread_retained": 0.539
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.697,
+          "spread_retained": 0.402
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "e2e8beece2bfa215",
+      "switch_in_score": 0.251,
+      "entry_coverage": 0.512,
+      "conversion": 20,
+      "costly_entries": [],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "e790d0912282271b",
+      "switch_in_score": 0.612,
+      "entry_coverage": 0.364,
+      "conversion": 7,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.614,
+          "spread_retained": 0.175
+        },
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.659,
+          "spread_retained": 0.368
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.941,
+          "spread_retained": 0.218
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "9755a0045e004927",
+      "switch_in_score": 0.254,
+      "entry_coverage": 0.403,
+      "conversion": 20,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.911,
+          "spread_retained": 0.3
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.878,
+          "spread_retained": 0.162
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.712,
+          "spread_retained": 0.262
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "ef9b2f51b638e6f0",
+      "switch_in_score": 0.509,
+      "entry_coverage": 0.71,
+      "conversion": 17,
+      "costly_entries": [
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.619,
+          "spread_retained": 0.179
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.635,
+          "spread_retained": 0.194
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "0fea55eedbba5a3c",
+      "switch_in_score": 0.326,
+      "entry_coverage": 0.811,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.944,
+          "spread_retained": 0.469
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.905,
+          "spread_retained": 0.434
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.949,
+          "spread_retained": 0.473
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.938,
+          "spread_retained": 0.216
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.721,
+          "spread_retained": 0.423
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "f3fd77eb4c04d5e0",
+      "switch_in_score": 0.301,
+      "entry_coverage": 0.416,
+      "conversion": 20,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.853,
+          "spread_retained": 0.54
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.837,
+          "spread_retained": 0.526
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.626,
+          "spread_retained": 0.338
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.811,
+          "spread_retained": 0.503
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Rage Powder",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "a3e874aa17d64a43",
+      "switch_in_score": 0.477,
+      "entry_coverage": 0.804,
+      "conversion": 19,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.662,
+          "spread_retained": 0.37
+        },
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.527,
+          "spread_retained": 0.498
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.689,
+          "spread_retained": 0.242
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.853,
+          "spread_retained": 0.54
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.885,
+          "spread_retained": 0.416
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.53,
+          "spread_retained": 0.501
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Rage Powder",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "681710c491ab285d",
+      "switch_in_score": 0.256,
+      "entry_coverage": 0.41,
+      "conversion": 5,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.644,
+          "spread_retained": 0.202
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.72,
+          "spread_retained": 0.422
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.921,
+          "spread_retained": 0.201
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "3b385347b2418c33",
+      "switch_in_score": 0.453,
+      "entry_coverage": 0.544,
+      "conversion": 7,
+      "costly_entries": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.641,
+          "spread_retained": 0.351
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "02de32630aacfe83",
+      "switch_in_score": 0.37,
+      "entry_coverage": 0.41,
+      "conversion": 21,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.763,
+          "spread_retained": 0.308
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.666,
+          "spread_retained": 0.222
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.842,
+          "spread_retained": 0.269
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.71,
+          "spread_retained": 0.413
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.613,
+          "spread_retained": 0.327
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "ee1c1380d017b503",
+      "switch_in_score": 0.488,
+      "entry_coverage": 0.357,
+      "conversion": 5,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.871,
+          "spread_retained": 0.403
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.945,
+          "spread_retained": 0.47
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.67,
+          "spread_retained": 0.378
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "c2016c15c04faa73",
+      "switch_in_score": 0.424,
+      "entry_coverage": 0.399,
+      "conversion": 17,
+      "costly_entries": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.596,
+          "spread_retained": 0.311
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "4b420d2b794a92ad",
+      "switch_in_score": 0.268,
+      "entry_coverage": 0.459,
+      "conversion": 20,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.634,
+          "spread_retained": 0.345
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.717,
+          "spread_retained": 0.419
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.7,
+          "spread_retained": 0.252
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.915,
+          "spread_retained": 0.195
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.886,
+          "spread_retained": 0.417
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.685,
+          "spread_retained": 0.238
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.816,
+          "spread_retained": 0.355
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "c18f9984845495b5",
+      "switch_in_score": 0.339,
+      "entry_coverage": 0.837,
+      "conversion": 22,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.806,
+          "spread_retained": 0.346
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.765,
+          "spread_retained": 0.31
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.776,
+          "spread_retained": 0.471
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "d91720b005f7fca1",
+      "switch_in_score": 0.434,
+      "entry_coverage": 0.802,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.605,
+          "spread_retained": 0.32
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "42f922e8deb10c3c",
+      "switch_in_score": 0.287,
+      "entry_coverage": 0.554,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.516,
+          "spread_retained": 0.488
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.508,
+          "spread_retained": 0.481
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "b480d401f773928f",
+      "switch_in_score": 0.566,
+      "entry_coverage": 0.761,
+      "conversion": 8,
+      "costly_entries": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.818,
+          "spread_retained": 0.356
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.8,
+          "spread_retained": 0.493
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "524e3ac34b82a95f",
+      "switch_in_score": 0.322,
+      "entry_coverage": 0.603,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.544,
+          "spread_retained": 0.513
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.885,
+          "spread_retained": 0.168
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.938,
+          "spread_retained": 0.463
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.792,
+          "spread_retained": 0.333
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.906,
+          "spread_retained": 0.187
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.761,
+          "spread_retained": 0.458
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "bb25298dfb948cda",
+      "switch_in_score": 0.33,
+      "entry_coverage": 0.799,
+      "conversion": 21,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.637,
+          "spread_retained": 0.196
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.623,
+          "spread_retained": 0.183
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.809,
+          "spread_retained": 0.501
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.633,
+          "spread_retained": 0.192
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "241412cd1c149c2b",
+      "switch_in_score": 0.488,
+      "entry_coverage": 0.841,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.828,
+          "spread_retained": 0.365
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.925,
+          "spread_retained": 0.451
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.896,
+          "spread_retained": 0.318
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "d33593382a90c000",
+      "switch_in_score": 0.385,
+      "entry_coverage": 0.837,
+      "conversion": 12,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.938,
+          "spread_retained": 0.463
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.58,
+          "spread_retained": 0.545
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.551,
+          "spread_retained": 0.519
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.895,
+          "spread_retained": 0.178
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "95e7bedd4584dd84",
+      "switch_in_score": 0.642,
+      "entry_coverage": 0.573,
+      "conversion": 17,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.644,
+          "spread_retained": 0.354
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.834,
+          "spread_retained": 0.523
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.924,
+          "spread_retained": 0.203
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.647,
+          "spread_retained": 0.356
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.868,
+          "spread_retained": 0.401
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.938,
+          "spread_retained": 0.216
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "42ef72ec34eedf1f",
+      "switch_in_score": 0.344,
+      "entry_coverage": 0.631,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.719,
+          "spread_retained": 0.268
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.566,
+          "spread_retained": 0.532
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "693ad237a0b4ac3f",
+      "switch_in_score": 0.391,
+      "entry_coverage": 0.699,
+      "conversion": 20,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.772,
+          "spread_retained": 0.316
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.501,
+          "spread_retained": 0.475
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.733,
+          "spread_retained": 0.281
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "fb8e8113d72598cd",
+      "switch_in_score": 0.357,
+      "entry_coverage": 0.382,
+      "conversion": 9,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.663,
+          "spread_retained": 0.371
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.636,
+          "spread_retained": 0.194
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "5765df69d68814b3",
+      "switch_in_score": 0.406,
+      "entry_coverage": 0.827,
+      "conversion": 18,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.812,
+          "spread_retained": 0.503
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.877,
+          "spread_retained": 0.409
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "6c90a2a68428d877",
+      "switch_in_score": 0.312,
+      "entry_coverage": 0.797,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.505,
+          "spread_retained": 0.231
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "4da6f47f5990823b",
+      "switch_in_score": 0.58,
+      "entry_coverage": 0.714,
+      "conversion": 6,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.858,
+          "spread_retained": 0.544
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.667,
+          "spread_retained": 0.374
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.502,
+          "spread_retained": 0.476
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "fac9f0a62a8a49ee",
+      "switch_in_score": 0.373,
+      "entry_coverage": 0.695,
+      "conversion": 14,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.593,
+          "spread_retained": 0.309
+        },
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.67,
+          "spread_retained": 0.378
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.539,
+          "spread_retained": 0.508
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.508,
+          "spread_retained": 0.233
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "a381ab2df3e99b88",
+      "switch_in_score": 0.489,
+      "entry_coverage": 0.694,
+      "conversion": 20,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.754,
+          "spread_retained": 0.452
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.588,
+          "spread_retained": 0.152
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "2d479e22f4b6e584",
+      "switch_in_score": 0.579,
+      "entry_coverage": 0.615,
+      "conversion": 4,
+      "costly_entries": [
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.787,
+          "spread_retained": 0.329
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.784,
+          "spread_retained": 0.478
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.948,
+          "spread_retained": 0.224
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "62b00a37c907bbf9",
+      "switch_in_score": 0.644,
+      "entry_coverage": 0.509,
+      "conversion": 14,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.573,
+          "spread_retained": 0.538
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.796,
+          "spread_retained": 0.49
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.726,
+          "spread_retained": 0.427
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.799,
+          "spread_retained": 0.34
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "f629f663b038b16b",
+      "switch_in_score": 0.259,
+      "entry_coverage": 0.667,
+      "conversion": 4,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.798,
+          "spread_retained": 0.339
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.822,
+          "spread_retained": 0.512
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "afae6046cba631b0",
+      "switch_in_score": 0.608,
+      "entry_coverage": 0.37,
+      "conversion": 4,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.897,
+          "spread_retained": 0.318
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.713,
+          "spread_retained": 0.263
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "579b514ac0567c3e",
+      "switch_in_score": 0.636,
+      "entry_coverage": 0.616,
+      "conversion": 18,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.665,
+          "spread_retained": 0.221
+        },
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.557,
+          "spread_retained": 0.277
+        },
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.855,
+          "spread_retained": 0.389
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.814,
+          "spread_retained": 0.353
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "22243f764c7c0131",
+      "switch_in_score": 0.615,
+      "entry_coverage": 0.673,
+      "conversion": 14,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.705,
+          "spread_retained": 0.408
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.704,
+          "spread_retained": 0.255
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.691,
+          "spread_retained": 0.396
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.632,
+          "spread_retained": 0.344
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "206ec31f442c1983",
+      "switch_in_score": 0.326,
+      "entry_coverage": 0.37,
+      "conversion": 10,
+      "costly_entries": [
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.918,
+          "spread_retained": 0.445
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.903,
+          "spread_retained": 0.432
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.596,
+          "spread_retained": 0.159
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.918,
+          "spread_retained": 0.445
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.927,
+          "spread_retained": 0.453
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Parting Shot",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Fake Out",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "d0981ddc1b13136d",
+      "switch_in_score": 0.345,
+      "entry_coverage": 0.781,
+      "conversion": 6,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.782,
+          "spread_retained": 0.325
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.726,
+          "spread_retained": 0.275
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.575,
+          "spread_retained": 0.54
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "ability:Intimidate",
+          "effect": "physical_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "b3d4f447754011e0",
+      "switch_in_score": 0.294,
+      "entry_coverage": 0.621,
+      "conversion": 6,
+      "costly_entries": [
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.937,
+          "spread_retained": 0.214
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.651,
+          "spread_retained": 0.208
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "8361a3ddd4607fb6",
+      "switch_in_score": 0.499,
+      "entry_coverage": 0.648,
+      "conversion": 11,
+      "costly_entries": [
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.924,
+          "spread_retained": 0.451
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.715,
+          "spread_retained": 0.417
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.869,
+          "spread_retained": 0.155
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "86beb06daaca16e5",
+      "switch_in_score": 0.445,
+      "entry_coverage": 0.405,
+      "conversion": 19,
+      "costly_entries": [
+        {
+          "opponent": "6348f4da7d2dbe83",
+          "species": "Incineroar",
+          "cost": 0.5,
+          "spread_retained": 0.226
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.638,
+          "spread_retained": 0.197
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "7e517dcd1c621101",
+      "switch_in_score": 0.446,
+      "entry_coverage": 0.704,
+      "conversion": 15,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.934,
+          "spread_retained": 0.352
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.9,
+          "spread_retained": 0.182
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "5a509ac92d8f0336",
+      "switch_in_score": 0.277,
+      "entry_coverage": 0.568,
+      "conversion": 21,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.906,
+          "spread_retained": 0.187
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.535,
+          "spread_retained": 0.257
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "2b7d76f07bd92dd5",
+      "switch_in_score": 0.642,
+      "entry_coverage": 0.646,
+      "conversion": 4,
+      "costly_entries": [
+        {
+          "opponent": "024cee1a8526e616",
+          "species": "Sinistcha",
+          "cost": 0.547,
+          "spread_retained": 0.268
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.507,
+          "spread_retained": 0.232
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Protect",
+          "effect": "all_three_quarters",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "8b286f401c266787",
+      "switch_in_score": 0.469,
+      "entry_coverage": 0.814,
+      "conversion": 22,
+      "costly_entries": [
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.737,
+          "spread_retained": 0.284
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.895,
+          "spread_retained": 0.425
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.545,
+          "spread_retained": 0.266
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:Light Screen",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        },
+        {
+          "tool": "move:Reflect",
+          "effect": "relevant_two_thirds",
+          "speed_tier": "computed"
+        }
+      ]
     }
   ]
 }
