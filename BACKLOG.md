@@ -73,6 +73,10 @@ The `CORE_TIER_SIZE` lever this item was asked to settle is settled, and the
 answer is that it was measuring the wrong thing — see DECISIONS.md D41 and the
 note under item 04.
 
+Not wired into the weekly workflow: that would turn a two-minute scrape into a
+long simulation on a shared runner every week. Flagging the staleness instead is
+item 18.
+
 **Unblocked:** 04, 05, teambuilder Phases 2, 6b
 
 ### 11. Shared effect table *(Small)* — done
@@ -196,6 +200,28 @@ Also closes the evaluator's defensive-item fidelity gap.
 **Depends on:** 03 *(done)*, 10
 
 ## Priority 1 — do next
+
+### 18. Flag when derived data needs rebuilding *(Small)*
+
+The weekly refresh regenerates usage and variants but not the matchup matrix,
+so `/data-status` goes stale every Monday until someone notices and runs
+`npm run refresh-matchups`. Item 03 made the fix cheap and made the cost
+visible on that screen; what is missing is anything that tells you to look.
+
+Deliberately **not** solved by wiring the refresh into
+`.github/workflows/refresh-data.yml` (user decision, 2026-09-13). That turns a
+two-minute scrape into a long simulation on a shared runner every week, and
+pays for a rebuild nobody asked for. Flag, do not fix.
+
+Shape is open. The cheapest version is a CI step running
+`npm run refresh-matchups -- --dry-run --json` after the weekly data commit and
+failing, or opening an issue, when `cells.to_simulate` exceeds zero. The
+planner already emits exactly that number and touches nothing, so the work is
+in the notification rather than the detection.
+
+Worth generalising past the matrix while building it: the evaluator dex and the
+resolved format rules have the same property — derived, committed, and silently
+invalidated by an upstream refresh.
 
 ### 07. Better decision algorithm for setup endgames *(Large)*
 
