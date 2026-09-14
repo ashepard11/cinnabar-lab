@@ -1,7 +1,7 @@
 import {useMemo, useState} from 'react';
 import {useCandidates, useCandidateMatchups, useFixtureVariants} from '../lib/useFixtures';
 import {activeRegulationConfig} from '../../lib/format-rules';
-import type {Candidate, PresetSet} from '../../lib/teambuilder/types';
+import {displayGroupFor, type Candidate, type PresetSet} from '../../lib/teambuilder/types';
 import CandidateCard, {type SortKey} from '../components/teambuilder/CandidateCard';
 import CandidateFilters, {EMPTY_FILTERS, type FilterState} from '../components/teambuilder/CandidateFilters';
 import TeamStrip from '../components/teambuilder/TeamStrip';
@@ -80,15 +80,14 @@ export default function BuildPage() {
       list = list.filter((c) => c.is_mega === wantMega);
     }
     if (filters.supports) {
-      const cat = filters.supports;
-      // A category can be reached two ways: by supplying a condition in it, or
-      // by carrying a positioning tool in it. Mitigation and weather are in
-      // both lists, so both tests have to be exact — checking "has any
-      // positioning at all" would make those two match everything.
+      const group = filters.supports;
+      // A group is reached either by supplying a condition in it or by
+      // carrying a positioning tool in it, and both tests map through the
+      // same grouping the pills and board control use.
       list = list.filter(
         (c) =>
-          c.conditions_added.some((s) => s.category === cat) ||
-          c.positioning_categories.includes(cat)
+          c.conditions_added.some((s) => displayGroupFor(s.category) === group) ||
+          c.positioning_categories.some((cat) => displayGroupFor(cat) === group)
       );
     }
     if (filters.threats.length > 0 && matchups) {

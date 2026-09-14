@@ -5,6 +5,7 @@ import BoardControlTable from '../evaluator/BoardControlTable';
 import RngExposure from '../evaluator/RngExposure';
 import RelevantBst from '../evaluator/RelevantBst';
 import DamageMarimekko from '../evaluator/DamageMarimekko';
+import OffensiveCoverage from '../evaluator/OffensiveCoverage';
 import WorstMatchups from '../evaluator/WorstMatchups';
 import type {ParsedSet} from '../../../lib/evaluator/parse';
 import type {EvaluatorDex} from '../../../lib/evaluator/dex';
@@ -19,8 +20,8 @@ const SECTIONS: Array<{id: SectionId; label: string; blurb: string}> = [
   },
   {
     id: 'types',
-    label: 'Type coverage',
-    blurb: "Attacking types against this team's defensive typings, and its offensive reach in reverse. Ability-aware.",
+    label: 'Type matchups',
+    blurb: "Attacking types against this team's defensive typings. Ability-aware; offensive reach is under Damage sources.",
   },
   {
     id: 'board',
@@ -57,7 +58,17 @@ function Section({id, dex, sets}: {id: SectionId; dex: EvaluatorDex; sets: Parse
     case 'bst':
       return <RelevantBst dex={dex} sets={sets} />;
     case 'damage':
-      return <DamageMarimekko dex={dex} sets={sets} />;
+      // Offensive coverage lives with damage sources rather than with the
+      // defensive matrix (D38.2) — both answer "what can this team hit".
+      return (
+        <>
+          <DamageMarimekko dex={dex} sets={sets} />
+          <h3 className="cov-subhead" title="Each Pokémon's best damaging move against a single-typed defender, hardest-to-hit types first.">
+            Coverage
+          </h3>
+          <OffensiveCoverage dex={dex} sets={sets} />
+        </>
+      );
   }
 }
 

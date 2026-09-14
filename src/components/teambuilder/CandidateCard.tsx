@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {
-  CATEGORY_LABELS,
   CONDITION_LABELS,
-  SUPPORT_CATEGORIES,
+  DISPLAY_GROUPS,
+  displayGroupFor,
+  displayGroupLabel,
   type Candidate,
-  type EffectCategory,
+  type DisplayGroupId,
   type SuppliedCondition,
   type TeambuilderConditionId,
   type ValueSwing,
@@ -81,13 +82,16 @@ export default function CandidateCard({
   const {conditions_added: conditions, patches, support_swings, positioning_swings} = candidate;
   const set = candidate.sets?.[0];
 
-  const byCategory = new Map<EffectCategory, SuppliedCondition[]>();
+  // Grouped the way board control groups them, so one page does not present
+  // two taxonomies of the same effects.
+  const byGroup = new Map<DisplayGroupId, SuppliedCondition[]>();
   for (const c of conditions) {
-    const list = byCategory.get(c.category) ?? [];
+    const g = displayGroupFor(c.category);
+    const list = byGroup.get(g) ?? [];
     list.push(c);
-    byCategory.set(c.category, list);
+    byGroup.set(g, list);
   }
-  const orderedCategories = SUPPORT_CATEGORIES.filter((c) => byCategory.has(c));
+  const orderedGroups = DISPLAY_GROUPS.map((g) => g.id).filter((g) => byGroup.has(g));
 
   return (
     <li className={open ? 'candidate-card open' : 'candidate-card'}>
@@ -164,25 +168,25 @@ export default function CandidateCard({
           <span className="dimension-value">
             {hasTeammates && candidate.support_delta > 0 ? signed(candidate.support_delta) : '—'}
           </span>
-          {orderedCategories.length > 0 && (
+          {orderedGroups.length > 0 && (
             <span className="category-chips">
-              {orderedCategories.map((cat) => (
-                <span key={cat} className="category-chip">
-                  {CATEGORY_LABELS[cat]}
+              {orderedGroups.map((g) => (
+                <span key={g} className="category-chip">
+                  {displayGroupLabel(g)}
                 </span>
               ))}
             </span>
           )}
-          {open && orderedCategories.length > 0 && (
+          {open && orderedGroups.length > 0 && (
             <>
               <span className="support-pills">
-                {orderedCategories.map((cat) =>
-                  byCategory.get(cat)!.map((c) =>
+                {orderedGroups.map((g) =>
+                  byGroup.get(g)!.map((c) =>
                     c.enablers.map((e) => {
                       const detail = enablerDetail(e);
                       return (
                         <span key={`${c.condition}:${e.mechanism}`} className="support-pill">
-                          {cat !== 'speed' && (
+                          {g !== 'speed' && (
                             <span className="pill-condition">{conditionLabel(c.condition)}:</span>
                           )}
                           <span className="pill-mechanism">{mechanismName(e.mechanism)}</span>
