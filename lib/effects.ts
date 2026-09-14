@@ -67,7 +67,17 @@ export const CATEGORY_LABELS: Record<EffectCategory, string> = Object.fromEntrie
 ) as Record<EffectCategory, string>;
 
 /**
- * The categories the teambuilder reasons about.
+ * The categories the teambuilder reasons about, as a narrowed type and the
+ * matching runtime list.
+ *
+ * The type matters as much as the list. Before the taxonomy was shared, the
+ * teambuilder declared its own nine-member union, so assigning `priority` to
+ * one of its fields was a compile error. Re-exporting the full ten-member
+ * union would have silently dropped that guarantee: the fixture generator
+ * could emit `priority` and nothing would object, and `displayGroupFor` would
+ * file it under Speed control without complaint. `lib/teambuilder/types.ts`
+ * therefore re-exports `TeambuilderCategory` under the name `EffectCategory`,
+ * which is what its screens have always meant by it.
  *
  * `priority` is deliberately absent. Damage priority is already inside a
  * Pokémon's own matchup numbers — the simulator plays Sucker Punch, so its
@@ -76,8 +86,10 @@ export const CATEGORY_LABELS: Record<EffectCategory, string> = Object.fromEntrie
  * it priority is real information. One taxonomy, two audiences; the difference
  * is stated here rather than encoded as a second list somewhere else.
  */
-export const TEAMBUILDER_CATEGORIES: EffectCategory[] = CATEGORY_IDS.filter(
-  (c) => c !== 'priority'
+export type TeambuilderCategory = Exclude<EffectCategory, 'priority'>;
+
+export const TEAMBUILDER_CATEGORIES: TeambuilderCategory[] = CATEGORY_IDS.filter(
+  (c): c is TeambuilderCategory => c !== 'priority'
 );
 
 /**

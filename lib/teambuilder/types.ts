@@ -82,9 +82,11 @@ export const CONDITION_LABELS: Record<TeambuilderConditionId, string> = {
  * is the teambuilder's vocabulary, and its screens should keep importing their
  * types from one place.
  */
-import type {EffectCategory} from '../effects';
+import type {TeambuilderCategory as EffectCategory} from '../effects';
 
-export type {EffectCategory, DisplayGroupId} from '../effects';
+// Narrowed on purpose: `priority` is not a teambuilder category, and the type
+// says so rather than only the runtime list. See lib/effects.ts.
+export type {TeambuilderCategory as EffectCategory, DisplayGroupId} from '../effects';
 export {
   CATEGORY_LABELS,
   DISPLAY_GROUPS,

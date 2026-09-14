@@ -1020,7 +1020,19 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    browser-safety — which the teambuilder's screens depend on. The evaluator
    adapts its dex at the call site in four lines.
 
-7. **The anti-drift test asserts identity, not equality.**
+7. **Sharing a taxonomy nearly cost a type guarantee.** The teambuilder used
+   to declare its own nine-member union, so assigning `priority` to one of its
+   fields was a compile error. Re-exporting the full ten-member union dropped
+   that silently — the fixture generator could emit `priority`, nothing would
+   object, and `displayGroupFor` would file it under Speed control without
+   complaint. `TeambuilderCategory` is `Exclude<EffectCategory, 'priority'>`,
+   re-exported under the name `EffectCategory` because that is what the
+   teambuilder's screens have always meant by it. A runtime list alone was not
+   enough; the distinction between the two audiences has to be in the type.
+   Guarded by a `@ts-expect-error` in the test, which fails typecheck if the
+   narrowing is ever lost — verified by removing it.
+
+8. **The anti-drift test asserts identity, not equality.**
    `scripts/test-effects.ts` checks that the teambuilder's re-exports are the
    *same objects* as the shared ones, so a future copy-paste fails rather than
    passing until the copies diverge. It also checks the properties a caller

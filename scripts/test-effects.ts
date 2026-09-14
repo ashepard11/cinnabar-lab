@@ -27,7 +27,7 @@ import {
   DISPLAY_GROUPS as TB_GROUPS,
   displayGroupFor as tbDisplayGroupFor,
 } from '../lib/teambuilder/types';
-import type {EffectCategory} from '../lib/effects';
+import type {EffectCategory, TeambuilderCategory} from '../lib/effects';
 
 let failures = 0;
 const check = (label: string, ok: boolean, detail = '') => {
@@ -91,9 +91,20 @@ section('Teambuilder subset');
 check('the teambuilder set is a subset of the full taxonomy',
   TEAMBUILDER_CATEGORIES.every((c) => CATEGORY_IDS.includes(c)),
   `${TEAMBUILDER_CATEGORIES.length} of ${CATEGORY_IDS.length}`);
+const tbSet = new Set<string>(TEAMBUILDER_CATEGORIES);
 check('priority is the only category the teambuilder omits',
-  CATEGORY_IDS.filter((c) => !TEAMBUILDER_CATEGORIES.includes(c)).join(',') === 'priority',
+  CATEGORY_IDS.filter((c) => !tbSet.has(c)).join(',') === 'priority',
   'damage priority is already inside a Pokémon’s matchup numbers');
+
+// Compile-time, not runtime: `npm run typecheck` fails if this stops being an
+// error, which is what caught the narrowing being lost when the taxonomy was
+// first shared. The teambuilder used to declare its own nine-member union and
+// re-exporting the full ten silently dropped the guarantee.
+// @ts-expect-error 'priority' is not a teambuilder category
+const _priorityIsNotTeambuilder: TeambuilderCategory = 'priority';
+void _priorityIsNotTeambuilder;
+check('the teambuilder category type excludes priority at compile time', true,
+  'guarded by @ts-expect-error above, checked by npm run typecheck');
 check('support and positioning categories are all real',
   [...SUPPORT_CATEGORIES, ...POSITIONING_CATEGORIES].every((c) => CATEGORY_IDS.includes(c)));
 check('support and positioning overlap only on mitigation and weather',
