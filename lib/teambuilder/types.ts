@@ -102,9 +102,7 @@ export const CATEGORY_LABELS: Record<EffectCategory, string> = {
  * `mitigation` and `weather` appear in both, and that is not an oversight.
  * Intimidate, Reflect and Friend Guard are conditions in their own right and
  * they also cut a teammate's entry cost — SPEC-teambuilder.md Phase 6 lists
- * all three in its positioning-tool table. The two readings are different
- * questions about the same effect, so both are shown; the underlying deltas
- * are computed separately and never summed.
+ * all three in its positioning-tool table.
  */
 export const SUPPORT_CATEGORIES: EffectCategory[] = [
   'speed', 'weather', 'terrain', 'mitigation', 'healing', 'option',
@@ -113,6 +111,36 @@ export const SUPPORT_CATEGORIES: EffectCategory[] = [
 export const POSITIONING_CATEGORIES: EffectCategory[] = [
   'pivoting', 'targeting', 'protect', 'mitigation', 'weather',
 ];
+
+/**
+ * Display grouping, shared with the evaluator's board control table (D38.3).
+ *
+ * The ten categories above are the lib-level inventory; these five are how
+ * they are shown. The Build screen renders both the support pills and the
+ * board control table on one page, so they have to group the same effects the
+ * same way — a reader should not have to hold two taxonomies for one roster.
+ */
+export type DisplayGroupId = 'speed' | 'field' | 'option' | 'defense' | 'protect';
+
+export const DISPLAY_GROUPS: Array<{
+  id: DisplayGroupId;
+  label: string;
+  sources: EffectCategory[];
+}> = [
+  {id: 'speed', label: 'Speed control', sources: ['speed']},
+  {id: 'field', label: 'Field effects', sources: ['weather', 'terrain']},
+  {id: 'option', label: 'Option control', sources: ['targeting', 'option']},
+  {id: 'defense', label: 'Defensive tools', sources: ['mitigation', 'healing', 'pivoting']},
+  {id: 'protect', label: 'Protects', sources: ['protect']},
+];
+
+export function displayGroupFor(category: EffectCategory): DisplayGroupId {
+  return DISPLAY_GROUPS.find((g) => g.sources.includes(category))?.id ?? 'option';
+}
+
+export function displayGroupLabel(id: DisplayGroupId): string {
+  return DISPLAY_GROUPS.find((g) => g.id === id)?.label ?? id;
+}
 
 /** A condition reached by combining two others, e.g. rain plus moving first. */
 export type CombinationConditionId = `${TeambuilderConditionId}+${TeambuilderConditionId}`;

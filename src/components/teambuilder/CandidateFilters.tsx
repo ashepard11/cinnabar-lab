@@ -1,28 +1,17 @@
 import {useState} from 'react';
-import {
-  CATEGORY_LABELS,
-  SUPPORT_CATEGORIES,
-  POSITIONING_CATEGORIES,
-  type EffectCategory,
-} from '../../../lib/teambuilder/types';
+import {DISPLAY_GROUPS, type DisplayGroupId} from '../../../lib/teambuilder/types';
 
 export type MegaFilter = 'all' | 'mega' | 'non-mega';
 
 export interface FilterState {
   threats: string[];
   mega: MegaFilter;
-  /** Candidate must supply something in this category. */
-  supports: EffectCategory | '';
+  /** Candidate must supply something in this display group. */
+  supports: DisplayGroupId | '';
   query: string;
 }
 
 export const EMPTY_FILTERS: FilterState = {threats: [], mega: 'all', supports: '', query: ''};
-
-/** Categories offered in the "supplies" filter, deduplicated across both lists. */
-const FILTERABLE: EffectCategory[] = [
-  ...SUPPORT_CATEGORIES,
-  ...POSITIONING_CATEGORIES.filter((c) => !SUPPORT_CATEGORIES.includes(c)),
-];
 
 /**
  * The filter bar over the candidate universe.
@@ -79,12 +68,12 @@ export default function CandidateFilters({
           aria-label="Supplies"
           title="Keep only candidates supplying this kind of support or positioning"
           value={filters.supports}
-          onChange={(e) => onChange({...filters, supports: e.target.value as EffectCategory | ''})}
+          onChange={(e) => onChange({...filters, supports: e.target.value as DisplayGroupId | ''})}
         >
           <option value="">Supplies anything</option>
-          {FILTERABLE.map((c) => (
-            <option key={c} value={c}>
-              {CATEGORY_LABELS[c]}
+          {DISPLAY_GROUPS.map((g) => (
+            <option key={g.id} value={g.id}>
+              {g.label}
             </option>
           ))}
         </select>
