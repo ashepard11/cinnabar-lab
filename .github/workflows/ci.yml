@@ -20,6 +20,10 @@ jobs:
       # Team evaluator (BACKLOG item 08): parser parity, type/tag/RNG/BST
       # rules, damage-source oracle, variant matching, taxonomy-rot gate.
       - run: npm run test-evaluator
+      # Incremental matrix refresh (BACKLOG item 03): diff categories, reuse
+      # arithmetic, crash resumption, pruning, and the sqlite v2 -> v3 upgrade.
+      # Hermetic — builds its own temporary databases, no dex, no fixtures.
+      - run: npm run test-refresh
       # Endgame test suite (BACKLOG item 01): deterministic policy benchmarks
       # gated against data/endgame-baseline.json — any regression fails.
       - run: npm run endgame-suite

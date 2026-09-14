@@ -19,6 +19,7 @@
  */
 import { DatabaseSync } from 'node:sqlite';
 import { variantCid } from '../variant-cid';
+import { cellCost } from './cell-cost';
 import type { RunVersions } from './schema';
 import type { Variant } from '../types';
 
@@ -220,8 +221,6 @@ export function planRefresh(
 
   const liveCids = new Set(incoming.map((v) => v.cid ?? variantCid(v)));
   const n = liveCids.size;
-  const fullPairs = (n * (n - 1)) / 2;
-  const full = fullPairs * conditions.length;
 
   // Reusable cells: rows under this run key whose *both* cids are still live.
   // Counting in SQL keeps this O(1) in JS regardless of matrix size.
@@ -241,9 +240,9 @@ export function planRefresh(
       else orphanRows += r.c;
     }
   }
-  // Rows are stored in both orders; a simulated cell writes two of them.
-  const reusable = Math.floor(reusableRows / 2);
-  const toSimulate = Math.max(0, full - reusable);
+  const { full, reusable, to_simulate: toSimulate } = cellCost(
+    n, conditions.length, reusableRows,
+  );
 
   const rowsByRun = new Map<number, number>();
   for (const r of db

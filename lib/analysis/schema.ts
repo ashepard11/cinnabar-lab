@@ -130,8 +130,16 @@ export function ensureSchema(db: DatabaseSync): void {
  * Existing rows take the regulation the file already pinned in `metadata`; a
  * file predating even that stamp is M-B by construction, since M-B is the only
  * regulation the pipeline has ever been able to produce. `run_id` values are
- * copied verbatim, so the millions of matchup rows referencing them — and the
- * `current_run_id` the view pins on — stay correct without being touched.
+ * copied verbatim, so the tens of thousands of matchup rows referencing them —
+ * and the `current_run_id` the view pins on — stay correct without being
+ * touched.
+ *
+ * `matchups.run_id` carries `REFERENCES sim_runs(run_id)`, so dropping the old
+ * table is a foreign-key violation while enforcement is on. This is the rebuild
+ * dance from the SQLite docs: disable enforcement, swap the table, then run
+ * `foreign_key_check` before committing so a dangling reference fails the
+ * migration rather than surviving it. The pragma is a no-op inside a
+ * transaction, hence the ordering.
  *
  * Idempotent: a table that already has the column is left alone.
  */
@@ -144,6 +152,8 @@ function upgradeRunsToV3(db: DatabaseSync): void {
     .get('regulation') as { value: string } | undefined;
   const regulation = pinned?.value ?? 'M-B';
 
+  const fkWas = (db.prepare('PRAGMA foreign_keys').get() as { foreign_keys: number }).foreign_keys;
+  db.exec('PRAGMA foreign_keys = OFF');
   db.exec('BEGIN');
   try {
     db.exec(`
@@ -163,11 +173,22 @@ function upgradeRunsToV3(db: DatabaseSync): void {
       SELECT run_id, ?, policy_id, policy_version, calc_version, engine_version FROM sim_runs
     `).run(regulation);
     db.exec('DROP TABLE sim_runs');
+    // Renaming into place re-points matchups.run_id, whose REFERENCES clause
+    // names `sim_runs` and has been dangling since the drop.
     db.exec('ALTER TABLE sim_runs_v3 RENAME TO sim_runs');
+    const dangling = db.prepare('PRAGMA foreign_key_check').all() as unknown[];
+    if (dangling.length > 0) {
+      throw new Error(
+        `sim_runs upgrade would leave ${dangling.length} matchup row(s) pointing at a ` +
+          `run that does not exist; aborting`
+      );
+    }
     db.exec('COMMIT');
   } catch (e) {
     db.exec('ROLLBACK');
     throw e;
+  } finally {
+    if (fkWas) db.exec('PRAGMA foreign_keys = ON');
   }
 }
 

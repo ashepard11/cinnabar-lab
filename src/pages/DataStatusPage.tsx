@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {fetchJSON} from '../lib';
-import {loadMatchupDb, metadata, allVariantIds} from '../lib/matchupDb';
+import {loadMatchupDb, metadata, allVariantIds, refreshCost, type MatrixDrift} from '../lib/matchupDb';
 import {
   REGULATIONS,
   activeRegulationConfig,
@@ -56,6 +56,7 @@ export default function DataStatusPage() {
   const [variants, setVariants] = useState<VariantsData | null>(null);
   const [rules, setRules] = useState<FormatRulesFile | null>(null);
   const [matrix, setMatrix] = useState<{meta: Record<string, string>; ids: string[]} | null>(null);
+  const [drift, setDrift] = useState<MatrixDrift | null>(null);
   const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
@@ -65,8 +66,12 @@ export default function DataStatusPage() {
     fetchJSON<FormatRulesFile>(`format-rules-${ACTIVE.regulation_id}.json`)
       .then(setRules)
       .catch((e) => setErrors((x) => [...x, `format rules: ${e}`]));
-    loadMatchupDb()
-      .then((db) => setMatrix({meta: metadata(db), ids: allVariantIds(db)}))
+    Promise.all([loadMatchupDb(), fetchJSON<VariantsData>('defender-variants.json')])
+      .then(([db, v]) => {
+        setMatrix({meta: metadata(db), ids: allVariantIds(db)});
+        // Costing needs content ids, which only the variants file carries.
+        setDrift(refreshCost(db, v.variants.map((x) => x.cid).filter(Boolean) as string[]));
+      })
       .catch((e) => setErrors((x) => [...x, `matrix: ${e}`]));
   }, []);
 
@@ -219,8 +224,18 @@ export default function DataStatusPage() {
                     <span className="muted">{orphaned.join(', ')}</span>
                   </p>
                 )}
+                {drift && drift.to_simulate > 0 && (
+                  <p>
+                    Refreshing costs <strong>{drift.to_simulate.toLocaleString()}</strong> simulated
+                    cells — {((drift.to_simulate / drift.full) * 100).toFixed(1)}% of a rebuild,
+                    with {drift.reusable.toLocaleString()} reused.{' '}
+                    <code>npm run refresh-matchups</code>
+                  </p>
+                )}
                 <p className="muted">
                   The weekly refresh regenerates usage and variants, not the matrix.
+                  Rows for retired variants are kept as cache: content ids make a
+                  variant that leaves and returns free to restore.
                 </p>
               </div>
             )}

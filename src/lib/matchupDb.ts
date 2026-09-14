@@ -4,6 +4,7 @@
  * (SPEC-sim.md Phase 6: "if the sqlite file is < 20 MB, sql.js is simpler").
  */
 import initSqlJs, { type Database } from 'sql.js';
+import { cellCost, type CellCost } from '../../lib/analysis/cell-cost';
 import wasmUrl from 'sql.js/dist/sql-wasm.wasm?url';
 
 export interface MatchupRow {
@@ -86,6 +87,59 @@ export function metadata(db: Database): Record<string, string> {
   }
   stmt.free();
   return out;
+}
+
+/**
+ * What a refresh of the matrix would cost, from the browser (BACKLOG item 03).
+ *
+ * The arithmetic is imported from lib/analysis/cell-cost.ts rather than
+ * restated, so this cannot drift from what `npm run refresh-matchups` reports.
+ * Only the row counting is done here, because only the browser has the sqlite
+ * file already open.
+ *
+ * Rows under retired variants are counted separately: they are not waste, they
+ * are cache — a variant that drops under the usage threshold one week and
+ * returns the next is byte-identical by content id, so its rows are still
+ * correct when it comes back.
+ */
+export interface MatrixDrift extends CellCost {
+  reusable_rows: number;
+  orphan_rows: number;
+}
+
+export function refreshCost(
+  db: Database,
+  liveCids: string[],
+  conditions: number = CONDITION_IDS.length,
+): MatrixDrift {
+  const count = (sql: string, params: any[]): number => {
+    const stmt = db.prepare(sql);
+    stmt.bind(params);
+    stmt.step();
+    const n = Number(Object.values(stmt.getAsObject())[0] ?? 0);
+    stmt.free();
+    return n;
+  };
+  const runPin = `(SELECT CAST(value AS INTEGER) FROM metadata WHERE key = 'current_run_id')`;
+  if (liveCids.length === 0) {
+    return {...cellCost(0, conditions, 0), reusable_rows: 0, orphan_rows: 0};
+  }
+  const list = liveCids.map(() => '?').join(',');
+  const reusableRows = count(
+    `SELECT COUNT(*) FROM matchups WHERE run_id = ${runPin}
+       AND variant_A_cid IN (${list}) AND variant_B_cid IN (${list})`,
+    [...liveCids, ...liveCids],
+  );
+  const orphanRows = count(
+    `SELECT COUNT(*) FROM matchups WHERE run_id = ${runPin}
+       AND (variant_A_cid NOT IN (${list}) OR variant_B_cid NOT IN (${list}))`,
+    [...liveCids, ...liveCids],
+  );
+  return {
+    ...cellCost(liveCids.length, conditions, reusableRows),
+    reusable_rows: reusableRows,
+    orphan_rows: orphanRows,
+  };
 }
 
 // ---------------------------------------------------------------------------

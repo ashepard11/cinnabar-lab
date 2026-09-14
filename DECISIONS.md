@@ -879,3 +879,92 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    generated teams list their own members as worst matchups. None would have
    surfaced from the JSON alone. The fixtures are now good enough that a layout
    judgement made against them means something.
+
+---
+
+### D41: Incremental matrix refresh, and the core tier demoted to a label (BACKLOG item 03, 2026-09-13)
+
+1. **Reuse keys on the content id, and nothing else.** A matchup row is valid
+   exactly as long as both its variant cids and its run key are unchanged.
+   That is not a heuristic about what "probably still holds" — the cid hashes
+   the resolved battle set, so two rows with the same cids were computed
+   against identical inputs by construction. Usage-weight drift, move-usage
+   reordering inside the same top four, tier reassignment and slug renames all
+   leave the cid alone and therefore cost nothing. Item 02 built this; item 03
+   is the first thing to spend it.
+
+2. **Work units come from the database, not from the diff.** The obvious
+   implementation asks the delta which pairs are new and simulates those. That
+   is right only when the previous build finished. Asking which rows exist is
+   right either way, costs one indexed query, and makes crash resumption fall
+   out for free instead of being a second mechanism. The diff still exists, but
+   for the report rather than for the work.
+
+3. **Planning is read-only and separable from acting.** `--dry-run` opens the
+   file read-only, which forces the planner to work on an un-migrated v2
+   database — hence `readRuns` normalizing both shapes. The constraint is worth
+   the code: a plan that quietly migrated the schema would mean "show me what
+   this would cost" had already changed the file, and the guard against
+   accidentally paying for a rebuild would be the only thing standing between a
+   question and hours of compute.
+
+4. **A new run key refuses to run without `--full`.** A policy, calc, engine or
+   regulation change invalidates every row by design, so a refresh under a new
+   key is a full rebuild wearing a refresh's clothes. The failure mode worth
+   preventing is not a wrong answer, it is an overnight job started by someone
+   who thought they were topping up a few cells.
+
+5. **`regulation` joins the run key (schema v3).** v2 pinned it in `metadata`
+   and guarded against extending a matrix built under another regulation,
+   because two regulations under one `run_id` are indistinguishable. In the key
+   they are distinguishable, so one file can hold a rollover and reuse every
+   row whose variant survived it — which is what SPEC-teambuilder.md Phase 5
+   means by "a regulation rollover does not invalidate the whole table". The
+   upgrade rebuilds `sim_runs` preserving `run_id`, so matchup rows and the
+   pinned `current_run_id` keep pointing at it.
+
+6. **Pruning is opt-in.** Rows for retired variants are cache, not garbage: a
+   Pokémon that drops under the usage threshold one week and returns the next
+   is byte-identical by cid, and its rows are still correct when it comes back.
+   The only reason to delete them is that the file ships to browsers, which
+   makes pruning a size decision and therefore a deliberate one rather than a
+   side effect of refreshing.
+
+7. **The core tier is a label, not a gate.** `CORE_TIER_SIZE` was 70, from the
+   spec's "top seventy or so", flagged provisional pending what Phase 1 learned.
+   Phase 1 cannot answer it: the Build screen pages candidates ten at a time and
+   collects no telemetry. So the number is now derived — `weight` is the chance
+   an opposing team carries a variant, so over a 17-round regional the chance of
+   meeting it at least once is `1 - (1 - weight) ** 17`, and the core tier is
+   the set you are more likely than not to actually face, at
+   `1 - 0.5 ** (1/17) = 3.995%`. That selects 39 core / 45 extended.
+
+   The more important correction is what the tier does, which is nothing.
+   `build-matchups` simulates every pair regardless of it and candidate ranking
+   never reads it; its only live uses are the Movesets screen's default filter,
+   a data-status count and a variant-page badge. The old comment let
+   SPEC-teambuilder.md Phase 5's intent read as current behaviour. Promoting it
+   to a real compute gate saves 990 pairs of 3,486 — 28% of one overnight build,
+   which does not pay for a permanent gate or the "why is this Pokémon missing"
+   failure mode it creates. Item 04 is the trigger to revisit: pairs are
+   quadratic, so 84 → 200 variants is 19,900 pairs.
+
+   A threshold also removes the tie-break a rank cutoff needed. Equal weights
+   land in the same tier by construction, so a rescrape that reorders them
+   cannot flip one across the boundary.
+
+8. **Two approximations in that threshold, both stated at the constant.**
+   Opposing teams are not independent draws — archetypes travel together
+   (item 15) — and Swiss pairs on record, over-representing popular picks in
+   later rounds. Both put the true crossing slightly below 4%, so the threshold
+   is mildly conservative. Recorded rather than corrected: correcting either
+   needs the archetype model item 15 describes.
+
+9. **A foreign key caught by fixing the test, not by writing it.** The first
+   `sim_runs` rebuild failed on the real file because `matchups.run_id` carries
+   `REFERENCES sim_runs(run_id)`, and the test's hand-built v2 schema had
+   omitted that clause — so dropping the table succeeded in the test and failed
+   in production. The fix is the documented SQLite rebuild dance (disable
+   enforcement, swap, `foreign_key_check` before commit), and the test's
+   synthetic schema now matches the real DDL. Verified by reverting the fix and
+   confirming the test fails.

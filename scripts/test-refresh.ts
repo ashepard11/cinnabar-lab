@@ -253,9 +253,13 @@ section('Pruning');
 section('Schema v2 -> v3 upgrade');
 
 {
-  // Build a v2-shaped file by hand: sim_runs without the regulation column.
+  // Build a v2-shaped file by hand. The REFERENCES clause on matchups.run_id
+  // matters and is easy to leave out: without it, dropping sim_runs during the
+  // upgrade succeeds in the test and fails against a real file.
   const p = dbPath('v2');
   const db = new DatabaseSync(p);
+  check('foreign keys are enforced, as they are on the real file',
+    (db.prepare('PRAGMA foreign_keys').get() as any).foreign_keys === 1);
   db.exec(`
     CREATE TABLE variants (cid TEXT PRIMARY KEY, slug TEXT NOT NULL, spec TEXT NOT NULL,
                            current INTEGER NOT NULL DEFAULT 0);
@@ -266,7 +270,8 @@ section('Schema v2 -> v3 upgrade');
       UNIQUE (policy_id, policy_version, calc_version, engine_version));
     CREATE TABLE matchups (
       variant_A_cid TEXT NOT NULL, variant_B_cid TEXT NOT NULL, condition TEXT NOT NULL,
-      run_id INTEGER NOT NULL, n_simulated INTEGER NOT NULL, wins_A INTEGER NOT NULL,
+      run_id INTEGER NOT NULL REFERENCES sim_runs(run_id),
+      n_simulated INTEGER NOT NULL, wins_A INTEGER NOT NULL,
       wins_B INTEGER NOT NULL, draws INTEGER NOT NULL, p_A_wins REAL NOT NULL,
       ci_low REAL NOT NULL, ci_high REAL NOT NULL, mean_turns REAL NOT NULL,
       generated_at TEXT NOT NULL,
@@ -297,6 +302,10 @@ section('Schema v2 -> v3 upgrade');
   check('the schema version is stamped',
     (db.prepare('SELECT value FROM metadata WHERE key = ?').get('schema_version') as any).value
       === SCHEMA_VERSION, `v${SCHEMA_VERSION}`);
+  check('foreign key enforcement is restored after the rebuild',
+    (db.prepare('PRAGMA foreign_keys').get() as any).foreign_keys === 1);
+  check('no matchup row is left pointing at a missing run',
+    (db.prepare('PRAGMA foreign_key_check').all() as unknown[]).length === 0);
   check('the upgrade is idempotent',
     (() => { ensureSchema(db); return (db.prepare('SELECT COUNT(*) c FROM sim_runs').get() as any).c === 1; })());
 

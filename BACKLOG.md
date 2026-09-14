@@ -15,7 +15,7 @@ Four specs now exist: `SPEC-damageviz.md`, `SPEC-sim.md`, `SPEC-team-evaluator.m
 
 **Teambuilder Phases 0 and 1 are complete and on `main`.** Phase 0 delivered regulation-driven format rules, variant schema v3 and the data contracts; Phase 1 delivered all six screens against fixture data — Build, Generate, Team detail, Pokémon detail, Movesets and Data status. Two of those already run on real data rather than fixtures. The evaluator presentation pass merged alongside them.
 
-Phase 2 is next in the spec's order, and the Priority 0 items below are what stand between here and it.
+Phase 2 is next in the spec's order, and the Priority 0 items below are what stand between here and it. Item 03 has since closed, which removes the compute wall in front of most of them: changes that move the variant set now cost only the pairs they actually touch, so item 04 and Phase 2's moveset selection no longer need to wait for a batched rebuild.
 
 The teambuilder also turned up three defects in the earlier specs. Those were item 09, now closed — two had been fixed in passing while items 01–08 were built, and the third is handled by item 10.
 
@@ -38,6 +38,42 @@ Merged in [#4](https://github.com/ashepard11/cinnabar-lab/pull/4). `lib/variant-
 The human-readable slug survives as `Variant.id` for display and URLs. The teambuilder's custom sets depend on the cid entirely: the same set defined by two different users is the same variant, computed once and cached for both.
 
 **Unblocked:** 03, 05, teambuilder Phase 6b
+
+### 03. Incremental matrix refresh *(Medium)* — done
+
+`lib/analysis/refresh.ts` plans a refresh, `scripts/refresh-matchups.ts` runs
+one, and `lib/analysis/pool.ts` holds the worker pool both it and
+`build-matchups` now share. Schema v3 adds `regulation` to the run key.
+
+```
+npm run refresh-matchups -- --dry-run
+```
+
+Run against the live file it reported 79 variants unchanged, 5 added, 10
+retired, and **4,050 cells to simulate against 30,810 reused — 11.6% of a
+rebuild**. That closed the staleness `/data-status` had been flagging since the
+variant set moved from 89 to 84.
+
+Reuse keys on content ids, so a row survives exactly as long as both its cids
+and its run key do — weight drift, move reordering within the same top four,
+tier changes and slug renames are all free. Work units come from asking the
+database which rows exist rather than from the diff, which is the same answer
+when the last build finished and the right one when it did not, so crash
+resumption is the same mechanism rather than a second one.
+
+Planning is read-only and `--dry-run` opens the file read-only, so asking what
+a change costs cannot itself change anything. A new run key — policy, calc,
+engine or regulation — invalidates everything by design, and the script refuses
+to run that without `--full` rather than quietly starting an overnight job.
+Pruning is opt-in for the same reason it is worth having: retired rows are
+cache, since a variant that leaves and returns is byte-identical by cid, but
+the file ships to browsers so size is a real consideration.
+
+The `CORE_TIER_SIZE` lever this item was asked to settle is settled, and the
+answer is that it was measuring the wrong thing — see DECISIONS.md D41 and the
+note under item 04.
+
+**Unblocked:** 04, 05, teambuilder Phases 2, 6b
 
 ### 08. Team evaluator *(Large)* — done
 
@@ -81,9 +117,11 @@ Several queued items invalidate `data/matchups.sqlite`, which is hours of comput
 - **Item 07, a better decision policy** changes `policy_version`, invalidating every row.
 - **Re-scraping usage for M-C** changes weights and the variant set.
 
-The matrix is already stale for an unrelated reason, and `/data-status` names it precisely: built 2026-07-06 against 89 variants, while the weekly refresh has moved the set to 84. Five current variants have no rows, and ten rows belong to variants that no longer exist. Item 03 (incremental refresh) is what makes any of this cheap, and doing it before the batch means the rebuild touches only what actually changed.
+Item 03 is done, which changes the shape of this. Two of the five entries above are now cheap rather than expensive, because they change the variant universe without changing the run key — item 04 and Phase 2's moveset selection both cost only the pairs involving variants whose content id actually moved. The other three bump the run key and still invalidate everything.
 
-Sequence suggestion: item 03 first, then the M-C migration, item 04 and Phase 2's moveset selection together, then re-simulate once. Item 07 is the exception — it is worth its own rebuild, because the point of it is measuring how much the policy changes.
+The unrelated staleness is also gone: the matrix was built against 89 variants while the weekly refresh had moved the set to 84, and the first incremental refresh closed that for 4,050 cells instead of 34,860.
+
+Sequence suggestion, revised: do item 04 and Phase 2's moveset selection whenever they are ready, refreshing after each — neither needs to wait for a batch any more. Batch only the run-key changes: the M-C re-vendor and re-scrape together, since the engine bump invalidates the matrix either way. Item 07 stays its own rebuild, because the point of it is measuring how much the policy changes.
 
 ### 10. Regulation-driven format rules *(Medium)*
 
@@ -95,7 +133,7 @@ Switching regulations then becomes a configuration change. It also makes backtes
 
 **Deliverable:** `lib/format-rules.ts`, plus a regulation selector on the data status screen.
 
-**Progress.** `lib/format-rules.ts` and `scripts/build-format-rules.ts` landed; `npm run build-format-rules -- --all` resolves M-A and M-B into `data/format-rules-<id>.json`. Both hardcoded format ids are gone: `lib/scrape.ts` and `lib/sim/engine.ts` now read the active regulation from `CHAMPIONS_REGULATION`, defaulting to M-B. M-B resolves to 323 species / 148 items / 74 Mega formes, and the item count matches the regulation announcement exactly. `scripts/build-matchups.ts` stamps the regulation and refuses to mix two in one matrix.
+**Progress.** `lib/format-rules.ts` and `scripts/build-format-rules.ts` landed; `npm run build-format-rules -- --all` resolves M-A and M-B into `data/format-rules-<id>.json`. Both hardcoded format ids are gone: `lib/scrape.ts` and `lib/sim/engine.ts` now read the active regulation from `CHAMPIONS_REGULATION`, defaulting to M-B. M-B resolves to 323 species / 148 items / 74 Mega formes, and the item count matches the regulation announcement exactly. `scripts/build-matchups.ts` stamps the regulation, and since item 03 put it in the run key, one file can now hold two regulations without their rows becoming indistinguishable — a rollover reuses every row whose variant survived it rather than invalidating the table.
 
 Phase 1's data status screen (`/data-status`) now renders every regulation with its dates, formats and usage source, and marks M-C as declared-but-unsourceable with the reason. What is missing is the *selector*, and it is not blocked on interface work any more — it is blocked on there being a second regulation worth switching to. A dropdown with one working option would be a worse lie than the sentence currently in its place.
 
@@ -104,21 +142,6 @@ So the remaining work is one thing, not two: **replace the vendored Showdown bui
 Per-species move bans stay empty regardless: Showdown models them as learnset removals, indistinguishable from never learning the move. See DECISIONS.md D39.
 
 **Blocks:** teambuilder Phases 2, 8; item 15
-
-### 03. Incremental matrix refresh *(Medium)*
-
-When the scraper produces new variants, diff against existing and simulate only pairs involving new or changed variants. Full rebuild only when policy or engine versions change.
-
-Now a prerequisite rather than an optimization. The teambuilder adds conditions one at a time, edits movesets through its interface, and switches regulations from a dropdown. Each of those invalidates a subset of the matrix, and a full rebuild for any of them makes the workflow unusable.
-
-The cid and provenance keys from item 02 are in place, so the diff has something stable to key on.
-
-**Suggested next.** Everything remaining in this tier invalidates the matrix, and until this lands each invalidation means a full rebuild — hours of compute. Doing it first makes items 04, the M-C migration and every Phase 2 moveset edit cost minutes instead. It is also the only Priority 0 item with no open dependency.
-
-One lever worth settling while working on this: `CORE_TIER_SIZE` is 70, taken from the spec's "top seventy or so" and flagged provisional in `lib/variant-schema.ts`. Phase 1 was meant to answer how many candidates a user actually scans. If the answer is nearer ten, the core tier shrinks and the Phase 5 matrix build shrinks with it — the cheapest saving available before any simulation runs.
-
-**Depends on:** 02 *(done)*
-**Blocks:** teambuilder Phases 2, 6b
 
 ### 04. Defensive item variants *(Medium)*
 
@@ -132,7 +155,11 @@ Sim variants will diverge from damage-viz variants. Either split into two files 
 
 Also closes the evaluator's defensive-item fidelity gap.
 
-**Depends on:** 03, 10
+**Cheaper than it was.** Item 03 means this no longer implies a rebuild: adding defensive buckets leaves every existing variant's content id untouched, so only pairs involving the new variants get simulated. Run `npm run refresh-matchups -- --dry-run` after regenerating variants to see the bill before paying it.
+
+**This is also the trigger for reconsidering the core tier.** The tier currently gates nothing — every pair is simulated regardless — because at 84 variants skipping extended-against-extended saves 990 pairs of 3,486, which does not pay for the failure mode a gate creates. Pairs are quadratic, so if this item takes the universe to around 200 variants that becomes 19,900 pairs and the calculation changes. See DECISIONS.md D41.7.
+
+**Depends on:** 03 *(done)*, 10
 
 ### 11. Shared effect table *(Small)*
 
@@ -206,7 +233,7 @@ The spec covers the set editor, provisional ranking from the damage calculator w
 
 Also closes the evaluator's nearest-variant approximation, which currently badges inexact matches and drops species outside the variant set.
 
-**Depends on:** 02 *(done)*, 03
+**Depends on:** 02 *(done)*, 03 *(done)*
 
 ---
 

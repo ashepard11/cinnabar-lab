@@ -108,17 +108,29 @@ npm run sim-smoke        # Phase 0 engine smoke test (Zard Y vs Incineroar)
 npm run sim-sanity       # sanity gate: 5 spec matchups + invariants
 npm run build-matchups   # full matrix build into data/matchups.sqlite (~hours; resumable)
 npm run inspect-matchup -- --A charizard_mega_y --B incineroar_no_item --condition fresh --verbose
+
+npm run refresh-matchups -- --dry-run   # what would a refresh cost? touches nothing
+npm run refresh-matchups                # simulate only what actually changed
+npm run refresh-matchups -- --prune     # ...and drop rows no live pair can reach
+npm run verify-matchups                 # post-build integrity checks
 ```
 
 Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity +
 content-id tests + format rules + team evaluator), `npm run typecheck`. Damage-viz data refreshes weekly via
 `.github/workflows/refresh-data.yml`.
 
-Note: the weekly refresh regenerates usage/variants/viz JSON only. The
-matchup matrix is a snapshot tied to the variant set it was built from
-(policy + engine versions stamped in its `metadata` table) — after a data
-refresh changes `defender-variants.json`, re-run `npm run build-matchups`
-(hours, resumable, incremental) to bring the matrix back in sync.
+Note: the weekly refresh regenerates usage/variants/viz JSON only, so the
+matchup matrix drifts out of sync with the variant set every time the scrape
+moves it. Use `npm run refresh-matchups` rather than a rebuild: matchup rows
+key on content ids, so only pairs involving a genuinely changed variant need
+simulating, and the rest are reused. The last sync cost 4,050 cells against
+30,810 reused — 11.6% of a rebuild. `--dry-run` prints that breakdown without
+touching the file, and `/data-status` shows the same figure in the browser.
+
+A full rebuild is only needed when the run key changes — a different decision
+policy, calc version, sim engine or regulation invalidates every row by
+design. `refresh-matchups` refuses to do that silently; pass `--full` if it is
+what you want.
 
 ## How it works
 
