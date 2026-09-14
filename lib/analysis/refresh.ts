@@ -363,16 +363,25 @@ export function prune(
       const pinned = db
         .prepare('SELECT value FROM metadata WHERE key = ?')
         .get('current_run_id') as { value: string } | undefined;
-      const keep = pinned ? Number(pinned.value) : -1;
+      const keep = Number(pinned?.value);
+      // Without a pinned run there is no "current" to keep, and the obvious
+      // sentinel would match no run and delete the entire table. Refuse.
+      if (!Number.isInteger(keep)) {
+        throw new Error('cannot prune stale runs: metadata has no current_run_id');
+      }
       db.prepare('DELETE FROM matchups WHERE run_id != ?').run(keep);
     }
     rows = before - (db.prepare('SELECT COUNT(*) c FROM matchups').get() as { c: number }).c;
     // Variant records for cids no longer referenced anywhere are dead weight.
+    // Both columns are checked rather than relying on mirror rows making them
+    // equivalent: they are today, but a pruned table is exactly where that
+    // would stop being true.
     if (live.length > 0) {
       db.prepare(
         `DELETE FROM variants
           WHERE cid NOT IN (${placeholders})
-            AND cid NOT IN (SELECT variant_A_cid FROM matchups)`
+            AND cid NOT IN (SELECT variant_A_cid FROM matchups)
+            AND cid NOT IN (SELECT variant_B_cid FROM matchups)`
       ).run(...live);
     }
     const runsBefore = (db.prepare('SELECT COUNT(*) c FROM sim_runs').get() as { c: number }).c;

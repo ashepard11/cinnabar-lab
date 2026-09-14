@@ -246,6 +246,15 @@ section('Pruning');
     result.runs_deleted === 0 && (db.prepare('SELECT COUNT(*) c FROM sim_runs').get() as any).c === 1,
     'the only run still has rows, so it stays');
   check('pruning is idempotent', prune(db, live).rows_deleted === 0);
+
+  // Pruning stale runs keys on the pinned current run. Without one, the
+  // comparison would match nothing and take the whole table with it.
+  db.exec("DELETE FROM metadata WHERE key = 'current_run_id'");
+  let refused = false;
+  try { prune(db, live, {staleRuns: true}); } catch { refused = true; }
+  check('pruning stale runs refuses when no current run is pinned', refused);
+  check('the refusal leaves the table untouched',
+    (db.prepare('SELECT COUNT(*) c FROM matchups').get() as any).c === 2 * CONDITIONS.length);
   db.close();
 }
 
