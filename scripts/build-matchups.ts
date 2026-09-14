@@ -11,21 +11,25 @@
  * seeds make this equivalent to (and cheaper than) simulating both orders
  * (SPEC-sim.md Phase 4 notes the redundancy).
  *
- * Incremental: already-present rows are skipped on restart, so a crash
- * loses at most the in-flight cells.
+ * Incremental: already-present rows are skipped on restart, so a crash loses
+ * at most the in-flight cells — and, since rows key on content ids, a rescrape
+ * that moved a few variants costs only the pairs involving them. The cell
+ * selection, worker pool and row writing are shared with
+ * scripts/refresh-matchups.ts (BACKLOG item 03), which wraps the same work in
+ * a cost report and a guard against unintentionally paying for a rebuild.
  */
-import { Worker } from 'worker_threads';
 import { DatabaseSync } from 'node:sqlite';
 import * as fs from 'fs';
-import * as os from 'os';
 import * as path from 'path';
 import { CONDITION_IDS, mirrorCondition, type ConditionId } from '../lib/sim/condition';
 import { mirrorResult, type MatchupResult } from '../lib/sim/harness';
 import { getPolicy, DEFAULT_POLICY_ID } from '../lib/sim/policy';
 import { SIM_ENGINE_VERSION, SIM_FORMAT, SIM_REGULATION, SHOWDOWN_COMMIT } from '../lib/sim/engine';
 import {
-  SCHEMA_VERSION, calcVersion, ensureSchemaV2, syncVariants, upsertRun,
+  SCHEMA_VERSION, calcVersion, ensureSchema, syncVariants, upsertRun,
 } from '../lib/analysis/schema';
+import { runPool, defaultWorkerCount } from '../lib/analysis/pool';
+import { pendingUnits } from '../lib/analysis/refresh';
 import type { VariantsData } from '../lib/types';
 
 const ROOT = path.join(__dirname, '..');
@@ -38,50 +42,19 @@ function arg(name: string, fallback: string): string {
   return fallback;
 }
 
-interface WorkUnit {
-  aId: string;
-  bId: string;
-  conditionId: ConditionId;
-}
-
 function openDb(): DatabaseSync {
   const db = new DatabaseSync(DB_PATH);
   db.exec('PRAGMA journal_mode = WAL;');
   db.exec('PRAGMA busy_timeout = 10000;'); // survive transient reader locks
-  ensureSchemaV2(db);
+  ensureSchema(db);
   return db;
-}
-
-/**
- * Refuse to extend a matrix built under a different regulation.
- *
- * The sim_runs key covers policy, calc and engine versions but not the
- * regulation, so rows from two regulations would land under the same run_id
- * and become indistinguishable. Until that key grows a regulation column
- * (BACKLOG item 03 touches this schema), a guard on resume is what keeps the
- * file honest. Builds are resumable by design, so this path is reached often.
- */
-function assertRegulationMatches(db: DatabaseSync): void {
-  const row = db
-    .prepare('SELECT value FROM metadata WHERE key = ?')
-    .get('regulation') as {value: string} | undefined;
-  // A matrix built before this column existed is M-B by construction: it is
-  // the only regulation the pipeline could produce.
-  const existing = row?.value ?? 'M-B';
-  const active = SIM_REGULATION.regulation_id;
-  if (existing !== active) {
-    throw new Error(
-      `data/matchups.sqlite holds ${existing} rows but CHAMPIONS_REGULATION is ${active}. ` +
-        `Build ${active} into a separate file rather than mixing regulations in one matrix.`
-    );
-  }
 }
 
 /** Record provenance and pin the view to this build's run. Returns run_id. */
 function writeMetadata(db: DatabaseSync, policyId: string): number {
-  assertRegulationMatches(db);
   const policy = getPolicy(policyId);
   const runId = upsertRun(db, {
+    regulation: SIM_REGULATION.regulation_id,
     policy_id: policy.id,
     policy_version: policy.version,
     calc_version: calcVersion(ROOT),
@@ -106,14 +79,15 @@ function writeMetadata(db: DatabaseSync, policyId: string): number {
 }
 
 async function main() {
-  const workers = Number(arg('workers', String(Math.max(1, os.availableParallelism() - 1))));
+  const workers = Number(arg('workers', String(defaultWorkerCount())));
   const maxN = Number(arg('maxN', '200'));
   const limit = Number(arg('limit', '0')); // 0 = no limit (debug aid)
   const policyId = arg('policy', DEFAULT_POLICY_ID);
 
   const data: VariantsData = JSON.parse(fs.readFileSync(VARIANTS_PATH, 'utf8'));
-  const ids = data.variants.map((v) => v.id).sort();
-  console.log(`${ids.length} variants, ${CONDITION_IDS.length} conditions, policy ${policyId}`);
+  console.log(
+    `${data.variants.length} variants, ${CONDITION_IDS.length} conditions, policy ${policyId}`,
+  );
 
   const db = openDb();
   const runId = writeMetadata(db, policyId);
@@ -124,28 +98,24 @@ async function main() {
     return cid;
   };
 
-  // Resume support: skip units whose primary row already exists for this run.
-  // Rows from other runs (older policy/calc/engine) are ignored, not clobbered.
-  const existing = new Set<string>();
-  for (const row of db.prepare(
-    'SELECT variant_A_cid, variant_B_cid, condition FROM matchups WHERE run_id = ?',
-  ).all(runId) as any[]) {
-    existing.add(`${row.variant_A_cid}|${row.variant_B_cid}|${row.condition}`);
-  }
-
-  // Work units: unordered pairs × all conditions (mirror rows are derived).
-  let units: WorkUnit[] = [];
-  for (let i = 0; i < ids.length; i++) {
-    for (let j = i + 1; j < ids.length; j++) {
-      for (const conditionId of CONDITION_IDS) {
-        if (existing.has(`${cidOf(ids[i])}|${cidOf(ids[j])}|${conditionId}`)) continue;
-        units.push({ aId: ids[i], bId: ids[j], conditionId });
-      }
-    }
-  }
+  // Resume support and incremental behaviour both come from the same place
+  // (BACKLOG item 03): ask the database which cells are already recorded under
+  // this run and simulate the rest. A crash therefore loses at most the
+  // in-flight cells, and a rescrape that moved a few variants costs only the
+  // pairs involving them — without this script needing to know which case it
+  // is in. `npm run refresh-matchups` is the same machinery with a report and
+  // a guard against unintentionally paying for a full rebuild.
+  let units = pendingUnits(db, data.variants, runId, CONDITION_IDS).map((u) => ({
+    aSlug: u.aSlug,
+    bSlug: u.bSlug,
+    condition: u.condition,
+  }));
   if (limit > 0) units = units.slice(0, limit);
   const total = units.length;
-  console.log(`${total} cells to simulate (${existing.size} rows already present), ${workers} workers`);
+  const present = (
+    db.prepare('SELECT COUNT(*) c FROM matchups WHERE run_id = ?').get(runId) as { c: number }
+  ).c;
+  console.log(`${total} cells to simulate (${present} rows already present), ${workers} workers`);
   if (total === 0) {
     console.log('nothing to do');
     db.close();
@@ -166,78 +136,27 @@ async function main() {
     );
   };
 
-  let next = 0;
-  let done = 0;
-  let errors = 0;
   const t0 = Date.now();
-  const logEvery = Math.max(1, Math.floor(total / 100));
-  let lastLogAt = t0;
-  let lastLogDone = 0;
-  // Recycle workers periodically: dex/calc caches grow slowly per worker
-  // (saturating, but recycling keeps GC pressure flat over multi-hour runs).
-  const RECYCLE_AFTER = 400;
-
-  await new Promise<void>((resolve, reject) => {
-    const spawnWorker = () => {
-      const worker = new Worker(
-        `require('tsx/cjs'); require(${JSON.stringify(path.join(__dirname, 'matchup-worker.ts'))});`,
-        { eval: true, workerData: { variantsPath: VARIANTS_PATH, policyId, maxN } },
-      );
-      let completed = 0;
-      const dispatch = () => {
-        if (next < units.length) {
-          if (completed >= RECYCLE_AFTER) {
-            worker.postMessage({ type: 'exit' });
-            spawnWorker();
-            return;
-          }
-          worker.postMessage({ type: 'work', unit: units[next++] });
-        } else {
-          worker.postMessage({ type: 'exit' });
-        }
-      };
-      worker.on('message', (msg: any) => {
-        if (msg.type === 'ready') {
-          dispatch();
-        } else if (msg.type === 'result') {
-          const r: MatchupResult = msg.result;
-          writeRow(r);
-          writeRow(mirrorResult(r, mirrorCondition(msg.unit.conditionId)));
-          done++;
-          completed++;
-          if (done % logEvery === 0 || done === total) {
-            const now = Date.now();
-            const windowRate = (done - lastLogDone) / ((now - lastLogAt) / 1000);
-            lastLogAt = now;
-            lastLogDone = done;
-            const eta = (total - done) / windowRate;
-            console.log(
-              `${done}/${total} (${((done / total) * 100).toFixed(1)}%) — ` +
-              `${windowRate.toFixed(1)} cells/s (window) — ETA ${(eta / 60).toFixed(1)} min`,
-            );
-          }
-          dispatch();
-        } else if (msg.type === 'error') {
-          errors++;
-          console.error(`ERROR ${msg.unit.aId} vs ${msg.unit.bId} [${msg.unit.conditionId}]: ${msg.error}`);
-          dispatch();
-        }
-      });
-      worker.on('error', (e) => {
-        console.error('worker crashed:', e);
-        reject(e);
-      });
-    };
-
-    for (let w = 0; w < workers; w++) spawnWorker();
-
-    const poll = setInterval(() => {
-      if (done + errors >= total) {
-        clearInterval(poll);
-        resolve();
-      }
-    }, 1000);
+  const summary = await runPool({
+    units,
+    variantsPath: VARIANTS_PATH,
+    policyId,
+    maxN,
+    workers,
+    onResult: (result, unit) => {
+      writeRow(result);
+      writeRow(mirrorResult(result, mirrorCondition(unit.condition as ConditionId)));
+    },
+    onError: (error, unit) =>
+      console.error(`ERROR ${unit.aSlug} vs ${unit.bSlug} [${unit.condition}]: ${error}`),
+    onProgress: (p) =>
+      console.log(
+        `${p.done}/${p.total} (${((p.done / p.total) * 100).toFixed(1)}%) — ` +
+        `${p.rate.toFixed(1)} cells/s (window) — ETA ${(p.etaSeconds / 60).toFixed(1)} min`,
+      ),
   });
+  const done = summary.done;
+  const errors = summary.errors;
 
   db.exec('PRAGMA wal_checkpoint(TRUNCATE);');
   const count = (db.prepare('SELECT COUNT(*) AS c FROM matchups WHERE run_id = ?').get(runId) as any).c;

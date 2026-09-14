@@ -16,7 +16,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ensureSchemaV2, isLegacySchema, syncVariants, upsertRun, SCHEMA_VERSION } from '../lib/analysis/schema';
+import { ensureSchema, isLegacySchema, syncVariants, upsertRun, SCHEMA_VERSION } from '../lib/analysis/schema';
 import { SIM_ENGINE_VERSION } from '../lib/sim/engine';
 import type { VariantsData } from '../lib/types';
 
@@ -51,7 +51,7 @@ function main() {
 
   db.exec('BEGIN');
   db.exec('ALTER TABLE matchups RENAME TO matchups_v1');
-  ensureSchemaV2(db);
+  ensureSchema(db);
 
   const slugToCid = syncVariants(db, data.variants);
   const unknown = slugs.filter((s) => !slugToCid.has(s));
@@ -63,6 +63,9 @@ function main() {
   }
 
   const runId = upsertRun(db, {
+    // A v1 file predates the regulation stamp, and M-B is the only regulation
+    // the pipeline has ever produced, so that is what these rows are.
+    regulation: meta.regulation ?? 'M-B',
     policy_id: meta.policy_id,
     policy_version: meta.policy_version,
     calc_version: meta.calc_version,

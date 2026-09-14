@@ -19,11 +19,11 @@
     "preview": "vite preview",
     "typecheck": "tsc -p . && tsc -p tsconfig.web.json",
     "sanity": "tsx scripts/sanity-checks.ts",
-    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts && tsx scripts/test-variant-cid.ts && tsx scripts/test-format-rules.ts && tsx scripts/test-teambuilder-contracts.ts && tsx scripts/test-evaluator.ts",
+    "test": "tsx scripts/phase0-smoke.ts && tsx scripts/test-variants.ts && tsx scripts/sanity-checks.ts && tsx scripts/test-variant-cid.ts && tsx scripts/test-format-rules.ts && tsx scripts/test-teambuilder-contracts.ts && tsx scripts/test-evaluator.ts && tsx scripts/test-refresh.ts",
     "test-cid": "tsx scripts/test-variant-cid.ts",
     "test-format-rules": "tsx scripts/test-format-rules.ts",
     "test-contracts": "tsx scripts/test-teambuilder-contracts.ts",
-    "test-evaluator": "tsx scripts/test-evaluator.ts",
+    "test-evaluator": "tsx scripts/test-evaluator.ts && tsx scripts/test-refresh.ts",
     "migrate-matchups": "tsx scripts/migrate-matchups-v2.ts",
     "migrate-variants": "tsx scripts/migrate-variants-v3.ts",
     "verify-matchups": "tsx scripts/verify-matchups.ts",
@@ -31,7 +31,9 @@
     "inspect-matchup": "tsx scripts/inspect-matchup.ts",
     "sim-sanity": "tsx scripts/sim-sanity.ts",
     "endgame-suite": "tsx scripts/endgame-suite.ts",
-    "build-matchups": "tsx scripts/build-matchups.ts"
+    "build-matchups": "tsx scripts/build-matchups.ts",
+    "refresh-matchups": "tsx scripts/refresh-matchups.ts",
+    "test-refresh": "tsx scripts/test-refresh.ts"
   },
   "repository": {
     "type": "git",
