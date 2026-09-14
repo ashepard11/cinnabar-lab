@@ -1,0 +1,3423 @@
+{
+  "generated_at": "2026-09-13T19:41:34.038Z",
+  "cells": [
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "fresh",
+      "p_A_wins": 0.42,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "moves_first",
+      "p_A_wins": 0.212,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "rain",
+      "p_A_wins": 0.765,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "sand",
+      "p_A_wins": 0.408,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "fresh",
+      "p_A_wins": 0.386,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "moves_first",
+      "p_A_wins": 0.568,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "rain",
+      "p_A_wins": 0.695,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "sand",
+      "p_A_wins": 0.662,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "fresh",
+      "p_A_wins": 0.648,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "moves_first",
+      "p_A_wins": 0.774,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "rain",
+      "p_A_wins": 0.785,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "sand",
+      "p_A_wins": 0.457,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "fresh",
+      "p_A_wins": 0.552,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "moves_first",
+      "p_A_wins": 0.711,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "rain",
+      "p_A_wins": 0.712,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "sand",
+      "p_A_wins": 0.424,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "fresh",
+      "p_A_wins": 0.598,
+      "mean_turns": 5.2,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "moves_first",
+      "p_A_wins": 0.257,
+      "mean_turns": 5.2,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "rain",
+      "p_A_wins": 0.43,
+      "mean_turns": 5.2,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "6348f4da7d2dbe83",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "sand",
+      "p_A_wins": 0.386,
+      "mean_turns": 5.2,
+      "hp_quantiles_A_won": [
+        0.155,
+        0.198,
+        0.241,
+        0.627,
+        0.67
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.27,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "fresh",
+      "p_A_wins": 0.269,
+      "mean_turns": 5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "moves_first",
+      "p_A_wins": 0.8,
+      "mean_turns": 5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "rain",
+      "p_A_wins": 0.324,
+      "mean_turns": 5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "sand",
+      "p_A_wins": 0.287,
+      "mean_turns": 5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "fresh",
+      "p_A_wins": 0.279,
+      "mean_turns": 3.7,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "moves_first",
+      "p_A_wins": 0.418,
+      "mean_turns": 3.7,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "rain",
+      "p_A_wins": 0.662,
+      "mean_turns": 3.7,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "sand",
+      "p_A_wins": 0.334,
+      "mean_turns": 3.7,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "fresh",
+      "p_A_wins": 0.414,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "moves_first",
+      "p_A_wins": 0.209,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "rain",
+      "p_A_wins": 0.362,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "sand",
+      "p_A_wins": 0.242,
+      "mean_turns": 3.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "fresh",
+      "p_A_wins": 0.533,
+      "mean_turns": 3.6,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "moves_first",
+      "p_A_wins": 0.767,
+      "mean_turns": 3.6,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "rain",
+      "p_A_wins": 0.631,
+      "mean_turns": 3.6,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "sand",
+      "p_A_wins": 0.662,
+      "mean_turns": 3.6,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "fresh",
+      "p_A_wins": 0.733,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "moves_first",
+      "p_A_wins": 0.368,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "rain",
+      "p_A_wins": 0.662,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "b3e49ebad0d4367b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "sand",
+      "p_A_wins": 0.352,
+      "mean_turns": 2.5,
+      "hp_quantiles_A_won": [
+        0.383,
+        0.425,
+        0.854,
+        0.897,
+        0.94
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.586,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "fresh",
+      "p_A_wins": 0.36,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "moves_first",
+      "p_A_wins": 0.611,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "rain",
+      "p_A_wins": 0.445,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "sand",
+      "p_A_wins": 0.275,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "fresh",
+      "p_A_wins": 0.319,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "moves_first",
+      "p_A_wins": 0.479,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "rain",
+      "p_A_wins": 0.303,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "sand",
+      "p_A_wins": 0.263,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "fresh",
+      "p_A_wins": 0.459,
+      "mean_turns": 5.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "moves_first",
+      "p_A_wins": 0.257,
+      "mean_turns": 5.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "rain",
+      "p_A_wins": 0.376,
+      "mean_turns": 5.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "sand",
+      "p_A_wins": 0.457,
+      "mean_turns": 5.4,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "fresh",
+      "p_A_wins": 0.269,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "moves_first",
+      "p_A_wins": 0.691,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "rain",
+      "p_A_wins": 0.554,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "sand",
+      "p_A_wins": 0.282,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "fresh",
+      "p_A_wins": 0.313,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "moves_first",
+      "p_A_wins": 0.721,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "rain",
+      "p_A_wins": 0.636,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "024cee1a8526e616",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "sand",
+      "p_A_wins": 0.733,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.256,
+        0.299,
+        0.642,
+        0.685,
+        0.727
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.184,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "fresh",
+      "p_A_wins": 0.338,
+      "mean_turns": 5.6,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "moves_first",
+      "p_A_wins": 0.715,
+      "mean_turns": 5.6,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "rain",
+      "p_A_wins": 0.58,
+      "mean_turns": 5.6,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "sand",
+      "p_A_wins": 0.643,
+      "mean_turns": 5.6,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "fresh",
+      "p_A_wins": 0.346,
+      "mean_turns": 3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "moves_first",
+      "p_A_wins": 0.395,
+      "mean_turns": 3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "rain",
+      "p_A_wins": 0.541,
+      "mean_turns": 3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "sand",
+      "p_A_wins": 0.433,
+      "mean_turns": 3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "fresh",
+      "p_A_wins": 0.55,
+      "mean_turns": 4,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "moves_first",
+      "p_A_wins": 0.732,
+      "mean_turns": 4,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "rain",
+      "p_A_wins": 0.646,
+      "mean_turns": 4,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "sand",
+      "p_A_wins": 0.754,
+      "mean_turns": 4,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "fresh",
+      "p_A_wins": 0.677,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "moves_first",
+      "p_A_wins": 0.268,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "rain",
+      "p_A_wins": 0.283,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "sand",
+      "p_A_wins": 0.224,
+      "mean_turns": 3.8,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "fresh",
+      "p_A_wins": 0.508,
+      "mean_turns": 4.3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "moves_first",
+      "p_A_wins": 0.775,
+      "mean_turns": 4.3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "rain",
+      "p_A_wins": 0.625,
+      "mean_turns": 4.3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "e44db8e5f05ae054",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "sand",
+      "p_A_wins": 0.232,
+      "mean_turns": 4.3,
+      "hp_quantiles_A_won": [
+        0.359,
+        0.402,
+        0.745,
+        0.83,
+        0.873
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.233,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "fresh",
+      "p_A_wins": 0.304,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "moves_first",
+      "p_A_wins": 0.256,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "rain",
+      "p_A_wins": 0.565,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "sand",
+      "p_A_wins": 0.558,
+      "mean_turns": 4.4,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "fresh",
+      "p_A_wins": 0.588,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "moves_first",
+      "p_A_wins": 0.227,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "rain",
+      "p_A_wins": 0.736,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "sand",
+      "p_A_wins": 0.696,
+      "mean_turns": 2.6,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "fresh",
+      "p_A_wins": 0.469,
+      "mean_turns": 3.9,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "moves_first",
+      "p_A_wins": 0.744,
+      "mean_turns": 3.9,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "rain",
+      "p_A_wins": 0.431,
+      "mean_turns": 3.9,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "sand",
+      "p_A_wins": 0.238,
+      "mean_turns": 3.9,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "fresh",
+      "p_A_wins": 0.403,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "moves_first",
+      "p_A_wins": 0.502,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "rain",
+      "p_A_wins": 0.497,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "sand",
+      "p_A_wins": 0.74,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "fresh",
+      "p_A_wins": 0.582,
+      "mean_turns": 3.1,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "moves_first",
+      "p_A_wins": 0.632,
+      "mean_turns": 3.1,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "rain",
+      "p_A_wins": 0.306,
+      "mean_turns": 3.1,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "432a0774c3cb2f6b",
+      "variant_B_id": "244400d9167e7084",
+      "condition": "sand",
+      "p_A_wins": 0.566,
+      "mean_turns": 3.1,
+      "hp_quantiles_A_won": [
+        0.165,
+        0.208,
+        0.251,
+        0.679,
+        0.722
+      ],
+      "hp_quantiles_B_won": [
+        0.15,
+        0.193,
+        0.536,
+        0.622,
+        0.665
+      ],
+      "hp_at_opponent_faint_A": 0.262,
+      "hp_at_opponent_faint_B": 0.089,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "fresh",
+      "p_A_wins": 0.634,
+      "mean_turns": 2.9,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "moves_first",
+      "p_A_wins": 0.452,
+      "mean_turns": 2.9,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "rain",
+      "p_A_wins": 0.787,
+      "mean_turns": 2.9,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "6348f4da7d2dbe83",
+      "condition": "sand",
+      "p_A_wins": 0.779,
+      "mean_turns": 2.9,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.051,
+        0.093,
+        0.479,
+        0.522,
+        0.565
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.413,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "fresh",
+      "p_A_wins": 0.31,
+      "mean_turns": 4.1,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "moves_first",
+      "p_A_wins": 0.75,
+      "mean_turns": 4.1,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "rain",
+      "p_A_wins": 0.468,
+      "mean_turns": 4.1,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "b3e49ebad0d4367b",
+      "condition": "sand",
+      "p_A_wins": 0.42,
+      "mean_turns": 4.1,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.173,
+        0.216,
+        0.602,
+        0.645,
+        0.688
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.443,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "fresh",
+      "p_A_wins": 0.294,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "moves_first",
+      "p_A_wins": 0.219,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "rain",
+      "p_A_wins": 0.786,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "024cee1a8526e616",
+      "condition": "sand",
+      "p_A_wins": 0.627,
+      "mean_turns": 3.4,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.309,
+        0.352,
+        0.395,
+        0.823,
+        0.866
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.327,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "fresh",
+      "p_A_wins": 0.362,
+      "mean_turns": 4.7,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "moves_first",
+      "p_A_wins": 0.797,
+      "mean_turns": 4.7,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "rain",
+      "p_A_wins": 0.499,
+      "mean_turns": 4.7,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "e44db8e5f05ae054",
+      "condition": "sand",
+      "p_A_wins": 0.649,
+      "mean_turns": 4.7,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.258,
+        0.3,
+        0.729,
+        0.772,
+        0.858
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.09,
+      "status": "inherited",
+      "inherited_from": "fresh",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "fresh",
+      "p_A_wins": 0.622,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "moves_first",
+      "p_A_wins": 0.668,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "rain",
+      "p_A_wins": 0.293,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    },
+    {
+      "variant_A_id": "244400d9167e7084",
+      "variant_B_id": "432a0774c3cb2f6b",
+      "condition": "sand",
+      "p_A_wins": 0.649,
+      "mean_turns": 3.2,
+      "hp_quantiles_A_won": [
+        0.084,
+        0.127,
+        0.513,
+        0.556,
+        0.942
+      ],
+      "hp_quantiles_B_won": [
+        0.346,
+        0.389,
+        0.732,
+        0.775,
+        0.818
+      ],
+      "hp_at_opponent_faint_A": 0.232,
+      "hp_at_opponent_faint_B": 0.405,
+      "status": "simulated",
+      "regulation_id": "M-B",
+      "policy_version": "nash-d2@1.0.0",
+      "calc_version": "0.11.0-champions",
+      "sim_engine_version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "generated_at": "2026-09-13T19:41:34.040Z",
+  "team": {
+    "members": [
+      "6348f4da7d2dbe83",
+      "b3e49ebad0d4367b",
+      "024cee1a8526e616",
+      "e44db8e5f05ae054",
+      "432a0774c3cb2f6b",
+      "244400d9167e7084"
+    ],
+    "score_ceiling": 0.641,
+    "score_floor": 0.583,
+    "condition_reliance": 0.09,
+    "conditions_supplied": [
+      {
+        "condition": "rain",
+        "enablers": [
+          {
+            "member": "b3e49ebad0d4367b",
+            "mechanism": "ability:Drizzle",
+            "speed_tier": 0
+          }
+        ]
+      },
+      {
+        "condition": "moves_first",
+        "enablers": [
+          {
+            "member": "024cee1a8526e616",
+            "mechanism": "move:Tailwind",
+            "speed_tier": "computed"
+          }
+        ]
+      }
+    ],
+    "setup_profile": {
+      "switch_in_ability": 1,
+      "passive": 0,
+      "support_move": 1,
+      "setup_move": 1,
+      "status_move": 0,
+      "tier_0": 1,
+      "tier_1": 1,
+      "tier_2": 0
+    },
+    "positioning": {
+      "member_entry_coverage": [
+        {
+          "member": "6348f4da7d2dbe83",
+          "coverage": 0.377
+        },
+        {
+          "member": "b3e49ebad0d4367b",
+          "coverage": 0.549
+        },
+        {
+          "member": "024cee1a8526e616",
+          "coverage": 0.767
+        },
+        {
+          "member": "e44db8e5f05ae054",
+          "coverage": 0.754
+        },
+        {
+          "member": "432a0774c3cb2f6b",
+          "coverage": 0.443
+        },
+        {
+          "member": "244400d9167e7084",
+          "coverage": 0.544
+        }
+      ],
+      "unreachable_opponents": [
+        {
+          "species": "Sylveon",
+          "weight": 0.1539
+        },
+        {
+          "species": "Archaludon",
+          "weight": 0.1471
+        },
+        {
+          "species": "Garchomp",
+          "weight": 0.1417
+        }
+      ]
+    },
+    "worst_matchups": [
+      {
+        "variant_id": "e44db8e5f05ae054",
+        "species": "Whimsicott",
+        "weight": 0.2274,
+        "p_exposed": 0.205,
+        "best_answer": {
+          "member": "6348f4da7d2dbe83",
+          "condition": "fresh",
+          "p": 0.376
+        }
+      },
+      {
+        "variant_id": "432a0774c3cb2f6b",
+        "species": "Kingambit",
+        "weight": 0.2269,
+        "p_exposed": 0.353,
+        "best_answer": {
+          "member": "6348f4da7d2dbe83",
+          "condition": "fresh",
+          "p": 0.267
+        }
+      },
+      {
+        "variant_id": "244400d9167e7084",
+        "species": "Sneasler",
+        "weight": 0.1996,
+        "p_exposed": 0.32,
+        "best_answer": {
+          "member": "6348f4da7d2dbe83",
+          "condition": "fresh",
+          "p": 0.364
+        }
+      },
+      {
+        "variant_id": "3cba8a8d93d115d7",
+        "species": "Farigiraf",
+        "weight": 0.1865,
+        "p_exposed": 0.308,
+        "best_answer": {
+          "member": "6348f4da7d2dbe83",
+          "condition": "fresh",
+          "p": 0.279
+        }
+      },
+      {
+        "variant_id": "7b89eac335d57676",
+        "species": "Basculegion",
+        "weight": 0.1835,
+        "p_exposed": 0.21,
+        "best_answer": {
+          "member": "6348f4da7d2dbe83",
+          "condition": "fresh",
+          "p": 0.229
+        }
+      }
+    ],
+    "coverage_breadth": 58,
+    "member_contributions": [
+      {
+        "variant_id": "6348f4da7d2dbe83",
+        "marginal_score": 0.05
+      },
+      {
+        "variant_id": "b3e49ebad0d4367b",
+        "marginal_score": 0.012
+      },
+      {
+        "variant_id": "024cee1a8526e616",
+        "marginal_score": 0.013
+      },
+      {
+        "variant_id": "e44db8e5f05ae054",
+        "marginal_score": 0.033
+      },
+      {
+        "variant_id": "432a0774c3cb2f6b",
+        "marginal_score": 0.07
+      },
+      {
+        "variant_id": "244400d9167e7084",
+        "marginal_score": 0.023
+      }
+    ]
+  }
+}

@@ -22,7 +22,7 @@ import * as path from 'path';
 import { CONDITION_IDS, mirrorCondition, type ConditionId } from '../lib/sim/condition';
 import { mirrorResult, type MatchupResult } from '../lib/sim/harness';
 import { getPolicy, DEFAULT_POLICY_ID } from '../lib/sim/policy';
-import { SIM_ENGINE_VERSION } from '../lib/sim/engine';
+import { SIM_ENGINE_VERSION, SIM_FORMAT, SIM_REGULATION, SHOWDOWN_COMMIT } from '../lib/sim/engine';
 import {
   SCHEMA_VERSION, calcVersion, ensureSchemaV2, syncVariants, upsertRun,
 } from '../lib/analysis/schema';
@@ -31,7 +31,6 @@ import type { VariantsData } from '../lib/types';
 const ROOT = path.join(__dirname, '..');
 const DB_PATH = path.join(ROOT, 'data', 'matchups.sqlite');
 const VARIANTS_PATH = path.join(ROOT, 'data', 'defender-variants.json');
-const SHOWDOWN_COMMIT = 'e440c4a18385274f10c405d0b158b6a962ce6d94';
 
 function arg(name: string, fallback: string): string {
   const i = process.argv.indexOf(`--${name}`);
@@ -53,8 +52,34 @@ function openDb(): DatabaseSync {
   return db;
 }
 
+/**
+ * Refuse to extend a matrix built under a different regulation.
+ *
+ * The sim_runs key covers policy, calc and engine versions but not the
+ * regulation, so rows from two regulations would land under the same run_id
+ * and become indistinguishable. Until that key grows a regulation column
+ * (BACKLOG item 03 touches this schema), a guard on resume is what keeps the
+ * file honest. Builds are resumable by design, so this path is reached often.
+ */
+function assertRegulationMatches(db: DatabaseSync): void {
+  const row = db
+    .prepare('SELECT value FROM metadata WHERE key = ?')
+    .get('regulation') as {value: string} | undefined;
+  // A matrix built before this column existed is M-B by construction: it is
+  // the only regulation the pipeline could produce.
+  const existing = row?.value ?? 'M-B';
+  const active = SIM_REGULATION.regulation_id;
+  if (existing !== active) {
+    throw new Error(
+      `data/matchups.sqlite holds ${existing} rows but CHAMPIONS_REGULATION is ${active}. ` +
+        `Build ${active} into a separate file rather than mixing regulations in one matrix.`
+    );
+  }
+}
+
 /** Record provenance and pin the view to this build's run. Returns run_id. */
 function writeMetadata(db: DatabaseSync, policyId: string): number {
+  assertRegulationMatches(db);
   const policy = getPolicy(policyId);
   const runId = upsertRun(db, {
     policy_id: policy.id,
@@ -72,7 +97,8 @@ function writeMetadata(db: DatabaseSync, policyId: string): number {
     engine_version: SIM_ENGINE_VERSION,
     showdown_commit: SHOWDOWN_COMMIT,
     seeding_scheme: 'sha256(matchup::A:B:condition:iteration) -> sodium',
-    format: 'gen9championsbssregmb (1v1; see DECISIONS.md D21)',
+    regulation: SIM_REGULATION.regulation_id,
+    format: `${SIM_FORMAT} (1v1; see DECISIONS.md D21)`,
     built_at: new Date().toISOString(),
   };
   for (const [k, v] of Object.entries(meta)) stmt.run(k, v);

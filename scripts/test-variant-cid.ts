@@ -77,7 +77,7 @@ check('canonical spec carries level 50', spec.level === 50);
 const data: VariantsData = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'data', 'defender-variants.json'), 'utf8'),
 );
-check('data file is schema v2', data.schema_version === 2, `schema_version=${data.schema_version}`);
+check('data file is schema v3', data.schema_version === 3, `schema_version=${data.schema_version}`);
 const stale = data.variants.filter((v) => v.cid !== variantCid(v));
 check('stored cids match recompute', stale.length === 0,
   stale.length ? `stale: ${stale.slice(0, 3).map((v) => v.id).join(', ')}` : `${data.variants.length} variants`);

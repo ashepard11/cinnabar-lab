@@ -1,7 +1,8 @@
 # Pokémon Champions VGC — Metagame Analytics
 
 Analytics for the Pokémon Champions VGC metagame (**Regulation M-B, Season 3**
-ranked battle data from Pikalytics), in two projects sharing one pipeline:
+ranked battle data from Pikalytics — see [Regulation status](#regulation-status),
+this is stale), in three projects sharing one pipeline:
 
 **Damage visualizations** (`SPEC-damageviz.md`):
 
@@ -23,10 +24,57 @@ ranked battle data from Pikalytics), in two projects sharing one pipeline:
 5. **Team builder** (`/team-builder`) — pick a 1–4 variant core, get partners
    ranked by how well they patch the core's worst matchups, weighted by
    opponent usage and matchup urgency.
+6. **Team evaluator** (`/team-evaluator`, `SPEC-team-evaluator.md`) — paste a
+   Showdown team and get type matrices, relevant BST, board control inventory,
+   RNG exposure, damage sources and worst matchups.
+
+**Automated teambuilder** (`SPEC-teambuilder.md`) — *Phase 0 complete.* Searches the
+space of legal 6-Pokémon teams and ranks them against the usage-weighted
+metagame on three axes: matchups, enablers and positioning. Guided mode ranks
+candidates slot by slot; automatic mode searches the whole space. It consumes
+both pipelines above. Phase 0 (format rules, regulation configuration, data
+contracts) has landed: `lib/teambuilder/types.ts` holds the contracts and
+`npm run build-fixtures` generates `data/fixtures/` for Phase 1 to build the
+interface against. The remaining Priority 0 items in [BACKLOG.md](BACKLOG.md)
+block Phase 2 onward.
 
 Design decisions and their reasoning live in [DECISIONS.md](DECISIONS.md);
 the move-selection policy design is documented in
 [docs/policy-design.md](docs/policy-design.md).
+
+## Regulation status
+
+The metagame is defined by a regulation that rolls over every three to four
+months. **Regulation M-C is current**, running 9 September to 2 December 2026.
+It added 36 Pokémon, 18 items and 6 Mega Evolutions over M-B; nothing legal in
+M-A or M-B was removed.
+
+**This pipeline still runs M-B Season 3, which ended on 9 September 2026**, so
+every number here describes a format that is no longer played. The format ids
+are no longer hardcoded — `lib/format-rules.ts` resolves them from a regulation
+read from configuration:
+
+```bash
+CHAMPIONS_REGULATION=M-A npm run build-format-rules   # default: M-B
+npm run build-format-rules -- --all                   # every sourceable regulation
+```
+
+That writes `data/format-rules-<id>.json` with the legality sets (legal
+species, legal items, Mega-capable species and their stones, National Pokédex
+numbers for the species clause), resolved from the vendored Showdown mod
+intersected with the calc's Champions roster. M-B comes out at 323 species,
+148 items and 74 Mega formes; the item count matches the regulation
+announcement exactly.
+
+**M-C cannot be built yet.** The vendored Showdown build (`e440c4a`, ~July
+2026) ships only the `champions` (M-B) and `championsregma` (M-A) mods, so M-C
+has no legality data and its entry is declared but deliberately unsourceable —
+`SIM_FORMAT` and the resolver both throw rather than silently falling back to
+M-B rules. Moving to M-C needs three things together: re-vendoring
+pokemon-showdown, confirming M-C's Pikalytics format id against the live API,
+and re-scraping usage. Re-vendoring bumps `SIM_ENGINE_VERSION`, which
+invalidates `data/matchups.sqlite`, so budget a full matrix rebuild. See
+DECISIONS.md D39 and BACKLOG items 09 and 10.
 
 ## Quick start
 
@@ -50,8 +98,8 @@ npm run build-matchups   # full matrix build into data/matchups.sqlite (~hours; 
 npm run inspect-matchup -- --A charizard_mega_y --B incineroar_no_item --condition fresh --verbose
 ```
 
-Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity),
-`npm run typecheck`. Damage-viz data refreshes weekly via
+Tests: `npm test` (calc smoke + variant unit tests + damage-viz sanity +
+content-id tests + format rules + team evaluator), `npm run typecheck`. Damage-viz data refreshes weekly via
 `.github/workflows/refresh-data.yml`.
 
 Note: the weekly refresh regenerates usage/variants/viz JSON only. The
@@ -177,9 +225,10 @@ refresh changes `defender-variants.json`, re-run `npm run build-matchups`
 ## Repo layout
 
 ```
-data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex (committed)
+data/       scraped usage, variants, viz JSON, matchups.sqlite, evaluator dex,
+            resolved per-regulation format rules (committed)
 docs/       policy design doc
-lib/        pipeline library: scrape, variants, calc, pokemon, types
+lib/        pipeline library: scrape, variants, calc, pokemon, types, format-rules
 lib/sim/    battle simulator: engine, model, policy, condition, harness, sets
 lib/analysis/  matchup-matrix and team-coverage query APIs
 lib/evaluator/ team evaluator: dex, parse, typechart, tags, rng, bst, damage, match

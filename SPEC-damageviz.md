@@ -9,6 +9,33 @@ Build two complementary data visualizations for the Pokémon Champions VGC metag
 
 The two visualizations share infrastructure: same scraper, same defender variant logic, same calc layer. That shared infrastructure is also the foundation for the follow-on Battle Simulator project (see `SPEC-sim.md`) — build it clean.
 
+> ## Errata (2026-09-13)
+>
+> Corrections applied while starting `SPEC-teambuilder.md` Phase 0, per
+> `BACKLOG.md` item 09. The spec body below is corrected inline; this note
+> records what changed and why so the original intent stays traceable.
+>
+> 1. **Stats are SP, not EVs.** Champions has no EVs and no IVs. Every Pokémon
+>    is Level 50 with perfect stats, and investment is 66 Stat Points with a cap
+>    of 32 per stat, each point worth exactly 1 to the final stat. This spec
+>    originally proposed converting SP to EVs at roughly 8:1 for the calc. That
+>    conversion is lossy at the margins and hides the real constraint, which is
+>    the 66-point budget. The vendored `@smogon/calc` has first-class Champions
+>    SP support (generation 0), the Pikalytics API returns spreads already
+>    SP-denominated, and the pipeline stores SP natively in `sps`. Every `evs`
+>    field below now reads `sps`.
+> 2. **Variant records carry moves.** The original variant shape had no `moves`
+>    array, while `SPEC-sim.md` Phase 0 requires one — so as written, the sim
+>    could not run on this project's output. The shape below now includes it.
+> 3. **The regulation is configuration, not a constant.** This spec was written
+>    against Regulation M-B Season 3, which ended on 2026-09-09. Regulation is
+>    now read from `lib/format-rules.ts` (`CHAMPIONS_REGULATION`, default M-B).
+>    Read every "Reg M-B" below as "the active regulation".
+> 4. **Live schema is v3.** `data/defender-variants.json` has moved on from the
+>    shape shown here — it carries `cid`, `national_dex`, `set_label`,
+>    `moves_source` and `tier`. See `lib/variant-schema.ts`; the shapes below
+>    are illustrative of the original scope, not the current contract.
+
 ## Format scope
 
 - **Game:** Pokémon Champions
@@ -73,7 +100,7 @@ Pokémon Showdown supports Pokémon Champions natively. `@smogon/calc` shares Sh
    - Mega Charizard Y's Sp.Atk stat is 159 base (Champions retains standard Gen 6/7 Mega stats).
    - Grav Apple is 90 BP in Champions (was 80 BP pre-Champions).
    - Growth is Grass-type in Champions (was Normal pre-Champions).
-   - The SP (Stat Points) system: `@smogon/calc` may or may not have a first-class SP field. If not, translate SP → EV using the roughly 8 EV per 1 SP conversion for calc purposes and note it in `lib/calc.ts`.
+   - The SP (Stat Points) system: the vendored `@smogon/calc` has a first-class SP field (Champions is generation 0). Store SP natively — 0–32 per stat, 66-point budget — and never round-trip through EVs. *(Erratum 1.)*
 
 **If the Champions format is not yet in the released `@smogon/calc`:**
 1. Check the master branch of the smogon/damage-calc GitHub repo — Champions support may exist in unreleased code.
@@ -107,7 +134,7 @@ Scrape Pikalytics's current Reg M-B tournament pages.
 - Move list with usage % per move (e.g., `Earthquake 89.948%`)
 - Ability list with usage % per ability
 - Item list with usage % per item
-- **Modal SP/EV spread** from the top sets section. If the page format makes this hard to extract, log a warning and fall back to a default spread (max attacking stat + positive nature).
+- **Modal SP spread** from the top sets section (the API returns SP directly). If the page format makes this hard to extract, log a warning and fall back to a default spread (max attacking stat + positive nature).
 
 **Politeness:**
 - 1-second delay between requests
@@ -131,7 +158,7 @@ Scrape Pikalytics's current Reg M-B tournament pages.
         "ability": "Intimidate",
         "item": "Sitrus Berry",
         "nature": "Careful",
-        "evs": {"hp": 252, "atk": 0, "def": 4, "spa": 0, "spd": 252, "spe": 0}
+        "sps": {"hp": 32, "atk": 0, "def": 1, "spa": 0, "spd": 32, "spe": 0}
       }
     }
   ]
@@ -211,7 +238,7 @@ Use modal ability per Pokémon. For Mega variants, use the Mega's ability (e.g.,
 
 ### Spread handling
 
-For each variant, attach the modal SP/EV spread from the scraped data. For Mega variants, prefer a Mega-specific spread if scrapeable; otherwise apply the base form's spread (close enough — Megas rarely change spread philosophy from base forms).
+For each variant, attach the modal SP spread from the scraped data. For Mega variants, prefer a Mega-specific spread if scrapeable; otherwise apply the base form's spread (close enough — Megas rarely change spread philosophy from base forms).
 
 **Output:** `data/defender-variants.json` (used by both viz scripts)
 
@@ -225,7 +252,8 @@ For each variant, attach the modal SP/EV spread from the scraped data. For Mega 
       "item": null,
       "ability": "Intimidate",
       "nature": "Careful",
-      "evs": {"hp": 252, "atk": 0, "def": 4, "spa": 0, "spd": 252, "spe": 0},
+      "sps": {"hp": 32, "atk": 0, "def": 1, "spa": 0, "spd": 32, "spe": 0},
+      "moves": [{"name": "Fake Out", "usage": 0.99047}, {"name": "Knock Off", "usage": 0.8}],
       "weight": 0.5118
     },
     {
@@ -236,7 +264,8 @@ For each variant, attach the modal SP/EV spread from the scraped data. For Mega 
       "item": "Charizardite Y",
       "ability": "Drought",
       "nature": "Modest",
-      "evs": {...},
+      "sps": {...},
+      "moves": [...],
       "weight": 0.166
     }
   ]
@@ -248,7 +277,7 @@ For each variant, attach the modal SP/EV spread from the scraped data. For Mega 
 For each variant V (used as attacker):
   For each move M in that variant's moveset where M is damaging and M's usage in P ≥ some minimum (suggest 10%):
     
-    1. Build attacker from V's species, ability, item, nature, EVs, and Mega state.
+    1. Build attacker from V's species, ability, item, nature, SP spread, and Mega state.
     2. Build defender: synthetic Pokémon with base 100 HP / 80 Def / 80 SpD, no investment, neutral nature, no item, no ability.
        (For convenience define this once as STANDARD_TARGET in lib/variants.ts.)
     3. Build field: 
@@ -308,7 +337,7 @@ For each defender variant V (with V.weight as defined in Phase 2):
     
     1. Build the synthetic attacker. If C is Physical and V.ability is Intimidate, apply -1 Atk stage to the attacker (`boosts: { atk: -1 }`). Special calcs unaffected.
     2. Build a generic 90 BP move of type T, category C, single-target (not spread), no secondary effects.
-    3. Build defender from V (species, ability, item, nature, EVs).
+    3. Build defender from V (species, ability, item, nature, SP spread).
     4. Build field: isDoubles: true, no weather, no terrain, no screens.
     5. Run calculate(attacker, defender, move, field) → CalcResult.
     6. damage(V, T, C) = result.avg (% of V's HP). Immunities return 0; the calc lib handles this.

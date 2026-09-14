@@ -19,8 +19,41 @@
 import { BattleStream, Teams, PRNG } from 'pokemon-showdown';
 import type { Battle } from 'pokemon-showdown';
 import * as crypto from 'crypto';
+import { activeRegulationConfig } from '../format-rules';
 
-export const SIM_FORMAT = 'gen9championsbssregmb';
+/**
+ * Commit of the vendored pokemon-showdown build (see vendor/). Lives here
+ * rather than in the matrix builder because it is a property of the engine:
+ * which regulations exist at all is a function of this commit.
+ */
+export const SHOWDOWN_COMMIT = 'e440c4a18385274f10c405d0b158b6a962ce6d94';
+
+/**
+ * The regulation battles run under, from configuration (BACKLOG item 10).
+ * Set CHAMPIONS_REGULATION to switch; unset defaults to M-B, which is what
+ * every committed artifact in data/ was built from.
+ */
+export const SIM_REGULATION = activeRegulationConfig();
+
+/**
+ * Showdown format id for the 1v1 harness.
+ *
+ * Resolved from the active regulation rather than hardcoded. A regulation the
+ * vendored Showdown build predates has no format id, and there is no useful
+ * fallback — running M-C battles in the M-B mod would silently produce
+ * wrong-legality results — so this throws at import.
+ */
+export const SIM_FORMAT = ((): string => {
+  const {sim_format, regulation_id} = SIM_REGULATION;
+  if (sim_format === null) {
+    throw new Error(
+      `Regulation ${regulation_id} has no Showdown format in the vendored build ` +
+        `(${SHOWDOWN_COMMIT}). Re-vendor pokemon-showdown to simulate it; note that ` +
+        `doing so bumps SIM_ENGINE_VERSION and invalidates data/matchups.sqlite.`
+    );
+  }
+  return sim_format;
+})();
 
 /**
  * Version of the simulation engine as a whole: this driver, the seeding

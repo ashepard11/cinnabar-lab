@@ -1,0 +1,244 @@
+{
+  "generated_at": "2026-09-13T19:41:34.040Z",
+  "profiles": [
+    {
+      "variant_id": "6348f4da7d2dbe83",
+      "switch_in_score": 0.4,
+      "entry_coverage": 0.564,
+      "conversion": 7,
+      "costly_entries": [],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "b3e49ebad0d4367b",
+      "switch_in_score": 0.267,
+      "entry_coverage": 0.524,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.662,
+          "spread_retained": 0.37
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.703,
+          "spread_retained": 0.407
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.803,
+          "spread_retained": 0.235
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "024cee1a8526e616",
+      "switch_in_score": 0.385,
+      "entry_coverage": 0.832,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "b3e49ebad0d4367b",
+          "species": "Charizard-Mega-Y",
+          "cost": 0.557,
+          "spread_retained": 0.277
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.92,
+          "spread_retained": 0.447
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.932,
+          "spread_retained": 0.211
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.914,
+          "spread_retained": 0.194
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "e44db8e5f05ae054",
+      "switch_in_score": 0.286,
+      "entry_coverage": 0.46,
+      "conversion": 5,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.633,
+          "spread_retained": 0.344
+        },
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.556,
+          "spread_retained": 0.524
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.84,
+          "spread_retained": 0.376
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.935,
+          "spread_retained": 0.213
+        },
+        {
+          "opponent": "0fb76124be7787ae",
+          "species": "Staraptor-Mega",
+          "cost": 0.75,
+          "spread_retained": 0.296
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.56,
+          "spread_retained": 0.28
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:U-turn",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "432a0774c3cb2f6b",
+      "switch_in_score": 0.634,
+      "entry_coverage": 0.687,
+      "conversion": 22,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.882,
+          "spread_retained": 0.166
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.566,
+          "spread_retained": 0.285
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.608,
+          "spread_retained": 0.322
+        }
+      ],
+      "tools_provided": [
+        {
+          "tool": "move:U-turn",
+          "effect": "entry_cost_to_zero",
+          "speed_tier": "computed"
+        }
+      ]
+    },
+    {
+      "variant_id": "244400d9167e7084",
+      "switch_in_score": 0.323,
+      "entry_coverage": 0.712,
+      "conversion": 22,
+      "costly_entries": [
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.761,
+          "spread_retained": 0.458
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.905,
+          "spread_retained": 0.186
+        },
+        {
+          "opponent": "b81efa96488db225",
+          "species": "Garchomp",
+          "cost": 0.613,
+          "spread_retained": 0.327
+        },
+        {
+          "opponent": "294a12dc9de3473f",
+          "species": "Archaludon",
+          "cost": 0.723,
+          "spread_retained": 0.424
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "3cba8a8d93d115d7",
+      "switch_in_score": 0.522,
+      "entry_coverage": 0.582,
+      "conversion": 11,
+      "costly_entries": [
+        {
+          "opponent": "244400d9167e7084",
+          "species": "Sneasler",
+          "cost": 0.798,
+          "spread_retained": 0.338
+        },
+        {
+          "opponent": "3cba8a8d93d115d7",
+          "species": "Farigiraf",
+          "cost": 0.774,
+          "spread_retained": 0.318
+        },
+        {
+          "opponent": "5f29a1803653b87e",
+          "species": "Sylveon",
+          "cost": 0.891,
+          "spread_retained": 0.173
+        }
+      ],
+      "tools_provided": []
+    },
+    {
+      "variant_id": "7b89eac335d57676",
+      "switch_in_score": 0.457,
+      "entry_coverage": 0.593,
+      "conversion": 13,
+      "costly_entries": [
+        {
+          "opponent": "e44db8e5f05ae054",
+          "species": "Whimsicott",
+          "cost": 0.635,
+          "spread_retained": 0.346
+        },
+        {
+          "opponent": "432a0774c3cb2f6b",
+          "species": "Kingambit",
+          "cost": 0.877,
+          "spread_retained": 0.162
+        },
+        {
+          "opponent": "7b89eac335d57676",
+          "species": "Basculegion",
+          "cost": 0.518,
+          "spread_retained": 0.242
+        }
+      ],
+      "tools_provided": []
+    }
+  ]
+}

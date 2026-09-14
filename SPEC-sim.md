@@ -4,6 +4,24 @@
 
 This spec assumes the Damage Visualization project (`SPEC-damageviz.md`) is complete and its shared infrastructure — the Pikalytics scraper, the variant selection logic, and `data/defender-variants.json` — is available and correct.
 
+> ## Errata (2026-09-13)
+>
+> Corrections applied while starting `SPEC-teambuilder.md` Phase 0, per
+> `BACKLOG.md` item 09. The spec body below is corrected inline; this note
+> records what changed and why so the original intent stays traceable.
+>
+> 1. **`PokemonSet` has no `evs`, `ivs` or `level`.** Champions has no EVs and
+>    no IVs, and every Pokémon is Level 50, so none of the three is a property a
+>    set can vary. Investment is 66 Stat Points with a 32-per-stat cap, carried
+>    as `sps`. The `BattleSetup` shape below is corrected.
+> 2. **The regulation is configuration, not a constant.** This spec was written
+>    against Regulation M-B Season 3, which ended on 2026-09-09. The harness
+>    format now resolves from `lib/format-rules.ts` (`CHAMPIONS_REGULATION`,
+>    default M-B) rather than being pinned in `lib/sim/engine.ts`. Note that
+>    legality comes from the regulation's **VGC doubles** format while the
+>    harness runs the **BSS singles** format — see DECISIONS.md D20–D21 for why
+>    the 1v1 runs in singles, and D39 for why the two must not be conflated.
+
 ## Goal
 
 Build a 1v1 battle simulator that, given two Pokémon Champions VGC variants and a starting condition, returns the probability that the first Pokémon wins the resulting endgame. Run this simulator across the metagame to produce a matchup matrix, then build analysis tools on top.
@@ -87,7 +105,7 @@ Before committing to the full architecture, confirm the Showdown simulator can b
 
 ```typescript
 type BattleSetup = {
-  side_A: PokemonSet;              // { species, ability, item, moves[], evs, ivs, nature, level }
+  side_A: PokemonSet;              // { species, ability, item, moves[], sps, nature } — no evs/ivs/level (erratum 1)
   side_B: PokemonSet;
   starting_condition: StartingCondition;
   policy_A: MovePolicy;
