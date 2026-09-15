@@ -1056,10 +1056,11 @@ board control, copy stripped of metacommentary. Underlying evaluation logic
    byte-identical responses, so "no data" never distinguishes a wrong id from a
    wrong date. Probe a known-good id across months before concluding anything.
 
-2. **The month key will drift out of reach.** `discoverDataDate` probes six
-   months back. Data sitting at `2026-05` becomes invisible after 2026-11, and
-   the symptom will be an empty scrape rather than an error. Not fixed here —
-   noted so it is recognised when it happens.
+2. **The month key will drift out of reach, loudly.** `discoverDataDate` probes
+   six months back, so data sitting at `2026-05` becomes unreachable from about
+   2026-11. It throws rather than returning nothing, so the weekly job fails
+   visibly instead of committing an empty roster — a dated fault, not a silent
+   one. Not fixed here; widening the window or anchoring the probe is the fix.
 
 3. **Pikalytics names the current regulation without a suffix**, exactly as
    Showdown names its mods: `championstournaments` is M-C,
