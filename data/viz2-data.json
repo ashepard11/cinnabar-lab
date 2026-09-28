@@ -1,2812 +1,2812 @@
 {
-  "generated_at": "2026-09-21T12:11:53.807Z",
-  "average_damage": 0.24067436274936144,
+  "generated_at": "2026-09-28T13:07:14.621Z",
+  "average_damage": 0.24197519614114815,
   "cells": [
     {
       "type": "Normal",
       "category": "Physical",
-      "weighted_damage": 0.18091555265562428,
-      "relative": 0.7517026349999312,
+      "weighted_damage": 0.18031050185496372,
+      "relative": 0.7451610939072681,
       "contributors": [
         {
           "variant_id": "sneasler_defense",
           "species": "Sneasler",
           "item": null,
           "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
+          "weighted_contribution": 0.031700572245030895
         },
         {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
           "item": null,
-          "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
         },
         {
           "variant_id": "charizard_mega_y",
           "species": "Charizard-Mega-Y",
           "item": null,
           "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
         },
         {
           "variant_id": "garchomp_defense",
           "species": "Garchomp",
           "item": null,
           "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
+          "weighted_contribution": 0.00843060443226744
         },
         {
           "variant_id": "incineroar_defense",
           "species": "Incineroar",
           "item": null,
           "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.23109567901234568,
-          "weighted_contribution": 0.0066141290803224985
-        }
-      ]
-    },
-    {
-      "type": "Normal",
-      "category": "Special",
-      "weighted_damage": 0.17342949775619604,
-      "relative": 0.7205981383933515,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.2542438271604938,
-          "weighted_contribution": 0.007276646183526756
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.1808774834437086,
-          "weighted_contribution": 0.005942818071108398
-        }
-      ]
-    },
-    {
-      "type": "Fighting",
-      "category": "Physical",
-      "weighted_damage": 0.22111149319263554,
-      "relative": 0.9187164377075813,
-      "contributors": [
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.6159420289855072,
-          "weighted_contribution": 0.051748409538427166
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.24257425742574257,
-          "weighted_contribution": 0.014166066271786
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.17635350318471338,
-          "weighted_contribution": 0.01126273847221378
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "tyranitar_mega",
-          "species": "Tyranitar-Mega",
-          "item": null,
-          "damage": 0.594632768361582,
-          "weighted_contribution": 0.007058779081474358
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "maushold_defense",
-          "species": "Maushold",
-          "item": null,
-          "damage": 0.6548013245033113,
-          "weighted_contribution": 0.006769986521534189
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 0.5232558139534884,
-          "weighted_contribution": 0.006687842083773047
-        },
-        {
-          "variant_id": "archaludon_defense",
-          "species": "Archaludon",
-          "item": null,
-          "damage": 0.30647208121827413,
-          "weighted_contribution": 0.006431557817418875
-        }
-      ]
-    },
-    {
-      "type": "Fighting",
-      "category": "Special",
-      "weighted_damage": 0.24061528647812785,
-      "relative": 0.9997545385783566,
-      "contributors": [
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.8140096618357487,
-          "weighted_contribution": 0.06838907456647042
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.3155940594059406,
-          "weighted_contribution": 0.01843034132298689
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.14171974522292993,
-          "weighted_contribution": 0.00905086883997315
-        },
-        {
-          "variant_id": "archaludon_defense",
-          "species": "Archaludon",
-          "item": null,
-          "damage": 0.41814720812182743,
-          "weighted_contribution": 0.008775148243641902
-        },
-        {
-          "variant_id": "tyranitar_mega",
-          "species": "Tyranitar-Mega",
-          "item": null,
-          "damage": 0.7203389830508474,
-          "weighted_contribution": 0.00855101503931573
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 0.5232558139534884,
-          "weighted_contribution": 0.006687842083773047
-        },
-        {
-          "variant_id": "maushold_defense",
-          "species": "Maushold",
-          "item": null,
-          "damage": 0.6299668874172185,
-          "weighted_contribution": 0.006513223442335673
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.17198905109489052,
-          "weighted_contribution": 0.006478617309305775
-        }
-      ]
-    },
-    {
-      "type": "Flying",
-      "category": "Physical",
-      "weighted_damage": 0.27224268087872794,
-      "relative": 1.1311661024828048,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.7125796178343949,
-          "weighted_contribution": 0.04550858208862904
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6277372262773723,
-          "weighted_contribution": 0.023646093945901184
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.3279494382022472,
-          "weighted_contribution": 0.01371271655050184
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.46219135802469136,
-          "weighted_contribution": 0.013228258160644997
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        }
-      ]
-    },
-    {
-      "type": "Flying",
-      "category": "Special",
-      "weighted_damage": 0.2641688440905307,
-      "relative": 1.0976193769572227,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.5732484076433121,
-          "weighted_contribution": 0.036610255981913864
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6943430656934306,
-          "weighted_contribution": 0.026155054495393605
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.42064606741573035,
-          "weighted_contribution": 0.017588687823877094
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.5084876543209876,
-          "weighted_contribution": 0.014553292367053512
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        }
-      ]
-    },
-    {
-      "type": "Poison",
-      "category": "Physical",
-      "weighted_damage": 0.2340459362416201,
-      "relative": 0.9724589423151638,
-      "contributors": [
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 1.2554744525547445,
-          "weighted_contribution": 0.04729218789180237
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.5579470198675497,
-          "weighted_contribution": 0.018331621876096386
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.47067039106145253,
-          "weighted_contribution": 0.015220564816098148
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.17635350318471338,
-          "weighted_contribution": 0.01126273847221378
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.1639747191011236,
-          "weighted_contribution": 0.00685635827525092
-        }
-      ]
-    },
-    {
-      "type": "Poison",
-      "category": "Special",
-      "weighted_damage": 0.22213045914541601,
-      "relative": 0.9229502328702245,
-      "contributors": [
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 1.3886861313868613,
-          "weighted_contribution": 0.05231010899078721
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.3617549668874172,
-          "weighted_contribution": 0.011885636142216795
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.3372905027932961,
-          "weighted_contribution": 0.01090731870352434
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.14171974522292993,
-          "weighted_contribution": 0.00905086883997315
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.2542438271604938,
-          "weighted_contribution": 0.007276646183526756
-        }
-      ]
-    },
-    {
-      "type": "Ground",
-      "category": "Physical",
-      "weighted_damage": 0.2777822032965717,
-      "relative": 1.1541827726198424,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.7125796178343949,
-          "weighted_contribution": 0.04550858208862904
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.3079710144927536,
-          "weighted_contribution": 0.025874204769213583
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.24257425742574257,
-          "weighted_contribution": 0.014166066271786
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.8713503649635036,
-          "weighted_contribution": 0.01386443741634704
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 1.0465116279069768,
-          "weighted_contribution": 0.013375684167546094
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "glimmora_defense",
-          "species": "Glimmora",
-          "item": null,
-          "damage": 1.0296875,
-          "weighted_contribution": 0.00745033958224036
-        }
-      ]
-    },
-    {
-      "type": "Ground",
-      "category": "Special",
-      "weighted_damage": 0.277319757204314,
-      "relative": 1.1522613129056671,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.5732484076433121,
-          "weighted_contribution": 0.036610255981913864
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.40700483091787437,
-          "weighted_contribution": 0.03419453728323521
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.3155940594059406,
-          "weighted_contribution": 0.01843034132298689
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 1.0465116279069768,
-          "weighted_contribution": 0.013375684167546094
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.656934306569343,
-          "weighted_contribution": 0.010452769570439654
-        },
-        {
-          "variant_id": "archaludon_defense",
-          "species": "Archaludon",
-          "item": null,
-          "damage": 0.41814720812182743,
-          "weighted_contribution": 0.008775148243641902
-        },
-        {
-          "variant_id": "glimmora_defense",
-          "species": "Glimmora",
-          "item": null,
-          "damage": 1.125,
-          "weighted_contribution": 0.00813997647832027
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        }
-      ]
-    },
-    {
-      "type": "Rock",
-      "category": "Physical",
-      "weighted_damage": 0.2951356844591248,
-      "relative": 1.2262863442853673,
-      "contributors": [
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 1.1870967741935483,
-          "weighted_contribution": 0.046938674272604994
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.24257425742574257,
-          "weighted_contribution": 0.014166066271786
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.6389802631578947,
-          "weighted_contribution": 0.012763897425909628
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.5465328467153284,
-          "weighted_contribution": 0.011712791009985426
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.17635350318471338,
-          "weighted_contribution": 0.01126273847221378
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.6726190476190477,
-          "weighted_contribution": 0.011084391515474893
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "vivillon_defense",
-          "species": "Vivillon",
-          "item": null,
-          "damage": 1.6146496815286624,
-          "weighted_contribution": 0.008996961656737754
-        }
-      ]
-    },
-    {
-      "type": "Rock",
-      "category": "Special",
-      "weighted_damage": 0.27998486435820064,
-      "relative": 1.163334811235284,
-      "contributors": [
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.8709677419354839,
-          "weighted_contribution": 0.034438701232617795
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.3155940594059406,
-          "weighted_contribution": 0.01843034132298689
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.7217153284671532,
-          "weighted_contribution": 0.015467141383803793
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.14171974522292993,
-          "weighted_contribution": 0.00905086883997315
-        },
-        {
-          "variant_id": "vivillon_defense",
-          "species": "Vivillon",
-          "item": null,
-          "damage": 1.6146496815286624,
-          "weighted_contribution": 0.008996961656737754
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.5093537414965986,
-          "weighted_contribution": 0.008393869175435473
-        }
-      ]
-    },
-    {
-      "type": "Bug",
-      "category": "Physical",
-      "weighted_damage": 0.1718965023737824,
-      "relative": 0.7142285551735131,
-      "contributors": [
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.35318396226415094,
-          "weighted_contribution": 0.014122391268941775
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.1539855072463768,
-          "weighted_contribution": 0.012937102384606792
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.1639747191011236,
-          "weighted_contribution": 0.00685635827525092
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.31949013157894735,
-          "weighted_contribution": 0.006381948712954814
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.08678343949044585,
-          "weighted_contribution": 0.005542385975039738
-        }
-      ]
-    },
-    {
-      "type": "Bug",
-      "category": "Special",
-      "weighted_damage": 0.17484226234282926,
-      "relative": 0.7264681636444601,
-      "contributors": [
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.20350241545893719,
-          "weighted_contribution": 0.017097268641617605
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.388561320754717,
-          "weighted_contribution": 0.015536988057149634
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.11960659898477158,
-          "weighted_contribution": 0.006659484437301778
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.3284671532846715,
-          "weighted_contribution": 0.005226384785219827
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.06926751592356688,
-          "weighted_contribution": 0.004423739264481258
-        },
-        {
-          "variant_id": "tyranitar_mega",
-          "species": "Tyranitar-Mega",
-          "item": null,
-          "damage": 0.3601694915254237,
-          "weighted_contribution": 0.004275507519657865
-        }
-      ]
-    },
-    {
-      "type": "Ghost",
-      "category": "Physical",
-      "weighted_damage": 0.2571727549379142,
-      "relative": 1.0685506840034067,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.5310913705583756,
-          "weighted_contribution": 0.02957023063141426
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.3279494382022472,
-          "weighted_contribution": 0.01371271655050184
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.6389802631578947,
-          "weighted_contribution": 0.012763897425909628
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.6726190476190477,
-          "weighted_contribution": 0.011084391515474893
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        }
-      ]
-    },
-    {
-      "type": "Ghost",
-      "category": "Special",
-      "weighted_damage": 0.24379723468220804,
-      "relative": 1.0129755072254987,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.48286802030456855,
-          "weighted_contribution": 0.02688523955854988
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.42064606741573035,
-          "weighted_contribution": 0.017588687823877094
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.5093537414965986,
-          "weighted_contribution": 0.008393869175435473
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.40625,
-          "weighted_contribution": 0.008115013292663264
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        }
-      ]
-    },
-    {
-      "type": "Steel",
-      "category": "Physical",
-      "weighted_damage": 0.24628213859784195,
-      "relative": 1.0233002625806076,
-      "contributors": [
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6277372262773723,
-          "weighted_contribution": 0.023646093945901184
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.5579470198675497,
-          "weighted_contribution": 0.018331621876096386
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.47067039106145253,
-          "weighted_contribution": 0.015220564816098148
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.6726190476190477,
-          "weighted_contribution": 0.011084391515474893
-        },
-        {
-          "variant_id": "ninetales_alola_defense",
-          "species": "Ninetales-Alola",
-          "item": null,
-          "damage": 1.2683333333333333,
-          "weighted_contribution": 0.009418385772451117
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.1639747191011236,
-          "weighted_contribution": 0.00685635827525092
-        }
-      ]
-    },
-    {
-      "type": "Steel",
-      "category": "Special",
-      "weighted_damage": 0.23178071339035847,
-      "relative": 0.9630469599777653,
-      "contributors": [
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6943430656934306,
-          "weighted_contribution": 0.026155054495393605
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.3617549668874172,
-          "weighted_contribution": 0.011885636142216795
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.3372905027932961,
-          "weighted_contribution": 0.01090731870352434
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.5093537414965986,
-          "weighted_contribution": 0.008393869175435473
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "ninetales_alola_defense",
-          "species": "Ninetales-Alola",
-          "item": null,
-          "damage": 0.9983333333333333,
-          "weighted_contribution": 0.007413420601443126
-        }
-      ]
-    },
-    {
-      "type": "Fire",
-      "category": "Physical",
-      "weighted_damage": 0.2426373530882979,
-      "relative": 1.0081562087316327,
-      "contributors": [
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.3079710144927536,
-          "weighted_contribution": 0.025874204769213583
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6277372262773723,
-          "weighted_contribution": 0.023646093945901184
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.3279494382022472,
-          "weighted_contribution": 0.01371271655050184
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.6726190476190477,
-          "weighted_contribution": 0.011084391515474893
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        }
-      ]
-    },
-    {
-      "type": "Fire",
-      "category": "Special",
-      "weighted_damage": 0.24343713610538392,
-      "relative": 1.0114793005971294,
-      "contributors": [
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.40700483091787437,
-          "weighted_contribution": 0.03419453728323521
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6943430656934306,
-          "weighted_contribution": 0.026155054495393605
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.42064606741573035,
-          "weighted_contribution": 0.017588687823877094
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.5093537414965986,
-          "weighted_contribution": 0.008393869175435473
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.2542438271604938,
-          "weighted_contribution": 0.007276646183526756
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.11960659898477158,
-          "weighted_contribution": 0.006659484437301778
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.11486486486486487,
-          "weighted_contribution": 0.006264128850057808
-        },
-        {
-          "variant_id": "gholdengo_defense",
-          "species": "Gholdengo",
-          "item": null,
-          "damage": 0.49085365853658536,
-          "weighted_contribution": 0.0060722758447006924
-        }
-      ]
-    },
-    {
-      "type": "Water",
-      "category": "Physical",
-      "weighted_damage": 0.2647389191631944,
-      "relative": 1.0999880342007755,
-      "contributors": [
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.5935483870967742,
-          "weighted_contribution": 0.023469337136302497
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.24257425742574257,
-          "weighted_contribution": 0.014166066271786
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 1.0465116279069768,
-          "weighted_contribution": 0.013375684167546094
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.1539855072463768,
-          "weighted_contribution": 0.012937102384606792
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.6389802631578947,
-          "weighted_contribution": 0.012763897425909628
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
-        }
-      ]
-    },
-    {
-      "type": "Water",
-      "category": "Special",
-      "weighted_damage": 0.2554032713810882,
-      "relative": 1.0611984943617176,
-      "contributors": [
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.3155940594059406,
-          "weighted_contribution": 0.01843034132298689
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.43548387096774194,
-          "weighted_contribution": 0.017219350616308898
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.20350241545893719,
-          "weighted_contribution": 0.017097268641617605
-        },
-        {
-          "variant_id": "arcanine_hisui_defense",
-          "species": "Arcanine-Hisui",
-          "item": null,
-          "damage": 1.0465116279069768,
-          "weighted_contribution": 0.013375684167546094
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.40625,
-          "weighted_contribution": 0.008115013292663264
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.2542438271604938,
-          "weighted_contribution": 0.007276646183526756
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.11960659898477158,
-          "weighted_contribution": 0.006659484437301778
-        }
-      ]
-    },
-    {
-      "type": "Grass",
-      "category": "Physical",
-      "weighted_damage": 0.20765502360198104,
-      "relative": 0.8628049171079897,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.5310913705583756,
-          "weighted_contribution": 0.02957023063141426
-        },
-        {
-          "variant_id": "swampert_mega",
-          "species": "Swampert-Mega",
-          "item": null,
-          "damage": 0.7838983050847458,
-          "weighted_contribution": 0.011779460437557263
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.17635350318471338,
-          "weighted_contribution": 0.01126273847221378
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.07578502415458938,
-          "weighted_contribution": 0.006367083722620207
+          "weighted_contribution": 0.00832093911214938
         },
         {
           "variant_id": "pelipper_defense",
           "species": "Pelipper",
           "item": null,
           "damage": 0.2732664233576642,
-          "weighted_contribution": 0.005856395504992713
-        }
-      ]
-    },
-    {
-      "type": "Grass",
-      "category": "Special",
-      "weighted_damage": 0.19923277238725376,
-      "relative": 0.8278105325025209,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.48286802030456855,
-          "weighted_contribution": 0.02688523955854988
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "swampert_mega",
-          "species": "Swampert-Mega",
-          "item": null,
-          "damage": 0.7838983050847458,
-          "weighted_contribution": 0.011779460437557263
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.14171974522292993,
-          "weighted_contribution": 0.00905086883997315
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.17198905109489052,
-          "weighted_contribution": 0.006478617309305775
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.1808774834437086,
-          "weighted_contribution": 0.005942818071108398
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.16864525139664804,
-          "weighted_contribution": 0.00545365935176217
-        }
-      ]
-    },
-    {
-      "type": "Electric",
-      "category": "Physical",
-      "weighted_damage": 0.26539972146489565,
-      "relative": 1.1027336623356234,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.5310913705583756,
-          "weighted_contribution": 0.02957023063141426
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.5935483870967742,
-          "weighted_contribution": 0.023469337136302497
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 1.0930656934306568,
-          "weighted_contribution": 0.02342558201997085
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.46219135802469136,
-          "weighted_contribution": 0.013228258160644997
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.1539855072463768,
-          "weighted_contribution": 0.012937102384606792
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        }
-      ]
-    },
-    {
-      "type": "Electric",
-      "category": "Special",
-      "weighted_damage": 0.25907698461406337,
-      "relative": 1.0764627426638975,
-      "contributors": [
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 1.4434306569343065,
-          "weighted_contribution": 0.030934282767607586
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.48286802030456855,
-          "weighted_contribution": 0.02688523955854988
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.43548387096774194,
-          "weighted_contribution": 0.017219350616308898
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.20350241545893719,
-          "weighted_contribution": 0.017097268641617605
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.5084876543209876,
-          "weighted_contribution": 0.014553292367053512
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.17198905109489052,
-          "weighted_contribution": 0.006478617309305775
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.1808774834437086,
-          "weighted_contribution": 0.005942818071108398
-        }
-      ]
-    },
-    {
-      "type": "Psychic",
-      "category": "Physical",
-      "weighted_damage": 0.2819825152819597,
-      "relative": 1.1716350344121058,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 1.4251592356687899,
-          "weighted_contribution": 0.09101716417725808
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.46219135802469136,
-          "weighted_contribution": 0.013228258160644997
+          "weighted_contribution": 0.007463183285012693
         },
         {
           "variant_id": "whimsicott_defense",
           "species": "Whimsicott",
           "item": null,
           "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
+          "weighted_contribution": 0.007376791509324009
         },
         {
           "variant_id": "sylveon_defense",
           "species": "Sylveon",
           "item": null,
           "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.1639747191011236,
-          "weighted_contribution": 0.00685635827525092
-        }
-      ]
-    },
-    {
-      "type": "Psychic",
-      "category": "Special",
-      "weighted_damage": 0.2570480333518105,
-      "relative": 1.068032466837777,
-      "contributors": [
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 1.1464968152866242,
-          "weighted_contribution": 0.07322051196382773
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.5084876543209876,
-          "weighted_contribution": 0.014553292367053512
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
-        },
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.1808774834437086,
-          "weighted_contribution": 0.005942818071108398
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.16864525139664804,
-          "weighted_contribution": 0.00545365935176217
-        }
-      ]
-    },
-    {
-      "type": "Ice",
-      "category": "Physical",
-      "weighted_damage": 0.27769665514275,
-      "relative": 1.153827320743521,
-      "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.8486486486486486,
-          "weighted_contribution": 0.046280857856897686
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6277372262773723,
-          "weighted_contribution": 0.023646093945901184
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.3279494382022472,
-          "weighted_contribution": 0.01371271655050184
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.46219135802469136,
-          "weighted_contribution": 0.013228258160644997
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.27897350993377484,
-          "weighted_contribution": 0.009165810938048193
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.1313451776649746,
-          "weighted_contribution": 0.007313067790564816
+          "weighted_contribution": 0.006925220225223052
         },
         {
           "variant_id": "farigiraf_defense",
           "species": "Farigiraf",
           "item": null,
           "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
+          "weighted_contribution": 0.006596692676925362
         }
       ]
     },
     {
-      "type": "Ice",
+      "type": "Normal",
       "category": "Special",
-      "weighted_damage": 0.27712926091066403,
-      "relative": 1.1514698023705447,
+      "weighted_damage": 0.17126579417625648,
+      "relative": 0.7077824376526357,
       "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.9297297297297298,
-          "weighted_contribution": 0.050702595868703196
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.6943430656934306,
-          "weighted_contribution": 0.026155054495393605
-        },
         {
           "variant_id": "sneasler_defense",
           "species": "Sneasler",
           "item": null,
           "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.42064606741573035,
-          "weighted_contribution": 0.017588687823877094
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.5084876543209876,
-          "weighted_contribution": 0.014553292367053512
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.11960659898477158,
-          "weighted_contribution": 0.006659484437301778
-        }
-      ]
-    },
-    {
-      "type": "Dragon",
-      "category": "Physical",
-      "weighted_damage": 0.20182886175914158,
-      "relative": 0.8385972625149376,
-      "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.4243243243243243,
-          "weighted_contribution": 0.023140428928448843
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
-        },
-        {
-          "variant_id": "raichu_mega_y",
-          "species": "Raichu-Mega-Y",
-          "item": null,
-          "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.1639747191011236,
-          "weighted_contribution": 0.00685635827525092
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.23109567901234568,
-          "weighted_contribution": 0.0066141290803224985
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.31949013157894735,
-          "weighted_contribution": 0.006381948712954814
-        }
-      ]
-    },
-    {
-      "type": "Dragon",
-      "category": "Special",
-      "weighted_damage": 0.20093143073340278,
-      "relative": 0.8348684439757009,
-      "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.4648648648648649,
-          "weighted_contribution": 0.025351297934351598
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
+          "weighted_contribution": 0.025502136331198032
         },
         {
           "variant_id": "incineroar_defense",
           "species": "Incineroar",
           "item": null,
           "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
+          "weighted_contribution": 0.010825711599990266
         },
         {
           "variant_id": "pelipper_defense",
           "species": "Pelipper",
           "item": null,
           "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.2542438271604938,
-          "weighted_contribution": 0.007276646183526756
-        }
-      ]
-    },
-    {
-      "type": "Dark",
-      "category": "Physical",
-      "weighted_damage": 0.23726799712945942,
-      "relative": 0.9858465788337855,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.5310913705583756,
-          "weighted_contribution": 0.02957023063141426
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.35318396226415094,
-          "weighted_contribution": 0.014122391268941775
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.3279494382022472,
-          "weighted_contribution": 0.01371271655050184
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.6389802631578947,
-          "weighted_contribution": 0.012763897425909628
-        },
-        {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
-          "item": null,
-          "damage": 0.2967741935483871,
-          "weighted_contribution": 0.011734668568151248
+          "weighted_contribution": 0.009855388945651153
         },
         {
           "variant_id": "garchomp_defense",
           "species": "Garchomp",
           "item": null,
-          "damage": 0.21216216216216216,
-          "weighted_contribution": 0.011570214464224422
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.21774193548387097,
+          "weighted_contribution": 0.006418618104328431
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.1808774834437086,
+          "weighted_contribution": 0.00582420381627977
+        }
+      ]
+    },
+    {
+      "type": "Fighting",
+      "category": "Physical",
+      "weighted_damage": 0.22637315709948747,
+      "relative": 0.9355221556156534,
+      "contributors": [
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.6159420289855072,
+          "weighted_contribution": 0.044142936960672084
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.24257425742574257,
+          "weighted_contribution": 0.01664187822429876
         },
         {
           "variant_id": "sneasler_defense",
           "species": "Sneasler",
           "item": null,
           "damage": 0.17635350318471338,
-          "weighted_contribution": 0.01126273847221378
+          "weighted_contribution": 0.015690897770445456
         },
         {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
           "item": null,
-          "damage": 0.6726190476190477,
-          "weighted_contribution": 0.011084391515474893
+          "damage": 0.5232558139534884,
+          "weighted_contribution": 0.014962058135392047
         },
         {
           "variant_id": "raichu_mega_y",
           "species": "Raichu-Mega-Y",
           "item": null,
           "damage": 0.4356751824817518,
-          "weighted_contribution": 0.00693221870817352
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.07578502415458938,
-          "weighted_contribution": 0.006367083722620207
-        }
-      ]
-    },
-    {
-      "type": "Dark",
-      "category": "Special",
-      "weighted_damage": 0.2303146034462083,
-      "relative": 0.9569552852044245,
-      "contributors": [
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.48286802030456855,
-          "weighted_contribution": 0.02688523955854988
-        },
-        {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
-          "item": null,
-          "damage": 0.42064606741573035,
-          "weighted_contribution": 0.017588687823877094
-        },
-        {
-          "variant_id": "farigiraf_defense",
-          "species": "Farigiraf",
-          "item": null,
-          "damage": 0.388561320754717,
-          "weighted_contribution": 0.015536988057149634
+          "weighted_contribution": 0.00867944820583887
         },
         {
           "variant_id": "garchomp_defense",
           "species": "Garchomp",
           "item": null,
-          "damage": 0.23243243243243245,
-          "weighted_contribution": 0.012675648967175799
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
         },
         {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
+          "variant_id": "archaludon_defense",
+          "species": "Archaludon",
           "item": null,
-          "damage": 0.14171974522292993,
-          "weighted_contribution": 0.00905086883997315
+          "damage": 0.30647208121827413,
+          "weighted_contribution": 0.008004698947699392
         },
         {
-          "variant_id": "charizard_mega_y",
-          "species": "Charizard-Mega-Y",
+          "variant_id": "tyranitar_mega",
+          "species": "Tyranitar-Mega",
           "item": null,
-          "damage": 0.21774193548387097,
-          "weighted_contribution": 0.008609675308154449
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.10054347826086957,
-          "weighted_contribution": 0.008447166851125612
-        },
-        {
-          "variant_id": "froslass_mega",
-          "species": "Froslass-Mega",
-          "item": null,
-          "damage": 0.5093537414965986,
-          "weighted_contribution": 0.008393869175435473
-        },
-        {
-          "variant_id": "delphox_mega",
-          "species": "Delphox-Mega",
-          "item": null,
-          "damage": 0.40625,
-          "weighted_contribution": 0.008115013292663264
-        },
-        {
-          "variant_id": "pelipper_defense",
-          "species": "Pelipper",
-          "item": null,
-          "damage": 0.3608576642335766,
-          "weighted_contribution": 0.007733570691901896
-        }
-      ]
-    },
-    {
-      "type": "Fairy",
-      "category": "Physical",
-      "weighted_damage": 0.2502202286061726,
-      "relative": 1.0396629942124422,
-      "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.4243243243243243,
-          "weighted_contribution": 0.023140428928448843
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.35628980891719747,
-          "weighted_contribution": 0.02275429104431452
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.2655456852791878,
-          "weighted_contribution": 0.01478511531570713
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.46219135802469136,
-          "weighted_contribution": 0.013228258160644997
-        },
-        {
-          "variant_id": "kingambit_defense",
-          "species": "Kingambit",
-          "item": null,
-          "damage": 0.1539855072463768,
-          "weighted_contribution": 0.012937102384606792
-        },
-        {
-          "variant_id": "floette_mega",
-          "species": "Floette-Mega",
-          "item": null,
-          "damage": 0.3704470198675497,
-          "weighted_contribution": 0.0121712177886545
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.31386861313868614,
-          "weighted_contribution": 0.011823046972950592
-        },
-        {
-          "variant_id": "sylveon_defense",
-          "species": "Sylveon",
-          "item": null,
-          "damage": 0.23533519553072627,
-          "weighted_contribution": 0.007610282408049074
-        },
-        {
-          "variant_id": "incineroar_defense",
-          "species": "Incineroar",
-          "item": null,
-          "damage": 0.12128712871287128,
-          "weighted_contribution": 0.007083033135893
+          "damage": 0.594632768361582,
+          "weighted_contribution": 0.007859860214957926
         },
         {
           "variant_id": "farigiraf_defense",
           "species": "Farigiraf",
           "item": null,
           "damage": 0.17659198113207547,
-          "weighted_contribution": 0.007061195634470887
+          "weighted_contribution": 0.006596692676925362
+        },
+        {
+          "variant_id": "excadrill_defense",
+          "species": "Excadrill",
+          "item": null,
+          "damage": 0.5982620320855615,
+          "weighted_contribution": 0.006439380891692351
         }
       ]
     },
     {
-      "type": "Fairy",
+      "type": "Fighting",
       "category": "Special",
-      "weighted_damage": 0.24762242472726312,
-      "relative": 1.0288691404374357,
+      "weighted_damage": 0.24367143961486473,
+      "relative": 1.0070099890433692,
       "contributors": [
-        {
-          "variant_id": "garchomp_defense",
-          "species": "Garchomp",
-          "item": null,
-          "damage": 0.4648648648648649,
-          "weighted_contribution": 0.025351297934351598
-        },
-        {
-          "variant_id": "sneasler_defense",
-          "species": "Sneasler",
-          "item": null,
-          "damage": 0.28662420382165604,
-          "weighted_contribution": 0.018305127990956932
-        },
         {
           "variant_id": "kingambit_defense",
           "species": "Kingambit",
           "item": null,
-          "damage": 0.20350241545893719,
-          "weighted_contribution": 0.017097268641617605
-        },
-        {
-          "variant_id": "staraptor_mega",
-          "species": "Staraptor-Mega",
-          "item": null,
-          "damage": 0.5084876543209876,
-          "weighted_contribution": 0.014553292367053512
-        },
-        {
-          "variant_id": "basculegion_defense",
-          "species": "Basculegion",
-          "item": null,
-          "damage": 0.24143401015228427,
-          "weighted_contribution": 0.01344261977927494
-        },
-        {
-          "variant_id": "whimsicott_defense",
-          "species": "Whimsicott",
-          "item": null,
-          "damage": 0.3471715328467153,
-          "weighted_contribution": 0.013077527247696803
+          "damage": 0.8140096618357487,
+          "weighted_contribution": 0.058337920610770554
         },
         {
           "variant_id": "incineroar_defense",
           "species": "Incineroar",
           "item": null,
-          "damage": 0.1577970297029703,
-          "weighted_contribution": 0.009215170661493445
+          "damage": 0.3155940594059406,
+          "weighted_contribution": 0.02165142319998053
         },
         {
-          "variant_id": "sinistcha_defense",
-          "species": "Sinistcha",
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
           "item": null,
-          "damage": 0.21032303370786518,
-          "weighted_contribution": 0.008794343911938547
+          "damage": 0.5232558139534884,
+          "weighted_contribution": 0.014962058135392047
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.14171974522292993,
+          "weighted_contribution": 0.012609389630425695
+        },
+        {
+          "variant_id": "archaludon_defense",
+          "species": "Archaludon",
+          "item": null,
+          "damage": 0.41814720812182743,
+          "weighted_contribution": 0.010921525065287577
+        },
+        {
+          "variant_id": "tyranitar_mega",
+          "species": "Tyranitar-Mega",
+          "item": null,
+          "damage": 0.7203389830508474,
+          "weighted_contribution": 0.00952144586610105
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
         },
         {
           "variant_id": "farigiraf_defense",
           "species": "Farigiraf",
           "item": null,
           "damage": 0.1942806603773585,
-          "weighted_contribution": 0.007768494028574817
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "excadrill_defense",
+          "species": "Excadrill",
+          "item": null,
+          "damage": 0.5594919786096256,
+          "weighted_contribution": 0.006022080230554745
+        }
+      ]
+    },
+    {
+      "type": "Flying",
+      "category": "Physical",
+      "weighted_damage": 0.26855187491587007,
+      "relative": 1.1098322439594979,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.7125796178343949,
+          "weighted_contribution": 0.06340114449006179
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6277372262773723,
+          "weighted_contribution": 0.014753583018648018
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.46219135802469136,
+          "weighted_contribution": 0.010249454675381301
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.3279494382022472,
+          "weighted_contribution": 0.007956982331157225
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        }
+      ]
+    },
+    {
+      "type": "Flying",
+      "category": "Special",
+      "weighted_damage": 0.2555200758541257,
+      "relative": 1.0559763146346477,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.5732484076433121,
+          "weighted_contribution": 0.051004272662396065
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6943430656934306,
+          "weighted_contribution": 0.016319006798242938
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.5084876543209876,
+          "weighted_contribution": 0.01127611123718911
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.42064606741573035,
+          "weighted_contribution": 0.010206065131398668
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        }
+      ]
+    },
+    {
+      "type": "Poison",
+      "category": "Physical",
+      "weighted_damage": 0.21397912181136855,
+      "relative": 0.8843018839276029,
+      "contributors": [
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 1.2554744525547445,
+          "weighted_contribution": 0.029507166037296036
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.5579470198675497,
+          "weighted_contribution": 0.01796573625708268
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.17635350318471338,
+          "weighted_contribution": 0.015690897770445456
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.47067039106145253,
+          "weighted_contribution": 0.013850440450446104
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "gardevoir_mega",
+          "species": "Gardevoir-Mega",
+          "item": null,
+          "damage": 0.721551724137931,
+          "weighted_contribution": 0.008536919936383374
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.1313451776649746,
+          "weighted_contribution": 0.006993787894248675
+        }
+      ]
+    },
+    {
+      "type": "Poison",
+      "category": "Special",
+      "weighted_damage": 0.19846553774583067,
+      "relative": 0.8201895934410667,
+      "contributors": [
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 1.3886861313868613,
+          "weighted_contribution": 0.032638013596485875
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.14171974522292993,
+          "weighted_contribution": 0.012609389630425695
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.3617549668874172,
+          "weighted_contribution": 0.01164840763255954
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.3372905027932961,
+          "weighted_contribution": 0.009925464002322654
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.21774193548387097,
+          "weighted_contribution": 0.006418618104328431
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.11960659898477158,
+          "weighted_contribution": 0.006368739217709542
+        }
+      ]
+    },
+    {
+      "type": "Ground",
+      "category": "Physical",
+      "weighted_damage": 0.3288579908571246,
+      "relative": 1.3590566144857932,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.7125796178343949,
+          "weighted_contribution": 0.06340114449006179
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 1.0465116279069768,
+          "weighted_contribution": 0.029924116270784094
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.3079710144927536,
+          "weighted_contribution": 0.022071468480336042
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.47865853658536583,
+          "weighted_contribution": 0.018477674386545805
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.8713503649635036,
+          "weighted_contribution": 0.01735889641167774
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.24257425742574257,
+          "weighted_contribution": 0.01664187822429876
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "archaludon_defense",
+          "species": "Archaludon",
+          "item": null,
+          "damage": 0.30647208121827413,
+          "weighted_contribution": 0.008004698947699392
+        }
+      ]
+    },
+    {
+      "type": "Ground",
+      "category": "Special",
+      "weighted_damage": 0.32303852859104415,
+      "relative": 1.335006784755783,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.5732484076433121,
+          "weighted_contribution": 0.051004272662396065
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 1.0465116279069768,
+          "weighted_contribution": 0.029924116270784094
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.40700483091787437,
+          "weighted_contribution": 0.029168960305385277
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.3155940594059406,
+          "weighted_contribution": 0.02165142319998053
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.49085365853658536,
+          "weighted_contribution": 0.018948443160725314
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.656934306569343,
+          "weighted_contribution": 0.013087335514563323
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "archaludon_defense",
+          "species": "Archaludon",
+          "item": null,
+          "damage": 0.41814720812182743,
+          "weighted_contribution": 0.010921525065287577
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "glimmora_defense",
+          "species": "Glimmora",
+          "item": null,
+          "damage": 1.125,
+          "weighted_contribution": 0.007277360636700367
+        }
+      ]
+    },
+    {
+      "type": "Rock",
+      "category": "Physical",
+      "weighted_damage": 0.2839331766499089,
+      "relative": 1.1733978572096537,
+      "contributors": [
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 1.1870967741935483,
+          "weighted_contribution": 0.03499335499841277
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.24257425742574257,
+          "weighted_contribution": 0.01664187822429876
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.17635350318471338,
+          "weighted_contribution": 0.015690897770445456
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.5232558139534884,
+          "weighted_contribution": 0.014962058135392047
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.5465328467153284,
+          "weighted_contribution": 0.014926366570025386
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.6726190476190477,
+          "weighted_contribution": 0.010529281277783338
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "delphox_mega",
+          "species": "Delphox-Mega",
+          "item": null,
+          "damage": 0.6389802631578947,
+          "weighted_contribution": 0.007414353846568426
+        }
+      ]
+    },
+    {
+      "type": "Rock",
+      "category": "Special",
+      "weighted_damage": 0.27245449503037833,
+      "relative": 1.1259604264209424,
+      "contributors": [
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.8709677419354839,
+          "weighted_contribution": 0.025674472417313726
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.3155940594059406,
+          "weighted_contribution": 0.02165142319998053
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.7217153284671532,
+          "weighted_contribution": 0.019710777891302305
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.5232558139534884,
+          "weighted_contribution": 0.014962058135392047
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.14171974522292993,
+          "weighted_contribution": 0.012609389630425695
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.5093537414965986,
+          "weighted_contribution": 0.007973501245755018
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        }
+      ]
+    },
+    {
+      "type": "Bug",
+      "category": "Physical",
+      "weighted_damage": 0.16625303176651063,
+      "relative": 0.6870664201033748,
+      "contributors": [
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.35318396226415094,
+          "weighted_contribution": 0.013193385353850723
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.1539855072463768,
+          "weighted_contribution": 0.011035734240168021
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.08678343949044585,
+          "weighted_contribution": 0.007721480166946071
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.31386861313868614,
+          "weighted_contribution": 0.007376791509324009
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.1313451776649746,
+          "weighted_contribution": 0.006993787894248675
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.13783112582781457,
+          "weighted_contribution": 0.004438123274190305
+        },
+        {
+          "variant_id": "gardevoir_mega",
+          "species": "Gardevoir-Mega",
+          "item": null,
+          "damage": 0.3607758620689655,
+          "weighted_contribution": 0.004268459968191687
+        }
+      ]
+    },
+    {
+      "type": "Bug",
+      "category": "Special",
+      "weighted_damage": 0.16714504061045155,
+      "relative": 0.6907527848968167,
+      "contributors": [
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.20350241545893719,
+          "weighted_contribution": 0.014584480152692638
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.388561320754717,
+          "weighted_contribution": 0.014514926457742282
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.11960659898477158,
+          "weighted_contribution": 0.006368739217709542
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.06926751592356688,
+          "weighted_contribution": 0.006163016280039525
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.21032303370786518,
+          "weighted_contribution": 0.005103032565699334
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.17883211678832117,
+          "weighted_contribution": 0.004884086557136855
+        }
+      ]
+    },
+    {
+      "type": "Ghost",
+      "category": "Physical",
+      "weighted_damage": 0.2678507163026319,
+      "relative": 1.1069345973229014,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.5310913705583756,
+          "weighted_contribution": 0.02827922931152725
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.47865853658536583,
+          "weighted_contribution": 0.018477674386545805
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.6726190476190477,
+          "weighted_contribution": 0.010529281277783338
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "gardevoir_mega",
+          "species": "Gardevoir-Mega",
+          "item": null,
+          "damage": 0.721551724137931,
+          "weighted_contribution": 0.008536919936383374
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.3279494382022472,
+          "weighted_contribution": 0.007956982331157225
+        }
+      ]
+    },
+    {
+      "type": "Ghost",
+      "category": "Special",
+      "weighted_damage": 0.2523338936847695,
+      "relative": 1.0428089230169646,
+      "contributors": [
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.48286802030456855,
+          "weighted_contribution": 0.0257114617754746
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.49085365853658536,
+          "weighted_contribution": 0.018948443160725314
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.42064606741573035,
+          "weighted_contribution": 0.010206065131398668
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.5093537414965986,
+          "weighted_contribution": 0.007973501245755018
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        }
+      ]
+    },
+    {
+      "type": "Steel",
+      "category": "Physical",
+      "weighted_damage": 0.240675001804259,
+      "relative": 0.9946267453952977,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.5579470198675497,
+          "weighted_contribution": 0.01796573625708268
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6277372262773723,
+          "weighted_contribution": 0.014753583018648018
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.47067039106145253,
+          "weighted_contribution": 0.013850440450446104
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.6726190476190477,
+          "weighted_contribution": 0.010529281277783338
+        },
+        {
+          "variant_id": "gardevoir_mega",
+          "species": "Gardevoir-Mega",
+          "item": null,
+          "damage": 0.721551724137931,
+          "weighted_contribution": 0.008536919936383374
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "ninetales_alola_defense",
+          "species": "Ninetales-Alola",
+          "item": null,
+          "damage": 1.2683333333333333,
+          "weighted_contribution": 0.007638199632797737
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.1313451776649746,
+          "weighted_contribution": 0.006993787894248675
+        }
+      ]
+    },
+    {
+      "type": "Steel",
+      "category": "Special",
+      "weighted_damage": 0.22208789974711352,
+      "relative": 0.9178126654666123,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6943430656934306,
+          "weighted_contribution": 0.016319006798242938
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.3617549668874172,
+          "weighted_contribution": 0.01164840763255954
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.3372905027932961,
+          "weighted_contribution": 0.009925464002322654
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.5093537414965986,
+          "weighted_contribution": 0.007973501245755018
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.11960659898477158,
+          "weighted_contribution": 0.006368739217709542
+        }
+      ]
+    },
+    {
+      "type": "Fire",
+      "category": "Physical",
+      "weighted_damage": 0.24446763583640002,
+      "relative": 1.01030039332543,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.3079710144927536,
+          "weighted_contribution": 0.022071468480336042
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.47865853658536583,
+          "weighted_contribution": 0.018477674386545805
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6277372262773723,
+          "weighted_contribution": 0.014753583018648018
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.6726190476190477,
+          "weighted_contribution": 0.010529281277783338
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.3279494382022472,
+          "weighted_contribution": 0.007956982331157225
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.1313451776649746,
+          "weighted_contribution": 0.006993787894248675
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.23533519553072627,
+          "weighted_contribution": 0.006925220225223052
+        }
+      ]
+    },
+    {
+      "type": "Fire",
+      "category": "Special",
+      "weighted_damage": 0.24029314433517085,
+      "relative": 0.993048660223025,
+      "contributors": [
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.40700483091787437,
+          "weighted_contribution": 0.029168960305385277
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.49085365853658536,
+          "weighted_contribution": 0.018948443160725314
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6943430656934306,
+          "weighted_contribution": 0.016319006798242938
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.42064606741573035,
+          "weighted_contribution": 0.010206065131398668
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.5093537414965986,
+          "weighted_contribution": 0.007973501245755018
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.11960659898477158,
+          "weighted_contribution": 0.006368739217709542
+        },
+        {
+          "variant_id": "excadrill_defense",
+          "species": "Excadrill",
+          "item": null,
+          "damage": 0.5594919786096256,
+          "weighted_contribution": 0.006022080230554745
+        }
+      ]
+    },
+    {
+      "type": "Water",
+      "category": "Physical",
+      "weighted_damage": 0.281513862391304,
+      "relative": 1.1633996660843382,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 1.0465116279069768,
+          "weighted_contribution": 0.029924116270784094
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.5935483870967742,
+          "weighted_contribution": 0.017496677499206387
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.24257425742574257,
+          "weighted_contribution": 0.01664187822429876
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.1539855072463768,
+          "weighted_contribution": 0.011035734240168021
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.23932926829268292,
+          "weighted_contribution": 0.009238837193272903
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "delphox_mega",
+          "species": "Delphox-Mega",
+          "item": null,
+          "damage": 0.6389802631578947,
+          "weighted_contribution": 0.007414353846568426
+        }
+      ]
+    },
+    {
+      "type": "Water",
+      "category": "Special",
+      "weighted_damage": 0.2730423123895426,
+      "relative": 1.1283896727591554,
+      "contributors": [
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 1.0465116279069768,
+          "weighted_contribution": 0.029924116270784094
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.3155940594059406,
+          "weighted_contribution": 0.02165142319998053
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.20350241545893719,
+          "weighted_contribution": 0.014584480152692638
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.43548387096774194,
+          "weighted_contribution": 0.012837236208656863
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.24542682926829268,
+          "weighted_contribution": 0.009474221580362657
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.11960659898477158,
+          "weighted_contribution": 0.006368739217709542
+        }
+      ]
+    },
+    {
+      "type": "Grass",
+      "category": "Physical",
+      "weighted_damage": 0.2103300110263208,
+      "relative": 0.8692213680596907,
+      "contributors": [
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.5310913705583756,
+          "weighted_contribution": 0.02827922931152725
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.17635350318471338,
+          "weighted_contribution": 0.015690897770445456
+        },
+        {
+          "variant_id": "swampert_mega",
+          "species": "Swampert-Mega",
+          "item": null,
+          "damage": 0.7838983050847458,
+          "weighted_contribution": 0.009361533941209128
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "milotic_defense",
+          "species": "Milotic",
+          "item": null,
+          "damage": 0.34344059405940597,
+          "weighted_contribution": 0.007243963306484245
+        },
+        {
+          "variant_id": "sylveon_defense",
+          "species": "Sylveon",
+          "item": null,
+          "damage": 0.23533519553072627,
+          "weighted_contribution": 0.006925220225223052
+        }
+      ]
+    },
+    {
+      "type": "Grass",
+      "category": "Special",
+      "weighted_damage": 0.19955683171352379,
+      "relative": 0.8246995348941425,
+      "contributors": [
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.48286802030456855,
+          "weighted_contribution": 0.0257114617754746
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.14171974522292993,
+          "weighted_contribution": 0.012609389630425695
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "swampert_mega",
+          "species": "Swampert-Mega",
+          "item": null,
+          "damage": 0.7838983050847458,
+          "weighted_contribution": 0.009361533941209128
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "milotic_defense",
+          "species": "Milotic",
+          "item": null,
+          "damage": 0.3056930693069307,
+          "weighted_contribution": 0.006447779952077868
+        }
+      ]
+    },
+    {
+      "type": "Electric",
+      "category": "Physical",
+      "weighted_damage": 0.27192065852839953,
+      "relative": 1.1237542643411422,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 1.0930656934306568,
+          "weighted_contribution": 0.029852733140050772
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.5310913705583756,
+          "weighted_contribution": 0.02827922931152725
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.5935483870967742,
+          "weighted_contribution": 0.017496677499206387
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.1539855072463768,
+          "weighted_contribution": 0.011035734240168021
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.46219135802469136,
+          "weighted_contribution": 0.010249454675381301
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.23932926829268292,
+          "weighted_contribution": 0.009238837193272903
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        }
+      ]
+    },
+    {
+      "type": "Electric",
+      "category": "Special",
+      "weighted_damage": 0.26659666246778324,
+      "relative": 1.1017520254938566,
+      "contributors": [
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 1.4434306569343065,
+          "weighted_contribution": 0.03942155578260461
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.48286802030456855,
+          "weighted_contribution": 0.0257114617754746
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.20350241545893719,
+          "weighted_contribution": 0.014584480152692638
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.43548387096774194,
+          "weighted_contribution": 0.012837236208656863
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.5084876543209876,
+          "weighted_contribution": 0.01127611123718911
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.24542682926829268,
+          "weighted_contribution": 0.009474221580362657
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        }
+      ]
+    },
+    {
+      "type": "Psychic",
+      "category": "Physical",
+      "weighted_damage": 0.3038806152706598,
+      "relative": 1.2558337388159453,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 1.4251592356687899,
+          "weighted_contribution": 0.12680228898012358
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.46219135802469136,
+          "weighted_contribution": 0.010249454675381301
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.31386861313868614,
+          "weighted_contribution": 0.007376791509324009
+        }
+      ]
+    },
+    {
+      "type": "Psychic",
+      "category": "Special",
+      "weighted_damage": 0.2715312809244305,
+      "relative": 1.1221451010459842,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 1.1464968152866242,
+          "weighted_contribution": 0.10200854532479213
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.5084876543209876,
+          "weighted_contribution": 0.01127611123718911
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.21774193548387097,
+          "weighted_contribution": 0.006418618104328431
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.1808774834437086,
+          "weighted_contribution": 0.00582420381627977
+        }
+      ]
+    },
+    {
+      "type": "Ice",
+      "category": "Physical",
+      "weighted_damage": 0.25273249132111314,
+      "relative": 1.0444561895248556,
+      "contributors": [
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.8486486486486486,
+          "weighted_contribution": 0.03372241772906976
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6277372262773723,
+          "weighted_contribution": 0.014753583018648018
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.46219135802469136,
+          "weighted_contribution": 0.010249454675381301
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.27897350993377484,
+          "weighted_contribution": 0.00898286812854134
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.3279494382022472,
+          "weighted_contribution": 0.007956982331157225
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.1313451776649746,
+          "weighted_contribution": 0.006993787894248675
+        }
+      ]
+    },
+    {
+      "type": "Ice",
+      "category": "Special",
+      "weighted_damage": 0.24758980030964375,
+      "relative": 1.0232032218922988,
+      "contributors": [
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.9297297297297298,
+          "weighted_contribution": 0.0369443047732484
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.6943430656934306,
+          "weighted_contribution": 0.016319006798242938
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.5084876543209876,
+          "weighted_contribution": 0.01127611123718911
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.42064606741573035,
+          "weighted_contribution": 0.010206065131398668
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.21774193548387097,
+          "weighted_contribution": 0.006418618104328431
+        }
+      ]
+    },
+    {
+      "type": "Dragon",
+      "category": "Physical",
+      "weighted_damage": 0.20166767575633934,
+      "relative": 0.8334229250451903,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.4243243243243243,
+          "weighted_contribution": 0.01686120886453488
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.17659198113207547,
+          "weighted_contribution": 0.006596692676925362
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.07578502415458938,
+          "weighted_contribution": 0.005431312341729752
+        }
+      ]
+    },
+    {
+      "type": "Dragon",
+      "category": "Special",
+      "weighted_damage": 0.19997401244905302,
+      "relative": 0.826423598939475,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.4648648648648649,
+          "weighted_contribution": 0.0184721523866242
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.3284671532846715,
+          "weighted_contribution": 0.006543667757281661
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.21774193548387097,
+          "weighted_contribution": 0.006418618104328431
+        }
+      ]
+    },
+    {
+      "type": "Dark",
+      "category": "Physical",
+      "weighted_damage": 0.24105661254563884,
+      "relative": 0.9962038109270774,
+      "contributors": [
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.5310913705583756,
+          "weighted_contribution": 0.02827922931152725
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.47865853658536583,
+          "weighted_contribution": 0.018477674386545805
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.17635350318471338,
+          "weighted_contribution": 0.015690897770445456
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.35318396226415094,
+          "weighted_contribution": 0.013193385353850723
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.6726190476190477,
+          "weighted_contribution": 0.010529281277783338
+        },
+        {
+          "variant_id": "charizard_mega_y",
+          "species": "Charizard-Mega-Y",
+          "item": null,
+          "damage": 0.2967741935483871,
+          "weighted_contribution": 0.008748338749603193
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.21216216216216216,
+          "weighted_contribution": 0.00843060443226744
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.3279494382022472,
+          "weighted_contribution": 0.007956982331157225
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        }
+      ]
+    },
+    {
+      "type": "Dark",
+      "category": "Special",
+      "weighted_damage": 0.2341412420870492,
+      "relative": 0.9676249707448143,
+      "contributors": [
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.48286802030456855,
+          "weighted_contribution": 0.0257114617754746
+        },
+        {
+          "variant_id": "gholdengo_defense",
+          "species": "Gholdengo",
+          "item": null,
+          "damage": 0.49085365853658536,
+          "weighted_contribution": 0.018948443160725314
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.388561320754717,
+          "weighted_contribution": 0.014514926457742282
+        },
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.14171974522292993,
+          "weighted_contribution": 0.012609389630425695
+        },
+        {
+          "variant_id": "sinistcha_defense",
+          "species": "Sinistcha",
+          "item": null,
+          "damage": 0.42064606741573035,
+          "weighted_contribution": 0.010206065131398668
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.23243243243243245,
+          "weighted_contribution": 0.0092360761933121
+        },
+        {
+          "variant_id": "froslass_mega",
+          "species": "Froslass-Mega",
+          "item": null,
+          "damage": 0.5093537414965986,
+          "weighted_contribution": 0.007973501245755018
+        },
+        {
+          "variant_id": "arcanine_hisui_defense",
+          "species": "Arcanine-Hisui",
+          "item": null,
+          "damage": 0.2616279069767442,
+          "weighted_contribution": 0.007481029067696023
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.10054347826086957,
+          "weighted_contribution": 0.0072056852979920614
+        }
+      ]
+    },
+    {
+      "type": "Fairy",
+      "category": "Physical",
+      "weighted_damage": 0.2472359132233501,
+      "relative": 1.0217407286618472,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.35628980891719747,
+          "weighted_contribution": 0.031700572245030895
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.4243243243243243,
+          "weighted_contribution": 0.01686120886453488
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.2655456852791878,
+          "weighted_contribution": 0.014139614655763626
+        },
+        {
+          "variant_id": "floette_mega",
+          "species": "Floette-Mega",
+          "item": null,
+          "damage": 0.3704470198675497,
+          "weighted_contribution": 0.011928289280481452
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.1539855072463768,
+          "weighted_contribution": 0.011035734240168021
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.46219135802469136,
+          "weighted_contribution": 0.010249454675381301
+        },
+        {
+          "variant_id": "raichu_mega_y",
+          "species": "Raichu-Mega-Y",
+          "item": null,
+          "damage": 0.4356751824817518,
+          "weighted_contribution": 0.00867944820583887
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.12128712871287128,
+          "weighted_contribution": 0.00832093911214938
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.2732664233576642,
+          "weighted_contribution": 0.007463183285012693
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.31386861313868614,
+          "weighted_contribution": 0.007376791509324009
+        }
+      ]
+    },
+    {
+      "type": "Fairy",
+      "category": "Special",
+      "weighted_damage": 0.2408090203886509,
+      "relative": 0.9951805979658469,
+      "contributors": [
+        {
+          "variant_id": "sneasler_defense",
+          "species": "Sneasler",
+          "item": null,
+          "damage": 0.28662420382165604,
+          "weighted_contribution": 0.025502136331198032
+        },
+        {
+          "variant_id": "garchomp_defense",
+          "species": "Garchomp",
+          "item": null,
+          "damage": 0.4648648648648649,
+          "weighted_contribution": 0.0184721523866242
+        },
+        {
+          "variant_id": "kingambit_defense",
+          "species": "Kingambit",
+          "item": null,
+          "damage": 0.20350241545893719,
+          "weighted_contribution": 0.014584480152692638
+        },
+        {
+          "variant_id": "basculegion_defense",
+          "species": "Basculegion",
+          "item": null,
+          "damage": 0.24143401015228427,
+          "weighted_contribution": 0.0128557308877373
+        },
+        {
+          "variant_id": "staraptor_mega",
+          "species": "Staraptor-Mega",
+          "item": null,
+          "damage": 0.5084876543209876,
+          "weighted_contribution": 0.01127611123718911
+        },
+        {
+          "variant_id": "incineroar_defense",
+          "species": "Incineroar",
+          "item": null,
+          "damage": 0.1577970297029703,
+          "weighted_contribution": 0.010825711599990266
+        },
+        {
+          "variant_id": "pelipper_defense",
+          "species": "Pelipper",
+          "item": null,
+          "damage": 0.3608576642335766,
+          "weighted_contribution": 0.009855388945651153
+        },
+        {
+          "variant_id": "whimsicott_defense",
+          "species": "Whimsicott",
+          "item": null,
+          "damage": 0.3471715328467153,
+          "weighted_contribution": 0.008159503399121469
         },
         {
           "variant_id": "floette_mega",
           "species": "Floette-Mega",
           "item": null,
           "damage": 0.2359271523178808,
-          "weighted_contribution": 0.007751501831880519
+          "weighted_contribution": 0.007596787586451875
+        },
+        {
+          "variant_id": "farigiraf_defense",
+          "species": "Farigiraf",
+          "item": null,
+          "damage": 0.1942806603773585,
+          "weighted_contribution": 0.007257463228871141
         }
       ]
     }
